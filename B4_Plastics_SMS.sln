@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B4_Plastics_SMS", "B4_Plastics_SMS.csproj", "{5FAFD340-9F89-42BA-9C95-9CED1C421249}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FAFD340-9F89-42BA-9C95-9CED1C421249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FAFD340-9F89-42BA-9C95-9CED1C421249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FAFD340-9F89-42BA-9C95-9CED1C421249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FAFD340-9F89-42BA-9C95-9CED1C421249}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79C94D8E-3B19-4FD5-807E-1A8D16B79C1C}
+	EndGlobalSection
+EndGlobal
