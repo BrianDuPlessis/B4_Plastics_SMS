@@ -40,6 +40,7 @@ namespace B4_Plastics_SMS
             this.lblEmployees = new System.Windows.Forms.Label();
             this.lblMachines = new System.Windows.Forms.Label();
             this.pnlUserInfo = new System.Windows.Forms.Panel();
+            this.lblWelcome = new System.Windows.Forms.Label();
             this.pbxUserPict = new System.Windows.Forms.PictureBox();
             this.gbxMachines = new System.Windows.Forms.GroupBox();
             this.gbxEmployees = new System.Windows.Forms.GroupBox();
@@ -47,7 +48,6 @@ namespace B4_Plastics_SMS
             this.gbxTransactions = new System.Windows.Forms.GroupBox();
             this.gbxReports = new System.Windows.Forms.GroupBox();
             this.gbxUserInfo = new System.Windows.Forms.GroupBox();
-            this.lblWelcome = new System.Windows.Forms.Label();
             this.pnlSelections.SuspendLayout();
             this.pnlUserInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxUserPict)).BeginInit();
@@ -171,10 +171,21 @@ namespace B4_Plastics_SMS
             this.pnlUserInfo.Size = new System.Drawing.Size(207, 78);
             this.pnlUserInfo.TabIndex = 0;
             // 
+            // lblWelcome
+            // 
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.ForeColor = System.Drawing.Color.Navy;
+            this.lblWelcome.Location = new System.Drawing.Point(55, 27);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(125, 23);
+            this.lblWelcome.TabIndex = 2;
+            this.lblWelcome.Text = "Welcome, ...";
+            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // pbxUserPict
             // 
             this.pbxUserPict.Image = ((System.Drawing.Image)(resources.GetObject("pbxUserPict.Image")));
-            this.pbxUserPict.Location = new System.Drawing.Point(10, 9);
+            this.pbxUserPict.Location = new System.Drawing.Point(10, 18);
             this.pbxUserPict.Name = "pbxUserPict";
             this.pbxUserPict.Size = new System.Drawing.Size(39, 41);
             this.pbxUserPict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -252,17 +263,6 @@ namespace B4_Plastics_SMS
             this.gbxUserInfo.TabIndex = 5;
             this.gbxUserInfo.TabStop = false;
             this.gbxUserInfo.Text = "User Info";
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.ForeColor = System.Drawing.Color.Navy;
-            this.lblWelcome.Location = new System.Drawing.Point(55, 27);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(125, 23);
-            this.lblWelcome.TabIndex = 2;
-            this.lblWelcome.Text = "Welcome, ...";
-            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmAdmin
             // 
