@@ -36,7 +36,10 @@ namespace B4_Plastics_SMS
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+            string Email = "",
+                   Password = "";
+
+            bool Remember_Me = false;
 
             frmAdmin myAdminForm = new frmAdmin();
             myAdminForm.Show();
