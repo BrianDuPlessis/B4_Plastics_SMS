@@ -29,7 +29,6 @@ namespace B4_Plastics_SMS
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD:Login.Designer.cs
             this.btnLogin = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.lblForgotPassword = new System.Windows.Forms.Label();
@@ -154,20 +153,6 @@ namespace B4_Plastics_SMS
             this.label1.Size = new System.Drawing.Size(114, 23);
             this.label1.TabIndex = 11;
             this.label1.Text = "Email address";
-=======
-            this.button2 = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(473, 182);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
->>>>>>> parent of 181ca56 (Create DataBases):Form1.Designer.cs
             // 
             // txtEmail
             // 
@@ -187,9 +172,8 @@ namespace B4_Plastics_SMS
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD:Login.Designer.cs
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(732, 453);
             this.Controls.Add(this.txtPassword);
@@ -208,12 +192,6 @@ namespace B4_Plastics_SMS
             this.Name = "frmLogin";
             this.Text = "B4 Plastics - Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
-=======
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Name = "Form1";
-            this.Text = "Form1";
->>>>>>> parent of 181ca56 (Create DataBases):Form1.Designer.cs
             this.ResumeLayout(false);
 
         }
@@ -229,12 +207,8 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-<<<<<<< HEAD:Login.Designer.cs
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPassword;
-=======
-        private System.Windows.Forms.Button button2;
->>>>>>> parent of 181ca56 (Create DataBases):Form1.Designer.cs
     }
 }
 

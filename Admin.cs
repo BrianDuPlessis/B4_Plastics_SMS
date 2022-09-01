@@ -17,12 +17,9 @@ namespace B4_Plastics_SMS
             InitializeComponent();
         }
 
-<<<<<<< HEAD:Admin.cs
-=======
         private void button2_Click(object sender, EventArgs e)
         {
             MessageBox.Show("test");
         }
->>>>>>> parent of 181ca56 (Create DataBases):Form1.cs
     }
 }
