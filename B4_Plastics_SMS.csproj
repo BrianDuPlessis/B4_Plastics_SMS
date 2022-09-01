@@ -147,6 +147,22 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>B4Plastics.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Reports-B.png" />
+    <None Include="Resources\Machines-B.png" />
+    <None Include="Resources\Transactions-B.png" />
+    <None Include="Resources\Stock-B.png" />
+    <None Include="Resources\Employees-B.png" />
+    <None Include="Resources\User_Info-B.png" />
+    <None Include="Resources\User-Blue.png" />
+    <None Include="Resources\Reports-Blue-Resize.png" />
+    <None Include="Resources\Machines-Blue-Resize.png" />
+    <None Include="Resources\Transactions-Blue_Resize.png" />
+    <None Include="Resources\Stock-Blue-Resize.png" />
+    <None Include="Resources\Employees-Blue-Resize.png" />
+    <None Include="Resources\User_Info-Blue-Resize3.png" />
+    <None Include="Resources\User_Info-Blue-Resize2.png" />
+    <None Include="Resources\User_Info-Blue-Resize.png" />
+    <None Include="Resources\User_Info-Blue.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
