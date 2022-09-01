@@ -132,6 +132,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
@@ -163,6 +164,33 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Employees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Machines.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Transactions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="User_Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Notifications.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
