@@ -140,6 +140,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="B4Plastics.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="B4Plastics_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>B4Plastics.mdf</DependentUpon>
+    </Content>
     <None Include="Resources\Reports-B.png" />
     <None Include="Resources\Machines-B.png" />
     <None Include="Resources\Transactions-B.png" />
