@@ -30,281 +30,689 @@ namespace B4_Plastics_SMS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
-            this.pnlSelections = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnLogOut = new System.Windows.Forms.Button();
-            this.lblUserInfo = new System.Windows.Forms.Label();
-            this.lblReports = new System.Windows.Forms.Label();
-            this.lblTransactions = new System.Windows.Forms.Label();
-            this.lblStock = new System.Windows.Forms.Label();
-            this.lblEmployees = new System.Windows.Forms.Label();
-            this.lblMachines = new System.Windows.Forms.Label();
-            this.pnlUserInfo = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnReportsPage = new System.Windows.Forms.Button();
+            this.btnMachinePage = new System.Windows.Forms.Button();
+            this.btnTransactionsPage = new System.Windows.Forms.Button();
+            this.btnStockPage = new System.Windows.Forms.Button();
+            this.pnlNav = new System.Windows.Forms.Panel();
+            this.btnContactUs = new System.Windows.Forms.Button();
+            this.btnEmployeesPage = new System.Windows.Forms.Button();
+            this.btnUserInfoPage = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.pbxUserPict = new System.Windows.Forms.PictureBox();
-            this.gbxMachines = new System.Windows.Forms.GroupBox();
-            this.gbxEmployees = new System.Windows.Forms.GroupBox();
-            this.gbxStock = new System.Windows.Forms.GroupBox();
-            this.gbxTransactions = new System.Windows.Forms.GroupBox();
-            this.gbxReports = new System.Windows.Forms.GroupBox();
-            this.gbxUserInfo = new System.Windows.Forms.GroupBox();
-            this.pnlSelections.SuspendLayout();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.imgReportsDock = new System.Windows.Forms.PictureBox();
+            this.imgTransacDock = new System.Windows.Forms.PictureBox();
+            this.imgStockDock = new System.Windows.Forms.PictureBox();
+            this.imgMachinesDock = new System.Windows.Forms.PictureBox();
+            this.pnlUserInfo = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.imgUserSetting = new System.Windows.Forms.PictureBox();
+            this.imgUserNotify = new System.Windows.Forms.PictureBox();
+            this.imgUserInfoDock = new System.Windows.Forms.PictureBox();
+            this.imgEmployessDock = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgReportsDock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgTransacDock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgStockDock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesDock)).BeginInit();
             this.pnlUserInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxUserPict)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgUserSetting)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgUserNotify)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgUserInfoDock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEmployessDock)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
-            // pnlSelections
+            // panel3
             // 
-            this.pnlSelections.BackColor = System.Drawing.Color.Navy;
-            this.pnlSelections.Controls.Add(this.btnClose);
-            this.pnlSelections.Controls.Add(this.btnLogOut);
-            this.pnlSelections.Controls.Add(this.lblUserInfo);
-            this.pnlSelections.Controls.Add(this.lblReports);
-            this.pnlSelections.Controls.Add(this.lblTransactions);
-            this.pnlSelections.Controls.Add(this.lblStock);
-            this.pnlSelections.Controls.Add(this.lblEmployees);
-            this.pnlSelections.Controls.Add(this.lblMachines);
-            this.pnlSelections.Controls.Add(this.pnlUserInfo);
-            this.pnlSelections.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSelections.Location = new System.Drawing.Point(0, 0);
-            this.pnlSelections.Name = "pnlSelections";
-            this.pnlSelections.Size = new System.Drawing.Size(233, 738);
-            this.pnlSelections.TabIndex = 0;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
+            this.panel3.Controls.Add(this.pnlNav);
+            this.panel3.Controls.Add(this.btnReportsPage);
+            this.panel3.Controls.Add(this.btnMachinePage);
+            this.panel3.Controls.Add(this.btnTransactionsPage);
+            this.panel3.Controls.Add(this.btnStockPage);
+            this.panel3.Controls.Add(this.btnContactUs);
+            this.panel3.Controls.Add(this.btnEmployeesPage);
+            this.panel3.Controls.Add(this.btnUserInfoPage);
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(5);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(269, 765);
+            this.panel3.TabIndex = 0;
             // 
-            // btnClose
+            // btnReportsPage
             // 
-            this.btnClose.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(123, 688);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(96, 37);
-            this.btnClose.TabIndex = 8;
-            this.btnClose.Text = "&Close";
-            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnReportsPage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportsPage.FlatAppearance.BorderSize = 0;
+            this.btnReportsPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportsPage.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportsPage.ForeColor = System.Drawing.Color.White;
+            this.btnReportsPage.Image = global::B4_Plastics_SMS.Properties.Resources.Reports_B;
+            this.btnReportsPage.Location = new System.Drawing.Point(0, 417);
+            this.btnReportsPage.Margin = new System.Windows.Forms.Padding(5);
+            this.btnReportsPage.Name = "btnReportsPage";
+            this.btnReportsPage.Size = new System.Drawing.Size(269, 64);
+            this.btnReportsPage.TabIndex = 5;
+            this.btnReportsPage.Text = "  Reports page     ";
+            this.btnReportsPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportsPage.UseVisualStyleBackColor = true;
+            this.btnReportsPage.Click += new System.EventHandler(this.btnReportsPage_Click);
             // 
-            // btnLogOut
+            // btnMachinePage
             // 
-            this.btnLogOut.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Location = new System.Drawing.Point(12, 688);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(96, 37);
-            this.btnLogOut.TabIndex = 7;
-            this.btnLogOut.Text = "&Log out";
-            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnMachinePage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMachinePage.FlatAppearance.BorderSize = 0;
+            this.btnMachinePage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMachinePage.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMachinePage.ForeColor = System.Drawing.Color.White;
+            this.btnMachinePage.Image = global::B4_Plastics_SMS.Properties.Resources.Machines_B;
+            this.btnMachinePage.Location = new System.Drawing.Point(0, 353);
+            this.btnMachinePage.Margin = new System.Windows.Forms.Padding(5);
+            this.btnMachinePage.Name = "btnMachinePage";
+            this.btnMachinePage.Size = new System.Drawing.Size(269, 64);
+            this.btnMachinePage.TabIndex = 4;
+            this.btnMachinePage.Text = "  Machine page     ";
+            this.btnMachinePage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMachinePage.UseVisualStyleBackColor = true;
+            this.btnMachinePage.Click += new System.EventHandler(this.btnMachinePage_Click);
             // 
-            // lblUserInfo
+            // btnTransactionsPage
             // 
-            this.lblUserInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserInfo.ForeColor = System.Drawing.Color.Aqua;
-            this.lblUserInfo.Location = new System.Drawing.Point(9, 366);
-            this.lblUserInfo.Name = "lblUserInfo";
-            this.lblUserInfo.Size = new System.Drawing.Size(128, 23);
-            this.lblUserInfo.TabIndex = 6;
-            this.lblUserInfo.Text = "User Info page";
-            this.lblUserInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTransactionsPage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTransactionsPage.FlatAppearance.BorderSize = 0;
+            this.btnTransactionsPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransactionsPage.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransactionsPage.ForeColor = System.Drawing.Color.White;
+            this.btnTransactionsPage.Image = global::B4_Plastics_SMS.Properties.Resources.Transactions_B;
+            this.btnTransactionsPage.Location = new System.Drawing.Point(0, 289);
+            this.btnTransactionsPage.Margin = new System.Windows.Forms.Padding(5);
+            this.btnTransactionsPage.Name = "btnTransactionsPage";
+            this.btnTransactionsPage.Size = new System.Drawing.Size(269, 64);
+            this.btnTransactionsPage.TabIndex = 3;
+            this.btnTransactionsPage.Text = "  Transactions page";
+            this.btnTransactionsPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTransactionsPage.UseVisualStyleBackColor = true;
+            this.btnTransactionsPage.Click += new System.EventHandler(this.btnTransactionsPage_Click);
             // 
-            // lblReports
+            // btnStockPage
             // 
-            this.lblReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReports.ForeColor = System.Drawing.Color.Aqua;
-            this.lblReports.Location = new System.Drawing.Point(9, 324);
-            this.lblReports.Name = "lblReports";
-            this.lblReports.Size = new System.Drawing.Size(128, 23);
-            this.lblReports.TabIndex = 5;
-            this.lblReports.Text = "Reports page";
-            this.lblReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStockPage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStockPage.FlatAppearance.BorderSize = 0;
+            this.btnStockPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStockPage.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStockPage.ForeColor = System.Drawing.Color.White;
+            this.btnStockPage.Image = global::B4_Plastics_SMS.Properties.Resources.Stock_B;
+            this.btnStockPage.Location = new System.Drawing.Point(0, 225);
+            this.btnStockPage.Margin = new System.Windows.Forms.Padding(5);
+            this.btnStockPage.Name = "btnStockPage";
+            this.btnStockPage.Size = new System.Drawing.Size(269, 64);
+            this.btnStockPage.TabIndex = 2;
+            this.btnStockPage.Text = "   Stock page        ";
+            this.btnStockPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStockPage.UseVisualStyleBackColor = true;
+            this.btnStockPage.Click += new System.EventHandler(this.btnStockPage_Click);
             // 
-            // lblTransactions
+            // pnlNav
             // 
-            this.lblTransactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTransactions.ForeColor = System.Drawing.Color.Aqua;
-            this.lblTransactions.Location = new System.Drawing.Point(9, 281);
-            this.lblTransactions.Name = "lblTransactions";
-            this.lblTransactions.Size = new System.Drawing.Size(128, 23);
-            this.lblTransactions.TabIndex = 4;
-            this.lblTransactions.Text = "Transactions page";
-            this.lblTransactions.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.pnlNav.Location = new System.Drawing.Point(0, 91);
+            this.pnlNav.Margin = new System.Windows.Forms.Padding(5);
+            this.pnlNav.Name = "pnlNav";
+            this.pnlNav.Size = new System.Drawing.Size(5, 151);
+            this.pnlNav.TabIndex = 0;
             // 
-            // lblStock
+            // btnContactUs
             // 
-            this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStock.ForeColor = System.Drawing.Color.Aqua;
-            this.lblStock.Location = new System.Drawing.Point(9, 240);
-            this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(128, 23);
-            this.lblStock.TabIndex = 3;
-            this.lblStock.Text = "Stock page";
-            this.lblStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContactUs.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnContactUs.FlatAppearance.BorderSize = 0;
+            this.btnContactUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContactUs.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContactUs.ForeColor = System.Drawing.Color.White;
+            this.btnContactUs.Location = new System.Drawing.Point(0, 701);
+            this.btnContactUs.Margin = new System.Windows.Forms.Padding(5);
+            this.btnContactUs.Name = "btnContactUs";
+            this.btnContactUs.Size = new System.Drawing.Size(269, 64);
+            this.btnContactUs.TabIndex = 6;
+            this.btnContactUs.Text = " Contact Us";
+            this.btnContactUs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnContactUs.UseVisualStyleBackColor = true;
+            this.btnContactUs.Click += new System.EventHandler(this.btnContactUs_Click);
             // 
-            // lblEmployees
+            // btnEmployeesPage
             // 
-            this.lblEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployees.ForeColor = System.Drawing.Color.Aqua;
-            this.lblEmployees.Location = new System.Drawing.Point(9, 198);
-            this.lblEmployees.Name = "lblEmployees";
-            this.lblEmployees.Size = new System.Drawing.Size(128, 23);
-            this.lblEmployees.TabIndex = 2;
-            this.lblEmployees.Text = "Employees page";
-            this.lblEmployees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmployeesPage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmployeesPage.FlatAppearance.BorderSize = 0;
+            this.btnEmployeesPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmployeesPage.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmployeesPage.ForeColor = System.Drawing.Color.White;
+            this.btnEmployeesPage.Image = global::B4_Plastics_SMS.Properties.Resources.Employees_B;
+            this.btnEmployeesPage.Location = new System.Drawing.Point(0, 161);
+            this.btnEmployeesPage.Margin = new System.Windows.Forms.Padding(5);
+            this.btnEmployeesPage.Name = "btnEmployeesPage";
+            this.btnEmployeesPage.Size = new System.Drawing.Size(269, 64);
+            this.btnEmployeesPage.TabIndex = 1;
+            this.btnEmployeesPage.Text = "  Employees page  ";
+            this.btnEmployeesPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEmployeesPage.UseVisualStyleBackColor = true;
+            this.btnEmployeesPage.Click += new System.EventHandler(this.btnEmployeesPage_Click);
             // 
-            // lblMachines
+            // btnUserInfoPage
             // 
-            this.lblMachines.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMachines.ForeColor = System.Drawing.Color.Aqua;
-            this.lblMachines.Location = new System.Drawing.Point(9, 157);
-            this.lblMachines.Name = "lblMachines";
-            this.lblMachines.Size = new System.Drawing.Size(128, 23);
-            this.lblMachines.TabIndex = 1;
-            this.lblMachines.Text = "Machine page";
-            this.lblMachines.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserInfoPage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUserInfoPage.FlatAppearance.BorderSize = 0;
+            this.btnUserInfoPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserInfoPage.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserInfoPage.ForeColor = System.Drawing.Color.White;
+            this.btnUserInfoPage.Image = global::B4_Plastics_SMS.Properties.Resources.User_Info_B;
+            this.btnUserInfoPage.Location = new System.Drawing.Point(0, 97);
+            this.btnUserInfoPage.Margin = new System.Windows.Forms.Padding(5);
+            this.btnUserInfoPage.Name = "btnUserInfoPage";
+            this.btnUserInfoPage.Size = new System.Drawing.Size(269, 64);
+            this.btnUserInfoPage.TabIndex = 2;
+            this.btnUserInfoPage.Text = "  User Info page   ";
+            this.btnUserInfoPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUserInfoPage.UseVisualStyleBackColor = true;
+            this.btnUserInfoPage.Click += new System.EventHandler(this.btnUserInfoPage_Click);
             // 
-            // pnlUserInfo
+            // panel4
             // 
-            this.pnlUserInfo.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.pnlUserInfo.Controls.Add(this.lblWelcome);
-            this.pnlUserInfo.Controls.Add(this.pbxUserPict);
-            this.pnlUserInfo.Location = new System.Drawing.Point(12, 12);
-            this.pnlUserInfo.Name = "pnlUserInfo";
-            this.pnlUserInfo.Size = new System.Drawing.Size(207, 78);
-            this.pnlUserInfo.TabIndex = 0;
+            this.panel4.Controls.Add(this.lblWelcome);
+            this.panel4.Controls.Add(this.pictureBox7);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(5);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(269, 97);
+            this.panel4.TabIndex = 0;
             // 
             // lblWelcome
             // 
-            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.ForeColor = System.Drawing.Color.Navy;
-            this.lblWelcome.Location = new System.Drawing.Point(55, 27);
+            this.lblWelcome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.ForeColor = System.Drawing.Color.White;
+            this.lblWelcome.Location = new System.Drawing.Point(84, 31);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(125, 23);
-            this.lblWelcome.TabIndex = 2;
+            this.lblWelcome.TabIndex = 4;
             this.lblWelcome.Text = "Welcome, ...";
             this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pbxUserPict
+            // pictureBox7
             // 
-            this.pbxUserPict.Image = ((System.Drawing.Image)(resources.GetObject("pbxUserPict.Image")));
-            this.pbxUserPict.Location = new System.Drawing.Point(10, 18);
-            this.pbxUserPict.Name = "pbxUserPict";
-            this.pbxUserPict.Size = new System.Drawing.Size(39, 41);
-            this.pbxUserPict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxUserPict.TabIndex = 1;
-            this.pbxUserPict.TabStop = false;
+            this.pictureBox7.Image = global::B4_Plastics_SMS.Properties.Resources.User_Blue;
+            this.pictureBox7.Location = new System.Drawing.Point(27, 22);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(39, 41);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 3;
+            this.pictureBox7.TabStop = false;
             // 
-            // gbxMachines
+            // imgReportsDock
             // 
-            this.gbxMachines.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.gbxMachines.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxMachines.ForeColor = System.Drawing.Color.Navy;
-            this.gbxMachines.Location = new System.Drawing.Point(245, 12);
-            this.gbxMachines.Name = "gbxMachines";
-            this.gbxMachines.Size = new System.Drawing.Size(450, 220);
-            this.gbxMachines.TabIndex = 0;
-            this.gbxMachines.TabStop = false;
-            this.gbxMachines.Text = "Machines";
+            this.imgReportsDock.Image = global::B4_Plastics_SMS.Properties.Resources.Reports;
+            this.imgReportsDock.Location = new System.Drawing.Point(18, 53);
+            this.imgReportsDock.Name = "imgReportsDock";
+            this.imgReportsDock.Size = new System.Drawing.Size(50, 50);
+            this.imgReportsDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgReportsDock.TabIndex = 3;
+            this.imgReportsDock.TabStop = false;
             // 
-            // gbxEmployees
+            // imgTransacDock
             // 
-            this.gbxEmployees.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.gbxEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxEmployees.ForeColor = System.Drawing.Color.Navy;
-            this.gbxEmployees.Location = new System.Drawing.Point(720, 12);
-            this.gbxEmployees.Name = "gbxEmployees";
-            this.gbxEmployees.Size = new System.Drawing.Size(450, 220);
-            this.gbxEmployees.TabIndex = 1;
-            this.gbxEmployees.TabStop = false;
-            this.gbxEmployees.Text = "Employees";
+            this.imgTransacDock.Image = global::B4_Plastics_SMS.Properties.Resources.Transactions;
+            this.imgTransacDock.Location = new System.Drawing.Point(19, 47);
+            this.imgTransacDock.Name = "imgTransacDock";
+            this.imgTransacDock.Size = new System.Drawing.Size(50, 50);
+            this.imgTransacDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgTransacDock.TabIndex = 3;
+            this.imgTransacDock.TabStop = false;
             // 
-            // gbxStock
+            // imgStockDock
             // 
-            this.gbxStock.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.gbxStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxStock.ForeColor = System.Drawing.Color.Navy;
-            this.gbxStock.Location = new System.Drawing.Point(245, 257);
-            this.gbxStock.Name = "gbxStock";
-            this.gbxStock.Size = new System.Drawing.Size(450, 220);
-            this.gbxStock.TabIndex = 2;
-            this.gbxStock.TabStop = false;
-            this.gbxStock.Text = "Stock";
+            this.imgStockDock.Image = global::B4_Plastics_SMS.Properties.Resources.Stock;
+            this.imgStockDock.Location = new System.Drawing.Point(19, 47);
+            this.imgStockDock.Name = "imgStockDock";
+            this.imgStockDock.Size = new System.Drawing.Size(50, 50);
+            this.imgStockDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgStockDock.TabIndex = 3;
+            this.imgStockDock.TabStop = false;
             // 
-            // gbxTransactions
+            // imgMachinesDock
             // 
-            this.gbxTransactions.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.gbxTransactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxTransactions.ForeColor = System.Drawing.Color.Navy;
-            this.gbxTransactions.Location = new System.Drawing.Point(720, 257);
-            this.gbxTransactions.Name = "gbxTransactions";
-            this.gbxTransactions.Size = new System.Drawing.Size(450, 220);
-            this.gbxTransactions.TabIndex = 3;
-            this.gbxTransactions.TabStop = false;
-            this.gbxTransactions.Text = "Transactions";
+            this.imgMachinesDock.Image = global::B4_Plastics_SMS.Properties.Resources.Machines;
+            this.imgMachinesDock.Location = new System.Drawing.Point(18, 53);
+            this.imgMachinesDock.Name = "imgMachinesDock";
+            this.imgMachinesDock.Size = new System.Drawing.Size(50, 50);
+            this.imgMachinesDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgMachinesDock.TabIndex = 2;
+            this.imgMachinesDock.TabStop = false;
             // 
-            // gbxReports
+            // pnlUserInfo
             // 
-            this.gbxReports.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.gbxReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxReports.ForeColor = System.Drawing.Color.Navy;
-            this.gbxReports.Location = new System.Drawing.Point(245, 505);
-            this.gbxReports.Name = "gbxReports";
-            this.gbxReports.Size = new System.Drawing.Size(450, 220);
-            this.gbxReports.TabIndex = 4;
-            this.gbxReports.TabStop = false;
-            this.gbxReports.Text = "Reports";
+            this.pnlUserInfo.BackColor = System.Drawing.Color.White;
+            this.pnlUserInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlUserInfo.Controls.Add(this.label1);
+            this.pnlUserInfo.Controls.Add(this.imgUserSetting);
+            this.pnlUserInfo.Controls.Add(this.imgUserNotify);
+            this.pnlUserInfo.Controls.Add(this.imgUserInfoDock);
+            this.pnlUserInfo.ForeColor = System.Drawing.Color.White;
+            this.pnlUserInfo.Location = new System.Drawing.Point(312, 20);
+            this.pnlUserInfo.Name = "pnlUserInfo";
+            this.pnlUserInfo.Size = new System.Drawing.Size(450, 222);
+            this.pnlUserInfo.TabIndex = 7;
             // 
-            // gbxUserInfo
+            // label1
             // 
-            this.gbxUserInfo.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.gbxUserInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxUserInfo.ForeColor = System.Drawing.Color.Navy;
-            this.gbxUserInfo.Location = new System.Drawing.Point(720, 505);
-            this.gbxUserInfo.Name = "gbxUserInfo";
-            this.gbxUserInfo.Size = new System.Drawing.Size(450, 220);
-            this.gbxUserInfo.TabIndex = 5;
-            this.gbxUserInfo.TabStop = false;
-            this.gbxUserInfo.Text = "User Info";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI Semilight", 15F);
+            this.label1.ForeColor = System.Drawing.Color.Navy;
+            this.label1.Location = new System.Drawing.Point(13, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 35);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "User Info";
+            // 
+            // imgUserSetting
+            // 
+            this.imgUserSetting.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
+            this.imgUserSetting.Location = new System.Drawing.Point(358, 129);
+            this.imgUserSetting.Name = "imgUserSetting";
+            this.imgUserSetting.Size = new System.Drawing.Size(75, 75);
+            this.imgUserSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgUserSetting.TabIndex = 9;
+            this.imgUserSetting.TabStop = false;
+            // 
+            // imgUserNotify
+            // 
+            this.imgUserNotify.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
+            this.imgUserNotify.Location = new System.Drawing.Point(277, 122);
+            this.imgUserNotify.Name = "imgUserNotify";
+            this.imgUserNotify.Size = new System.Drawing.Size(75, 95);
+            this.imgUserNotify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgUserNotify.TabIndex = 8;
+            this.imgUserNotify.TabStop = false;
+            // 
+            // imgUserInfoDock
+            // 
+            this.imgUserInfoDock.Image = global::B4_Plastics_SMS.Properties.Resources.User_Info;
+            this.imgUserInfoDock.Location = new System.Drawing.Point(19, 52);
+            this.imgUserInfoDock.Name = "imgUserInfoDock";
+            this.imgUserInfoDock.Size = new System.Drawing.Size(50, 50);
+            this.imgUserInfoDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgUserInfoDock.TabIndex = 7;
+            this.imgUserInfoDock.TabStop = false;
+            // 
+            // imgEmployessDock
+            // 
+            this.imgEmployessDock.Image = global::B4_Plastics_SMS.Properties.Resources.Employees;
+            this.imgEmployessDock.Location = new System.Drawing.Point(19, 50);
+            this.imgEmployessDock.Name = "imgEmployessDock";
+            this.imgEmployessDock.Size = new System.Drawing.Size(50, 50);
+            this.imgEmployessDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgEmployessDock.TabIndex = 3;
+            this.imgEmployessDock.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.imgEmployessDock);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.ForeColor = System.Drawing.Color.White;
+            this.panel1.Location = new System.Drawing.Point(787, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(450, 222);
+            this.panel1.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Nirmala UI Semilight", 15F);
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(13, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 35);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Employees";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
+            this.pictureBox1.Location = new System.Drawing.Point(358, 129);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
+            this.pictureBox2.Location = new System.Drawing.Point(277, 122);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(75, 95);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.imgStockDock);
+            this.panel2.Controls.Add(this.pictureBox5);
+            this.panel2.ForeColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(312, 269);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(450, 222);
+            this.panel2.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Nirmala UI Semilight", 15F);
+            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.Location = new System.Drawing.Point(13, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 35);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Stock";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
+            this.pictureBox3.Location = new System.Drawing.Point(358, 129);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
+            this.pictureBox5.Location = new System.Drawing.Point(277, 122);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(75, 95);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 8;
+            this.pictureBox5.TabStop = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.pictureBox4);
+            this.panel5.Controls.Add(this.imgTransacDock);
+            this.panel5.Controls.Add(this.pictureBox8);
+            this.panel5.ForeColor = System.Drawing.Color.White;
+            this.panel5.Location = new System.Drawing.Point(787, 269);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(450, 222);
+            this.panel5.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Nirmala UI Semilight", 15F);
+            this.label4.ForeColor = System.Drawing.Color.Navy;
+            this.label4.Location = new System.Drawing.Point(13, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(147, 35);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Transactions";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
+            this.pictureBox4.Location = new System.Drawing.Point(358, 129);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 9;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
+            this.pictureBox8.Location = new System.Drawing.Point(277, 122);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(75, 95);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 8;
+            this.pictureBox8.TabStop = false;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.label5);
+            this.panel6.Controls.Add(this.pictureBox6);
+            this.panel6.Controls.Add(this.imgMachinesDock);
+            this.panel6.Controls.Add(this.pictureBox10);
+            this.panel6.ForeColor = System.Drawing.Color.White;
+            this.panel6.Location = new System.Drawing.Point(312, 515);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(450, 222);
+            this.panel6.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Nirmala UI Semilight", 15F);
+            this.label5.ForeColor = System.Drawing.Color.Navy;
+            this.label5.Location = new System.Drawing.Point(13, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(118, 35);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Machines";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
+            this.pictureBox6.Location = new System.Drawing.Point(358, 129);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 9;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
+            this.pictureBox10.Location = new System.Drawing.Point(277, 122);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(75, 95);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 8;
+            this.pictureBox10.TabStop = false;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.label6);
+            this.panel7.Controls.Add(this.pictureBox9);
+            this.panel7.Controls.Add(this.imgReportsDock);
+            this.panel7.Controls.Add(this.pictureBox12);
+            this.panel7.ForeColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(787, 515);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(450, 222);
+            this.panel7.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Nirmala UI Semilight", 15F);
+            this.label6.ForeColor = System.Drawing.Color.Navy;
+            this.label6.Location = new System.Drawing.Point(13, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(96, 35);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Reports";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
+            this.pictureBox9.Location = new System.Drawing.Point(358, 129);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 9;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
+            this.pictureBox12.Location = new System.Drawing.Point(277, 122);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(75, 95);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 8;
+            this.pictureBox12.TabStop = false;
             // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 738);
-            this.Controls.Add(this.gbxUserInfo);
-            this.Controls.Add(this.gbxReports);
-            this.Controls.Add(this.gbxTransactions);
-            this.Controls.Add(this.gbxStock);
-            this.Controls.Add(this.gbxEmployees);
-            this.Controls.Add(this.gbxMachines);
-            this.Controls.Add(this.pnlSelections);
+            this.ClientSize = new System.Drawing.Size(1275, 765);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pnlUserInfo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmAdmin";
             this.Text = "B4 Plastics - Admin";
-            this.pnlSelections.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.frmAdmin_Load);
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgReportsDock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgTransacDock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgStockDock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesDock)).EndInit();
             this.pnlUserInfo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxUserPict)).EndInit();
+            this.pnlUserInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgUserSetting)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgUserNotify)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgUserInfoDock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEmployessDock)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlSelections;
-        private System.Windows.Forms.Panel pnlUserInfo;
-        private System.Windows.Forms.PictureBox pbxUserPict;
-        private System.Windows.Forms.GroupBox gbxMachines;
-        private System.Windows.Forms.GroupBox gbxEmployees;
-        private System.Windows.Forms.GroupBox gbxStock;
-        private System.Windows.Forms.GroupBox gbxTransactions;
-        private System.Windows.Forms.GroupBox gbxReports;
-        private System.Windows.Forms.GroupBox gbxUserInfo;
-        private System.Windows.Forms.Label lblUserInfo;
-        private System.Windows.Forms.Label lblReports;
-        private System.Windows.Forms.Label lblTransactions;
-        private System.Windows.Forms.Label lblStock;
-        private System.Windows.Forms.Label lblEmployees;
-        private System.Windows.Forms.Label lblMachines;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.PictureBox imgMachinesDock;
+        private System.Windows.Forms.PictureBox imgStockDock;
+        private System.Windows.Forms.PictureBox imgTransacDock;
+        private System.Windows.Forms.PictureBox imgReportsDock;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlNav;
+        private System.Windows.Forms.Button btnContactUs;
+        private System.Windows.Forms.Button btnEmployeesPage;
+        private System.Windows.Forms.Button btnUserInfoPage;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnReportsPage;
+        private System.Windows.Forms.Button btnMachinePage;
+        private System.Windows.Forms.Button btnTransactionsPage;
+        private System.Windows.Forms.Button btnStockPage;
         private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Panel pnlUserInfo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox imgUserSetting;
+        private System.Windows.Forms.PictureBox imgUserNotify;
+        private System.Windows.Forms.PictureBox imgUserInfoDock;
+        private System.Windows.Forms.PictureBox imgEmployessDock;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox12;
     }
 }

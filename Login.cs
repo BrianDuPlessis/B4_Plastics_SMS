@@ -29,7 +29,7 @@ namespace B4_Plastics_SMS
             txtPassword.MaxLength = 14;
         }
 
-        private void lblForgotPassword_Click(object sender, EventArgs e)
+        private void lblForgetPassword_Click(object sender, EventArgs e)
         {
 
         }
@@ -40,6 +40,10 @@ namespace B4_Plastics_SMS
                    Password = "";
 
             bool Remember_Me = false;
+
+            frmAdmin myAdminForm = new frmAdmin();
+            myAdminForm.Show();
+
         }
     }
 }
