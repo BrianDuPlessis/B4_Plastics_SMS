@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace B4_Plastics_SMS
 {
-    public partial class Form1 : Form
+    public partial class frmReports : Form
     {
-        public Form1()
+        public frmReports()
         {
             InitializeComponent();
         }

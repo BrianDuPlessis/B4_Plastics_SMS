@@ -47,6 +47,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
@@ -63,16 +67,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadCalculation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadCalculation.Designer.cs">
+      <DependentUpon>LoadCalculation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Machines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Machines.Designer.cs">
+      <DependentUpon>Machines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions.Designer.cs">
+      <DependentUpon>Transactions.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadCalculation.resx">
+      <DependentUpon>LoadCalculation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Machines.resx">
+      <DependentUpon>Machines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -82,7 +134,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions.resx">
+      <DependentUpon>Transactions.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,6 +163,25 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>B4Plastics.mdf</DependentUpon>
     </Content>
+<<<<<<< HEAD
+    <None Include="Resources\Reports-B.png" />
+    <None Include="Resources\Machines-B.png" />
+    <None Include="Resources\Transactions-B.png" />
+    <None Include="Resources\Stock-B.png" />
+    <None Include="Resources\Employees-B.png" />
+    <None Include="Resources\User_Info-B.png" />
+    <None Include="Resources\User-Blue.png" />
+    <None Include="Resources\Reports-Blue-Resize.png" />
+    <None Include="Resources\Machines-Blue-Resize.png" />
+    <None Include="Resources\Transactions-Blue_Resize.png" />
+    <None Include="Resources\Stock-Blue-Resize.png" />
+    <None Include="Resources\Employees-Blue-Resize.png" />
+    <None Include="Resources\User_Info-Blue-Resize3.png" />
+    <None Include="Resources\User_Info-Blue-Resize2.png" />
+    <None Include="Resources\User_Info-Blue-Resize.png" />
+    <None Include="Resources\User_Info-Blue.png" />
+=======
+>>>>>>> 181ca56 (Create DataBases)
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -117,5 +195,35 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+<<<<<<< HEAD
+  <ItemGroup>
+    <None Include="Employees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Machines.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Transactions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="User_Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Notifications.png" />
+  </ItemGroup>
+=======
+>>>>>>> 181ca56 (Create DataBases)
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
