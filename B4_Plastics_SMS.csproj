@@ -80,7 +80,6 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports.cs">
@@ -140,22 +139,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Reports-B.png" />
-    <None Include="Resources\Machines-B.png" />
-    <None Include="Resources\Transactions-B.png" />
-    <None Include="Resources\Stock-B.png" />
-    <None Include="Resources\Employees-B.png" />
-    <None Include="Resources\User_Info-B.png" />
-    <None Include="Resources\User-Blue.png" />
-    <None Include="Resources\Reports-Blue-Resize.png" />
-    <None Include="Resources\Machines-Blue-Resize.png" />
-    <None Include="Resources\Transactions-Blue_Resize.png" />
-    <None Include="Resources\Stock-Blue-Resize.png" />
-    <None Include="Resources\Employees-Blue-Resize.png" />
-    <None Include="Resources\User_Info-Blue-Resize3.png" />
-    <None Include="Resources\User_Info-Blue-Resize2.png" />
-    <None Include="Resources\User_Info-Blue-Resize.png" />
-    <None Include="Resources\User_Info-Blue.png" />
+    <Content Include="B4Plastics.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="B4Plastics_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>B4Plastics.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -168,33 +158,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Employees.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Machines.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Reports.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Stock.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Transactions.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="User.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="User_Info.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Notifications.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
