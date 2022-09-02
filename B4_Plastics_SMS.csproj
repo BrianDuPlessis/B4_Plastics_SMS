@@ -12,21 +12,6 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,9 +37,7 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
-    </Reference>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -163,25 +146,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>B4Plastics.mdf</DependentUpon>
     </Content>
-<<<<<<< HEAD
-    <None Include="Resources\Reports-B.png" />
-    <None Include="Resources\Machines-B.png" />
-    <None Include="Resources\Transactions-B.png" />
-    <None Include="Resources\Stock-B.png" />
-    <None Include="Resources\Employees-B.png" />
-    <None Include="Resources\User_Info-B.png" />
-    <None Include="Resources\User-Blue.png" />
-    <None Include="Resources\Reports-Blue-Resize.png" />
-    <None Include="Resources\Machines-Blue-Resize.png" />
-    <None Include="Resources\Transactions-Blue_Resize.png" />
-    <None Include="Resources\Stock-Blue-Resize.png" />
-    <None Include="Resources\Employees-Blue-Resize.png" />
-    <None Include="Resources\User_Info-Blue-Resize3.png" />
-    <None Include="Resources\User_Info-Blue-Resize2.png" />
-    <None Include="Resources\User_Info-Blue-Resize.png" />
-    <None Include="Resources\User_Info-Blue.png" />
-=======
->>>>>>> 181ca56 (Create DataBases)
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -195,35 +159,5 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-<<<<<<< HEAD
-  <ItemGroup>
-    <None Include="Employees.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Machines.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Reports.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Stock.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Transactions.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="User.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="User_Info.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Notifications.png" />
-  </ItemGroup>
-=======
->>>>>>> 181ca56 (Create DataBases)
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
