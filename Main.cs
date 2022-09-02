@@ -16,13 +16,10 @@ namespace B4_Plastics_SMS
         {
             InitializeComponent();
         }
-<<<<<<< HEAD:Main.cs
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
         }
-=======
->>>>>>> 181ca56 (Create DataBases):Form1.cs
     }
 }
