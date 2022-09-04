@@ -1,7 +1,7 @@
 ﻿
 namespace B4_Plastics_SMS
 {
-    partial class frmTransactions
+    partial class frmTransactLoad
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@ namespace B4_Plastics_SMS
         {
             this.SuspendLayout();
             // 
-            // frmTransactions
+            // frmTransactLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "frmTransactions";
-            this.Text = "B4 Plastics - Transactions";
+            this.ClientSize = new System.Drawing.Size(1009, 450);
+            this.Name = "frmTransactLoad";
+            this.Text = "B4 Plastics - Transactions & Load Calculation";
             this.ResumeLayout(false);
 
         }

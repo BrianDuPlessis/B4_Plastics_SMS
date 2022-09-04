@@ -121,11 +121,11 @@
     <Compile Include="Stock.Designer.cs">
       <DependentUpon>Stock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transactions.cs">
+    <Compile Include="TransactLoad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transactions.Designer.cs">
-      <DependentUpon>Transactions.cs</DependentUpon>
+    <Compile Include="TransactLoad.Designer.cs">
+      <DependentUpon>TransactLoad.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
@@ -164,8 +164,8 @@
     <EmbeddedResource Include="Stock.resx">
       <DependentUpon>Stock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transactions.resx">
-      <DependentUpon>Transactions.cs</DependentUpon>
+    <EmbeddedResource Include="TransactLoad.resx">
+      <DependentUpon>TransactLoad.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

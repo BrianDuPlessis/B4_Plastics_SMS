@@ -16,5 +16,16 @@ namespace B4_Plastics_SMS
         {
             InitializeComponent();
         }
+
+        private void frmEmployees_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+
+            txtIPassword.PasswordChar = '*';
+            txtIPassword.MaxLength = 14;
+
+            txtIREPassword.PasswordChar = '*';
+            txtIREPassword.MaxLength = 14;
+        }
     }
 }
