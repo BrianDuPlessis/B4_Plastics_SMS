@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace B4_Plastics_SMS
 {
-    public partial class frmReports : Form
+    public partial class frmDispatch : Form
     {
-        public frmReports()
+        public frmDispatch()
         {
             InitializeComponent();
         }
 
-        private void frmReports_Load(object sender, EventArgs e)
+        private void frmDispatch_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
         }

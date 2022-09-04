@@ -31,6 +31,7 @@ namespace B4_Plastics_SMS
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.SuspendLayout();
             // 
             // panel1
@@ -51,11 +52,19 @@ namespace B4_Plastics_SMS
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1082, 130);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Location = new System.Drawing.Point(1261, 133);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(21, 570);
+            this.vScrollBar1.TabIndex = 2;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 703);
+            this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -70,5 +79,6 @@ namespace B4_Plastics_SMS
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
     }
 }
