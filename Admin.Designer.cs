@@ -31,6 +31,12 @@ namespace B4_Plastics_SMS
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
             this.pnlSelections = new System.Windows.Forms.Panel();
+            this.imgReports = new System.Windows.Forms.PictureBox();
+            this.imgStock = new System.Windows.Forms.PictureBox();
+            this.imgTransactions = new System.Windows.Forms.PictureBox();
+            this.imgUserInfo = new System.Windows.Forms.PictureBox();
+            this.imgEmployees = new System.Windows.Forms.PictureBox();
+            this.imgMachines = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lblUserInfo = new System.Windows.Forms.Label();
@@ -41,70 +47,64 @@ namespace B4_Plastics_SMS
             this.lblMachines = new System.Windows.Forms.Label();
             this.pnlUserInfo = new System.Windows.Forms.Panel();
             this.lblWelcome = new System.Windows.Forms.Label();
+            this.pbxUserPict = new System.Windows.Forms.PictureBox();
             this.gbxMachines = new System.Windows.Forms.GroupBox();
-            this.gbxEmployees = new System.Windows.Forms.GroupBox();
-            this.gbxStock = new System.Windows.Forms.GroupBox();
-            this.gbxTransactions = new System.Windows.Forms.GroupBox();
-            this.gbxReports = new System.Windows.Forms.GroupBox();
-            this.gbxUserInfo = new System.Windows.Forms.GroupBox();
-            this.imgUserInfoDock = new System.Windows.Forms.PictureBox();
-            this.imgReportsDock = new System.Windows.Forms.PictureBox();
-            this.imgTransacDock = new System.Windows.Forms.PictureBox();
-            this.imgStockDock = new System.Windows.Forms.PictureBox();
-            this.imgEmployessDock = new System.Windows.Forms.PictureBox();
             this.imgMachinesSettings = new System.Windows.Forms.PictureBox();
             this.imgMachinesNotify = new System.Windows.Forms.PictureBox();
             this.imgMachinesDock = new System.Windows.Forms.PictureBox();
-            this.imgReports = new System.Windows.Forms.PictureBox();
-            this.imgStock = new System.Windows.Forms.PictureBox();
-            this.imgTransactions = new System.Windows.Forms.PictureBox();
-            this.imgUserInfo = new System.Windows.Forms.PictureBox();
-            this.imgEmployees = new System.Windows.Forms.PictureBox();
-            this.imgMachines = new System.Windows.Forms.PictureBox();
-            this.pbxUserPict = new System.Windows.Forms.PictureBox();
+            this.gbxEmployees = new System.Windows.Forms.GroupBox();
             this.imgEmployessSettings = new System.Windows.Forms.PictureBox();
             this.imgEmployeesNotify = new System.Windows.Forms.PictureBox();
+            this.imgEmployessDock = new System.Windows.Forms.PictureBox();
+            this.gbxStock = new System.Windows.Forms.GroupBox();
             this.imgStockSettings = new System.Windows.Forms.PictureBox();
             this.imgStockNotify = new System.Windows.Forms.PictureBox();
+            this.imgStockDock = new System.Windows.Forms.PictureBox();
+            this.gbxTransactions = new System.Windows.Forms.GroupBox();
             this.imgTransSettings = new System.Windows.Forms.PictureBox();
             this.imgTransNotify = new System.Windows.Forms.PictureBox();
+            this.imgTransacDock = new System.Windows.Forms.PictureBox();
+            this.gbxReports = new System.Windows.Forms.GroupBox();
             this.imgReportsSettings = new System.Windows.Forms.PictureBox();
             this.imgReportsNotify = new System.Windows.Forms.PictureBox();
+            this.imgReportsDock = new System.Windows.Forms.PictureBox();
+            this.gbxUserInfo = new System.Windows.Forms.GroupBox();
             this.imgUserSetting = new System.Windows.Forms.PictureBox();
             this.imgUserNotify = new System.Windows.Forms.PictureBox();
+            this.imgUserInfoDock = new System.Windows.Forms.PictureBox();
             this.pnlSelections.SuspendLayout();
-            this.pnlUserInfo.SuspendLayout();
-            this.gbxMachines.SuspendLayout();
-            this.gbxEmployees.SuspendLayout();
-            this.gbxStock.SuspendLayout();
-            this.gbxTransactions.SuspendLayout();
-            this.gbxReports.SuspendLayout();
-            this.gbxUserInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgUserInfoDock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgReportsDock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgTransacDock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgStockDock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgEmployessDock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesSettings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesNotify)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesDock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgReports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgMachines)).BeginInit();
+            this.pnlUserInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxUserPict)).BeginInit();
+            this.gbxMachines.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesSettings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesNotify)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesDock)).BeginInit();
+            this.gbxEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgEmployessSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEmployeesNotify)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEmployessDock)).BeginInit();
+            this.gbxStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgStockSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStockNotify)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgStockDock)).BeginInit();
+            this.gbxTransactions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgTransSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTransNotify)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgTransacDock)).BeginInit();
+            this.gbxReports.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgReportsSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgReportsNotify)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgReportsDock)).BeginInit();
+            this.gbxUserInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserSetting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserNotify)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgUserInfoDock)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSelections
@@ -130,287 +130,6 @@ namespace B4_Plastics_SMS
             this.pnlSelections.Name = "pnlSelections";
             this.pnlSelections.Size = new System.Drawing.Size(233, 738);
             this.pnlSelections.TabIndex = 0;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(123, 688);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(96, 37);
-            this.btnClose.TabIndex = 8;
-            this.btnClose.Text = "&Close";
-            this.btnClose.UseVisualStyleBackColor = false;
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Location = new System.Drawing.Point(12, 688);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(96, 37);
-            this.btnLogOut.TabIndex = 7;
-            this.btnLogOut.Text = "&Log out";
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            // 
-            // lblUserInfo
-            // 
-            this.lblUserInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserInfo.ForeColor = System.Drawing.Color.Aqua;
-            this.lblUserInfo.Location = new System.Drawing.Point(64, 155);
-            this.lblUserInfo.Name = "lblUserInfo";
-            this.lblUserInfo.Size = new System.Drawing.Size(128, 23);
-            this.lblUserInfo.TabIndex = 6;
-            this.lblUserInfo.Text = "User Info page";
-            this.lblUserInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblReports
-            // 
-            this.lblReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReports.ForeColor = System.Drawing.Color.Aqua;
-            this.lblReports.Location = new System.Drawing.Point(64, 458);
-            this.lblReports.Name = "lblReports";
-            this.lblReports.Size = new System.Drawing.Size(128, 23);
-            this.lblReports.TabIndex = 5;
-            this.lblReports.Text = "Reports page";
-            this.lblReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblTransactions
-            // 
-            this.lblTransactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTransactions.ForeColor = System.Drawing.Color.Aqua;
-            this.lblTransactions.Location = new System.Drawing.Point(64, 339);
-            this.lblTransactions.Name = "lblTransactions";
-            this.lblTransactions.Size = new System.Drawing.Size(128, 23);
-            this.lblTransactions.TabIndex = 4;
-            this.lblTransactions.Text = "Transactions page";
-            this.lblTransactions.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblStock
-            // 
-            this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStock.ForeColor = System.Drawing.Color.Aqua;
-            this.lblStock.Location = new System.Drawing.Point(64, 280);
-            this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(128, 23);
-            this.lblStock.TabIndex = 3;
-            this.lblStock.Text = "Stock page";
-            this.lblStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblEmployees
-            // 
-            this.lblEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployees.ForeColor = System.Drawing.Color.Aqua;
-            this.lblEmployees.Location = new System.Drawing.Point(64, 216);
-            this.lblEmployees.Name = "lblEmployees";
-            this.lblEmployees.Size = new System.Drawing.Size(128, 23);
-            this.lblEmployees.TabIndex = 2;
-            this.lblEmployees.Text = "Employees page";
-            this.lblEmployees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblMachines
-            // 
-            this.lblMachines.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMachines.ForeColor = System.Drawing.Color.Aqua;
-            this.lblMachines.Location = new System.Drawing.Point(64, 399);
-            this.lblMachines.Name = "lblMachines";
-            this.lblMachines.Size = new System.Drawing.Size(128, 23);
-            this.lblMachines.TabIndex = 1;
-            this.lblMachines.Text = "Machine page";
-            this.lblMachines.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pnlUserInfo
-            // 
-            this.pnlUserInfo.BackColor = System.Drawing.Color.DodgerBlue;
-            this.pnlUserInfo.Controls.Add(this.lblWelcome);
-            this.pnlUserInfo.Controls.Add(this.pbxUserPict);
-            this.pnlUserInfo.Location = new System.Drawing.Point(12, 12);
-            this.pnlUserInfo.Name = "pnlUserInfo";
-            this.pnlUserInfo.Size = new System.Drawing.Size(207, 78);
-            this.pnlUserInfo.TabIndex = 0;
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblWelcome.Location = new System.Drawing.Point(55, 27);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(125, 23);
-            this.lblWelcome.TabIndex = 2;
-            this.lblWelcome.Text = "Welcome, ...";
-            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // gbxMachines
-            // 
-            this.gbxMachines.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.gbxMachines.Controls.Add(this.imgMachinesSettings);
-            this.gbxMachines.Controls.Add(this.imgMachinesNotify);
-            this.gbxMachines.Controls.Add(this.imgMachinesDock);
-            this.gbxMachines.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxMachines.ForeColor = System.Drawing.Color.Navy;
-            this.gbxMachines.Location = new System.Drawing.Point(245, 505);
-            this.gbxMachines.Name = "gbxMachines";
-            this.gbxMachines.Size = new System.Drawing.Size(450, 220);
-            this.gbxMachines.TabIndex = 0;
-            this.gbxMachines.TabStop = false;
-            this.gbxMachines.Text = "Machines";
-            // 
-            // gbxEmployees
-            // 
-            this.gbxEmployees.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.gbxEmployees.Controls.Add(this.imgEmployessSettings);
-            this.gbxEmployees.Controls.Add(this.imgEmployeesNotify);
-            this.gbxEmployees.Controls.Add(this.imgEmployessDock);
-            this.gbxEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxEmployees.ForeColor = System.Drawing.Color.Navy;
-            this.gbxEmployees.Location = new System.Drawing.Point(720, 12);
-            this.gbxEmployees.Name = "gbxEmployees";
-            this.gbxEmployees.Size = new System.Drawing.Size(450, 220);
-            this.gbxEmployees.TabIndex = 1;
-            this.gbxEmployees.TabStop = false;
-            this.gbxEmployees.Text = "Employees";
-            // 
-            // gbxStock
-            // 
-            this.gbxStock.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.gbxStock.Controls.Add(this.imgStockSettings);
-            this.gbxStock.Controls.Add(this.imgStockNotify);
-            this.gbxStock.Controls.Add(this.imgStockDock);
-            this.gbxStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxStock.ForeColor = System.Drawing.Color.Navy;
-            this.gbxStock.Location = new System.Drawing.Point(245, 257);
-            this.gbxStock.Name = "gbxStock";
-            this.gbxStock.Size = new System.Drawing.Size(450, 220);
-            this.gbxStock.TabIndex = 2;
-            this.gbxStock.TabStop = false;
-            this.gbxStock.Text = "Stock";
-            // 
-            // gbxTransactions
-            // 
-            this.gbxTransactions.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.gbxTransactions.Controls.Add(this.imgTransSettings);
-            this.gbxTransactions.Controls.Add(this.imgTransNotify);
-            this.gbxTransactions.Controls.Add(this.imgTransacDock);
-            this.gbxTransactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxTransactions.ForeColor = System.Drawing.Color.Navy;
-            this.gbxTransactions.Location = new System.Drawing.Point(720, 261);
-            this.gbxTransactions.Name = "gbxTransactions";
-            this.gbxTransactions.Size = new System.Drawing.Size(450, 220);
-            this.gbxTransactions.TabIndex = 3;
-            this.gbxTransactions.TabStop = false;
-            this.gbxTransactions.Text = "Transactions";
-            // 
-            // gbxReports
-            // 
-            this.gbxReports.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.gbxReports.Controls.Add(this.imgReportsSettings);
-            this.gbxReports.Controls.Add(this.imgReportsNotify);
-            this.gbxReports.Controls.Add(this.imgReportsDock);
-            this.gbxReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxReports.ForeColor = System.Drawing.Color.Navy;
-            this.gbxReports.Location = new System.Drawing.Point(720, 505);
-            this.gbxReports.Name = "gbxReports";
-            this.gbxReports.Size = new System.Drawing.Size(450, 220);
-            this.gbxReports.TabIndex = 4;
-            this.gbxReports.TabStop = false;
-            this.gbxReports.Text = "Reports";
-            // 
-            // gbxUserInfo
-            // 
-            this.gbxUserInfo.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.gbxUserInfo.Controls.Add(this.imgUserSetting);
-            this.gbxUserInfo.Controls.Add(this.imgUserNotify);
-            this.gbxUserInfo.Controls.Add(this.imgUserInfoDock);
-            this.gbxUserInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxUserInfo.ForeColor = System.Drawing.Color.Navy;
-            this.gbxUserInfo.Location = new System.Drawing.Point(245, 12);
-            this.gbxUserInfo.Name = "gbxUserInfo";
-            this.gbxUserInfo.Size = new System.Drawing.Size(450, 220);
-            this.gbxUserInfo.TabIndex = 5;
-            this.gbxUserInfo.TabStop = false;
-            this.gbxUserInfo.Text = "User Info";
-            // 
-            // imgUserInfoDock
-            // 
-            this.imgUserInfoDock.Image = global::B4_Plastics_SMS.Properties.Resources.User_Info;
-            this.imgUserInfoDock.Location = new System.Drawing.Point(17, 35);
-            this.imgUserInfoDock.Name = "imgUserInfoDock";
-            this.imgUserInfoDock.Size = new System.Drawing.Size(50, 50);
-            this.imgUserInfoDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgUserInfoDock.TabIndex = 3;
-            this.imgUserInfoDock.TabStop = false;
-            // 
-            // imgReportsDock
-            // 
-            this.imgReportsDock.Image = global::B4_Plastics_SMS.Properties.Resources.Reports;
-            this.imgReportsDock.Location = new System.Drawing.Point(17, 35);
-            this.imgReportsDock.Name = "imgReportsDock";
-            this.imgReportsDock.Size = new System.Drawing.Size(50, 50);
-            this.imgReportsDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgReportsDock.TabIndex = 3;
-            this.imgReportsDock.TabStop = false;
-            // 
-            // imgTransacDock
-            // 
-            this.imgTransacDock.Image = global::B4_Plastics_SMS.Properties.Resources.Transactions;
-            this.imgTransacDock.Location = new System.Drawing.Point(17, 33);
-            this.imgTransacDock.Name = "imgTransacDock";
-            this.imgTransacDock.Size = new System.Drawing.Size(50, 50);
-            this.imgTransacDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgTransacDock.TabIndex = 3;
-            this.imgTransacDock.TabStop = false;
-            // 
-            // imgStockDock
-            // 
-            this.imgStockDock.Image = global::B4_Plastics_SMS.Properties.Resources.Stock;
-            this.imgStockDock.Location = new System.Drawing.Point(17, 33);
-            this.imgStockDock.Name = "imgStockDock";
-            this.imgStockDock.Size = new System.Drawing.Size(50, 50);
-            this.imgStockDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgStockDock.TabIndex = 3;
-            this.imgStockDock.TabStop = false;
-            // 
-            // imgEmployessDock
-            // 
-            this.imgEmployessDock.Image = global::B4_Plastics_SMS.Properties.Resources.Employees;
-            this.imgEmployessDock.Location = new System.Drawing.Point(17, 31);
-            this.imgEmployessDock.Name = "imgEmployessDock";
-            this.imgEmployessDock.Size = new System.Drawing.Size(50, 50);
-            this.imgEmployessDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgEmployessDock.TabIndex = 3;
-            this.imgEmployessDock.TabStop = false;
-            // 
-            // imgMachinesSettings
-            // 
-            this.imgMachinesSettings.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
-            this.imgMachinesSettings.Location = new System.Drawing.Point(325, 57);
-            this.imgMachinesSettings.Name = "imgMachinesSettings";
-            this.imgMachinesSettings.Size = new System.Drawing.Size(100, 100);
-            this.imgMachinesSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgMachinesSettings.TabIndex = 4;
-            this.imgMachinesSettings.TabStop = false;
-            // 
-            // imgMachinesNotify
-            // 
-            this.imgMachinesNotify.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
-            this.imgMachinesNotify.Location = new System.Drawing.Point(217, 51);
-            this.imgMachinesNotify.Name = "imgMachinesNotify";
-            this.imgMachinesNotify.Size = new System.Drawing.Size(90, 110);
-            this.imgMachinesNotify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgMachinesNotify.TabIndex = 3;
-            this.imgMachinesNotify.TabStop = false;
-            // 
-            // imgMachinesDock
-            // 
-            this.imgMachinesDock.Image = global::B4_Plastics_SMS.Properties.Resources.Machines;
-            this.imgMachinesDock.Location = new System.Drawing.Point(17, 31);
-            this.imgMachinesDock.Name = "imgMachinesDock";
-            this.imgMachinesDock.Size = new System.Drawing.Size(50, 50);
-            this.imgMachinesDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgMachinesDock.TabIndex = 2;
-            this.imgMachinesDock.TabStop = false;
             // 
             // imgReports
             // 
@@ -472,6 +191,125 @@ namespace B4_Plastics_SMS
             this.imgMachines.TabIndex = 9;
             this.imgMachines.TabStop = false;
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(123, 688);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(96, 37);
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "&Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.Location = new System.Drawing.Point(12, 688);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(96, 37);
+            this.btnLogOut.TabIndex = 7;
+            this.btnLogOut.Text = "&Log out";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // lblUserInfo
+            // 
+            this.lblUserInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserInfo.ForeColor = System.Drawing.Color.Aqua;
+            this.lblUserInfo.Location = new System.Drawing.Point(64, 155);
+            this.lblUserInfo.Name = "lblUserInfo";
+            this.lblUserInfo.Size = new System.Drawing.Size(128, 23);
+            this.lblUserInfo.TabIndex = 6;
+            this.lblUserInfo.Text = "User Info page";
+            this.lblUserInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblUserInfo.Click += new System.EventHandler(this.lblUserInfo_Click);
+            // 
+            // lblReports
+            // 
+            this.lblReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReports.ForeColor = System.Drawing.Color.Aqua;
+            this.lblReports.Location = new System.Drawing.Point(64, 458);
+            this.lblReports.Name = "lblReports";
+            this.lblReports.Size = new System.Drawing.Size(128, 23);
+            this.lblReports.TabIndex = 5;
+            this.lblReports.Text = "Reports page";
+            this.lblReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblReports.Click += new System.EventHandler(this.lblReports_Click);
+            // 
+            // lblTransactions
+            // 
+            this.lblTransactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTransactions.ForeColor = System.Drawing.Color.Aqua;
+            this.lblTransactions.Location = new System.Drawing.Point(64, 339);
+            this.lblTransactions.Name = "lblTransactions";
+            this.lblTransactions.Size = new System.Drawing.Size(128, 23);
+            this.lblTransactions.TabIndex = 4;
+            this.lblTransactions.Text = "Transactions page";
+            this.lblTransactions.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTransactions.Click += new System.EventHandler(this.lblTransactions_Click);
+            // 
+            // lblStock
+            // 
+            this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock.ForeColor = System.Drawing.Color.Aqua;
+            this.lblStock.Location = new System.Drawing.Point(64, 280);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(128, 23);
+            this.lblStock.TabIndex = 3;
+            this.lblStock.Text = "Stock page";
+            this.lblStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblStock.Click += new System.EventHandler(this.lblStock_Click);
+            // 
+            // lblEmployees
+            // 
+            this.lblEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmployees.ForeColor = System.Drawing.Color.Aqua;
+            this.lblEmployees.Location = new System.Drawing.Point(64, 216);
+            this.lblEmployees.Name = "lblEmployees";
+            this.lblEmployees.Size = new System.Drawing.Size(128, 23);
+            this.lblEmployees.TabIndex = 2;
+            this.lblEmployees.Text = "Employees page";
+            this.lblEmployees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEmployees.Click += new System.EventHandler(this.lblEmployees_Click);
+            // 
+            // lblMachines
+            // 
+            this.lblMachines.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMachines.ForeColor = System.Drawing.Color.Aqua;
+            this.lblMachines.Location = new System.Drawing.Point(64, 399);
+            this.lblMachines.Name = "lblMachines";
+            this.lblMachines.Size = new System.Drawing.Size(128, 23);
+            this.lblMachines.TabIndex = 1;
+            this.lblMachines.Text = "Machine page";
+            this.lblMachines.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMachines.Click += new System.EventHandler(this.lblMachines_Click);
+            // 
+            // pnlUserInfo
+            // 
+            this.pnlUserInfo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pnlUserInfo.Controls.Add(this.lblWelcome);
+            this.pnlUserInfo.Controls.Add(this.pbxUserPict);
+            this.pnlUserInfo.Location = new System.Drawing.Point(12, 12);
+            this.pnlUserInfo.Name = "pnlUserInfo";
+            this.pnlUserInfo.Size = new System.Drawing.Size(207, 78);
+            this.pnlUserInfo.TabIndex = 0;
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblWelcome.Location = new System.Drawing.Point(55, 27);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(125, 23);
+            this.lblWelcome.TabIndex = 2;
+            this.lblWelcome.Text = "Welcome, ...";
+            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // pbxUserPict
             // 
             this.pbxUserPict.Image = global::B4_Plastics_SMS.Properties.Resources.User;
@@ -481,6 +319,68 @@ namespace B4_Plastics_SMS
             this.pbxUserPict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxUserPict.TabIndex = 1;
             this.pbxUserPict.TabStop = false;
+            // 
+            // gbxMachines
+            // 
+            this.gbxMachines.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.gbxMachines.Controls.Add(this.imgMachinesSettings);
+            this.gbxMachines.Controls.Add(this.imgMachinesNotify);
+            this.gbxMachines.Controls.Add(this.imgMachinesDock);
+            this.gbxMachines.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxMachines.ForeColor = System.Drawing.Color.Navy;
+            this.gbxMachines.Location = new System.Drawing.Point(245, 505);
+            this.gbxMachines.Name = "gbxMachines";
+            this.gbxMachines.Size = new System.Drawing.Size(450, 220);
+            this.gbxMachines.TabIndex = 0;
+            this.gbxMachines.TabStop = false;
+            this.gbxMachines.Text = "Machines";
+            this.gbxMachines.Enter += new System.EventHandler(this.gbxMachines_Enter);
+            // 
+            // imgMachinesSettings
+            // 
+            this.imgMachinesSettings.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
+            this.imgMachinesSettings.Location = new System.Drawing.Point(325, 57);
+            this.imgMachinesSettings.Name = "imgMachinesSettings";
+            this.imgMachinesSettings.Size = new System.Drawing.Size(100, 100);
+            this.imgMachinesSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgMachinesSettings.TabIndex = 4;
+            this.imgMachinesSettings.TabStop = false;
+            // 
+            // imgMachinesNotify
+            // 
+            this.imgMachinesNotify.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
+            this.imgMachinesNotify.Location = new System.Drawing.Point(217, 51);
+            this.imgMachinesNotify.Name = "imgMachinesNotify";
+            this.imgMachinesNotify.Size = new System.Drawing.Size(90, 110);
+            this.imgMachinesNotify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgMachinesNotify.TabIndex = 3;
+            this.imgMachinesNotify.TabStop = false;
+            // 
+            // imgMachinesDock
+            // 
+            this.imgMachinesDock.Image = global::B4_Plastics_SMS.Properties.Resources.Machines;
+            this.imgMachinesDock.Location = new System.Drawing.Point(17, 31);
+            this.imgMachinesDock.Name = "imgMachinesDock";
+            this.imgMachinesDock.Size = new System.Drawing.Size(50, 50);
+            this.imgMachinesDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgMachinesDock.TabIndex = 2;
+            this.imgMachinesDock.TabStop = false;
+            // 
+            // gbxEmployees
+            // 
+            this.gbxEmployees.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gbxEmployees.Controls.Add(this.imgEmployessSettings);
+            this.gbxEmployees.Controls.Add(this.imgEmployeesNotify);
+            this.gbxEmployees.Controls.Add(this.imgEmployessDock);
+            this.gbxEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxEmployees.ForeColor = System.Drawing.Color.Navy;
+            this.gbxEmployees.Location = new System.Drawing.Point(720, 12);
+            this.gbxEmployees.Name = "gbxEmployees";
+            this.gbxEmployees.Size = new System.Drawing.Size(450, 220);
+            this.gbxEmployees.TabIndex = 1;
+            this.gbxEmployees.TabStop = false;
+            this.gbxEmployees.Text = "Employees";
+            this.gbxEmployees.Enter += new System.EventHandler(this.gbxEmployees_Enter);
             // 
             // imgEmployessSettings
             // 
@@ -502,6 +402,32 @@ namespace B4_Plastics_SMS
             this.imgEmployeesNotify.TabIndex = 5;
             this.imgEmployeesNotify.TabStop = false;
             // 
+            // imgEmployessDock
+            // 
+            this.imgEmployessDock.Image = global::B4_Plastics_SMS.Properties.Resources.Employees;
+            this.imgEmployessDock.Location = new System.Drawing.Point(17, 31);
+            this.imgEmployessDock.Name = "imgEmployessDock";
+            this.imgEmployessDock.Size = new System.Drawing.Size(50, 50);
+            this.imgEmployessDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgEmployessDock.TabIndex = 3;
+            this.imgEmployessDock.TabStop = false;
+            // 
+            // gbxStock
+            // 
+            this.gbxStock.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gbxStock.Controls.Add(this.imgStockSettings);
+            this.gbxStock.Controls.Add(this.imgStockNotify);
+            this.gbxStock.Controls.Add(this.imgStockDock);
+            this.gbxStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxStock.ForeColor = System.Drawing.Color.Navy;
+            this.gbxStock.Location = new System.Drawing.Point(245, 257);
+            this.gbxStock.Name = "gbxStock";
+            this.gbxStock.Size = new System.Drawing.Size(450, 220);
+            this.gbxStock.TabIndex = 2;
+            this.gbxStock.TabStop = false;
+            this.gbxStock.Text = "Stock";
+            this.gbxStock.Enter += new System.EventHandler(this.gbxStock_Enter);
+            // 
             // imgStockSettings
             // 
             this.imgStockSettings.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
@@ -521,6 +447,32 @@ namespace B4_Plastics_SMS
             this.imgStockNotify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgStockNotify.TabIndex = 5;
             this.imgStockNotify.TabStop = false;
+            // 
+            // imgStockDock
+            // 
+            this.imgStockDock.Image = global::B4_Plastics_SMS.Properties.Resources.Stock;
+            this.imgStockDock.Location = new System.Drawing.Point(17, 33);
+            this.imgStockDock.Name = "imgStockDock";
+            this.imgStockDock.Size = new System.Drawing.Size(50, 50);
+            this.imgStockDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgStockDock.TabIndex = 3;
+            this.imgStockDock.TabStop = false;
+            // 
+            // gbxTransactions
+            // 
+            this.gbxTransactions.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.gbxTransactions.Controls.Add(this.imgTransSettings);
+            this.gbxTransactions.Controls.Add(this.imgTransNotify);
+            this.gbxTransactions.Controls.Add(this.imgTransacDock);
+            this.gbxTransactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxTransactions.ForeColor = System.Drawing.Color.Navy;
+            this.gbxTransactions.Location = new System.Drawing.Point(720, 261);
+            this.gbxTransactions.Name = "gbxTransactions";
+            this.gbxTransactions.Size = new System.Drawing.Size(450, 220);
+            this.gbxTransactions.TabIndex = 3;
+            this.gbxTransactions.TabStop = false;
+            this.gbxTransactions.Text = "Transactions";
+            this.gbxTransactions.Enter += new System.EventHandler(this.gbxTransactions_Enter);
             // 
             // imgTransSettings
             // 
@@ -542,6 +494,32 @@ namespace B4_Plastics_SMS
             this.imgTransNotify.TabIndex = 5;
             this.imgTransNotify.TabStop = false;
             // 
+            // imgTransacDock
+            // 
+            this.imgTransacDock.Image = global::B4_Plastics_SMS.Properties.Resources.Transactions;
+            this.imgTransacDock.Location = new System.Drawing.Point(17, 33);
+            this.imgTransacDock.Name = "imgTransacDock";
+            this.imgTransacDock.Size = new System.Drawing.Size(50, 50);
+            this.imgTransacDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgTransacDock.TabIndex = 3;
+            this.imgTransacDock.TabStop = false;
+            // 
+            // gbxReports
+            // 
+            this.gbxReports.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gbxReports.Controls.Add(this.imgReportsSettings);
+            this.gbxReports.Controls.Add(this.imgReportsNotify);
+            this.gbxReports.Controls.Add(this.imgReportsDock);
+            this.gbxReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxReports.ForeColor = System.Drawing.Color.Navy;
+            this.gbxReports.Location = new System.Drawing.Point(720, 505);
+            this.gbxReports.Name = "gbxReports";
+            this.gbxReports.Size = new System.Drawing.Size(450, 220);
+            this.gbxReports.TabIndex = 4;
+            this.gbxReports.TabStop = false;
+            this.gbxReports.Text = "Reports";
+            this.gbxReports.Enter += new System.EventHandler(this.gbxReports_Enter);
+            // 
             // imgReportsSettings
             // 
             this.imgReportsSettings.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
@@ -561,6 +539,32 @@ namespace B4_Plastics_SMS
             this.imgReportsNotify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgReportsNotify.TabIndex = 5;
             this.imgReportsNotify.TabStop = false;
+            // 
+            // imgReportsDock
+            // 
+            this.imgReportsDock.Image = global::B4_Plastics_SMS.Properties.Resources.Reports;
+            this.imgReportsDock.Location = new System.Drawing.Point(17, 35);
+            this.imgReportsDock.Name = "imgReportsDock";
+            this.imgReportsDock.Size = new System.Drawing.Size(50, 50);
+            this.imgReportsDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgReportsDock.TabIndex = 3;
+            this.imgReportsDock.TabStop = false;
+            // 
+            // gbxUserInfo
+            // 
+            this.gbxUserInfo.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.gbxUserInfo.Controls.Add(this.imgUserSetting);
+            this.gbxUserInfo.Controls.Add(this.imgUserNotify);
+            this.gbxUserInfo.Controls.Add(this.imgUserInfoDock);
+            this.gbxUserInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxUserInfo.ForeColor = System.Drawing.Color.Navy;
+            this.gbxUserInfo.Location = new System.Drawing.Point(245, 12);
+            this.gbxUserInfo.Name = "gbxUserInfo";
+            this.gbxUserInfo.Size = new System.Drawing.Size(450, 220);
+            this.gbxUserInfo.TabIndex = 5;
+            this.gbxUserInfo.TabStop = false;
+            this.gbxUserInfo.Text = "User Info";
+            this.gbxUserInfo.Enter += new System.EventHandler(this.gbxUserInfo_Enter);
             // 
             // imgUserSetting
             // 
@@ -582,6 +586,16 @@ namespace B4_Plastics_SMS
             this.imgUserNotify.TabIndex = 5;
             this.imgUserNotify.TabStop = false;
             // 
+            // imgUserInfoDock
+            // 
+            this.imgUserInfoDock.Image = global::B4_Plastics_SMS.Properties.Resources.User_Info;
+            this.imgUserInfoDock.Location = new System.Drawing.Point(17, 35);
+            this.imgUserInfoDock.Name = "imgUserInfoDock";
+            this.imgUserInfoDock.Size = new System.Drawing.Size(50, 50);
+            this.imgUserInfoDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgUserInfoDock.TabIndex = 3;
+            this.imgUserInfoDock.TabStop = false;
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -599,38 +613,38 @@ namespace B4_Plastics_SMS
             this.Text = "B4 Plastics - Admin";
             this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.pnlSelections.ResumeLayout(false);
-            this.pnlUserInfo.ResumeLayout(false);
-            this.gbxMachines.ResumeLayout(false);
-            this.gbxEmployees.ResumeLayout(false);
-            this.gbxStock.ResumeLayout(false);
-            this.gbxTransactions.ResumeLayout(false);
-            this.gbxReports.ResumeLayout(false);
-            this.gbxUserInfo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgUserInfoDock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgReportsDock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgTransacDock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgStockDock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgEmployessDock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesSettings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesNotify)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesDock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgReports)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEmployees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgMachines)).EndInit();
+            this.pnlUserInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxUserPict)).EndInit();
+            this.gbxMachines.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesSettings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesNotify)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMachinesDock)).EndInit();
+            this.gbxEmployees.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgEmployessSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEmployeesNotify)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEmployessDock)).EndInit();
+            this.gbxStock.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgStockSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStockNotify)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgStockDock)).EndInit();
+            this.gbxTransactions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgTransSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTransNotify)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgTransacDock)).EndInit();
+            this.gbxReports.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgReportsSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgReportsNotify)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgReportsDock)).EndInit();
+            this.gbxUserInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgUserSetting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserNotify)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgUserInfoDock)).EndInit();
             this.ResumeLayout(false);
 
         }

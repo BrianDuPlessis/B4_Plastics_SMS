@@ -38,7 +38,7 @@ namespace B4_Plastics_SMS
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -150,17 +150,17 @@ namespace B4_Plastics_SMS
             this.label1.Location = new System.Drawing.Point(38, 91);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 23);
+            this.label1.Size = new System.Drawing.Size(87, 23);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Email address";
+            this.label1.Text = "Username";
             // 
-            // txtEmail
+            // txtUsername
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.txtEmail.Location = new System.Drawing.Point(42, 128);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(314, 28);
-            this.txtEmail.TabIndex = 20;
+            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtUsername.Location = new System.Drawing.Point(42, 128);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(314, 28);
+            this.txtUsername.TabIndex = 20;
             // 
             // txtPassword
             // 
@@ -177,7 +177,7 @@ namespace B4_Plastics_SMS
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(732, 453);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.lblForgotPassword);
@@ -208,7 +208,7 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
     }
 }

@@ -21,9 +21,9 @@ namespace B4_Plastics_SMS
         {
             this.CenterToScreen();
 
-            txtEmail.Clear();
+            txtUsername.Clear();
             txtPassword.Clear();
-            txtEmail.Focus();
+            txtUsername.Focus();
 
             txtPassword.PasswordChar = '*';
             txtPassword.MaxLength = 14;
@@ -36,7 +36,7 @@ namespace B4_Plastics_SMS
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string Email = "",
+            string Username = "",
                    Password = "";
 
             bool Remember_Me = false;
