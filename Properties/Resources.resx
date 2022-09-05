@@ -118,14 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Notifications" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Notifications.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Employees-Blue-Resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Employees-Blue-Resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Stock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Machines-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Machines-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Transactions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Transactions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="User_Info-Blue-Resize3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User_Info-Blue-Resize3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,8 +139,8 @@
   <data name="User_Info-Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User_Info-Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="User_Info-Blue-Resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\User_Info-Blue-Resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Stock-Blue-Resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stock-Blue-Resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,14 +160,14 @@
   <data name="User_Info-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User_Info-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Transactions" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Transactions.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Machines-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Machines-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Employees" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Employees.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Notifications" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Notifications.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Reports-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reports-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Machines" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Machines.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,11 +181,14 @@
   <data name="User_Info-Blue-Resize2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User_Info-Blue-Resize2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Dispatch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Dispatch.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Transactions-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Transactions-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Stock-Blue-Resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Stock-Blue-Resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="User_Info-Blue-Resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\User_Info-Blue-Resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="User-Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User-Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,7 +196,7 @@
   <data name="Transactions-Blue_Resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Transactions-Blue_Resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Reports-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Reports-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Dispatch1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Dispatch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
