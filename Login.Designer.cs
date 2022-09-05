@@ -30,31 +30,21 @@ namespace B4_Plastics_SMS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
-            this.lblHeading = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.chRemember = new System.Windows.Forms.CheckBox();
             this.lblForgetPassword = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
+            this.lblHeading = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblHeading
-            // 
-            this.lblHeading.AutoSize = true;
-            this.lblHeading.BackColor = System.Drawing.SystemColors.Window;
-            this.lblHeading.Font = new System.Drawing.Font("Nirmala UI Semilight", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(72)))), ((int)(((byte)(158)))));
-            this.lblHeading.Location = new System.Drawing.Point(50, 49);
-            this.lblHeading.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(245, 41);
-            this.lblHeading.TabIndex = 17;
-            this.lblHeading.Text = "Team B4 Plastics";
             // 
             // btnLogin
             // 
@@ -96,16 +86,6 @@ namespace B4_Plastics_SMS
             this.lblForgetPassword.TabIndex = 4;
             this.lblForgetPassword.Text = "Forgot password?";
             this.lblForgetPassword.Click += new System.EventHandler(this.lblForgetPassword_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(116)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(546, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(521, 554);
-            this.panel1.TabIndex = 25;
             // 
             // txtPassword
             // 
@@ -171,12 +151,45 @@ namespace B4_Plastics_SMS
             this.lblEmail.TabIndex = 20;
             this.lblEmail.Text = "Email address";
             // 
+            // lblHeading
+            // 
+            this.lblHeading.AutoSize = true;
+            this.lblHeading.BackColor = System.Drawing.SystemColors.Window;
+            this.lblHeading.Font = new System.Drawing.Font("Nirmala UI Semilight", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(72)))), ((int)(((byte)(158)))));
+            this.lblHeading.Location = new System.Drawing.Point(50, 49);
+            this.lblHeading.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHeading.Name = "lblHeading";
+            this.lblHeading.Size = new System.Drawing.Size(245, 41);
+            this.lblHeading.TabIndex = 17;
+            this.lblHeading.Text = "Team B4 Plastics";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(116)))));
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(426, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(521, 490);
+            this.panel1.TabIndex = 25;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::B4_Plastics_SMS.Properties.Resources.Logo_Transparent;
+            this.pictureBox1.Location = new System.Drawing.Point(49, 180);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(440, 130);
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(947, 490);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.chRemember);
             this.Controls.Add(this.lblForgetPassword);
@@ -194,24 +207,26 @@ namespace B4_Plastics_SMS
             this.Name = "frmLogin";
             this.Text = "B4 Plastics - Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblHeading;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.CheckBox chRemember;
         private System.Windows.Forms.Label lblForgetPassword;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblHeading;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
