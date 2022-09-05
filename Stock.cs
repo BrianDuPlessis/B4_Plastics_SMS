@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace B4_Plastics_SMS
 {
-    public partial class frmMachines : Form
+    public partial class frmStock : Form
     {
-        public frmMachines()
+        public frmStock()
         {
             InitializeComponent();
-        }
-
-        private void frmMachines_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
