@@ -1,7 +1,7 @@
 ﻿
 namespace B4_Plastics_SMS
 {
-    partial class frmTransactLoad
+    partial class TransactLoad
     {
         /// <summary>
         /// Required designer variable.
@@ -357,7 +357,7 @@ namespace B4_Plastics_SMS
             this.MaximizeBox = false;
             this.Name = "frmTransactLoad";
             this.Text = "B4 Plastics - Transactions & Load Calculation";
-            this.Load += new System.EventHandler(this.frmTransactLoad_Load);
+//            this.Load += new System.EventHandler(this.frmTransactLoad_Load);
             this.gbxTransactions.ResumeLayout(false);
             this.gbxMakeEditTransact.ResumeLayout(false);
             this.gbxMakeEditTransact.PerformLayout();

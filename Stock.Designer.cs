@@ -1,7 +1,7 @@
 ﻿
 namespace B4_Plastics_SMS
 {
-    partial class frmStock
+    partial class Stock
     {
         /// <summary>
         /// Required designer variable.

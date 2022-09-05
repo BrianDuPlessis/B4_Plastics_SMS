@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace B4_Plastics_SMS
 {
-    public partial class frmDispatch : Form
+    public partial class Dispatch: Form
     {
-        public frmDispatch()
+        public Dispatch()
         {
             InitializeComponent();
         }
 
-        private void frmDispatch_Load(object sender, EventArgs e)
+        private void Dispatch_Load(object sender, EventArgs e)
         {
-            this.CenterToScreen();
+
         }
     }
 }

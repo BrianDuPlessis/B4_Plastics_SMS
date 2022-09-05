@@ -1,7 +1,7 @@
 ﻿
 namespace B4_Plastics_SMS
 {
-    partial class frmEmployees
+    partial class Employees
     {
         /// <summary>
         /// Required designer variable.
@@ -399,7 +399,7 @@ namespace B4_Plastics_SMS
             this.MaximizeBox = false;
             this.Name = "frmEmployees";
             this.Text = "B4 Plastics - Employees";
-            this.Load += new System.EventHandler(this.frmEmployees_Load);
+//            this.Load += new System.EventHandler(this.frmEmployees_Load);
             this.gbxSearch.ResumeLayout(false);
             this.gbxSearch.PerformLayout();
             this.gbxInsertAdd.ResumeLayout(false);

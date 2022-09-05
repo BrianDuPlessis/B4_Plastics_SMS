@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace B4_Plastics_SMS
 {
-    public partial class frmTransactLoad : Form
+    public partial class TransactLoad: Form
     {
-        public frmTransactLoad()
+        public TransactLoad()
         {
             InitializeComponent();
-        }
-
-        private void frmTransactLoad_Load(object sender, EventArgs e)
-        {
-            this.CenterToScreen();
         }
     }
 }

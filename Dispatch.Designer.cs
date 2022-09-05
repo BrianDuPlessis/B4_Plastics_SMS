@@ -1,7 +1,7 @@
 ﻿
 namespace B4_Plastics_SMS
 {
-    partial class frmDispatch
+    partial class Dispatch
     {
         /// <summary>
         /// Required designer variable.
@@ -29,48 +29,48 @@ namespace B4_Plastics_SMS
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDispatch));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dispatch));
             this.gbxUserInfo = new System.Windows.Forms.GroupBox();
+            this.imgUserSetting = new System.Windows.Forms.PictureBox();
+            this.imgUserNotify = new System.Windows.Forms.PictureBox();
+            this.imgUserInfoDock = new System.Windows.Forms.PictureBox();
             this.gbxStock = new System.Windows.Forms.GroupBox();
+            this.imgStockSettings = new System.Windows.Forms.PictureBox();
+            this.imgStockNotify = new System.Windows.Forms.PictureBox();
+            this.imgStockDock = new System.Windows.Forms.PictureBox();
             this.gbxLoad = new System.Windows.Forms.GroupBox();
+            this.imgLoadSettings = new System.Windows.Forms.PictureBox();
+            this.imgLoadNotify = new System.Windows.Forms.PictureBox();
+            this.imgLoadDock = new System.Windows.Forms.PictureBox();
             this.pnlSelections = new System.Windows.Forms.Panel();
+            this.pbxLoadPage = new System.Windows.Forms.PictureBox();
+            this.lblLoadPage = new System.Windows.Forms.Label();
+            this.imgStock = new System.Windows.Forms.PictureBox();
+            this.imgUserInfo = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lblUserInfo = new System.Windows.Forms.Label();
             this.lblStock = new System.Windows.Forms.Label();
             this.pnlUserInfo = new System.Windows.Forms.Panel();
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.lblLoadPage = new System.Windows.Forms.Label();
-            this.imgUserSetting = new System.Windows.Forms.PictureBox();
-            this.imgUserNotify = new System.Windows.Forms.PictureBox();
-            this.imgUserInfoDock = new System.Windows.Forms.PictureBox();
-            this.imgStockSettings = new System.Windows.Forms.PictureBox();
-            this.imgStockNotify = new System.Windows.Forms.PictureBox();
-            this.imgStockDock = new System.Windows.Forms.PictureBox();
-            this.imgLoadSettings = new System.Windows.Forms.PictureBox();
-            this.imgLoadNotify = new System.Windows.Forms.PictureBox();
-            this.imgLoadDock = new System.Windows.Forms.PictureBox();
-            this.pbxLoadPage = new System.Windows.Forms.PictureBox();
-            this.imgStock = new System.Windows.Forms.PictureBox();
-            this.imgUserInfo = new System.Windows.Forms.PictureBox();
             this.pbxUserPict = new System.Windows.Forms.PictureBox();
             this.gbxUserInfo.SuspendLayout();
-            this.gbxStock.SuspendLayout();
-            this.gbxLoad.SuspendLayout();
-            this.pnlSelections.SuspendLayout();
-            this.pnlUserInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserSetting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserNotify)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserInfoDock)).BeginInit();
+            this.gbxStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgStockSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStockNotify)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStockDock)).BeginInit();
+            this.gbxLoad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoadSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoadNotify)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoadDock)).BeginInit();
+            this.pnlSelections.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLoadPage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserInfo)).BeginInit();
+            this.pnlUserInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxUserPict)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,6 +89,36 @@ namespace B4_Plastics_SMS
             this.gbxUserInfo.TabStop = false;
             this.gbxUserInfo.Text = "User Info";
             // 
+            // imgUserSetting
+            // 
+            this.imgUserSetting.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
+            this.imgUserSetting.Location = new System.Drawing.Point(327, 68);
+            this.imgUserSetting.Name = "imgUserSetting";
+            this.imgUserSetting.Size = new System.Drawing.Size(100, 100);
+            this.imgUserSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgUserSetting.TabIndex = 6;
+            this.imgUserSetting.TabStop = false;
+            // 
+            // imgUserNotify
+            // 
+            this.imgUserNotify.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
+            this.imgUserNotify.Location = new System.Drawing.Point(219, 62);
+            this.imgUserNotify.Name = "imgUserNotify";
+            this.imgUserNotify.Size = new System.Drawing.Size(90, 110);
+            this.imgUserNotify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgUserNotify.TabIndex = 5;
+            this.imgUserNotify.TabStop = false;
+            // 
+            // imgUserInfoDock
+            // 
+            this.imgUserInfoDock.Image = global::B4_Plastics_SMS.Properties.Resources.User_Info;
+            this.imgUserInfoDock.Location = new System.Drawing.Point(17, 35);
+            this.imgUserInfoDock.Name = "imgUserInfoDock";
+            this.imgUserInfoDock.Size = new System.Drawing.Size(50, 50);
+            this.imgUserInfoDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgUserInfoDock.TabIndex = 3;
+            this.imgUserInfoDock.TabStop = false;
+            // 
             // gbxStock
             // 
             this.gbxStock.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -104,6 +134,36 @@ namespace B4_Plastics_SMS
             this.gbxStock.TabStop = false;
             this.gbxStock.Text = "Stock";
             // 
+            // imgStockSettings
+            // 
+            this.imgStockSettings.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
+            this.imgStockSettings.Location = new System.Drawing.Point(325, 64);
+            this.imgStockSettings.Name = "imgStockSettings";
+            this.imgStockSettings.Size = new System.Drawing.Size(100, 100);
+            this.imgStockSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgStockSettings.TabIndex = 6;
+            this.imgStockSettings.TabStop = false;
+            // 
+            // imgStockNotify
+            // 
+            this.imgStockNotify.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
+            this.imgStockNotify.Location = new System.Drawing.Point(217, 58);
+            this.imgStockNotify.Name = "imgStockNotify";
+            this.imgStockNotify.Size = new System.Drawing.Size(90, 110);
+            this.imgStockNotify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgStockNotify.TabIndex = 5;
+            this.imgStockNotify.TabStop = false;
+            // 
+            // imgStockDock
+            // 
+            this.imgStockDock.Image = global::B4_Plastics_SMS.Properties.Resources.Stock;
+            this.imgStockDock.Location = new System.Drawing.Point(17, 33);
+            this.imgStockDock.Name = "imgStockDock";
+            this.imgStockDock.Size = new System.Drawing.Size(50, 50);
+            this.imgStockDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgStockDock.TabIndex = 3;
+            this.imgStockDock.TabStop = false;
+            // 
             // gbxLoad
             // 
             this.gbxLoad.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -118,6 +178,35 @@ namespace B4_Plastics_SMS
             this.gbxLoad.TabIndex = 6;
             this.gbxLoad.TabStop = false;
             this.gbxLoad.Text = "Calculate Load";
+            // 
+            // imgLoadSettings
+            // 
+            this.imgLoadSettings.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
+            this.imgLoadSettings.Location = new System.Drawing.Point(325, 57);
+            this.imgLoadSettings.Name = "imgLoadSettings";
+            this.imgLoadSettings.Size = new System.Drawing.Size(100, 100);
+            this.imgLoadSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgLoadSettings.TabIndex = 4;
+            this.imgLoadSettings.TabStop = false;
+            // 
+            // imgLoadNotify
+            // 
+            this.imgLoadNotify.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
+            this.imgLoadNotify.Location = new System.Drawing.Point(217, 51);
+            this.imgLoadNotify.Name = "imgLoadNotify";
+            this.imgLoadNotify.Size = new System.Drawing.Size(90, 110);
+            this.imgLoadNotify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgLoadNotify.TabIndex = 3;
+            this.imgLoadNotify.TabStop = false;
+            // 
+            // imgLoadDock
+            // 
+            this.imgLoadDock.Location = new System.Drawing.Point(17, 31);
+            this.imgLoadDock.Name = "imgLoadDock";
+            this.imgLoadDock.Size = new System.Drawing.Size(70, 50);
+            this.imgLoadDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgLoadDock.TabIndex = 2;
+            this.imgLoadDock.TabStop = false;
             // 
             // pnlSelections
             // 
@@ -136,6 +225,46 @@ namespace B4_Plastics_SMS
             this.pnlSelections.Name = "pnlSelections";
             this.pnlSelections.Size = new System.Drawing.Size(233, 520);
             this.pnlSelections.TabIndex = 7;
+            // 
+            // pbxLoadPage
+            // 
+            this.pbxLoadPage.Location = new System.Drawing.Point(22, 270);
+            this.pbxLoadPage.Name = "pbxLoadPage";
+            this.pbxLoadPage.Size = new System.Drawing.Size(50, 41);
+            this.pbxLoadPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxLoadPage.TabIndex = 15;
+            this.pbxLoadPage.TabStop = false;
+            // 
+            // lblLoadPage
+            // 
+            this.lblLoadPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoadPage.ForeColor = System.Drawing.Color.Aqua;
+            this.lblLoadPage.Location = new System.Drawing.Point(82, 280);
+            this.lblLoadPage.Name = "lblLoadPage";
+            this.lblLoadPage.Size = new System.Drawing.Size(110, 23);
+            this.lblLoadPage.TabIndex = 14;
+            this.lblLoadPage.Text = "Calculate load";
+            this.lblLoadPage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // imgStock
+            // 
+            this.imgStock.Image = global::B4_Plastics_SMS.Properties.Resources.Stock;
+            this.imgStock.Location = new System.Drawing.Point(22, 206);
+            this.imgStock.Name = "imgStock";
+            this.imgStock.Size = new System.Drawing.Size(39, 41);
+            this.imgStock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgStock.TabIndex = 13;
+            this.imgStock.TabStop = false;
+            // 
+            // imgUserInfo
+            // 
+            this.imgUserInfo.Image = ((System.Drawing.Image)(resources.GetObject("imgUserInfo.Image")));
+            this.imgUserInfo.Location = new System.Drawing.Point(22, 147);
+            this.imgUserInfo.Name = "imgUserInfo";
+            this.imgUserInfo.Size = new System.Drawing.Size(39, 41);
+            this.imgUserInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgUserInfo.TabIndex = 11;
+            this.imgUserInfo.TabStop = false;
             // 
             // btnClose
             // 
@@ -204,137 +333,6 @@ namespace B4_Plastics_SMS
             this.lblWelcome.Text = "Welcome, ...";
             this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblLoadPage
-            // 
-            this.lblLoadPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoadPage.ForeColor = System.Drawing.Color.Aqua;
-            this.lblLoadPage.Location = new System.Drawing.Point(82, 280);
-            this.lblLoadPage.Name = "lblLoadPage";
-            this.lblLoadPage.Size = new System.Drawing.Size(110, 23);
-            this.lblLoadPage.TabIndex = 14;
-            this.lblLoadPage.Text = "Calculate load";
-            this.lblLoadPage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // imgUserSetting
-            // 
-            this.imgUserSetting.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
-            this.imgUserSetting.Location = new System.Drawing.Point(327, 68);
-            this.imgUserSetting.Name = "imgUserSetting";
-            this.imgUserSetting.Size = new System.Drawing.Size(100, 100);
-            this.imgUserSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgUserSetting.TabIndex = 6;
-            this.imgUserSetting.TabStop = false;
-            // 
-            // imgUserNotify
-            // 
-            this.imgUserNotify.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
-            this.imgUserNotify.Location = new System.Drawing.Point(219, 62);
-            this.imgUserNotify.Name = "imgUserNotify";
-            this.imgUserNotify.Size = new System.Drawing.Size(90, 110);
-            this.imgUserNotify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgUserNotify.TabIndex = 5;
-            this.imgUserNotify.TabStop = false;
-            // 
-            // imgUserInfoDock
-            // 
-            this.imgUserInfoDock.Image = global::B4_Plastics_SMS.Properties.Resources.User_Info;
-            this.imgUserInfoDock.Location = new System.Drawing.Point(17, 35);
-            this.imgUserInfoDock.Name = "imgUserInfoDock";
-            this.imgUserInfoDock.Size = new System.Drawing.Size(50, 50);
-            this.imgUserInfoDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgUserInfoDock.TabIndex = 3;
-            this.imgUserInfoDock.TabStop = false;
-            // 
-            // imgStockSettings
-            // 
-            this.imgStockSettings.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
-            this.imgStockSettings.Location = new System.Drawing.Point(325, 64);
-            this.imgStockSettings.Name = "imgStockSettings";
-            this.imgStockSettings.Size = new System.Drawing.Size(100, 100);
-            this.imgStockSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgStockSettings.TabIndex = 6;
-            this.imgStockSettings.TabStop = false;
-            // 
-            // imgStockNotify
-            // 
-            this.imgStockNotify.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
-            this.imgStockNotify.Location = new System.Drawing.Point(217, 58);
-            this.imgStockNotify.Name = "imgStockNotify";
-            this.imgStockNotify.Size = new System.Drawing.Size(90, 110);
-            this.imgStockNotify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgStockNotify.TabIndex = 5;
-            this.imgStockNotify.TabStop = false;
-            // 
-            // imgStockDock
-            // 
-            this.imgStockDock.Image = global::B4_Plastics_SMS.Properties.Resources.Stock;
-            this.imgStockDock.Location = new System.Drawing.Point(17, 33);
-            this.imgStockDock.Name = "imgStockDock";
-            this.imgStockDock.Size = new System.Drawing.Size(50, 50);
-            this.imgStockDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgStockDock.TabIndex = 3;
-            this.imgStockDock.TabStop = false;
-            // 
-            // imgLoadSettings
-            // 
-            this.imgLoadSettings.Image = global::B4_Plastics_SMS.Properties.Resources.Settings;
-            this.imgLoadSettings.Location = new System.Drawing.Point(325, 57);
-            this.imgLoadSettings.Name = "imgLoadSettings";
-            this.imgLoadSettings.Size = new System.Drawing.Size(100, 100);
-            this.imgLoadSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgLoadSettings.TabIndex = 4;
-            this.imgLoadSettings.TabStop = false;
-            // 
-            // imgLoadNotify
-            // 
-            this.imgLoadNotify.Image = global::B4_Plastics_SMS.Properties.Resources.Notifications;
-            this.imgLoadNotify.Location = new System.Drawing.Point(217, 51);
-            this.imgLoadNotify.Name = "imgLoadNotify";
-            this.imgLoadNotify.Size = new System.Drawing.Size(90, 110);
-            this.imgLoadNotify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgLoadNotify.TabIndex = 3;
-            this.imgLoadNotify.TabStop = false;
-            // 
-            // imgLoadDock
-            // 
-            this.imgLoadDock.Image = global::B4_Plastics_SMS.Properties.Resources.Load;
-            this.imgLoadDock.Location = new System.Drawing.Point(17, 31);
-            this.imgLoadDock.Name = "imgLoadDock";
-            this.imgLoadDock.Size = new System.Drawing.Size(70, 50);
-            this.imgLoadDock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgLoadDock.TabIndex = 2;
-            this.imgLoadDock.TabStop = false;
-            // 
-            // pbxLoadPage
-            // 
-            this.pbxLoadPage.Image = global::B4_Plastics_SMS.Properties.Resources.Load;
-            this.pbxLoadPage.Location = new System.Drawing.Point(22, 270);
-            this.pbxLoadPage.Name = "pbxLoadPage";
-            this.pbxLoadPage.Size = new System.Drawing.Size(50, 41);
-            this.pbxLoadPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxLoadPage.TabIndex = 15;
-            this.pbxLoadPage.TabStop = false;
-            // 
-            // imgStock
-            // 
-            this.imgStock.Image = global::B4_Plastics_SMS.Properties.Resources.Stock;
-            this.imgStock.Location = new System.Drawing.Point(22, 206);
-            this.imgStock.Name = "imgStock";
-            this.imgStock.Size = new System.Drawing.Size(39, 41);
-            this.imgStock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgStock.TabIndex = 13;
-            this.imgStock.TabStop = false;
-            // 
-            // imgUserInfo
-            // 
-            this.imgUserInfo.Image = ((System.Drawing.Image)(resources.GetObject("imgUserInfo.Image")));
-            this.imgUserInfo.Location = new System.Drawing.Point(22, 147);
-            this.imgUserInfo.Name = "imgUserInfo";
-            this.imgUserInfo.Size = new System.Drawing.Size(39, 41);
-            this.imgUserInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgUserInfo.TabIndex = 11;
-            this.imgUserInfo.TabStop = false;
-            // 
             // pbxUserPict
             // 
             this.pbxUserPict.Image = global::B4_Plastics_SMS.Properties.Resources.User;
@@ -345,7 +343,7 @@ namespace B4_Plastics_SMS
             this.pbxUserPict.TabIndex = 1;
             this.pbxUserPict.TabStop = false;
             // 
-            // frmDispatch
+            // Dispatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -355,26 +353,26 @@ namespace B4_Plastics_SMS
             this.Controls.Add(this.gbxLoad);
             this.Controls.Add(this.pnlSelections);
             this.MaximizeBox = false;
-            this.Name = "frmDispatch";
+            this.Name = "Dispatch";
             this.Text = "B4 Plastics - Dispatch";
-            this.Load += new System.EventHandler(this.frmDispatch_Load);
+            this.Load += new System.EventHandler(this.Dispatch_Load);
             this.gbxUserInfo.ResumeLayout(false);
-            this.gbxStock.ResumeLayout(false);
-            this.gbxLoad.ResumeLayout(false);
-            this.pnlSelections.ResumeLayout(false);
-            this.pnlUserInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgUserSetting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserNotify)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserInfoDock)).EndInit();
+            this.gbxStock.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgStockSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStockNotify)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStockDock)).EndInit();
+            this.gbxLoad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgLoadSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoadNotify)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoadDock)).EndInit();
+            this.pnlSelections.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLoadPage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgUserInfo)).EndInit();
+            this.pnlUserInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxUserPict)).EndInit();
             this.ResumeLayout(false);
 

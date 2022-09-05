@@ -1,7 +1,7 @@
 ﻿
 namespace B4_Plastics_SMS
 {
-    partial class frmEmployee
+    partial class Employee
     {
         /// <summary>
         /// Required designer variable.
@@ -77,7 +77,7 @@ namespace B4_Plastics_SMS
             this.gbxUserInfo.TabIndex = 8;
             this.gbxUserInfo.TabStop = false;
             this.gbxUserInfo.Text = "User Info";
-            this.gbxUserInfo.Enter += new System.EventHandler(this.gbxUserInfo_Enter);
+//            this.gbxUserInfo.Enter += new System.EventHandler(this.gbxUserInfo_Enter);
             // 
             // gbxStock
             // 
@@ -93,7 +93,7 @@ namespace B4_Plastics_SMS
             this.gbxStock.TabIndex = 7;
             this.gbxStock.TabStop = false;
             this.gbxStock.Text = "Stock";
-            this.gbxStock.Enter += new System.EventHandler(this.gbxStock_Enter);
+//            this.gbxStock.Enter += new System.EventHandler(this.gbxStock_Enter);
             // 
             // pnlSelections
             // 
@@ -122,7 +122,7 @@ namespace B4_Plastics_SMS
             this.btnClose.TabIndex = 8;
             this.btnClose.Text = "&Close";
             this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+//            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnLogOut
             // 
@@ -135,7 +135,7 @@ namespace B4_Plastics_SMS
             this.btnLogOut.TabIndex = 7;
             this.btnLogOut.Text = "&Log out";
             this.btnLogOut.UseVisualStyleBackColor = false;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+//            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // lblUserInfo
             // 
@@ -147,7 +147,7 @@ namespace B4_Plastics_SMS
             this.lblUserInfo.TabIndex = 6;
             this.lblUserInfo.Text = "User Info page";
             this.lblUserInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblUserInfo.Click += new System.EventHandler(this.lblUserInfo_Click);
+//            this.lblUserInfo.Click += new System.EventHandler(this.lblUserInfo_Click);
             // 
             // lblStock
             // 
@@ -159,7 +159,7 @@ namespace B4_Plastics_SMS
             this.lblStock.TabIndex = 3;
             this.lblStock.Text = "Stock page";
             this.lblStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblStock.Click += new System.EventHandler(this.lblStock_Click);
+//            this.lblStock.Click += new System.EventHandler(this.lblStock_Click);
             // 
             // pnlUserInfo
             // 
@@ -283,7 +283,7 @@ namespace B4_Plastics_SMS
             this.MaximizeBox = false;
             this.Name = "frmEmployee";
             this.Text = "B4 Plastics - Employee";
-            this.Load += new System.EventHandler(this.frmEmployee_Load);
+//            this.Load += new System.EventHandler(this.frmEmployee_Load);
             this.gbxUserInfo.ResumeLayout(false);
             this.gbxStock.ResumeLayout(false);
             this.pnlSelections.ResumeLayout(false);

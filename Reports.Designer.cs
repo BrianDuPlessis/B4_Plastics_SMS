@@ -1,7 +1,7 @@
 ﻿
 namespace B4_Plastics_SMS
 {
-    partial class frmReports
+    partial class Reports
     {
         /// <summary>
         /// Required designer variable.
@@ -409,7 +409,7 @@ namespace B4_Plastics_SMS
             this.MaximizeBox = false;
             this.Name = "frmReports";
             this.Text = "B4 Plastics - Reports";
-            this.Load += new System.EventHandler(this.frmReports_Load);
+//            this.Load += new System.EventHandler(this.frmReports_Load);
             this.gbxReports.ResumeLayout(false);
             this.gbxSortBy.ResumeLayout(false);
             this.gbxSortBy.PerformLayout();

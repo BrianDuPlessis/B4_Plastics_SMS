@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace B4_Plastics_SMS
 {
-    public partial class frmStock : Form
+    public partial class Stock: Form
     {
-        public frmStock()
+        public Stock()
         {
             InitializeComponent();
         }
