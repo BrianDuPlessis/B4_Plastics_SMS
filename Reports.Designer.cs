@@ -31,6 +31,8 @@ namespace B4_Plastics_SMS
         {
             this.gbxReports = new System.Windows.Forms.GroupBox();
             this.gbxSortBy = new System.Windows.Forms.GroupBox();
+            this.rbnPipeDiameter = new System.Windows.Forms.RadioButton();
+            this.rbnPipeLength = new System.Windows.Forms.RadioButton();
             this.gbxOrderBy = new System.Windows.Forms.GroupBox();
             this.rbnDESC = new System.Windows.Forms.RadioButton();
             this.rbnASC = new System.Windows.Forms.RadioButton();
@@ -38,26 +40,24 @@ namespace B4_Plastics_SMS
             this.rbnPipeQuantity = new System.Windows.Forms.RadioButton();
             this.rbnPipeColour = new System.Windows.Forms.RadioButton();
             this.gbxFilterBy = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtLengthHigh = new System.Windows.Forms.TextBox();
+            this.txtLengthLow = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtQuantityHigh = new System.Windows.Forms.TextBox();
+            this.txtQuantityLow = new System.Windows.Forms.TextBox();
+            this.cbxColour = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtPriceHigh = new System.Windows.Forms.TextBox();
+            this.txtPriceLow = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnRequest = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.rtxReportPreview = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPriceLow = new System.Windows.Forms.TextBox();
-            this.txtPriceHigh = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbxColour = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtQuantityHigh = new System.Windows.Forms.TextBox();
-            this.txtQuantityLow = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtLengthHigh = new System.Windows.Forms.TextBox();
-            this.txtLengthLow = new System.Windows.Forms.TextBox();
-            this.rbnPipeLength = new System.Windows.Forms.RadioButton();
-            this.rbnPipeDiameter = new System.Windows.Forms.RadioButton();
             this.gbxReports.SuspendLayout();
             this.gbxSortBy.SuspendLayout();
             this.gbxOrderBy.SuspendLayout();
@@ -96,6 +96,30 @@ namespace B4_Plastics_SMS
             this.gbxSortBy.TabIndex = 5;
             this.gbxSortBy.TabStop = false;
             this.gbxSortBy.Text = "Sort";
+            // 
+            // rbnPipeDiameter
+            // 
+            this.rbnPipeDiameter.AutoSize = true;
+            this.rbnPipeDiameter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbnPipeDiameter.Location = new System.Drawing.Point(197, 85);
+            this.rbnPipeDiameter.Name = "rbnPipeDiameter";
+            this.rbnPipeDiameter.Size = new System.Drawing.Size(146, 24);
+            this.rbnPipeDiameter.TabIndex = 8;
+            this.rbnPipeDiameter.TabStop = true;
+            this.rbnPipeDiameter.Text = "Pipe diameter";
+            this.rbnPipeDiameter.UseVisualStyleBackColor = true;
+            // 
+            // rbnPipeLength
+            // 
+            this.rbnPipeLength.AutoSize = true;
+            this.rbnPipeLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbnPipeLength.Location = new System.Drawing.Point(197, 50);
+            this.rbnPipeLength.Name = "rbnPipeLength";
+            this.rbnPipeLength.Size = new System.Drawing.Size(124, 24);
+            this.rbnPipeLength.TabIndex = 7;
+            this.rbnPipeLength.TabStop = true;
+            this.rbnPipeLength.Text = "Pipe length";
+            this.rbnPipeLength.UseVisualStyleBackColor = true;
             // 
             // gbxOrderBy
             // 
@@ -197,6 +221,139 @@ namespace B4_Plastics_SMS
             this.gbxFilterBy.TabStop = false;
             this.gbxFilterBy.Text = "Filter";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(450, 135);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(25, 20);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "to";
+            // 
+            // txtLengthHigh
+            // 
+            this.txtLengthHigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLengthHigh.Location = new System.Drawing.Point(492, 132);
+            this.txtLengthHigh.Name = "txtLengthHigh";
+            this.txtLengthHigh.Size = new System.Drawing.Size(104, 26);
+            this.txtLengthHigh.TabIndex = 12;
+            this.txtLengthHigh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtLengthLow
+            // 
+            this.txtLengthLow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLengthLow.Location = new System.Drawing.Point(334, 132);
+            this.txtLengthLow.Name = "txtLengthLow";
+            this.txtLengthLow.Size = new System.Drawing.Size(104, 26);
+            this.txtLengthLow.TabIndex = 11;
+            this.txtLengthLow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(142, 135);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(25, 20);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "to";
+            // 
+            // txtQuantityHigh
+            // 
+            this.txtQuantityHigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantityHigh.Location = new System.Drawing.Point(184, 132);
+            this.txtQuantityHigh.Name = "txtQuantityHigh";
+            this.txtQuantityHigh.Size = new System.Drawing.Size(104, 26);
+            this.txtQuantityHigh.TabIndex = 9;
+            this.txtQuantityHigh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtQuantityLow
+            // 
+            this.txtQuantityLow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantityLow.Location = new System.Drawing.Point(26, 132);
+            this.txtQuantityLow.Name = "txtQuantityLow";
+            this.txtQuantityLow.Size = new System.Drawing.Size(104, 26);
+            this.txtQuantityLow.TabIndex = 8;
+            this.txtQuantityLow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // cbxColour
+            // 
+            this.cbxColour.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxColour.FormattingEnabled = true;
+            this.cbxColour.Location = new System.Drawing.Point(402, 63);
+            this.cbxColour.Name = "cbxColour";
+            this.cbxColour.Size = new System.Drawing.Size(214, 28);
+            this.cbxColour.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(142, 66);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(25, 20);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "to";
+            // 
+            // txtPriceHigh
+            // 
+            this.txtPriceHigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPriceHigh.Location = new System.Drawing.Point(184, 63);
+            this.txtPriceHigh.Name = "txtPriceHigh";
+            this.txtPriceHigh.Size = new System.Drawing.Size(104, 26);
+            this.txtPriceHigh.TabIndex = 5;
+            this.txtPriceHigh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtPriceLow
+            // 
+            this.txtPriceLow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPriceLow.Location = new System.Drawing.Point(26, 63);
+            this.txtPriceLow.Name = "txtPriceLow";
+            this.txtPriceLow.Size = new System.Drawing.Size(104, 26);
+            this.txtPriceLow.TabIndex = 4;
+            this.txtPriceLow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(330, 110);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Length:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(330, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Colour:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(22, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Quantity:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(22, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Price:";
+            // 
             // btnRequest
             // 
             this.btnRequest.BackColor = System.Drawing.Color.LightSlateGray;
@@ -242,169 +399,12 @@ namespace B4_Plastics_SMS
             this.rtxReportPreview.TabIndex = 0;
             this.rtxReportPreview.Text = "";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Price:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Quantity:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(330, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Colour:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(330, 110);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Length:";
-            // 
-            // txtPriceLow
-            // 
-            this.txtPriceLow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPriceLow.Location = new System.Drawing.Point(26, 63);
-            this.txtPriceLow.Name = "txtPriceLow";
-            this.txtPriceLow.Size = new System.Drawing.Size(104, 26);
-            this.txtPriceLow.TabIndex = 4;
-            this.txtPriceLow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtPriceHigh
-            // 
-            this.txtPriceHigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPriceHigh.Location = new System.Drawing.Point(184, 63);
-            this.txtPriceHigh.Name = "txtPriceHigh";
-            this.txtPriceHigh.Size = new System.Drawing.Size(104, 26);
-            this.txtPriceHigh.TabIndex = 5;
-            this.txtPriceHigh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(142, 66);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 20);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "to";
-            // 
-            // cbxColour
-            // 
-            this.cbxColour.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxColour.FormattingEnabled = true;
-            this.cbxColour.Location = new System.Drawing.Point(402, 63);
-            this.cbxColour.Name = "cbxColour";
-            this.cbxColour.Size = new System.Drawing.Size(214, 28);
-            this.cbxColour.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(142, 135);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(25, 20);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "to";
-            // 
-            // txtQuantityHigh
-            // 
-            this.txtQuantityHigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantityHigh.Location = new System.Drawing.Point(184, 132);
-            this.txtQuantityHigh.Name = "txtQuantityHigh";
-            this.txtQuantityHigh.Size = new System.Drawing.Size(104, 26);
-            this.txtQuantityHigh.TabIndex = 9;
-            this.txtQuantityHigh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtQuantityLow
-            // 
-            this.txtQuantityLow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantityLow.Location = new System.Drawing.Point(26, 132);
-            this.txtQuantityLow.Name = "txtQuantityLow";
-            this.txtQuantityLow.Size = new System.Drawing.Size(104, 26);
-            this.txtQuantityLow.TabIndex = 8;
-            this.txtQuantityLow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(450, 135);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 20);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "to";
-            // 
-            // txtLengthHigh
-            // 
-            this.txtLengthHigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLengthHigh.Location = new System.Drawing.Point(492, 132);
-            this.txtLengthHigh.Name = "txtLengthHigh";
-            this.txtLengthHigh.Size = new System.Drawing.Size(104, 26);
-            this.txtLengthHigh.TabIndex = 12;
-            this.txtLengthHigh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtLengthLow
-            // 
-            this.txtLengthLow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLengthLow.Location = new System.Drawing.Point(334, 132);
-            this.txtLengthLow.Name = "txtLengthLow";
-            this.txtLengthLow.Size = new System.Drawing.Size(104, 26);
-            this.txtLengthLow.TabIndex = 11;
-            this.txtLengthLow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // rbnPipeLength
-            // 
-            this.rbnPipeLength.AutoSize = true;
-            this.rbnPipeLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbnPipeLength.Location = new System.Drawing.Point(197, 50);
-            this.rbnPipeLength.Name = "rbnPipeLength";
-            this.rbnPipeLength.Size = new System.Drawing.Size(124, 24);
-            this.rbnPipeLength.TabIndex = 7;
-            this.rbnPipeLength.TabStop = true;
-            this.rbnPipeLength.Text = "Pipe length";
-            this.rbnPipeLength.UseVisualStyleBackColor = true;
-            // 
-            // rbnPipeDiameter
-            // 
-            this.rbnPipeDiameter.AutoSize = true;
-            this.rbnPipeDiameter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbnPipeDiameter.Location = new System.Drawing.Point(197, 85);
-            this.rbnPipeDiameter.Name = "rbnPipeDiameter";
-            this.rbnPipeDiameter.Size = new System.Drawing.Size(183, 30);
-            this.rbnPipeDiameter.TabIndex = 8;
-            this.rbnPipeDiameter.TabStop = true;
-            this.rbnPipeDiameter.Text = "Pipe diameter";
-            this.rbnPipeDiameter.UseVisualStyleBackColor = true;
-            // 
             // frmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(1185, 602);
+            this.ClientSize = new System.Drawing.Size(1481, 765);
             this.Controls.Add(this.gbxReports);
             this.MaximizeBox = false;
             this.Name = "frmReports";
