@@ -58,12 +58,12 @@ namespace B4_Plastics_SMS
             this.label4 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.gbxEmployeeDetails = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvEmployeeDetails = new System.Windows.Forms.DataGridView();
             this.gbxSearch.SuspendLayout();
             this.gbxInsertAdd.SuspendLayout();
             this.gbxDelete.SuspendLayout();
             this.gbxEmployeeDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployeeDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxSearch
@@ -366,7 +366,7 @@ namespace B4_Plastics_SMS
             // gbxEmployeeDetails
             // 
             this.gbxEmployeeDetails.BackColor = System.Drawing.Color.SteelBlue;
-            this.gbxEmployeeDetails.Controls.Add(this.dataGridView1);
+            this.gbxEmployeeDetails.Controls.Add(this.dgvEmployeeDetails);
             this.gbxEmployeeDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxEmployeeDetails.ForeColor = System.Drawing.Color.Navy;
             this.gbxEmployeeDetails.Location = new System.Drawing.Point(30, 354);
@@ -376,15 +376,15 @@ namespace B4_Plastics_SMS
             this.gbxEmployeeDetails.TabStop = false;
             this.gbxEmployeeDetails.Text = "Employee Details";
             // 
-            // dataGridView1
+            // dgvEmployeeDetails
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 29);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1097, 277);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvEmployeeDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployeeDetails.Location = new System.Drawing.Point(15, 29);
+            this.dgvEmployeeDetails.Name = "dgvEmployeeDetails";
+            this.dgvEmployeeDetails.RowHeadersWidth = 51;
+            this.dgvEmployeeDetails.RowTemplate.Height = 24;
+            this.dgvEmployeeDetails.Size = new System.Drawing.Size(1097, 277);
+            this.dgvEmployeeDetails.TabIndex = 0;
             // 
             // frmEmployees
             // 
@@ -407,7 +407,7 @@ namespace B4_Plastics_SMS
             this.gbxDelete.ResumeLayout(false);
             this.gbxDelete.PerformLayout();
             this.gbxEmployeeDetails.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployeeDetails)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -418,7 +418,7 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.GroupBox gbxInsertAdd;
         private System.Windows.Forms.GroupBox gbxDelete;
         private System.Windows.Forms.GroupBox gbxEmployeeDetails;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvEmployeeDetails;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnInsertAdd;
         private System.Windows.Forms.Button btnDelete;
