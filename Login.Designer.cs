@@ -180,15 +180,7 @@ namespace B4_Plastics_SMS
             // 
             // txtPassword
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(53, 148);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(114, 23);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Email address";
+            
             // 
             // frmLogin
             // 
@@ -198,7 +190,7 @@ namespace B4_Plastics_SMS
             this.ClientSize = new System.Drawing.Size(732, 453);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.btnLogin);
+         
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
@@ -207,7 +199,7 @@ namespace B4_Plastics_SMS
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label7);
+        
             this.Controls.Add(this.label5);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.MaximizeBox = false;
