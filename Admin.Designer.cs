@@ -31,11 +31,11 @@ namespace B4_Plastics_SMS
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlNav = new System.Windows.Forms.Panel();
             this.btnReportsPage = new System.Windows.Forms.Button();
             this.btnMachinePage = new System.Windows.Forms.Button();
             this.btnTransactionsPage = new System.Windows.Forms.Button();
             this.btnStockPage = new System.Windows.Forms.Button();
-            this.pnlNav = new System.Windows.Forms.Panel();
             this.btnContactUs = new System.Windows.Forms.Button();
             this.btnEmployeesPage = new System.Windows.Forms.Button();
             this.btnUserInfoPage = new System.Windows.Forms.Button();
@@ -72,6 +72,8 @@ namespace B4_Plastics_SMS
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -99,10 +101,12 @@ namespace B4_Plastics_SMS
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
             // 
+            this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
             this.panel3.Controls.Add(this.pnlNav);
             this.panel3.Controls.Add(this.btnReportsPage);
@@ -114,11 +118,20 @@ namespace B4_Plastics_SMS
             this.panel3.Controls.Add(this.btnUserInfoPage);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Location = new System.Drawing.Point(0, 28);
             this.panel3.Margin = new System.Windows.Forms.Padding(5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(269, 765);
+            this.panel3.Size = new System.Drawing.Size(250, 756);
             this.panel3.TabIndex = 0;
+            // 
+            // pnlNav
+            // 
+            this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.pnlNav.Location = new System.Drawing.Point(0, 91);
+            this.pnlNav.Margin = new System.Windows.Forms.Padding(5);
+            this.pnlNav.Name = "pnlNav";
+            this.pnlNav.Size = new System.Drawing.Size(5, 151);
+            this.pnlNav.TabIndex = 0;
             // 
             // btnReportsPage
             // 
@@ -131,7 +144,7 @@ namespace B4_Plastics_SMS
             this.btnReportsPage.Location = new System.Drawing.Point(0, 417);
             this.btnReportsPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnReportsPage.Name = "btnReportsPage";
-            this.btnReportsPage.Size = new System.Drawing.Size(269, 64);
+            this.btnReportsPage.Size = new System.Drawing.Size(250, 64);
             this.btnReportsPage.TabIndex = 5;
             this.btnReportsPage.Text = "  Reports page     ";
             this.btnReportsPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -149,7 +162,7 @@ namespace B4_Plastics_SMS
             this.btnMachinePage.Location = new System.Drawing.Point(0, 353);
             this.btnMachinePage.Margin = new System.Windows.Forms.Padding(5);
             this.btnMachinePage.Name = "btnMachinePage";
-            this.btnMachinePage.Size = new System.Drawing.Size(269, 64);
+            this.btnMachinePage.Size = new System.Drawing.Size(250, 64);
             this.btnMachinePage.TabIndex = 4;
             this.btnMachinePage.Text = "  Machine page     ";
             this.btnMachinePage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -167,7 +180,7 @@ namespace B4_Plastics_SMS
             this.btnTransactionsPage.Location = new System.Drawing.Point(0, 289);
             this.btnTransactionsPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnTransactionsPage.Name = "btnTransactionsPage";
-            this.btnTransactionsPage.Size = new System.Drawing.Size(269, 64);
+            this.btnTransactionsPage.Size = new System.Drawing.Size(250, 64);
             this.btnTransactionsPage.TabIndex = 3;
             this.btnTransactionsPage.Text = "  Transactions page";
             this.btnTransactionsPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -185,21 +198,12 @@ namespace B4_Plastics_SMS
             this.btnStockPage.Location = new System.Drawing.Point(0, 225);
             this.btnStockPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnStockPage.Name = "btnStockPage";
-            this.btnStockPage.Size = new System.Drawing.Size(269, 64);
+            this.btnStockPage.Size = new System.Drawing.Size(250, 64);
             this.btnStockPage.TabIndex = 2;
             this.btnStockPage.Text = "   Stock page        ";
             this.btnStockPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStockPage.UseVisualStyleBackColor = true;
             this.btnStockPage.Click += new System.EventHandler(this.btnStockPage_Click);
-            // 
-            // pnlNav
-            // 
-            this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlNav.Location = new System.Drawing.Point(0, 91);
-            this.pnlNav.Margin = new System.Windows.Forms.Padding(5);
-            this.pnlNav.Name = "pnlNav";
-            this.pnlNav.Size = new System.Drawing.Size(5, 151);
-            this.pnlNav.TabIndex = 0;
             // 
             // btnContactUs
             // 
@@ -208,10 +212,10 @@ namespace B4_Plastics_SMS
             this.btnContactUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContactUs.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContactUs.ForeColor = System.Drawing.Color.White;
-            this.btnContactUs.Location = new System.Drawing.Point(0, 701);
+            this.btnContactUs.Location = new System.Drawing.Point(0, 692);
             this.btnContactUs.Margin = new System.Windows.Forms.Padding(5);
             this.btnContactUs.Name = "btnContactUs";
-            this.btnContactUs.Size = new System.Drawing.Size(269, 64);
+            this.btnContactUs.Size = new System.Drawing.Size(250, 64);
             this.btnContactUs.TabIndex = 6;
             this.btnContactUs.Text = " Contact Us";
             this.btnContactUs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -229,7 +233,7 @@ namespace B4_Plastics_SMS
             this.btnEmployeesPage.Location = new System.Drawing.Point(0, 161);
             this.btnEmployeesPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnEmployeesPage.Name = "btnEmployeesPage";
-            this.btnEmployeesPage.Size = new System.Drawing.Size(269, 64);
+            this.btnEmployeesPage.Size = new System.Drawing.Size(250, 64);
             this.btnEmployeesPage.TabIndex = 1;
             this.btnEmployeesPage.Text = "  Employees page  ";
             this.btnEmployeesPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -247,7 +251,7 @@ namespace B4_Plastics_SMS
             this.btnUserInfoPage.Location = new System.Drawing.Point(0, 97);
             this.btnUserInfoPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnUserInfoPage.Name = "btnUserInfoPage";
-            this.btnUserInfoPage.Size = new System.Drawing.Size(269, 64);
+            this.btnUserInfoPage.Size = new System.Drawing.Size(250, 64);
             this.btnUserInfoPage.TabIndex = 2;
             this.btnUserInfoPage.Text = "  User Info page   ";
             this.btnUserInfoPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -262,7 +266,7 @@ namespace B4_Plastics_SMS
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(269, 97);
+            this.panel4.Size = new System.Drawing.Size(250, 97);
             this.panel4.TabIndex = 0;
             // 
             // lblWelcome
@@ -336,7 +340,7 @@ namespace B4_Plastics_SMS
             this.pnlUserInfo.Controls.Add(this.imgUserNotify);
             this.pnlUserInfo.Controls.Add(this.imgUserInfoDock);
             this.pnlUserInfo.ForeColor = System.Drawing.Color.White;
-            this.pnlUserInfo.Location = new System.Drawing.Point(312, 20);
+            this.pnlUserInfo.Location = new System.Drawing.Point(312, 55);
             this.pnlUserInfo.Name = "pnlUserInfo";
             this.pnlUserInfo.Size = new System.Drawing.Size(450, 222);
             this.pnlUserInfo.TabIndex = 7;
@@ -401,7 +405,7 @@ namespace B4_Plastics_SMS
             this.panel1.Controls.Add(this.imgEmployessDock);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(787, 22);
+            this.panel1.Location = new System.Drawing.Point(787, 57);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(450, 222);
             this.panel1.TabIndex = 8;
@@ -446,7 +450,7 @@ namespace B4_Plastics_SMS
             this.panel2.Controls.Add(this.imgStockDock);
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(312, 269);
+            this.panel2.Location = new System.Drawing.Point(312, 304);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(450, 222);
             this.panel2.TabIndex = 11;
@@ -491,7 +495,7 @@ namespace B4_Plastics_SMS
             this.panel5.Controls.Add(this.imgTransacDock);
             this.panel5.Controls.Add(this.pictureBox8);
             this.panel5.ForeColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(787, 269);
+            this.panel5.Location = new System.Drawing.Point(787, 304);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(450, 222);
             this.panel5.TabIndex = 11;
@@ -536,7 +540,7 @@ namespace B4_Plastics_SMS
             this.panel6.Controls.Add(this.imgMachinesDock);
             this.panel6.Controls.Add(this.pictureBox10);
             this.panel6.ForeColor = System.Drawing.Color.White;
-            this.panel6.Location = new System.Drawing.Point(312, 515);
+            this.panel6.Location = new System.Drawing.Point(312, 550);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(450, 222);
             this.panel6.TabIndex = 11;
@@ -581,7 +585,7 @@ namespace B4_Plastics_SMS
             this.panel7.Controls.Add(this.imgReportsDock);
             this.panel7.Controls.Add(this.pictureBox12);
             this.panel7.ForeColor = System.Drawing.Color.White;
-            this.panel7.Location = new System.Drawing.Point(787, 515);
+            this.panel7.Location = new System.Drawing.Point(787, 550);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(450, 222);
             this.panel7.TabIndex = 11;
@@ -617,11 +621,29 @@ namespace B4_Plastics_SMS
             this.pictureBox12.TabIndex = 8;
             this.pictureBox12.TabStop = false;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logOutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.menuStrip1.Size = new System.Drawing.Size(1275, 28);
+            this.menuStrip1.TabIndex = 12;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1275, 765);
+            this.ClientSize = new System.Drawing.Size(1275, 784);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -629,8 +651,11 @@ namespace B4_Plastics_SMS
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnlUserInfo);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(950, 600);
             this.Name = "frmAdmin";
             this.Text = "B4 Plastics - Admin";
             this.Load += new System.EventHandler(this.frmAdmin_Load);
@@ -667,7 +692,10 @@ namespace B4_Plastics_SMS
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -714,5 +742,7 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
     }
 }
