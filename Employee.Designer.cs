@@ -29,6 +29,7 @@ namespace B4_Plastics_SMS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee));
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.imgStockDock = new System.Windows.Forms.PictureBox();
@@ -285,6 +286,7 @@ namespace B4_Plastics_SMS
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlUserInfo);
             this.Controls.Add(this.panel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Employee";
             this.Text = "B4 Plastics - Employee";

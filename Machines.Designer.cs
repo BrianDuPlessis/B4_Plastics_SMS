@@ -29,17 +29,18 @@ namespace B4_Plastics_SMS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Machines));
             this.gbxMachines = new System.Windows.Forms.GroupBox();
-            this.gbxMachineDetails = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.gbxSearch = new System.Windows.Forms.GroupBox();
             this.gbxChangeState = new System.Windows.Forms.GroupBox();
+            this.gbxSearch = new System.Windows.Forms.GroupBox();
             this.cbxMachineID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.gbxMachineDetails = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.gbxMachines.SuspendLayout();
+            this.gbxSearch.SuspendLayout();
             this.gbxMachineDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.gbxSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxMachines
@@ -53,6 +54,51 @@ namespace B4_Plastics_SMS
             this.gbxMachines.Size = new System.Drawing.Size(1307, 656);
             this.gbxMachines.TabIndex = 0;
             this.gbxMachines.TabStop = false;
+            // 
+            // gbxChangeState
+            // 
+            this.gbxChangeState.BackColor = System.Drawing.Color.SteelBlue;
+            this.gbxChangeState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxChangeState.ForeColor = System.Drawing.Color.Cyan;
+            this.gbxChangeState.Location = new System.Drawing.Point(684, 21);
+            this.gbxChangeState.Name = "gbxChangeState";
+            this.gbxChangeState.Size = new System.Drawing.Size(476, 278);
+            this.gbxChangeState.TabIndex = 2;
+            this.gbxChangeState.TabStop = false;
+            this.gbxChangeState.Text = "Change machine state";
+            // 
+            // gbxSearch
+            // 
+            this.gbxSearch.BackColor = System.Drawing.Color.SteelBlue;
+            this.gbxSearch.Controls.Add(this.cbxMachineID);
+            this.gbxSearch.Controls.Add(this.label1);
+            this.gbxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxSearch.ForeColor = System.Drawing.Color.Cyan;
+            this.gbxSearch.Location = new System.Drawing.Point(161, 21);
+            this.gbxSearch.Name = "gbxSearch";
+            this.gbxSearch.Size = new System.Drawing.Size(465, 278);
+            this.gbxSearch.TabIndex = 1;
+            this.gbxSearch.TabStop = false;
+            this.gbxSearch.Text = "Search";
+            // 
+            // cbxMachineID
+            // 
+            this.cbxMachineID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxMachineID.FormattingEnabled = true;
+            this.cbxMachineID.Location = new System.Drawing.Point(162, 91);
+            this.cbxMachineID.Name = "cbxMachineID";
+            this.cbxMachineID.Size = new System.Drawing.Size(191, 28);
+            this.cbxMachineID.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(82, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Machine ID:";
             // 
             // gbxMachineDetails
             // 
@@ -77,65 +123,20 @@ namespace B4_Plastics_SMS
             this.dataGridView1.Size = new System.Drawing.Size(1224, 258);
             this.dataGridView1.TabIndex = 0;
             // 
-            // gbxSearch
-            // 
-            this.gbxSearch.BackColor = System.Drawing.Color.SteelBlue;
-            this.gbxSearch.Controls.Add(this.cbxMachineID);
-            this.gbxSearch.Controls.Add(this.label1);
-            this.gbxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxSearch.ForeColor = System.Drawing.Color.Cyan;
-            this.gbxSearch.Location = new System.Drawing.Point(161, 21);
-            this.gbxSearch.Name = "gbxSearch";
-            this.gbxSearch.Size = new System.Drawing.Size(465, 278);
-            this.gbxSearch.TabIndex = 1;
-            this.gbxSearch.TabStop = false;
-            this.gbxSearch.Text = "Search";
-            // 
-            // gbxChangeState
-            // 
-            this.gbxChangeState.BackColor = System.Drawing.Color.SteelBlue;
-            this.gbxChangeState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxChangeState.ForeColor = System.Drawing.Color.Cyan;
-            this.gbxChangeState.Location = new System.Drawing.Point(684, 21);
-            this.gbxChangeState.Name = "gbxChangeState";
-            this.gbxChangeState.Size = new System.Drawing.Size(476, 278);
-            this.gbxChangeState.TabIndex = 2;
-            this.gbxChangeState.TabStop = false;
-            this.gbxChangeState.Text = "Change machine state";
-            // 
-            // cbxMachineID
-            // 
-            this.cbxMachineID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxMachineID.FormattingEnabled = true;
-            this.cbxMachineID.Location = new System.Drawing.Point(162, 91);
-            this.cbxMachineID.Name = "cbxMachineID";
-            this.cbxMachineID.Size = new System.Drawing.Size(191, 28);
-            this.cbxMachineID.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(82, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 25);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Machine ID:";
-            // 
-            // frmMachines
+            // Machines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1351, 693);
             this.Controls.Add(this.gbxMachines);
-            this.Name = "frmMachines";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Machines";
             this.Text = "B4 Plastics - Machines";
-//            this.Load += new System.EventHandler(this.frmMachines_Load);
             this.gbxMachines.ResumeLayout(false);
-            this.gbxMachineDetails.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gbxSearch.ResumeLayout(false);
             this.gbxSearch.PerformLayout();
+            this.gbxMachineDetails.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

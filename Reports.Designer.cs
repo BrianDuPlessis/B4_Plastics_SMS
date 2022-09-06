@@ -29,6 +29,7 @@ namespace B4_Plastics_SMS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reports));
             this.gbxReports = new System.Windows.Forms.GroupBox();
             this.gbxSortBy = new System.Windows.Forms.GroupBox();
             this.rbnPipeDiameter = new System.Windows.Forms.RadioButton();
@@ -399,17 +400,17 @@ namespace B4_Plastics_SMS
             this.rtxReportPreview.TabIndex = 0;
             this.rtxReportPreview.Text = "";
             // 
-            // frmReports
+            // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1481, 765);
             this.Controls.Add(this.gbxReports);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "frmReports";
+            this.Name = "Reports";
             this.Text = "B4 Plastics - Reports";
-//            this.Load += new System.EventHandler(this.frmReports_Load);
             this.gbxReports.ResumeLayout(false);
             this.gbxSortBy.ResumeLayout(false);
             this.gbxSortBy.PerformLayout();

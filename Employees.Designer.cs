@@ -29,6 +29,7 @@ namespace B4_Plastics_SMS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employees));
             this.gbxSearch = new System.Windows.Forms.GroupBox();
             this.txtSLastName = new System.Windows.Forms.TextBox();
             this.txtSFirstName = new System.Windows.Forms.TextBox();
@@ -386,7 +387,7 @@ namespace B4_Plastics_SMS
             this.dgvEmployeeDetails.Size = new System.Drawing.Size(1097, 277);
             this.dgvEmployeeDetails.TabIndex = 0;
             // 
-            // frmEmployees
+            // Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -396,10 +397,10 @@ namespace B4_Plastics_SMS
             this.Controls.Add(this.gbxDelete);
             this.Controls.Add(this.gbxInsertAdd);
             this.Controls.Add(this.gbxSearch);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "frmEmployees";
+            this.Name = "Employees";
             this.Text = "B4 Plastics - Employees";
-//            this.Load += new System.EventHandler(this.frmEmployees_Load);
             this.gbxSearch.ResumeLayout(false);
             this.gbxSearch.PerformLayout();
             this.gbxInsertAdd.ResumeLayout(false);

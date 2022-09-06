@@ -29,6 +29,7 @@ namespace B4_Plastics_SMS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactLoad));
             this.gbxTransactions = new System.Windows.Forms.GroupBox();
             this.gbxMakeEditTransact = new System.Windows.Forms.GroupBox();
             this.cbxDispatchID = new System.Windows.Forms.ComboBox();
@@ -347,17 +348,17 @@ namespace B4_Plastics_SMS
             this.gbxLoadCalculator.TabStop = false;
             this.gbxLoadCalculator.Text = "Load Calculator";
             // 
-            // frmTransactLoad
+            // TransactLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1482, 949);
             this.Controls.Add(this.gbxLoadCalculator);
             this.Controls.Add(this.gbxTransactions);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "frmTransactLoad";
+            this.Name = "TransactLoad";
             this.Text = "B4 Plastics - Transactions & Load Calculation";
-//            this.Load += new System.EventHandler(this.frmTransactLoad_Load);
             this.gbxTransactions.ResumeLayout(false);
             this.gbxMakeEditTransact.ResumeLayout(false);
             this.gbxMakeEditTransact.PerformLayout();
