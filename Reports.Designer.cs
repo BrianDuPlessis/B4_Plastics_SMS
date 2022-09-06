@@ -29,6 +29,7 @@ namespace B4_Plastics_SMS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reports));
             this.gbxReports = new System.Windows.Forms.GroupBox();
             this.gbxSortBy = new System.Windows.Forms.GroupBox();
@@ -59,10 +60,12 @@ namespace B4_Plastics_SMS
             this.btnExport = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.rtxReportPreview = new System.Windows.Forms.RichTextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbxReports.SuspendLayout();
             this.gbxSortBy.SuspendLayout();
             this.gbxOrderBy.SuspendLayout();
             this.gbxFilterBy.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxReports
@@ -366,6 +369,7 @@ namespace B4_Plastics_SMS
             this.btnRequest.TabIndex = 3;
             this.btnRequest.Text = "&Request report";
             this.btnRequest.UseVisualStyleBackColor = false;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
             // 
             // btnExport
             // 
@@ -400,6 +404,10 @@ namespace B4_Plastics_SMS
             this.rtxReportPreview.TabIndex = 0;
             this.rtxReportPreview.Text = "";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -418,6 +426,7 @@ namespace B4_Plastics_SMS
             this.gbxOrderBy.PerformLayout();
             this.gbxFilterBy.ResumeLayout(false);
             this.gbxFilterBy.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -453,5 +462,6 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.TextBox txtPriceLow;
         private System.Windows.Forms.RadioButton rbnPipeDiameter;
         private System.Windows.Forms.RadioButton rbnPipeLength;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
