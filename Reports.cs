@@ -23,7 +23,7 @@ namespace B4_Plastics_SMS
         // =====================================================
         private void btnRequest_Click(object sender, EventArgs e)
         {
-            buildSql();
+            String sql = buildSql();
         }
 
         // =====================================================
@@ -49,8 +49,8 @@ namespace B4_Plastics_SMS
             int maxLength = 0; ;
             String sort = "";
             String order = "";
-            String err = "";
             String color = "";
+            String err = "";
 
             if (cbxColour.SelectedIndex != -1)
             {
@@ -171,10 +171,23 @@ namespace B4_Plastics_SMS
             }
 
             String sql = "";
+            String sqlSort = "";
 
             if (valid)
             {
-                sql += "SELECT * FROM table ";
+                sql += "SELECT d.pipe_id, d.pipe_quantity, d.pipe_price, c.colour_code, s.pipe_length, s.pipe_diameter ";
+                sql += "FROM 'Pipes Details' AS d ";
+                sql += "LEFT JOIN 'Colours' AS c ON d.colour_id=c.colour_id ";
+                sql += "LEFT JOIN 'Pipe Size' AS s ON d.size_id=s.size_id ";
+
+                if (minPrice != 0)
+                {
+                    if (sqlSort == "")
+                    {
+                        sqlSort += "WHERE ";
+                    }
+                }        
+
             } else
             {
                 // display error message 
