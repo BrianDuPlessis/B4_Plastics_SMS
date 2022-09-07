@@ -29,7 +29,6 @@ namespace B4_Plastics_SMS
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reports));
             this.gbxReports = new System.Windows.Forms.GroupBox();
             this.gbxSortBy = new System.Windows.Forms.GroupBox();
@@ -59,24 +58,25 @@ namespace B4_Plastics_SMS
             this.btnRequest = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.rtxReportPreview = new System.Windows.Forms.RichTextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.rtxReportErr = new System.Windows.Forms.RichTextBox();
+            this.dgvReportView = new System.Windows.Forms.DataGridView();
             this.gbxReports.SuspendLayout();
             this.gbxSortBy.SuspendLayout();
             this.gbxOrderBy.SuspendLayout();
             this.gbxFilterBy.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReportView)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxReports
             // 
             this.gbxReports.BackColor = System.Drawing.Color.RoyalBlue;
+            this.gbxReports.Controls.Add(this.dgvReportView);
             this.gbxReports.Controls.Add(this.gbxSortBy);
             this.gbxReports.Controls.Add(this.gbxFilterBy);
             this.gbxReports.Controls.Add(this.btnRequest);
             this.gbxReports.Controls.Add(this.btnExport);
             this.gbxReports.Controls.Add(this.btnPrint);
-            this.gbxReports.Controls.Add(this.rtxReportPreview);
+            this.gbxReports.Controls.Add(this.rtxReportErr);
             this.gbxReports.Location = new System.Drawing.Point(35, 28);
             this.gbxReports.Name = "gbxReports";
             this.gbxReports.Size = new System.Drawing.Size(1411, 699);
@@ -376,7 +376,7 @@ namespace B4_Plastics_SMS
             this.btnExport.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(1275, 639);
+            this.btnExport.Location = new System.Drawing.Point(1258, 639);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(115, 47);
             this.btnExport.TabIndex = 2;
@@ -388,25 +388,31 @@ namespace B4_Plastics_SMS
             this.btnPrint.BackColor = System.Drawing.Color.LightSlateGray;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(1137, 639);
+            this.btnPrint.Location = new System.Drawing.Point(1111, 639);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(115, 47);
             this.btnPrint.TabIndex = 1;
             this.btnPrint.Text = "&Print";
             this.btnPrint.UseVisualStyleBackColor = false;
             // 
-            // rtxReportPreview
+            // rtxReportErr
             // 
-            this.rtxReportPreview.Location = new System.Drawing.Point(25, 306);
-            this.rtxReportPreview.Name = "rtxReportPreview";
-            this.rtxReportPreview.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.rtxReportPreview.Size = new System.Drawing.Size(1365, 321);
-            this.rtxReportPreview.TabIndex = 0;
-            this.rtxReportPreview.Text = "";
+            this.rtxReportErr.Location = new System.Drawing.Point(39, 239);
+            this.rtxReportErr.Name = "rtxReportErr";
+            this.rtxReportErr.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.rtxReportErr.Size = new System.Drawing.Size(329, 50);
+            this.rtxReportErr.TabIndex = 0;
+            this.rtxReportErr.Text = "";
             // 
-            // errorProvider1
+            // dgvReportView
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.dgvReportView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReportView.Location = new System.Drawing.Point(39, 305);
+            this.dgvReportView.Name = "dgvReportView";
+            this.dgvReportView.RowHeadersWidth = 51;
+            this.dgvReportView.RowTemplate.Height = 24;
+            this.dgvReportView.Size = new System.Drawing.Size(1334, 316);
+            this.dgvReportView.TabIndex = 6;
             // 
             // Reports
             // 
@@ -419,6 +425,7 @@ namespace B4_Plastics_SMS
             this.MaximizeBox = false;
             this.Name = "Reports";
             this.Text = "B4 Plastics - Reports";
+            this.Load += new System.EventHandler(this.Reports_Load);
             this.gbxReports.ResumeLayout(false);
             this.gbxSortBy.ResumeLayout(false);
             this.gbxSortBy.PerformLayout();
@@ -426,7 +433,7 @@ namespace B4_Plastics_SMS
             this.gbxOrderBy.PerformLayout();
             this.gbxFilterBy.ResumeLayout(false);
             this.gbxFilterBy.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReportView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -436,7 +443,7 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.GroupBox gbxReports;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.RichTextBox rtxReportPreview;
+        private System.Windows.Forms.RichTextBox rtxReportErr;
         private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.GroupBox gbxSortBy;
         private System.Windows.Forms.RadioButton rbnPipePrice;
@@ -462,6 +469,6 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.TextBox txtPriceLow;
         private System.Windows.Forms.RadioButton rbnPipeDiameter;
         private System.Windows.Forms.RadioButton rbnPipeLength;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridView dgvReportView;
     }
 }

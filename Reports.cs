@@ -17,26 +17,69 @@ namespace B4_Plastics_SMS
         {
             InitializeComponent();
         }
+        // =====================================================
+        // Global Variables  
+        // =====================================================
 
-        // =====================================================
-        // Buttons 
-        // =====================================================
-        private void btnRequest_Click(object sender, EventArgs e)
-        {
-            String sql = buildSql();
-        }
+        String cnnString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\oswald.slabbert\Documents\GitHub\B4_Plastics_SMS\B4Plastics.mdf;Integrated Security=True;Connect Timeout=30";
+        SqlConnection cnn;
+
 
         // =====================================================
         // Functions 
         // =====================================================
-
-        private void displayData()
+        // Display data on pipe details in report block
+        private void displayData(String sql)
         {
-            // varables 
+            try
+            {
+                // clear err
+                rtxReportErr.Clear();
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(sql, cnn);
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                var ds = new DataSet();
 
+                adap.Fill(ds);
+                dgvReportView.DataSource = ds.Tables[0];
+
+                cnn.Close();
+            }
+            catch (SqlException err)
+            {
+                // display error message 
+                rtxReportErr.Clear();
+                rtxReportErr.Text = err.Message;
+            }
         }
 
-        // validate data field 
+        // Populate colours combo box
+        private void pColour()
+        {
+            try
+            {
+                // clear err
+                rtxReportErr.Clear();
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM \"Colours\"", cnn);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    cbxColour.Items.Add(reader[1]);
+                }
+
+                cnn.Close();
+            }
+            catch (SqlException err)
+            {
+                // display error message 
+                rtxReportErr.Clear();
+                rtxReportErr.Text = err.Message;
+            }
+        }
+
+        // validate data field and generate sql statement
         private String buildSql()
         {
             // variables 
@@ -59,28 +102,30 @@ namespace B4_Plastics_SMS
 
             if (rbnPipeColour.Checked)
             {
-                sort = "colour";
-            } else if (rbnPipeLength.Checked)
+                sort = "c.colour_code";
+            }
+            else if (rbnPipeLength.Checked)
             {
-                sort = "length";
+                sort = "s.pipe_length";
             }
             else if (rbnPipeQuantity.Checked)
             {
-                sort = "quantity";
+                sort = "d.pipe_quantity";
             }
             else if (rbnPipeDiameter.Checked)
             {
-                sort = "diameter";
+                sort = "s.pipe_diameter";
             }
             else
             {
-                sort = "price";
+                sort = "d.pipe_price";
             }
 
             if (rbnASC.Checked)
             {
                 order = "ASC";
-            } else
+            }
+            else
             {
                 order = "DESC";
             }
@@ -88,7 +133,7 @@ namespace B4_Plastics_SMS
             // -----------------------
             // validate datafields 
             // -----------------------
-            
+
             // Price
             if (txtPriceLow.Text != "")
             {
@@ -115,8 +160,6 @@ namespace B4_Plastics_SMS
                 }
             }
 
-
-
             // Quantity
             if (txtQuantityLow.Text != "")
             {
@@ -142,7 +185,6 @@ namespace B4_Plastics_SMS
                     valid = false;
                 }
             }
-
 
             // Length
             if (txtLengthLow.Text != "")
@@ -171,31 +213,91 @@ namespace B4_Plastics_SMS
             }
 
             String sql = "";
-            String sqlSort = "";
+            String sqlFilter = "";
+            String sqlOrder = "";
 
             if (valid)
             {
                 sql += "SELECT d.pipe_id, d.pipe_quantity, d.pipe_price, c.colour_code, s.pipe_length, s.pipe_diameter ";
-                sql += "FROM 'Pipes Details' AS d ";
-                sql += "LEFT JOIN 'Colours' AS c ON d.colour_id=c.colour_id ";
-                sql += "LEFT JOIN 'Pipe Size' AS s ON d.size_id=s.size_id ";
+                sql += "FROM \"Pipes Detials\" AS d ";
+                sql += "LEFT JOIN \"Colours\" AS c ON d.colour_id=c.colour_id ";
+                sql += "LEFT JOIN \"Pipe Size\" AS s ON d.size_id=s.size_id ";
 
-                if (minPrice != 0)
+                // -------------------
+                // FILTER
+                // -------------------
+                if (minPrice != 0) { sqlFilter += "d.pipe_price >= " + minPrice + " AND "; }
+                if (maxPrice != 0) { sqlFilter += "d.pipe_price <= " + maxPrice + " AND "; }
+                if (minQty != 0) { sqlFilter += "d.pipe_quantity >= " + minQty + " AND "; }
+                if (maxQty != 0) { sqlFilter += "d.pipe_quantity <= " + maxQty + " AND "; }
+                if (minLength != 0) { sqlFilter += "s.pipe_length >= " + minLength + " AND "; }
+                if (maxLength != 0) { sqlFilter += "s.pipe_length <= " + maxLength + " AND "; }
+                if (color != "") { sqlFilter += "c.colour_code LIKE '" + color + "' AND "; }
+                // add to sql 
+                if (sqlFilter != "")
                 {
-                    if (sqlSort == "")
-                    {
-                        sqlSort += "WHERE ";
-                    }
-                }        
+                    sqlFilter = "WHERE " + sqlFilter + " ";
+                    // remove exstra AND
+                    sql += sqlFilter.Substring(0, sqlFilter.Length - 5);
+                }
 
-            } else
+                // -------------------
+                // ORDER
+                // -------------------
+                if (sort != "") { sqlOrder += "ORDER BY " + sort + " " + order + " "; }
+                // add to sql 
+                if (sqlOrder != "")
+                {
+                    sql += sqlOrder;
+                }
+
+                // -------------------
+                // finish up
+                // -------------------
+                sql += ";";
+            }
+            else
             {
                 // display error message 
-                rtxReportPreview.Clear();
-                rtxReportPreview.Text = err;
+                rtxReportErr.Clear();
+                rtxReportErr.Text = err;
             }
-            
+
             return sql;
+        }
+
+        // =====================================================
+        // Buttons 
+        // =====================================================
+        // Requset data from DB
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            String sql = buildSql();
+            // display data 
+            if (sql != "")
+            {
+                displayData(sql);
+            }
+        }
+        // Form load 
+        private void Reports_Load(object sender, EventArgs e)
+        {
+            // connect to DB
+            cnn = new SqlConnection(cnnString);
+            // test connection 
+            try
+            {
+                cnn.Open();
+                cnn.Close();
+            } catch (SqlException err)
+            {
+                // display error message 
+                rtxReportErr.Clear();
+                rtxReportErr.Text = err.Message;
+            }
+
+            // populate colour combobox
+            pColour();
         }
     }
 }
