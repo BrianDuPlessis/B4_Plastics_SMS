@@ -103,6 +103,46 @@ namespace B4_Plastics_SMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dot_Blue {
+            get {
+                object obj = ResourceManager.GetObject("Dot Blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dot_Green {
+            get {
+                object obj = ResourceManager.GetObject("Dot Green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dot_Red {
+            get {
+                object obj = ResourceManager.GetObject("Dot Red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dot_Yellow {
+            get {
+                object obj = ResourceManager.GetObject("Dot Yellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Employees {
             get {
                 object obj = ResourceManager.GetObject("Employees", resourceCulture);
@@ -126,6 +166,16 @@ namespace B4_Plastics_SMS.Properties {
         internal static System.Drawing.Bitmap Employees_Blue_Resize {
             get {
                 object obj = ResourceManager.GetObject("Employees-Blue-Resize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home_Resize {
+            get {
+                object obj = ResourceManager.GetObject("home-Resize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

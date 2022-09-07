@@ -41,6 +41,7 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -172,6 +173,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>B4Plastics.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\home-Resize.png" />
+    <None Include="Resources\Dot Yellow.png" />
+    <None Include="Resources\Dot Red.png" />
+    <None Include="Resources\Dot Green.png" />
+    <None Include="Resources\Dot Blue.png" />
     <None Include="Resources\Logo-Transparent.png" />
     <None Include="Resources\Logo4.png" />
     <None Include="Resources\Logo3.png" />

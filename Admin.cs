@@ -20,9 +20,10 @@ namespace B4_Plastics_SMS
         private void frmAdmin_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
-            pnlNav.Height = btnUserInfoPage.Height;
-            pnlNav.Top = btnUserInfoPage.Top;
-            pnlNav.Left = btnUserInfoPage.Left;
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         // Medthod for moving navigation panel and colour effect on button clicked
@@ -35,7 +36,7 @@ namespace B4_Plastics_SMS
             btnTransactionsPage.BackColor = Color.FromArgb(37, 45, 55);
             btnMachinePage.BackColor = Color.FromArgb(37, 45, 55);
             btnReportsPage.BackColor = Color.FromArgb(37, 45, 55);
-            btnContactUs.BackColor = Color.FromArgb(37, 45, 55);
+            btnDashboard.BackColor = Color.FromArgb(37, 45, 55);
 
             pnlNav.Height = btnClicked.Height;
             pnlNav.Top = btnClicked.Top;
@@ -44,53 +45,58 @@ namespace B4_Plastics_SMS
             //-------------------------------------------------------------
         }
 
-        private void btnUserInfoPage_Click(object sender, EventArgs e)
+        private void btnUserInfoPage_Click_1(object sender, EventArgs e)
         {
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
         }
 
-        private void btnEmployeesPage_Click(object sender, EventArgs e)
+        private void btnEmployeesPage_Click_1(object sender, EventArgs e)
         {
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
         }
 
-        private void btnContactUs_Click(object sender, EventArgs e)
+        private void btnStockPage_Click_1(object sender, EventArgs e)
         {
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
         }
 
-        private void btnStockPage_Click(object sender, EventArgs e)
+        private void btnTransactionsPage_Click_1(object sender, EventArgs e)
         {
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
         }
 
-        private void btnTransactionsPage_Click(object sender, EventArgs e)
+        private void btnMachinePage_Click_1(object sender, EventArgs e)
         {
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
         }
 
-        private void btnMachinePage_Click(object sender, EventArgs e)
+        private void btnReportsPage_Click_1(object sender, EventArgs e)
         {
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
         }
 
-        private void btnReportsPage_Click(object sender, EventArgs e)
+        private void btnDashboard_Click(object sender, EventArgs e)
         {
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
+        }
+
+        private void linkLabelEmail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("IExplore", "mailto:contact@b4plastics.com");
         }
     }
 }
