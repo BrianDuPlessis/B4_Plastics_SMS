@@ -46,26 +46,28 @@ namespace DashboardApp.Models
                 {
                     command.Connection = connection;
                     //Get Total Number Active Transactions
-                    command.CommandText = "SELECT COUNT(trans_quantity) FROM Transactions WHERE isCompleted = 0";
+                    command.CommandText = @"SELECT COUNT(trans_quantity) FROM Transactions WHERE isCompleted = 0
+                                            AND trans_date between @fromDate and @toDate";
+                    command.Parameters.Add("@fromDate", System.Data.SqlDbType.DateTime).Value = startDate;
+                    command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = endDate;
                     NumActiveTransactions = (int)command.ExecuteScalar();
 
                     //Get Total Number Completed Transactions
-                    command.CommandText = "SELECT COUNT(trans_quantity) FROM Transactions WHERE isCompleted = 1";
+                    command.CommandText = @"SELECT COUNT(trans_quantity) FROM Transactions WHERE isCompleted = 1
+                                            AND trans_date between @fromDate and @toDate";
                     NumCompletedTransactions = (int)command.ExecuteScalar();
 
                     //Get Total Number of Actice Machines
-                    command.CommandText = "SELECT COUNT(machine_id) FROM Machines WHERE mach_status = 1";
+                    command.CommandText = @"SELECT COUNT(machine_id) FROM Machines WHERE mach_status = 1";
                     ActiceMachines = (int)command.ExecuteScalar();
 
                     //Get Total Number of Not Active Machines
-                    command.CommandText = "SELECT COUNT(machine_id) FROM Machines WHERE mach_status = 0";
+                    command.CommandText = @"SELECT COUNT(machine_id) FROM Machines WHERE mach_status = 0";
                     NotActiveMachines = (int)command.ExecuteScalar();
 
                     //Get Total Number of Machines that needs services
                     command.CommandText = @"SELECT COUNT(machine_id) FROM [Machines]" +
-                                            "WHERE mach_service_date BETWEEN @fromDate AND @toDate";
-                    command.Parameters.Add("@fromDate", System.Data.SqlDbType.DateTime).Value = startDate;
-                    command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = endDate;
+                                            "WHERE mach_service_date <= @toDate";
                     ServicesMachines = (int)command.ExecuteScalar();
                 }
             }
@@ -81,7 +83,7 @@ namespace DashboardApp.Models
                     SqlDataReader reader;
                     command.Connection = connection;
                     //Get Understock
-                    command.CommandText = @"SELECT pipe_id, pipe_quantity
+                    command.CommandText = @"SELECT pipe_id, pipe_quantity  
                                             FROM [Pipes Detials]
                                             WHERE pipe_quantity <= 50"; // and IsDiscontinued = 0
                     reader = command.ExecuteReader();

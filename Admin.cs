@@ -127,9 +127,11 @@ namespace B4_Plastics_SMS
                 lblMachinesNeedsService.Text = model.ServicesMachines.ToString();
                 lblMachinesNotActive.Text = model.NotActiveMachines.ToString();
 
-                chartTransactionsVSDate.DataSource = model.TransactionQuantityList;
+                
                 chartTransactionsVSDate.Series[0].XValueMember = "Date";
                 chartTransactionsVSDate.Series[0].YValueMembers = "TotalAmount";
+
+                chartTransactionsVSDate.DataSource = model.TransactionQuantityList;
                 chartTransactionsVSDate.DataBind();
 
                 dgvUnderstock.DataSource = model.UnderstockList;

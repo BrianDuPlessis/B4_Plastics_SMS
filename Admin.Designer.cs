@@ -79,6 +79,7 @@ namespace B4_Plastics_SMS
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgvUnderstock = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -114,15 +115,16 @@ namespace B4_Plastics_SMS
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(251, 796);
+            this.panel3.Size = new System.Drawing.Size(251, 829);
             this.panel3.TabIndex = 0;
             // 
             // linkLabelEmail
             // 
+            this.linkLabelEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabelEmail.AutoSize = true;
             this.linkLabelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelEmail.LinkColor = System.Drawing.Color.Cyan;
-            this.linkLabelEmail.Location = new System.Drawing.Point(12, 762);
+            this.linkLabelEmail.Location = new System.Drawing.Point(12, 795);
             this.linkLabelEmail.Name = "linkLabelEmail";
             this.linkLabelEmail.Size = new System.Drawing.Size(193, 20);
             this.linkLabelEmail.TabIndex = 15;
@@ -303,11 +305,11 @@ namespace B4_Plastics_SMS
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI Semilight", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(300, 22);
+            this.label1.Font = new System.Drawing.Font("Nirmala UI Semilight", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(299, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 35);
+            this.label1.Size = new System.Drawing.Size(168, 41);
             this.label1.TabIndex = 13;
             this.label1.Text = "Dashboard";
             // 
@@ -317,7 +319,7 @@ namespace B4_Plastics_SMS
             this.pnlMachinesActive.Controls.Add(this.pictureBox3);
             this.pnlMachinesActive.Controls.Add(this.lblMachinesActive);
             this.pnlMachinesActive.Controls.Add(this.lblTitleMachinesActive);
-            this.pnlMachinesActive.Location = new System.Drawing.Point(981, 129);
+            this.pnlMachinesActive.Location = new System.Drawing.Point(306, 671);
             this.pnlMachinesActive.Margin = new System.Windows.Forms.Padding(5);
             this.pnlMachinesActive.Name = "pnlMachinesActive";
             this.pnlMachinesActive.Size = new System.Drawing.Size(312, 122);
@@ -458,7 +460,7 @@ namespace B4_Plastics_SMS
             this.pnlMachinesNotActive.Controls.Add(this.pictureBox4);
             this.pnlMachinesNotActive.Controls.Add(this.lblMachinesNotActive);
             this.pnlMachinesNotActive.Controls.Add(this.lblTitleMachinesNotActive);
-            this.pnlMachinesNotActive.Location = new System.Drawing.Point(981, 446);
+            this.pnlMachinesNotActive.Location = new System.Drawing.Point(642, 671);
             this.pnlMachinesNotActive.Margin = new System.Windows.Forms.Padding(5);
             this.pnlMachinesNotActive.Name = "pnlMachinesNotActive";
             this.pnlMachinesNotActive.Size = new System.Drawing.Size(312, 122);
@@ -505,7 +507,7 @@ namespace B4_Plastics_SMS
             this.pnlMachinesNeedsService.Controls.Add(this.pictureBox5);
             this.pnlMachinesNeedsService.Controls.Add(this.lblMachinesNeedsService);
             this.pnlMachinesNeedsService.Controls.Add(this.lblTitleMachinesNeedsService);
-            this.pnlMachinesNeedsService.Location = new System.Drawing.Point(981, 289);
+            this.pnlMachinesNeedsService.Location = new System.Drawing.Point(981, 671);
             this.pnlMachinesNeedsService.Margin = new System.Windows.Forms.Padding(5);
             this.pnlMachinesNeedsService.Name = "pnlMachinesNeedsService";
             this.pnlMachinesNeedsService.Size = new System.Drawing.Size(312, 122);
@@ -552,18 +554,19 @@ namespace B4_Plastics_SMS
             this.chartTransactionsVSDate.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartTransactionsVSDate.Legends.Add(legend1);
-            this.chartTransactionsVSDate.Location = new System.Drawing.Point(306, 289);
+            this.chartTransactionsVSDate.Location = new System.Drawing.Point(306, 327);
             this.chartTransactionsVSDate.Name = "chartTransactionsVSDate";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Quantity";
             this.chartTransactionsVSDate.Series.Add(series1);
-            this.chartTransactionsVSDate.Size = new System.Drawing.Size(648, 279);
+            this.chartTransactionsVSDate.Size = new System.Drawing.Size(648, 305);
             this.chartTransactionsVSDate.TabIndex = 14;
             this.chartTransactionsVSDate.Text = "chartTransactionsVSDate";
             // 
             // btnOkCustomDate
             // 
+            this.btnOkCustomDate.Font = new System.Drawing.Font("Nirmala UI", 8.5F);
             this.btnOkCustomDate.Location = new System.Drawing.Point(582, 66);
             this.btnOkCustomDate.Margin = new System.Windows.Forms.Padding(5);
             this.btnOkCustomDate.Name = "btnOkCustomDate";
@@ -576,6 +579,7 @@ namespace B4_Plastics_SMS
             // 
             // btnCustomDate
             // 
+            this.btnCustomDate.Font = new System.Drawing.Font("Nirmala UI", 8.5F);
             this.btnCustomDate.Location = new System.Drawing.Point(628, 66);
             this.btnCustomDate.Margin = new System.Windows.Forms.Padding(5);
             this.btnCustomDate.Name = "btnCustomDate";
@@ -587,6 +591,7 @@ namespace B4_Plastics_SMS
             // 
             // btnToday
             // 
+            this.btnToday.Font = new System.Drawing.Font("Nirmala UI", 8.5F);
             this.btnToday.Location = new System.Drawing.Point(764, 66);
             this.btnToday.Margin = new System.Windows.Forms.Padding(5);
             this.btnToday.Name = "btnToday";
@@ -598,6 +603,7 @@ namespace B4_Plastics_SMS
             // 
             // btnLast7Days
             // 
+            this.btnLast7Days.Font = new System.Drawing.Font("Nirmala UI", 8.5F);
             this.btnLast7Days.Location = new System.Drawing.Point(898, 66);
             this.btnLast7Days.Margin = new System.Windows.Forms.Padding(5);
             this.btnLast7Days.Name = "btnLast7Days";
@@ -609,6 +615,7 @@ namespace B4_Plastics_SMS
             // 
             // btnLast30Days
             // 
+            this.btnLast30Days.Font = new System.Drawing.Font("Nirmala UI", 8.5F);
             this.btnLast30Days.Location = new System.Drawing.Point(1031, 66);
             this.btnLast30Days.Margin = new System.Windows.Forms.Padding(5);
             this.btnLast30Days.Name = "btnLast30Days";
@@ -620,6 +627,7 @@ namespace B4_Plastics_SMS
             // 
             // btnThisMonth
             // 
+            this.btnThisMonth.Font = new System.Drawing.Font("Nirmala UI", 8.5F);
             this.btnThisMonth.Location = new System.Drawing.Point(1163, 66);
             this.btnThisMonth.Margin = new System.Windows.Forms.Padding(5);
             this.btnThisMonth.Name = "btnThisMonth";
@@ -656,20 +664,20 @@ namespace B4_Plastics_SMS
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.Controls.Add(this.dgvUnderstock);
             this.panel5.Controls.Add(this.label13);
-            this.panel5.Location = new System.Drawing.Point(306, 576);
+            this.panel5.Location = new System.Drawing.Point(981, 129);
             this.panel5.Margin = new System.Windows.Forms.Padding(5);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(987, 206);
+            this.panel5.Size = new System.Drawing.Size(298, 503);
             this.panel5.TabIndex = 23;
             // 
             // dgvUnderstock
             // 
             this.dgvUnderstock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUnderstock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUnderstock.Location = new System.Drawing.Point(15, 45);
+            this.dgvUnderstock.Location = new System.Drawing.Point(15, 57);
             this.dgvUnderstock.Name = "dgvUnderstock";
             this.dgvUnderstock.RowHeadersWidth = 51;
-            this.dgvUnderstock.Size = new System.Drawing.Size(946, 144);
+            this.dgvUnderstock.Size = new System.Drawing.Size(258, 424);
             this.dgvUnderstock.TabIndex = 3;
             // 
             // label13
@@ -682,11 +690,22 @@ namespace B4_Plastics_SMS
             this.label13.TabIndex = 2;
             this.label13.Text = "Low stock products";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Nirmala UI Semilight", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(300, 269);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(181, 35);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Stock out flow";
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1356, 796);
+            this.ClientSize = new System.Drawing.Size(1333, 829);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.btnOkCustomDate);
             this.Controls.Add(this.btnCustomDate);
@@ -697,6 +716,7 @@ namespace B4_Plastics_SMS
             this.Controls.Add(this.dtpEndDate);
             this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.chartTransactionsVSDate);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnlMachinesNeedsService);
             this.Controls.Add(this.pnlMachinesNotActive);
@@ -707,7 +727,7 @@ namespace B4_Plastics_SMS
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(949, 598);
+            this.MinimumSize = new System.Drawing.Size(1000, 650);
             this.Name = "frmAdmin";
             this.Text = "B4 Plastics - Admin";
             this.Load += new System.EventHandler(this.frmAdmin_Load);
@@ -786,5 +806,6 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView dgvUnderstock;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label2;
     }
 }
