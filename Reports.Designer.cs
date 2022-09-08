@@ -31,6 +31,7 @@ namespace B4_Plastics_SMS
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reports));
             this.gbxReports = new System.Windows.Forms.GroupBox();
+            this.dgvReportView = new System.Windows.Forms.DataGridView();
             this.gbxSortBy = new System.Windows.Forms.GroupBox();
             this.rbnPipeDiameter = new System.Windows.Forms.RadioButton();
             this.rbnPipeLength = new System.Windows.Forms.RadioButton();
@@ -59,12 +60,13 @@ namespace B4_Plastics_SMS
             this.btnExport = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.rtxReportErr = new System.Windows.Forms.RichTextBox();
-            this.dgvReportView = new System.Windows.Forms.DataGridView();
+            this.ppPreview = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDoc = new System.Drawing.Printing.PrintDocument();
             this.gbxReports.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReportView)).BeginInit();
             this.gbxSortBy.SuspendLayout();
             this.gbxOrderBy.SuspendLayout();
             this.gbxFilterBy.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReportView)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxReports
@@ -82,6 +84,16 @@ namespace B4_Plastics_SMS
             this.gbxReports.Size = new System.Drawing.Size(1411, 699);
             this.gbxReports.TabIndex = 0;
             this.gbxReports.TabStop = false;
+            // 
+            // dgvReportView
+            // 
+            this.dgvReportView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReportView.Location = new System.Drawing.Point(39, 305);
+            this.dgvReportView.Name = "dgvReportView";
+            this.dgvReportView.RowHeadersWidth = 51;
+            this.dgvReportView.RowTemplate.Height = 24;
+            this.dgvReportView.Size = new System.Drawing.Size(1334, 316);
+            this.dgvReportView.TabIndex = 6;
             // 
             // gbxSortBy
             // 
@@ -382,6 +394,7 @@ namespace B4_Plastics_SMS
             this.btnExport.TabIndex = 2;
             this.btnExport.Text = "&Export";
             this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnPrint
             // 
@@ -394,6 +407,7 @@ namespace B4_Plastics_SMS
             this.btnPrint.TabIndex = 1;
             this.btnPrint.Text = "&Print";
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // rtxReportErr
             // 
@@ -404,15 +418,15 @@ namespace B4_Plastics_SMS
             this.rtxReportErr.TabIndex = 0;
             this.rtxReportErr.Text = "";
             // 
-            // dgvReportView
+            // ppPreview
             // 
-            this.dgvReportView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReportView.Location = new System.Drawing.Point(39, 305);
-            this.dgvReportView.Name = "dgvReportView";
-            this.dgvReportView.RowHeadersWidth = 51;
-            this.dgvReportView.RowTemplate.Height = 24;
-            this.dgvReportView.Size = new System.Drawing.Size(1334, 316);
-            this.dgvReportView.TabIndex = 6;
+            this.ppPreview.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.ppPreview.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.ppPreview.ClientSize = new System.Drawing.Size(400, 300);
+            this.ppPreview.Enabled = true;
+            this.ppPreview.Icon = ((System.Drawing.Icon)(resources.GetObject("ppPreview.Icon")));
+            this.ppPreview.Name = "ppPreview";
+            this.ppPreview.Visible = false;
             // 
             // Reports
             // 
@@ -427,13 +441,13 @@ namespace B4_Plastics_SMS
             this.Text = "B4 Plastics - Reports";
             this.Load += new System.EventHandler(this.Reports_Load);
             this.gbxReports.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReportView)).EndInit();
             this.gbxSortBy.ResumeLayout(false);
             this.gbxSortBy.PerformLayout();
             this.gbxOrderBy.ResumeLayout(false);
             this.gbxOrderBy.PerformLayout();
             this.gbxFilterBy.ResumeLayout(false);
             this.gbxFilterBy.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReportView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -470,5 +484,7 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.RadioButton rbnPipeDiameter;
         private System.Windows.Forms.RadioButton rbnPipeLength;
         private System.Windows.Forms.DataGridView dgvReportView;
+        private System.Windows.Forms.PrintPreviewDialog ppPreview;
+        private System.Drawing.Printing.PrintDocument printDoc;
     }
 }

@@ -99,6 +99,8 @@ namespace B4_Plastics_SMS
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
+            Reports reports = new Reports();
+            reports.Show();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)

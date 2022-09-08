@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace B4_Plastics_SMS
 {
@@ -266,6 +267,39 @@ namespace B4_Plastics_SMS
             return sql;
         }
 
+        // Generate CSV
+        private String[] buildCSV()
+        {
+            // variables 
+            String[] csv = new string[dgvReportView.Rows.Count +1];
+            String columns = "";
+            int columnCount = dgvReportView.Columns.Count;
+            if (dgvReportView.Rows.Count != 0)
+            {
+                for (int i = 0; i < columnCount; i++)
+                {
+                    columns += dgvReportView.Columns[i].HeaderText.ToString() + ";";
+                }
+                // add to csv
+                csv[0] = columns;
+                for (int i = 0; i < dgvReportView.Rows.Count -1; i++)
+                {
+                    for (int k = 0; k < columnCount; k++)
+                    {
+                        csv[i + 1] += dgvReportView.Rows[i].Cells[k].Value.ToString() + ";";
+                    }
+                }
+            }
+            return csv;
+        }
+
+        // Print page
+        private void PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            //Print the contents.
+            e.Graphics.DrawImage(bitmap, 0, 0);
+        }
+
         // =====================================================
         // Buttons 
         // =====================================================
@@ -298,6 +332,68 @@ namespace B4_Plastics_SMS
 
             // populate colour combobox
             pColour();
+        }
+
+        // Export DGV to CSV
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            // variabels 
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "CSV (*.csv)|*.csv";
+            sfd.FileName = "Export.csv";
+            bool fileError = false;
+
+            String[] csv = buildCSV();
+
+            // write CSV
+            try
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        File.WriteAllLines(sfd.FileName, csv, Encoding.UTF8);
+                        MessageBox.Show("Export.csv Secsesfully saved", "Info");
+                    }
+                }
+            } catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message, "File Save Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+        Bitmap bitmap;
+        // Print dgv Output
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            //Resize DataGridView to full height.
+            int height = dgvReportView.Height;
+            dgvReportView.Height = dgvReportView.RowCount * dgvReportView.RowTemplate.Height;
+
+            //Create a Bitmap and draw the DataGridView on it.
+            bitmap = new Bitmap(this.dgvReportView.Width, this.dgvReportView.Height);
+            dgvReportView.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dgvReportView.Width, this.dgvReportView.Height));
+
+            //Resize DataGridView back to original height.
+            dgvReportView.Height = height;
+
+            //Show the Print Preview Dialog.
+            ppPreview.Document = printDoc;
+            ppPreview.PrintPreviewControl.Zoom = 1;
+            ppPreview.ShowDialog();
         }
     }
 }
