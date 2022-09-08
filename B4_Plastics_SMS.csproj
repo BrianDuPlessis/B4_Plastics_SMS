@@ -59,6 +59,8 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\DashboardAppModel.cs" />
+    <Compile Include="Classes\DbConnection.cs" />
     <Compile Include="Dispatch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,5 +201,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

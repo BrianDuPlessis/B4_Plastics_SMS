@@ -34,6 +34,7 @@ namespace B4_Plastics_SMS
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.linkLabelEmail = new System.Windows.Forms.LinkLabel();
             this.pnlNav = new System.Windows.Forms.Panel();
             this.btnReportsPage = new System.Windows.Forms.Button();
             this.btnMachinePage = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@ namespace B4_Plastics_SMS
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.linkLabelEmail = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlMachinesActive = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -67,7 +67,18 @@ namespace B4_Plastics_SMS
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.lblMachinesNeedsService = new System.Windows.Forms.Label();
             this.lblTitleMachinesNeedsService = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartTransactionsVSDate = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnOkCustomDate = new System.Windows.Forms.Button();
+            this.btnCustomDate = new System.Windows.Forms.Button();
+            this.btnToday = new System.Windows.Forms.Button();
+            this.btnLast7Days = new System.Windows.Forms.Button();
+            this.btnLast30Days = new System.Windows.Forms.Button();
+            this.btnThisMonth = new System.Windows.Forms.Button();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.dgvUnderstock = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -81,7 +92,9 @@ namespace B4_Plastics_SMS
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnlMachinesNeedsService.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTransactionsVSDate)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnderstock)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -99,16 +112,30 @@ namespace B4_Plastics_SMS
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel3.Margin = new System.Windows.Forms.Padding(5);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(251, 796);
             this.panel3.TabIndex = 0;
+            // 
+            // linkLabelEmail
+            // 
+            this.linkLabelEmail.AutoSize = true;
+            this.linkLabelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelEmail.LinkColor = System.Drawing.Color.Cyan;
+            this.linkLabelEmail.Location = new System.Drawing.Point(12, 762);
+            this.linkLabelEmail.Name = "linkLabelEmail";
+            this.linkLabelEmail.Size = new System.Drawing.Size(193, 20);
+            this.linkLabelEmail.TabIndex = 15;
+            this.linkLabelEmail.TabStop = true;
+            this.linkLabelEmail.Tag = "mailto:contact@b4plastics.com";
+            this.linkLabelEmail.Text = "contact@b4plastics.com";
+            this.linkLabelEmail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEmail_LinkClicked);
             // 
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.pnlNav.Location = new System.Drawing.Point(0, 91);
-            this.pnlNav.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlNav.Margin = new System.Windows.Forms.Padding(5);
             this.pnlNav.Name = "pnlNav";
             this.pnlNav.Size = new System.Drawing.Size(5, 151);
             this.pnlNav.TabIndex = 0;
@@ -122,7 +149,7 @@ namespace B4_Plastics_SMS
             this.btnReportsPage.ForeColor = System.Drawing.Color.White;
             this.btnReportsPage.Image = global::B4_Plastics_SMS.Properties.Resources.Reports_B;
             this.btnReportsPage.Location = new System.Drawing.Point(0, 481);
-            this.btnReportsPage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnReportsPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnReportsPage.Name = "btnReportsPage";
             this.btnReportsPage.Size = new System.Drawing.Size(251, 64);
             this.btnReportsPage.TabIndex = 13;
@@ -140,7 +167,7 @@ namespace B4_Plastics_SMS
             this.btnMachinePage.ForeColor = System.Drawing.Color.White;
             this.btnMachinePage.Image = global::B4_Plastics_SMS.Properties.Resources.Machines_B;
             this.btnMachinePage.Location = new System.Drawing.Point(0, 417);
-            this.btnMachinePage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnMachinePage.Margin = new System.Windows.Forms.Padding(5);
             this.btnMachinePage.Name = "btnMachinePage";
             this.btnMachinePage.Size = new System.Drawing.Size(251, 64);
             this.btnMachinePage.TabIndex = 12;
@@ -158,7 +185,7 @@ namespace B4_Plastics_SMS
             this.btnTransactionsPage.ForeColor = System.Drawing.Color.White;
             this.btnTransactionsPage.Image = global::B4_Plastics_SMS.Properties.Resources.Transactions_B;
             this.btnTransactionsPage.Location = new System.Drawing.Point(0, 353);
-            this.btnTransactionsPage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnTransactionsPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnTransactionsPage.Name = "btnTransactionsPage";
             this.btnTransactionsPage.Size = new System.Drawing.Size(251, 64);
             this.btnTransactionsPage.TabIndex = 11;
@@ -176,7 +203,7 @@ namespace B4_Plastics_SMS
             this.btnStockPage.ForeColor = System.Drawing.Color.White;
             this.btnStockPage.Image = global::B4_Plastics_SMS.Properties.Resources.Stock_B;
             this.btnStockPage.Location = new System.Drawing.Point(0, 289);
-            this.btnStockPage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnStockPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnStockPage.Name = "btnStockPage";
             this.btnStockPage.Size = new System.Drawing.Size(251, 64);
             this.btnStockPage.TabIndex = 9;
@@ -194,7 +221,7 @@ namespace B4_Plastics_SMS
             this.btnEmployeesPage.ForeColor = System.Drawing.Color.White;
             this.btnEmployeesPage.Image = global::B4_Plastics_SMS.Properties.Resources.Employees_B;
             this.btnEmployeesPage.Location = new System.Drawing.Point(0, 225);
-            this.btnEmployeesPage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnEmployeesPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnEmployeesPage.Name = "btnEmployeesPage";
             this.btnEmployeesPage.Size = new System.Drawing.Size(251, 64);
             this.btnEmployeesPage.TabIndex = 8;
@@ -212,7 +239,7 @@ namespace B4_Plastics_SMS
             this.btnUserInfoPage.ForeColor = System.Drawing.Color.White;
             this.btnUserInfoPage.Image = global::B4_Plastics_SMS.Properties.Resources.User_Info_B;
             this.btnUserInfoPage.Location = new System.Drawing.Point(0, 161);
-            this.btnUserInfoPage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnUserInfoPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnUserInfoPage.Name = "btnUserInfoPage";
             this.btnUserInfoPage.Size = new System.Drawing.Size(251, 64);
             this.btnUserInfoPage.TabIndex = 10;
@@ -230,7 +257,7 @@ namespace B4_Plastics_SMS
             this.btnDashboard.ForeColor = System.Drawing.Color.White;
             this.btnDashboard.Image = global::B4_Plastics_SMS.Properties.Resources.home_Resize;
             this.btnDashboard.Location = new System.Drawing.Point(0, 97);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(5);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(251, 64);
             this.btnDashboard.TabIndex = 7;
@@ -245,7 +272,7 @@ namespace B4_Plastics_SMS
             this.panel4.Controls.Add(this.pictureBox7);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel4.Margin = new System.Windows.Forms.Padding(5);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(251, 97);
             this.panel4.TabIndex = 0;
@@ -273,28 +300,14 @@ namespace B4_Plastics_SMS
             this.pictureBox7.TabIndex = 3;
             this.pictureBox7.TabStop = false;
             // 
-            // linkLabelEmail
-            // 
-            this.linkLabelEmail.AutoSize = true;
-            this.linkLabelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelEmail.LinkColor = System.Drawing.Color.Cyan;
-            this.linkLabelEmail.Location = new System.Drawing.Point(12, 762);
-            this.linkLabelEmail.Name = "linkLabelEmail";
-            this.linkLabelEmail.Size = new System.Drawing.Size(193, 20);
-            this.linkLabelEmail.TabIndex = 15;
-            this.linkLabelEmail.TabStop = true;
-            this.linkLabelEmail.Tag = "mailto:contact@b4plastics.com";
-            this.linkLabelEmail.Text = "contact@b4plastics.com";
-            this.linkLabelEmail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEmail_LinkClicked);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(300, 31);
+            this.label1.Font = new System.Drawing.Font("Nirmala UI Semilight", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(300, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 35);
+            this.label1.Size = new System.Drawing.Size(141, 35);
             this.label1.TabIndex = 13;
             this.label1.Text = "Dashboard";
             // 
@@ -304,7 +317,7 @@ namespace B4_Plastics_SMS
             this.pnlMachinesActive.Controls.Add(this.pictureBox3);
             this.pnlMachinesActive.Controls.Add(this.lblMachinesActive);
             this.pnlMachinesActive.Controls.Add(this.lblTitleMachinesActive);
-            this.pnlMachinesActive.Location = new System.Drawing.Point(307, 227);
+            this.pnlMachinesActive.Location = new System.Drawing.Point(981, 129);
             this.pnlMachinesActive.Margin = new System.Windows.Forms.Padding(5);
             this.pnlMachinesActive.Name = "pnlMachinesActive";
             this.pnlMachinesActive.Size = new System.Drawing.Size(312, 122);
@@ -341,7 +354,7 @@ namespace B4_Plastics_SMS
             this.lblTitleMachinesActive.Location = new System.Drawing.Point(19, 17);
             this.lblTitleMachinesActive.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitleMachinesActive.Name = "lblTitleMachinesActive";
-            this.lblTitleMachinesActive.Size = new System.Drawing.Size(191, 35);
+            this.lblTitleMachinesActive.Size = new System.Drawing.Size(153, 28);
             this.lblTitleMachinesActive.TabIndex = 6;
             this.lblTitleMachinesActive.Text = "Machines Active";
             // 
@@ -351,7 +364,7 @@ namespace B4_Plastics_SMS
             this.pnlTransactionsCompleted.Controls.Add(this.pictureBox2);
             this.pnlTransactionsCompleted.Controls.Add(this.lblTransactionsCompleted);
             this.pnlTransactionsCompleted.Controls.Add(this.lblTitleTransactionsCompleted);
-            this.pnlTransactionsCompleted.Location = new System.Drawing.Point(643, 89);
+            this.pnlTransactionsCompleted.Location = new System.Drawing.Point(642, 129);
             this.pnlTransactionsCompleted.Margin = new System.Windows.Forms.Padding(5);
             this.pnlTransactionsCompleted.Name = "pnlTransactionsCompleted";
             this.pnlTransactionsCompleted.Size = new System.Drawing.Size(312, 122);
@@ -388,7 +401,7 @@ namespace B4_Plastics_SMS
             this.lblTitleTransactionsCompleted.Location = new System.Drawing.Point(19, 17);
             this.lblTitleTransactionsCompleted.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitleTransactionsCompleted.Name = "lblTitleTransactionsCompleted";
-            this.lblTitleTransactionsCompleted.Size = new System.Drawing.Size(275, 35);
+            this.lblTitleTransactionsCompleted.Size = new System.Drawing.Size(220, 28);
             this.lblTitleTransactionsCompleted.TabIndex = 6;
             this.lblTitleTransactionsCompleted.Text = "Transactions Completed";
             // 
@@ -398,7 +411,7 @@ namespace B4_Plastics_SMS
             this.pnlTransactionsActive.Controls.Add(this.pictureBox1);
             this.pnlTransactionsActive.Controls.Add(this.lblTransactionsActive);
             this.pnlTransactionsActive.Controls.Add(this.lblTitleTransactionsActive);
-            this.pnlTransactionsActive.Location = new System.Drawing.Point(307, 89);
+            this.pnlTransactionsActive.Location = new System.Drawing.Point(306, 129);
             this.pnlTransactionsActive.Margin = new System.Windows.Forms.Padding(5);
             this.pnlTransactionsActive.Name = "pnlTransactionsActive";
             this.pnlTransactionsActive.Size = new System.Drawing.Size(312, 122);
@@ -435,7 +448,7 @@ namespace B4_Plastics_SMS
             this.lblTitleTransactionsActive.Location = new System.Drawing.Point(19, 17);
             this.lblTitleTransactionsActive.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitleTransactionsActive.Name = "lblTitleTransactionsActive";
-            this.lblTitleTransactionsActive.Size = new System.Drawing.Size(221, 35);
+            this.lblTitleTransactionsActive.Size = new System.Drawing.Size(177, 28);
             this.lblTitleTransactionsActive.TabIndex = 6;
             this.lblTitleTransactionsActive.Text = "Transactions Active";
             // 
@@ -445,7 +458,7 @@ namespace B4_Plastics_SMS
             this.pnlMachinesNotActive.Controls.Add(this.pictureBox4);
             this.pnlMachinesNotActive.Controls.Add(this.lblMachinesNotActive);
             this.pnlMachinesNotActive.Controls.Add(this.lblTitleMachinesNotActive);
-            this.pnlMachinesNotActive.Location = new System.Drawing.Point(643, 227);
+            this.pnlMachinesNotActive.Location = new System.Drawing.Point(981, 446);
             this.pnlMachinesNotActive.Margin = new System.Windows.Forms.Padding(5);
             this.pnlMachinesNotActive.Name = "pnlMachinesNotActive";
             this.pnlMachinesNotActive.Size = new System.Drawing.Size(312, 122);
@@ -482,7 +495,7 @@ namespace B4_Plastics_SMS
             this.lblTitleMachinesNotActive.Location = new System.Drawing.Point(19, 17);
             this.lblTitleMachinesNotActive.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitleMachinesNotActive.Name = "lblTitleMachinesNotActive";
-            this.lblTitleMachinesNotActive.Size = new System.Drawing.Size(240, 35);
+            this.lblTitleMachinesNotActive.Size = new System.Drawing.Size(192, 28);
             this.lblTitleMachinesNotActive.TabIndex = 6;
             this.lblTitleMachinesNotActive.Text = "Machines Not Active";
             // 
@@ -492,7 +505,7 @@ namespace B4_Plastics_SMS
             this.pnlMachinesNeedsService.Controls.Add(this.pictureBox5);
             this.pnlMachinesNeedsService.Controls.Add(this.lblMachinesNeedsService);
             this.pnlMachinesNeedsService.Controls.Add(this.lblTitleMachinesNeedsService);
-            this.pnlMachinesNeedsService.Location = new System.Drawing.Point(980, 227);
+            this.pnlMachinesNeedsService.Location = new System.Drawing.Point(981, 289);
             this.pnlMachinesNeedsService.Margin = new System.Windows.Forms.Padding(5);
             this.pnlMachinesNeedsService.Name = "pnlMachinesNeedsService";
             this.pnlMachinesNeedsService.Size = new System.Drawing.Size(312, 122);
@@ -529,32 +542,161 @@ namespace B4_Plastics_SMS
             this.lblTitleMachinesNeedsService.Location = new System.Drawing.Point(19, 17);
             this.lblTitleMachinesNeedsService.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitleMachinesNeedsService.Name = "lblTitleMachinesNeedsService";
-            this.lblTitleMachinesNeedsService.Size = new System.Drawing.Size(278, 35);
+            this.lblTitleMachinesNeedsService.Size = new System.Drawing.Size(222, 28);
             this.lblTitleMachinesNeedsService.TabIndex = 6;
             this.lblTitleMachinesNeedsService.Text = "Machines Needs Service";
             // 
-            // chart1
+            // chartTransactionsVSDate
             // 
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.chartTransactionsVSDate.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(306, 391);
-            this.chart1.Name = "chart1";
+            this.chartTransactionsVSDate.Legends.Add(legend1);
+            this.chartTransactionsVSDate.Location = new System.Drawing.Point(306, 289);
+            this.chartTransactionsVSDate.Name = "chartTransactionsVSDate";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(313, 353);
-            this.chart1.TabIndex = 14;
-            this.chart1.Text = "chartTransactionsVSDate";
+            this.chartTransactionsVSDate.Series.Add(series1);
+            this.chartTransactionsVSDate.Size = new System.Drawing.Size(648, 279);
+            this.chartTransactionsVSDate.TabIndex = 14;
+            this.chartTransactionsVSDate.Text = "chartTransactionsVSDate";
+            // 
+            // btnOkCustomDate
+            // 
+            this.btnOkCustomDate.Location = new System.Drawing.Point(582, 66);
+            this.btnOkCustomDate.Margin = new System.Windows.Forms.Padding(5);
+            this.btnOkCustomDate.Name = "btnOkCustomDate";
+            this.btnOkCustomDate.Size = new System.Drawing.Size(40, 35);
+            this.btnOkCustomDate.TabIndex = 22;
+            this.btnOkCustomDate.Text = "Ok";
+            this.btnOkCustomDate.UseVisualStyleBackColor = true;
+            this.btnOkCustomDate.Visible = false;
+            this.btnOkCustomDate.Click += new System.EventHandler(this.btnOkCustomDate_Click_1);
+            // 
+            // btnCustomDate
+            // 
+            this.btnCustomDate.Location = new System.Drawing.Point(628, 66);
+            this.btnCustomDate.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCustomDate.Name = "btnCustomDate";
+            this.btnCustomDate.Size = new System.Drawing.Size(130, 35);
+            this.btnCustomDate.TabIndex = 21;
+            this.btnCustomDate.Text = "Custom";
+            this.btnCustomDate.UseVisualStyleBackColor = true;
+            this.btnCustomDate.Click += new System.EventHandler(this.btnCustomDate_Click);
+            // 
+            // btnToday
+            // 
+            this.btnToday.Location = new System.Drawing.Point(764, 66);
+            this.btnToday.Margin = new System.Windows.Forms.Padding(5);
+            this.btnToday.Name = "btnToday";
+            this.btnToday.Size = new System.Drawing.Size(130, 35);
+            this.btnToday.TabIndex = 20;
+            this.btnToday.Text = "Today";
+            this.btnToday.UseVisualStyleBackColor = true;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click_1);
+            // 
+            // btnLast7Days
+            // 
+            this.btnLast7Days.Location = new System.Drawing.Point(898, 66);
+            this.btnLast7Days.Margin = new System.Windows.Forms.Padding(5);
+            this.btnLast7Days.Name = "btnLast7Days";
+            this.btnLast7Days.Size = new System.Drawing.Size(130, 35);
+            this.btnLast7Days.TabIndex = 19;
+            this.btnLast7Days.Text = "Lasta 7 days";
+            this.btnLast7Days.UseVisualStyleBackColor = true;
+            this.btnLast7Days.Click += new System.EventHandler(this.btnLast7Days_Click_1);
+            // 
+            // btnLast30Days
+            // 
+            this.btnLast30Days.Location = new System.Drawing.Point(1031, 66);
+            this.btnLast30Days.Margin = new System.Windows.Forms.Padding(5);
+            this.btnLast30Days.Name = "btnLast30Days";
+            this.btnLast30Days.Size = new System.Drawing.Size(130, 35);
+            this.btnLast30Days.TabIndex = 18;
+            this.btnLast30Days.Text = "Last 30 days";
+            this.btnLast30Days.UseVisualStyleBackColor = true;
+            this.btnLast30Days.Click += new System.EventHandler(this.btnLast30Days_Click_1);
+            // 
+            // btnThisMonth
+            // 
+            this.btnThisMonth.Location = new System.Drawing.Point(1163, 66);
+            this.btnThisMonth.Margin = new System.Windows.Forms.Padding(5);
+            this.btnThisMonth.Name = "btnThisMonth";
+            this.btnThisMonth.Size = new System.Drawing.Size(130, 35);
+            this.btnThisMonth.TabIndex = 17;
+            this.btnThisMonth.Text = "This month";
+            this.btnThisMonth.UseVisualStyleBackColor = true;
+            this.btnThisMonth.Click += new System.EventHandler(this.btnThisMonth_Click_1);
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.CustomFormat = "MMM dd, yyyy";
+            this.dtpEndDate.Enabled = false;
+            this.dtpEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndDate.Location = new System.Drawing.Point(452, 74);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(122, 23);
+            this.dtpEndDate.TabIndex = 16;
+            // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.CustomFormat = "MMM dd, yyyy";
+            this.dtpStartDate.Enabled = false;
+            this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartDate.Location = new System.Drawing.Point(306, 74);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(122, 23);
+            this.dtpStartDate.TabIndex = 15;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.dgvUnderstock);
+            this.panel5.Controls.Add(this.label13);
+            this.panel5.Location = new System.Drawing.Point(306, 576);
+            this.panel5.Margin = new System.Windows.Forms.Padding(5);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(987, 206);
+            this.panel5.TabIndex = 23;
+            // 
+            // dgvUnderstock
+            // 
+            this.dgvUnderstock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUnderstock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUnderstock.Location = new System.Drawing.Point(15, 45);
+            this.dgvUnderstock.Name = "dgvUnderstock";
+            this.dgvUnderstock.RowHeadersWidth = 51;
+            this.dgvUnderstock.Size = new System.Drawing.Size(946, 144);
+            this.dgvUnderstock.TabIndex = 3;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(10, 10);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(230, 29);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Low stock products";
             // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1356, 796);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.btnOkCustomDate);
+            this.Controls.Add(this.btnCustomDate);
+            this.Controls.Add(this.btnToday);
+            this.Controls.Add(this.btnLast7Days);
+            this.Controls.Add(this.btnLast30Days);
+            this.Controls.Add(this.btnThisMonth);
+            this.Controls.Add(this.dtpEndDate);
+            this.Controls.Add(this.dtpStartDate);
+            this.Controls.Add(this.chartTransactionsVSDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnlMachinesNeedsService);
             this.Controls.Add(this.pnlMachinesNotActive);
@@ -588,7 +730,10 @@ namespace B4_Plastics_SMS
             this.pnlMachinesNeedsService.ResumeLayout(false);
             this.pnlMachinesNeedsService.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTransactionsVSDate)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnderstock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -629,6 +774,17 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label lblMachinesNeedsService;
         private System.Windows.Forms.Label lblTitleMachinesNeedsService;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTransactionsVSDate;
+        private System.Windows.Forms.Button btnOkCustomDate;
+        private System.Windows.Forms.Button btnCustomDate;
+        private System.Windows.Forms.Button btnToday;
+        private System.Windows.Forms.Button btnLast7Days;
+        private System.Windows.Forms.Button btnLast30Days;
+        private System.Windows.Forms.Button btnThisMonth;
+        private System.Windows.Forms.DateTimePicker dtpEndDate;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.DataGridView dgvUnderstock;
+        private System.Windows.Forms.Label label13;
     }
 }
