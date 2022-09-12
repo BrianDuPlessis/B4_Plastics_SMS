@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DashboardApp.Db
+namespace DatabaseConnection.Db
 {
     public abstract class DbConnection
     {

@@ -44,7 +44,7 @@ namespace B4_Plastics_SMS
             this.btnUserInfoPage = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lblWelcome = new System.Windows.Forms.Label();
+            this.lblUserName = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlMachinesActive = new System.Windows.Forms.Panel();
@@ -270,7 +270,7 @@ namespace B4_Plastics_SMS
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.lblWelcome);
+            this.panel4.Controls.Add(this.lblUserName);
             this.panel4.Controls.Add(this.pictureBox7);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
@@ -279,17 +279,17 @@ namespace B4_Plastics_SMS
             this.panel4.Size = new System.Drawing.Size(251, 97);
             this.panel4.TabIndex = 0;
             // 
-            // lblWelcome
+            // lblUserName
             // 
-            this.lblWelcome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
-            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.ForeColor = System.Drawing.Color.White;
-            this.lblWelcome.Location = new System.Drawing.Point(84, 31);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(125, 23);
-            this.lblWelcome.TabIndex = 4;
-            this.lblWelcome.Text = "Welcome, ...";
-            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
+            this.lblUserName.Font = new System.Drawing.Font("Nirmala UI Semilight", 10F, System.Drawing.FontStyle.Bold);
+            this.lblUserName.ForeColor = System.Drawing.Color.White;
+            this.lblUserName.Location = new System.Drawing.Point(80, 16);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(125, 47);
+            this.lblUserName.TabIndex = 4;
+            this.lblUserName.Text = "Welcome, ...";
+            this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox7
             // 
@@ -763,7 +763,7 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnlNav;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnReportsPage;

@@ -90,10 +90,11 @@ namespace B4_Plastics_SMS
             // txtPassword
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Location = new System.Drawing.Point(57, 251);
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtPassword.Location = new System.Drawing.Point(57, 253);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(316, 15);
+            this.txtPassword.Size = new System.Drawing.Size(310, 20);
             this.txtPassword.TabIndex = 1;
             // 
             // label4
@@ -110,10 +111,11 @@ namespace B4_Plastics_SMS
             // txtEmail
             // 
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Location = new System.Drawing.Point(57, 180);
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtEmail.Location = new System.Drawing.Point(54, 181);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(316, 15);
+            this.txtEmail.Size = new System.Drawing.Size(310, 20);
             this.txtEmail.TabIndex = 0;
             // 
             // label3
@@ -144,7 +146,7 @@ namespace B4_Plastics_SMS
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.ForeColor = System.Drawing.Color.DimGray;
-            this.lblEmail.Location = new System.Drawing.Point(53, 148);
+            this.lblEmail.Location = new System.Drawing.Point(53, 136);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(114, 23);
@@ -190,13 +192,13 @@ namespace B4_Plastics_SMS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(947, 490);
+            this.Controls.Add(this.lblForgetPassword);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.chRemember);
-            this.Controls.Add(this.lblForgetPassword);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmail);

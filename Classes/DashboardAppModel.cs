@@ -1,4 +1,4 @@
-﻿using DashboardApp.Db;
+﻿using DatabaseConnection.Db;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -84,7 +84,7 @@ namespace DashboardApp.Models
                     command.Connection = connection;
                     //Get Understock
                     command.CommandText = @"SELECT pipe_id, pipe_quantity  
-                                            FROM [Pipes Detials]
+                                            FROM [Pipe Details]
                                             WHERE pipe_quantity <= 50"; // and IsDiscontinued = 0
                     reader = command.ExecuteReader();
                     while (reader.Read())

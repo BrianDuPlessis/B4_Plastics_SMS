@@ -1,4 +1,5 @@
 ﻿using DashboardApp.Models;
+using DatabaseLogin.Class;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,10 +18,16 @@ namespace B4_Plastics_SMS
         //Fields
         private Dashboard model;
 
+
         // Constructor
         public frmAdmin()
         {
             InitializeComponent();
+
+            // User profile
+            frmLogin myLogin = new frmLogin();
+            lblUserName.Text = DatabaseL.Username;
+
 
             //Default - Last 7 days
             dtpStartDate.Value = DateTime.Today.AddDays(-7);
@@ -78,6 +85,9 @@ namespace B4_Plastics_SMS
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
+            Stock stock = new Stock();
+            stock.Show();
+
         }
 
         private void btnTransactionsPage_Click_1(object sender, EventArgs e)

@@ -60,6 +60,7 @@
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\DashboardAppModel.cs" />
+    <Compile Include="Classes\DatabaseLogin.cs" />
     <Compile Include="Classes\DbConnection.cs" />
     <Compile Include="Dispatch.cs">
       <SubType>Form</SubType>
