@@ -30,18 +30,21 @@ namespace B4_Plastics_SMS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stock));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabStock = new System.Windows.Forms.TabControl();
             this.tabSearch = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.gbxSearch = new System.Windows.Forms.GroupBox();
-            this.txtSearchQuantity = new System.Windows.Forms.TextBox();
+            this.cbFilterColour = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.gbxSearch = new System.Windows.Forms.GroupBox();
+            this.cbSearchPipeID = new System.Windows.Forms.ComboBox();
+            this.txtSearchQuantity = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gbxStockDetails = new System.Windows.Forms.GroupBox();
             this.dgvStockDetails = new System.Windows.Forms.DataGridView();
             this.tabInsert = new System.Windows.Forms.TabPage();
             this.gbxInsertAdd = new System.Windows.Forms.GroupBox();
+            this.cbIColour = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtIEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -52,6 +55,14 @@ namespace B4_Plastics_SMS
             this.label6 = new System.Windows.Forms.Label();
             this.tabUpdate = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbUColour = new System.Windows.Forms.ComboBox();
+            this.txtULength = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtUPipeQuantity = new System.Windows.Forms.TextBox();
+            this.txtUDiameter = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.cbUpdateStock = new System.Windows.Forms.ComboBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
@@ -61,18 +72,7 @@ namespace B4_Plastics_SMS
             this.cbDeleteStock = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.cbSearchPipeID = new System.Windows.Forms.ComboBox();
-            this.cbFilterColour = new System.Windows.Forms.ComboBox();
-            this.cbIColour = new System.Windows.Forms.ComboBox();
-            this.cbUColour = new System.Windows.Forms.ComboBox();
-            this.txtULength = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtUPipeQuantity = new System.Windows.Forms.TextBox();
-            this.txtUDiameter = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
+            this.tabStock.SuspendLayout();
             this.tabSearch.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbxSearch.SuspendLayout();
@@ -86,19 +86,20 @@ namespace B4_Plastics_SMS
             this.gbxDelete.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabStock
             // 
-            this.tabControl1.Controls.Add(this.tabSearch);
-            this.tabControl1.Controls.Add(this.tabInsert);
-            this.tabControl1.Controls.Add(this.tabUpdate);
-            this.tabControl1.Controls.Add(this.tabDelete);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Nirmala UI Semilight", 10F);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1023, 883);
-            this.tabControl1.TabIndex = 9;
+            this.tabStock.Controls.Add(this.tabSearch);
+            this.tabStock.Controls.Add(this.tabInsert);
+            this.tabStock.Controls.Add(this.tabUpdate);
+            this.tabStock.Controls.Add(this.tabDelete);
+            this.tabStock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabStock.Font = new System.Drawing.Font("Nirmala UI Semilight", 10F);
+            this.tabStock.Location = new System.Drawing.Point(0, 0);
+            this.tabStock.Name = "tabStock";
+            this.tabStock.SelectedIndex = 0;
+            this.tabStock.Size = new System.Drawing.Size(967, 793);
+            this.tabStock.TabIndex = 9;
+            this.tabStock.Click += new System.EventHandler(this.tabStock_Click);
             // 
             // tabSearch
             // 
@@ -108,7 +109,7 @@ namespace B4_Plastics_SMS
             this.tabSearch.Location = new System.Drawing.Point(4, 32);
             this.tabSearch.Name = "tabSearch";
             this.tabSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSearch.Size = new System.Drawing.Size(1015, 847);
+            this.tabSearch.Size = new System.Drawing.Size(959, 757);
             this.tabSearch.TabIndex = 0;
             this.tabSearch.Text = "Search";
             this.tabSearch.UseVisualStyleBackColor = true;
@@ -120,36 +121,21 @@ namespace B4_Plastics_SMS
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
             this.groupBox2.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox2.Location = new System.Drawing.Point(524, 490);
+            this.groupBox2.Location = new System.Drawing.Point(521, 477);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(414, 255);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filter Stock by:";
             // 
-            // gbxSearch
+            // cbFilterColour
             // 
-            this.gbxSearch.BackColor = System.Drawing.Color.White;
-            this.gbxSearch.Controls.Add(this.cbSearchPipeID);
-            this.gbxSearch.Controls.Add(this.txtSearchQuantity);
-            this.gbxSearch.Controls.Add(this.label2);
-            this.gbxSearch.Controls.Add(this.label1);
-            this.gbxSearch.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
-            this.gbxSearch.ForeColor = System.Drawing.Color.Navy;
-            this.gbxSearch.Location = new System.Drawing.Point(29, 490);
-            this.gbxSearch.Name = "gbxSearch";
-            this.gbxSearch.Size = new System.Drawing.Size(468, 255);
-            this.gbxSearch.TabIndex = 4;
-            this.gbxSearch.TabStop = false;
-            this.gbxSearch.Text = "Search Stock by:";
-            // 
-            // txtSearchQuantity
-            // 
-            this.txtSearchQuantity.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtSearchQuantity.Location = new System.Drawing.Point(212, 137);
-            this.txtSearchQuantity.Name = "txtSearchQuantity";
-            this.txtSearchQuantity.Size = new System.Drawing.Size(217, 27);
-            this.txtSearchQuantity.TabIndex = 1;
+            this.cbFilterColour.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cbFilterColour.FormattingEnabled = true;
+            this.cbFilterColour.Location = new System.Drawing.Point(169, 71);
+            this.cbFilterColour.Name = "cbFilterColour";
+            this.cbFilterColour.Size = new System.Drawing.Size(217, 28);
+            this.cbFilterColour.TabIndex = 2;
             // 
             // label3
             // 
@@ -161,6 +147,39 @@ namespace B4_Plastics_SMS
             this.label3.Size = new System.Drawing.Size(74, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "Colour:";
+            // 
+            // gbxSearch
+            // 
+            this.gbxSearch.BackColor = System.Drawing.Color.White;
+            this.gbxSearch.Controls.Add(this.cbSearchPipeID);
+            this.gbxSearch.Controls.Add(this.txtSearchQuantity);
+            this.gbxSearch.Controls.Add(this.label2);
+            this.gbxSearch.Controls.Add(this.label1);
+            this.gbxSearch.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
+            this.gbxSearch.ForeColor = System.Drawing.Color.Navy;
+            this.gbxSearch.Location = new System.Drawing.Point(26, 477);
+            this.gbxSearch.Name = "gbxSearch";
+            this.gbxSearch.Size = new System.Drawing.Size(468, 255);
+            this.gbxSearch.TabIndex = 4;
+            this.gbxSearch.TabStop = false;
+            this.gbxSearch.Text = "Search Stock by:";
+            // 
+            // cbSearchPipeID
+            // 
+            this.cbSearchPipeID.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cbSearchPipeID.FormattingEnabled = true;
+            this.cbSearchPipeID.Location = new System.Drawing.Point(212, 72);
+            this.cbSearchPipeID.Name = "cbSearchPipeID";
+            this.cbSearchPipeID.Size = new System.Drawing.Size(217, 28);
+            this.cbSearchPipeID.TabIndex = 2;
+            // 
+            // txtSearchQuantity
+            // 
+            this.txtSearchQuantity.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSearchQuantity.Location = new System.Drawing.Point(212, 137);
+            this.txtSearchQuantity.Name = "txtSearchQuantity";
+            this.txtSearchQuantity.Size = new System.Drawing.Size(217, 27);
+            this.txtSearchQuantity.TabIndex = 1;
             // 
             // label2
             // 
@@ -190,7 +209,7 @@ namespace B4_Plastics_SMS
             this.gbxStockDetails.Controls.Add(this.dgvStockDetails);
             this.gbxStockDetails.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
             this.gbxStockDetails.ForeColor = System.Drawing.Color.Navy;
-            this.gbxStockDetails.Location = new System.Drawing.Point(29, 37);
+            this.gbxStockDetails.Location = new System.Drawing.Point(26, 24);
             this.gbxStockDetails.Name = "gbxStockDetails";
             this.gbxStockDetails.Size = new System.Drawing.Size(909, 415);
             this.gbxStockDetails.TabIndex = 7;
@@ -213,7 +232,7 @@ namespace B4_Plastics_SMS
             this.tabInsert.Location = new System.Drawing.Point(4, 32);
             this.tabInsert.Name = "tabInsert";
             this.tabInsert.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInsert.Size = new System.Drawing.Size(1015, 847);
+            this.tabInsert.Size = new System.Drawing.Size(636, 470);
             this.tabInsert.TabIndex = 1;
             this.tabInsert.Text = "Insert";
             this.tabInsert.UseVisualStyleBackColor = true;
@@ -232,12 +251,21 @@ namespace B4_Plastics_SMS
             this.gbxInsertAdd.Controls.Add(this.label6);
             this.gbxInsertAdd.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
             this.gbxInsertAdd.ForeColor = System.Drawing.Color.Navy;
-            this.gbxInsertAdd.Location = new System.Drawing.Point(70, 70);
+            this.gbxInsertAdd.Location = new System.Drawing.Point(25, 25);
             this.gbxInsertAdd.Name = "gbxInsertAdd";
             this.gbxInsertAdd.Size = new System.Drawing.Size(585, 419);
             this.gbxInsertAdd.TabIndex = 6;
             this.gbxInsertAdd.TabStop = false;
             this.gbxInsertAdd.Text = "Insert/ Add Stock";
+            // 
+            // cbIColour
+            // 
+            this.cbIColour.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cbIColour.FormattingEnabled = true;
+            this.cbIColour.Location = new System.Drawing.Point(234, 230);
+            this.cbIColour.Name = "cbIColour";
+            this.cbIColour.Size = new System.Drawing.Size(264, 28);
+            this.cbIColour.TabIndex = 22;
             // 
             // btnAdd
             // 
@@ -327,7 +355,7 @@ namespace B4_Plastics_SMS
             this.tabUpdate.Location = new System.Drawing.Point(4, 32);
             this.tabUpdate.Name = "tabUpdate";
             this.tabUpdate.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUpdate.Size = new System.Drawing.Size(1015, 847);
+            this.tabUpdate.Size = new System.Drawing.Size(625, 513);
             this.tabUpdate.TabIndex = 2;
             this.tabUpdate.Text = "Update";
             this.tabUpdate.UseVisualStyleBackColor = true;
@@ -348,146 +376,12 @@ namespace B4_Plastics_SMS
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
             this.groupBox1.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox1.Location = new System.Drawing.Point(70, 70);
+            this.groupBox1.Location = new System.Drawing.Point(21, 24);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(585, 466);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Update Stock Details";
-            // 
-            // cbUpdateStock
-            // 
-            this.cbUpdateStock.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cbUpdateStock.FormattingEnabled = true;
-            this.cbUpdateStock.Location = new System.Drawing.Point(234, 58);
-            this.cbUpdateStock.Name = "cbUpdateStock";
-            this.cbUpdateStock.Size = new System.Drawing.Size(265, 28);
-            this.cbUpdateStock.TabIndex = 22;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(79)))), ((int)(((byte)(211)))));
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(234, 357);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(265, 55);
-            this.btnUpdate.TabIndex = 21;
-            this.btnUpdate.Text = "&Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Nirmala UI", 11F);
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(120, 61);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(76, 25);
-            this.label17.TabIndex = 13;
-            this.label17.Text = "Staff ID:";
-            // 
-            // tabDelete
-            // 
-            this.tabDelete.Controls.Add(this.gbxDelete);
-            this.tabDelete.Location = new System.Drawing.Point(4, 32);
-            this.tabDelete.Name = "tabDelete";
-            this.tabDelete.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDelete.Size = new System.Drawing.Size(1015, 847);
-            this.tabDelete.TabIndex = 3;
-            this.tabDelete.Text = "Delete";
-            this.tabDelete.UseVisualStyleBackColor = true;
-            // 
-            // gbxDelete
-            // 
-            this.gbxDelete.BackColor = System.Drawing.Color.White;
-            this.gbxDelete.Controls.Add(this.cbConfirm);
-            this.gbxDelete.Controls.Add(this.cbDeleteStock);
-            this.gbxDelete.Controls.Add(this.label4);
-            this.gbxDelete.Controls.Add(this.btnDelete);
-            this.gbxDelete.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
-            this.gbxDelete.ForeColor = System.Drawing.Color.Navy;
-            this.gbxDelete.Location = new System.Drawing.Point(70, 70);
-            this.gbxDelete.Name = "gbxDelete";
-            this.gbxDelete.Size = new System.Drawing.Size(429, 277);
-            this.gbxDelete.TabIndex = 7;
-            this.gbxDelete.TabStop = false;
-            this.gbxDelete.Text = "Delete Stock";
-            // 
-            // cbConfirm
-            // 
-            this.cbConfirm.AutoSize = true;
-            this.cbConfirm.Font = new System.Drawing.Font("Nirmala UI", 11F);
-            this.cbConfirm.ForeColor = System.Drawing.Color.Black;
-            this.cbConfirm.Location = new System.Drawing.Point(139, 137);
-            this.cbConfirm.Name = "cbConfirm";
-            this.cbConfirm.Size = new System.Drawing.Size(161, 29);
-            this.cbConfirm.TabIndex = 25;
-            this.cbConfirm.Text = "Confirm Delete";
-            this.cbConfirm.UseVisualStyleBackColor = true;
-            // 
-            // cbDeleteStock
-            // 
-            this.cbDeleteStock.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cbDeleteStock.FormattingEnabled = true;
-            this.cbDeleteStock.Location = new System.Drawing.Point(139, 71);
-            this.cbDeleteStock.Name = "cbDeleteStock";
-            this.cbDeleteStock.Size = new System.Drawing.Size(217, 28);
-            this.cbDeleteStock.TabIndex = 24;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Nirmala UI", 11F);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(33, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 31);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Stock ID:";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(79)))), ((int)(((byte)(211)))));
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(139, 202);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(217, 55);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "&Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // cbSearchPipeID
-            // 
-            this.cbSearchPipeID.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cbSearchPipeID.FormattingEnabled = true;
-            this.cbSearchPipeID.Location = new System.Drawing.Point(212, 72);
-            this.cbSearchPipeID.Name = "cbSearchPipeID";
-            this.cbSearchPipeID.Size = new System.Drawing.Size(217, 28);
-            this.cbSearchPipeID.TabIndex = 2;
-            // 
-            // cbFilterColour
-            // 
-            this.cbFilterColour.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cbFilterColour.FormattingEnabled = true;
-            this.cbFilterColour.Location = new System.Drawing.Point(169, 71);
-            this.cbFilterColour.Name = "cbFilterColour";
-            this.cbFilterColour.Size = new System.Drawing.Size(217, 28);
-            this.cbFilterColour.TabIndex = 2;
-            // 
-            // cbIColour
-            // 
-            this.cbIColour.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cbIColour.FormattingEnabled = true;
-            this.cbIColour.Location = new System.Drawing.Point(234, 230);
-            this.cbIColour.Name = "cbIColour";
-            this.cbIColour.Size = new System.Drawing.Size(264, 28);
-            this.cbIColour.TabIndex = 22;
             // 
             // cbUColour
             // 
@@ -566,16 +460,125 @@ namespace B4_Plastics_SMS
             this.label12.TabIndex = 26;
             this.label12.Text = "Diameter:";
             // 
+            // cbUpdateStock
+            // 
+            this.cbUpdateStock.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cbUpdateStock.FormattingEnabled = true;
+            this.cbUpdateStock.Location = new System.Drawing.Point(234, 58);
+            this.cbUpdateStock.Name = "cbUpdateStock";
+            this.cbUpdateStock.Size = new System.Drawing.Size(265, 28);
+            this.cbUpdateStock.TabIndex = 22;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(79)))), ((int)(((byte)(211)))));
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(234, 357);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(265, 55);
+            this.btnUpdate.TabIndex = 21;
+            this.btnUpdate.Text = "&Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Nirmala UI", 11F);
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(120, 61);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(76, 25);
+            this.label17.TabIndex = 13;
+            this.label17.Text = "Staff ID:";
+            // 
+            // tabDelete
+            // 
+            this.tabDelete.Controls.Add(this.gbxDelete);
+            this.tabDelete.Location = new System.Drawing.Point(4, 32);
+            this.tabDelete.Name = "tabDelete";
+            this.tabDelete.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDelete.Size = new System.Drawing.Size(1208, 432);
+            this.tabDelete.TabIndex = 3;
+            this.tabDelete.Text = "Delete";
+            this.tabDelete.UseVisualStyleBackColor = true;
+            // 
+            // gbxDelete
+            // 
+            this.gbxDelete.BackColor = System.Drawing.Color.White;
+            this.gbxDelete.Controls.Add(this.cbConfirm);
+            this.gbxDelete.Controls.Add(this.cbDeleteStock);
+            this.gbxDelete.Controls.Add(this.label4);
+            this.gbxDelete.Controls.Add(this.btnDelete);
+            this.gbxDelete.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
+            this.gbxDelete.ForeColor = System.Drawing.Color.Navy;
+            this.gbxDelete.Location = new System.Drawing.Point(21, 26);
+            this.gbxDelete.Name = "gbxDelete";
+            this.gbxDelete.Size = new System.Drawing.Size(429, 277);
+            this.gbxDelete.TabIndex = 7;
+            this.gbxDelete.TabStop = false;
+            this.gbxDelete.Text = "Delete Stock";
+            // 
+            // cbConfirm
+            // 
+            this.cbConfirm.AutoSize = true;
+            this.cbConfirm.Font = new System.Drawing.Font("Nirmala UI", 11F);
+            this.cbConfirm.ForeColor = System.Drawing.Color.Black;
+            this.cbConfirm.Location = new System.Drawing.Point(139, 137);
+            this.cbConfirm.Name = "cbConfirm";
+            this.cbConfirm.Size = new System.Drawing.Size(161, 29);
+            this.cbConfirm.TabIndex = 25;
+            this.cbConfirm.Text = "Confirm Delete";
+            this.cbConfirm.UseVisualStyleBackColor = true;
+            // 
+            // cbDeleteStock
+            // 
+            this.cbDeleteStock.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cbDeleteStock.FormattingEnabled = true;
+            this.cbDeleteStock.Location = new System.Drawing.Point(139, 71);
+            this.cbDeleteStock.Name = "cbDeleteStock";
+            this.cbDeleteStock.Size = new System.Drawing.Size(217, 28);
+            this.cbDeleteStock.TabIndex = 24;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Nirmala UI", 11F);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(33, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 25);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Stock ID:";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(79)))), ((int)(((byte)(211)))));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(139, 202);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(217, 55);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "&Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
             // Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1023, 883);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(967, 793);
+            this.Controls.Add(this.tabStock);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Stock";
             this.Text = "B4 Plastics - Stock";
-            this.tabControl1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.Stock_Load);
+            this.tabStock.ResumeLayout(false);
             this.tabSearch.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -598,7 +601,7 @@ namespace B4_Plastics_SMS
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabStock;
         private System.Windows.Forms.TabPage tabSearch;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox gbxSearch;
