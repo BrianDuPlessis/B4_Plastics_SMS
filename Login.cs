@@ -105,23 +105,6 @@ namespace B4_Plastics_SMS
             //--------------------------------------------------
 
 
-            // Default Login
-            if (email == "Admin" && password == "Admin")
-            {
-                this.Hide();
-                myAdminForm.Show();
-            }
-            else if (email == "Employee" && password == "Employee")
-            {
-                this.Hide();
-                myEmployeeForm.Show();
-            }
-            else if (email == "Dispatch" && password == "Dispatch")
-            {
-                this.Hide();
-                myDispatchForm.Show();
-            }
-            //----------------------------------------------
             // Check Login from text file
             else if (userType == "Admin" && emails.Contains(email) && pass.Contains(password))
             {
@@ -153,7 +136,7 @@ namespace B4_Plastics_SMS
 
         private void lblForgetPassword_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Contact one the admins to reset your password.", "Forgot password.", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

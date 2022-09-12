@@ -43,26 +43,41 @@ namespace DatabaseLogin.Class
 
         public static string GetTypeStaff(string email)
         {
-            using (var connection = GetConnection())
+            if (email == "Admin")
             {
-                 connection.Open();
-                 using (var command = new SqlCommand())
-                 {
-                    SqlDataReader reader;
-                    command.Connection = connection;
-                    //Get Type
-                    command.CommandText = $@"SELECT staff_usertype, staff_email
+                return "Admin";
+            }
+            else if (email == "Employee")
+            {
+                return "Employee";
+            }
+            else if (email == "Dispatch")
+            {
+                return "Dispatch";
+            }
+            else
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+                    using (var command = new SqlCommand())
+                    {
+                        SqlDataReader reader;
+                        command.Connection = connection;
+                        //Get Type
+                        command.CommandText = $@"SELECT staff_usertype, staff_email
                                           FROM [Staff]
                                           WHERE staff_email Like '{email}'";
-                    reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        type = reader.GetString(0);
+                        reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            type = reader.GetString(0);
+                        }
+                        reader.Close();
                     }
-                    reader.Close();
-                 }
+                }
             }
-            
+                
             return type;
         }
 
