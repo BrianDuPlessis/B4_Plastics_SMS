@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseLogin.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace B4_Plastics_SMS
         public Employee()
         {
             InitializeComponent();
+        }
+
+        private void Employee_Load(object sender, EventArgs e)
+        {
+            // User profile
+            frmLogin myLogin = new frmLogin();
+            lblUserName.Text = DatabaseL.Username;
         }
     }
 }
