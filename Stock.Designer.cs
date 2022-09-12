@@ -46,11 +46,11 @@ namespace B4_Plastics_SMS
             this.gbxInsertAdd = new System.Windows.Forms.GroupBox();
             this.cbIColour = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtIEmail = new System.Windows.Forms.TextBox();
+            this.txtLength = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtILastName = new System.Windows.Forms.TextBox();
-            this.txtIFirstName = new System.Windows.Forms.TextBox();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.txtDiameter = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabUpdate = new System.Windows.Forms.TabPage();
@@ -124,7 +124,7 @@ namespace B4_Plastics_SMS
             this.groupBox2.Location = new System.Drawing.Point(521, 477);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(414, 255);
-            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filter Stock by:";
             // 
@@ -135,7 +135,8 @@ namespace B4_Plastics_SMS
             this.cbFilterColour.Location = new System.Drawing.Point(169, 71);
             this.cbFilterColour.Name = "cbFilterColour";
             this.cbFilterColour.Size = new System.Drawing.Size(217, 28);
-            this.cbFilterColour.TabIndex = 2;
+            this.cbFilterColour.TabIndex = 0;
+            this.cbFilterColour.SelectedIndexChanged += new System.EventHandler(this.cbFilterColour_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -160,7 +161,7 @@ namespace B4_Plastics_SMS
             this.gbxSearch.Location = new System.Drawing.Point(26, 477);
             this.gbxSearch.Name = "gbxSearch";
             this.gbxSearch.Size = new System.Drawing.Size(468, 255);
-            this.gbxSearch.TabIndex = 4;
+            this.gbxSearch.TabIndex = 0;
             this.gbxSearch.TabStop = false;
             this.gbxSearch.Text = "Search Stock by:";
             // 
@@ -171,7 +172,8 @@ namespace B4_Plastics_SMS
             this.cbSearchPipeID.Location = new System.Drawing.Point(212, 72);
             this.cbSearchPipeID.Name = "cbSearchPipeID";
             this.cbSearchPipeID.Size = new System.Drawing.Size(217, 28);
-            this.cbSearchPipeID.TabIndex = 2;
+            this.cbSearchPipeID.TabIndex = 0;
+            this.cbSearchPipeID.SelectedIndexChanged += new System.EventHandler(this.cbSearchPipeID_SelectedIndexChanged);
             // 
             // txtSearchQuantity
             // 
@@ -180,6 +182,8 @@ namespace B4_Plastics_SMS
             this.txtSearchQuantity.Name = "txtSearchQuantity";
             this.txtSearchQuantity.Size = new System.Drawing.Size(217, 27);
             this.txtSearchQuantity.TabIndex = 1;
+            this.txtSearchQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSearchQuantity.TextChanged += new System.EventHandler(this.txtSearchQuantity_TextChanged);
             // 
             // label2
             // 
@@ -232,7 +236,7 @@ namespace B4_Plastics_SMS
             this.tabInsert.Location = new System.Drawing.Point(4, 32);
             this.tabInsert.Name = "tabInsert";
             this.tabInsert.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInsert.Size = new System.Drawing.Size(636, 470);
+            this.tabInsert.Size = new System.Drawing.Size(959, 757);
             this.tabInsert.TabIndex = 1;
             this.tabInsert.Text = "Insert";
             this.tabInsert.UseVisualStyleBackColor = true;
@@ -242,11 +246,11 @@ namespace B4_Plastics_SMS
             this.gbxInsertAdd.BackColor = System.Drawing.Color.White;
             this.gbxInsertAdd.Controls.Add(this.cbIColour);
             this.gbxInsertAdd.Controls.Add(this.btnAdd);
-            this.gbxInsertAdd.Controls.Add(this.txtIEmail);
+            this.gbxInsertAdd.Controls.Add(this.txtLength);
             this.gbxInsertAdd.Controls.Add(this.label9);
             this.gbxInsertAdd.Controls.Add(this.label10);
-            this.gbxInsertAdd.Controls.Add(this.txtILastName);
-            this.gbxInsertAdd.Controls.Add(this.txtIFirstName);
+            this.gbxInsertAdd.Controls.Add(this.txtQuantity);
+            this.gbxInsertAdd.Controls.Add(this.txtDiameter);
             this.gbxInsertAdd.Controls.Add(this.label5);
             this.gbxInsertAdd.Controls.Add(this.label6);
             this.gbxInsertAdd.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
@@ -265,7 +269,7 @@ namespace B4_Plastics_SMS
             this.cbIColour.Location = new System.Drawing.Point(234, 230);
             this.cbIColour.Name = "cbIColour";
             this.cbIColour.Size = new System.Drawing.Size(264, 28);
-            this.cbIColour.TabIndex = 22;
+            this.cbIColour.TabIndex = 3;
             // 
             // btnAdd
             // 
@@ -277,17 +281,19 @@ namespace B4_Plastics_SMS
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(265, 55);
-            this.btnAdd.TabIndex = 21;
+            this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // txtIEmail
+            // txtLength
             // 
-            this.txtIEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIEmail.Location = new System.Drawing.Point(234, 60);
-            this.txtIEmail.Name = "txtIEmail";
-            this.txtIEmail.Size = new System.Drawing.Size(264, 27);
-            this.txtIEmail.TabIndex = 3;
+            this.txtLength.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLength.Location = new System.Drawing.Point(234, 60);
+            this.txtLength.Name = "txtLength";
+            this.txtLength.Size = new System.Drawing.Size(264, 27);
+            this.txtLength.TabIndex = 0;
+            this.txtLength.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label9
             // 
@@ -311,21 +317,23 @@ namespace B4_Plastics_SMS
             this.label10.TabIndex = 13;
             this.label10.Text = "Length:";
             // 
-            // txtILastName
+            // txtQuantity
             // 
-            this.txtILastName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtILastName.Location = new System.Drawing.Point(234, 170);
-            this.txtILastName.Name = "txtILastName";
-            this.txtILastName.Size = new System.Drawing.Size(264, 27);
-            this.txtILastName.TabIndex = 2;
+            this.txtQuantity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantity.Location = new System.Drawing.Point(234, 170);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(264, 27);
+            this.txtQuantity.TabIndex = 2;
+            this.txtQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // txtIFirstName
+            // txtDiameter
             // 
-            this.txtIFirstName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIFirstName.Location = new System.Drawing.Point(234, 115);
-            this.txtIFirstName.Name = "txtIFirstName";
-            this.txtIFirstName.Size = new System.Drawing.Size(264, 27);
-            this.txtIFirstName.TabIndex = 1;
+            this.txtDiameter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiameter.Location = new System.Drawing.Point(234, 115);
+            this.txtDiameter.Name = "txtDiameter";
+            this.txtDiameter.Size = new System.Drawing.Size(264, 27);
+            this.txtDiameter.TabIndex = 1;
+            this.txtDiameter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -355,7 +363,7 @@ namespace B4_Plastics_SMS
             this.tabUpdate.Location = new System.Drawing.Point(4, 32);
             this.tabUpdate.Name = "tabUpdate";
             this.tabUpdate.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUpdate.Size = new System.Drawing.Size(625, 513);
+            this.tabUpdate.Size = new System.Drawing.Size(959, 757);
             this.tabUpdate.TabIndex = 2;
             this.tabUpdate.Text = "Update";
             this.tabUpdate.UseVisualStyleBackColor = true;
@@ -390,7 +398,7 @@ namespace B4_Plastics_SMS
             this.cbUColour.Location = new System.Drawing.Point(234, 284);
             this.cbUColour.Name = "cbUColour";
             this.cbUColour.Size = new System.Drawing.Size(265, 28);
-            this.cbUColour.TabIndex = 30;
+            this.cbUColour.TabIndex = 4;
             // 
             // txtULength
             // 
@@ -398,7 +406,8 @@ namespace B4_Plastics_SMS
             this.txtULength.Location = new System.Drawing.Point(234, 114);
             this.txtULength.Name = "txtULength";
             this.txtULength.Size = new System.Drawing.Size(265, 27);
-            this.txtULength.TabIndex = 25;
+            this.txtULength.TabIndex = 1;
+            this.txtULength.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
             // 
@@ -428,7 +437,8 @@ namespace B4_Plastics_SMS
             this.txtUPipeQuantity.Location = new System.Drawing.Point(234, 224);
             this.txtUPipeQuantity.Name = "txtUPipeQuantity";
             this.txtUPipeQuantity.Size = new System.Drawing.Size(265, 27);
-            this.txtUPipeQuantity.TabIndex = 24;
+            this.txtUPipeQuantity.TabIndex = 3;
+            this.txtUPipeQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtUDiameter
             // 
@@ -436,7 +446,8 @@ namespace B4_Plastics_SMS
             this.txtUDiameter.Location = new System.Drawing.Point(234, 169);
             this.txtUDiameter.Name = "txtUDiameter";
             this.txtUDiameter.Size = new System.Drawing.Size(265, 27);
-            this.txtUDiameter.TabIndex = 23;
+            this.txtUDiameter.TabIndex = 2;
+            this.txtUDiameter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label11
             // 
@@ -467,7 +478,8 @@ namespace B4_Plastics_SMS
             this.cbUpdateStock.Location = new System.Drawing.Point(234, 58);
             this.cbUpdateStock.Name = "cbUpdateStock";
             this.cbUpdateStock.Size = new System.Drawing.Size(265, 28);
-            this.cbUpdateStock.TabIndex = 22;
+            this.cbUpdateStock.TabIndex = 0;
+            this.cbUpdateStock.SelectedIndexChanged += new System.EventHandler(this.cbUpdateStock_SelectedIndexChanged);
             // 
             // btnUpdate
             // 
@@ -479,20 +491,21 @@ namespace B4_Plastics_SMS
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(265, 55);
-            this.btnUpdate.TabIndex = 21;
+            this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Nirmala UI", 11F);
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(120, 61);
+            this.label17.Location = new System.Drawing.Point(112, 61);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(76, 25);
+            this.label17.Size = new System.Drawing.Size(83, 25);
             this.label17.TabIndex = 13;
-            this.label17.Text = "Staff ID:";
+            this.label17.Text = "Stock ID:";
             // 
             // tabDelete
             // 
@@ -500,7 +513,7 @@ namespace B4_Plastics_SMS
             this.tabDelete.Location = new System.Drawing.Point(4, 32);
             this.tabDelete.Name = "tabDelete";
             this.tabDelete.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDelete.Size = new System.Drawing.Size(1208, 432);
+            this.tabDelete.Size = new System.Drawing.Size(959, 757);
             this.tabDelete.TabIndex = 3;
             this.tabDelete.Text = "Delete";
             this.tabDelete.UseVisualStyleBackColor = true;
@@ -529,7 +542,7 @@ namespace B4_Plastics_SMS
             this.cbConfirm.Location = new System.Drawing.Point(139, 137);
             this.cbConfirm.Name = "cbConfirm";
             this.cbConfirm.Size = new System.Drawing.Size(161, 29);
-            this.cbConfirm.TabIndex = 25;
+            this.cbConfirm.TabIndex = 1;
             this.cbConfirm.Text = "Confirm Delete";
             this.cbConfirm.UseVisualStyleBackColor = true;
             // 
@@ -540,7 +553,7 @@ namespace B4_Plastics_SMS
             this.cbDeleteStock.Location = new System.Drawing.Point(139, 71);
             this.cbDeleteStock.Name = "cbDeleteStock";
             this.cbDeleteStock.Size = new System.Drawing.Size(217, 28);
-            this.cbDeleteStock.TabIndex = 24;
+            this.cbDeleteStock.TabIndex = 0;
             // 
             // label4
             // 
@@ -563,7 +576,7 @@ namespace B4_Plastics_SMS
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(217, 55);
-            this.btnDelete.TabIndex = 5;
+            this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
@@ -571,6 +584,7 @@ namespace B4_Plastics_SMS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(967, 793);
             this.Controls.Add(this.tabStock);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -614,11 +628,11 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.TabPage tabInsert;
         private System.Windows.Forms.GroupBox gbxInsertAdd;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtIEmail;
+        private System.Windows.Forms.TextBox txtLength;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtILastName;
-        private System.Windows.Forms.TextBox txtIFirstName;
+        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.TextBox txtDiameter;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tabUpdate;
