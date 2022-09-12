@@ -33,8 +33,10 @@ namespace B4_Plastics_SMS
             {
                 Con.Open();
 
-                SQL = "SELECT Details.pipe_id, Size.pipe_length, Size.pipe_length " +
-                      "FROM Theatre";
+                SQL = "SELECT Det.pipe_id, Sz.pipe_length, Sz.pipe_length, Col.colour_code " +
+                      "FROM Pipe_Details as Det " +
+                           "LEFT JOIN Pipe Size as Sz ON Sz.size_id = Det.size_id " +
+                           "LEFT JOIN Colours as Col ON Col.colour_id = Det.colour_id ";
 
                 Command = new SqlCommand(SQL, Con);
 
@@ -60,6 +62,8 @@ namespace B4_Plastics_SMS
 
             tabStock.SelectedTab = tabSearch;
 
+            Con = new SqlConnection(ConStr);
+
             try
             {
                 Con.Open();
@@ -71,7 +75,56 @@ namespace B4_Plastics_SMS
                 MessageBox.Show(ex.Message, "Error connecting to databsae", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            displayData();
+            //displayData();
+
+            try
+            {
+                Con.Open();
+
+                SQL = "SELECT pipe_id " +
+                      "FROM Pipe Details";
+
+                Command = new SqlCommand(SQL, Con);
+
+                SqlDataReader DataReader = Command.ExecuteReader();
+
+                while (DataReader.Read())
+                {
+                    cbSearchPipeID.Items.Add(DataReader.GetValue(0));
+                }
+
+                Con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            try
+            {
+                Con.Close();
+                Con.Open();
+
+                SQL = "SELECT colour_code " +
+                      "FROM Colours";
+
+                Command = new SqlCommand(SQL, Con);
+
+                SqlDataReader DataReader = Command.ExecuteReader();
+
+                while (DataReader.Read())
+                {
+                    cbFilterColour.Items.Add(DataReader.GetValue(0));
+                }
+
+                Con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            Con.Close();
         }
 
         private void tabStock_Click(object sender, EventArgs e)
