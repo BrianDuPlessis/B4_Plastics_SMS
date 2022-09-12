@@ -33,7 +33,7 @@ namespace B4_Plastics_SMS
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabSearch = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbFilterStatus = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.gbxMachineDetails = new System.Windows.Forms.GroupBox();
             this.dgvMachineDetails = new System.Windows.Forms.DataGridView();
@@ -114,7 +114,7 @@ namespace B4_Plastics_SMS
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.groupBox5);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cbFilterStatus);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
             this.groupBox2.ForeColor = System.Drawing.Color.Navy;
@@ -125,14 +125,14 @@ namespace B4_Plastics_SMS
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filter Machines by:";
             // 
-            // comboBox1
+            // cbFilterStatus
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(240, 68);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(264, 28);
-            this.comboBox1.TabIndex = 2;
+            this.cbFilterStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cbFilterStatus.FormattingEnabled = true;
+            this.cbFilterStatus.Location = new System.Drawing.Point(240, 68);
+            this.cbFilterStatus.Name = "cbFilterStatus";
+            this.cbFilterStatus.Size = new System.Drawing.Size(264, 28);
+            this.cbFilterStatus.TabIndex = 2;
             // 
             // label20
             // 
@@ -543,7 +543,7 @@ namespace B4_Plastics_SMS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 706);
+            this.ClientSize = new System.Drawing.Size(1023, 883);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Machines";
@@ -578,7 +578,7 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabSearch;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbFilterStatus;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.GroupBox gbxMachineDetails;
         private System.Windows.Forms.DataGridView dgvMachineDetails;
