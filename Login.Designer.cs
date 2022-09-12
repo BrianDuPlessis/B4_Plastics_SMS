@@ -124,7 +124,7 @@ namespace B4_Plastics_SMS
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(320, 17);
-            this.label3.TabIndex = 22;
+            this.label3.TabIndex = 4;
             this.label3.Text = "_______________________________________";
             // 
             // lblPassword

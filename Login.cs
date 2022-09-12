@@ -21,12 +21,22 @@ namespace B4_Plastics_SMS
         {
             this.CenterToScreen();
 
-            txtEmail.Clear();
-            txtPassword.Clear();
-            txtEmail.Focus();
+            if (Properties.Settings.Default.Email != string.Empty)
+            {
+                txtEmail.Text = Properties.Settings.Default.Email;
+                txtPassword.Text = Properties.Settings.Default.Password;
+                chRemember.Checked = Properties.Settings.Default.Checkbox;
+
+            }
+            else
+            {
+                txtEmail.Clear();
+                txtPassword.Clear();
+                txtEmail.Focus();
+            }
+            
 
             txtPassword.PasswordChar = '*';
-            txtPassword.MaxLength = 14;
         }
 
         private void lblForgetPassword_Click(object sender, EventArgs e)
@@ -36,13 +46,40 @@ namespace B4_Plastics_SMS
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string Email = "",
-                   Password = "";
+            string email = txtEmail.Text,
+                   password = txtPassword.Text;
 
-            bool Remember_Me = false;
+            if (chRemember.Checked)
+            {
+                Properties.Settings.Default.Email = email;
+                Properties.Settings.Default.Password = password;
+                Properties.Settings.Default.Checkbox = true;
+                Properties.Settings.Default.Save();
+
+            }
+            else
+            {
+                Properties.Settings.Default.Email = "";
+                Properties.Settings.Default.Password = "";
+                Properties.Settings.Default.Checkbox = false;
+                Properties.Settings.Default.Save();
+            }
+
+            frmLogin myLogin = new frmLogin();
+            myLogin.Hide();
+
+            if (Properties.Settings.Default.Email == string.Empty)
+            {
+                txtEmail.Clear();
+                txtPassword.Clear();
+                txtEmail.Focus();
+            }
 
             frmAdmin myAdminForm = new frmAdmin();
             myAdminForm.Show();
+
+
+            
 
         }
     }
