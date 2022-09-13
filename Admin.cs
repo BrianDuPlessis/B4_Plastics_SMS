@@ -15,9 +15,15 @@ namespace B4_Plastics_SMS
 {
     public partial class frmAdmin : Form
     {
-        //Fields
-        private Dashboard model;
-
+        // Forms
+        frmLogin myLogin = new frmLogin();
+        AdminDashboard myDashboard = new AdminDashboard();
+        frmUserProfile myUserProfile;
+        Staff myStaff = new Staff();
+        Stock myStock = new Stock();
+        TransactLoad myTransaction = new TransactLoad();
+        Machines myMachine = new Machines();
+        Reports myReport = new Reports();
 
         // Constructor
         public frmAdmin()
@@ -25,17 +31,8 @@ namespace B4_Plastics_SMS
             InitializeComponent();
 
             // User profile
-            frmLogin myLogin = new frmLogin();
             lblUserName.Text = DatabaseL.Username;
-
-
-            //Default - Last 7 days
-            dtpStartDate.Value = DateTime.Today.AddDays(-7);
-            dtpEndDate.Value = DateTime.Now;
-            btnLast7Days.Select();
-
-            model = new Dashboard();
-            LoadData();
+            pnlContainerUserProfile.Hide();
         }
 
         private void frmAdmin_Load(object sender, EventArgs e)
@@ -45,39 +42,53 @@ namespace B4_Plastics_SMS
             pnlNav.Top = btnDashboard.Top;
             pnlNav.Left = btnDashboard.Left;
             btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+
+            // Medthod for changing form
+            ButtonFormChage(myDashboard);
         }
         
         // Medthod for moving navigation panel and colour effect on button clicked
         public void ButtonColourEffect(Button btnClicked)
         {
-            // Colour Effects for clicking on button 
-            btnUserInfoPage.BackColor = Color.FromArgb(37, 45, 55);
-            btnEmployeesPage.BackColor = Color.FromArgb(37, 45, 55);
-            btnStockPage.BackColor = Color.FromArgb(37, 45, 55);
-            btnTransactionsPage.BackColor = Color.FromArgb(37, 45, 55);
-            btnMachinePage.BackColor = Color.FromArgb(37, 45, 55);
-            btnReportsPage.BackColor = Color.FromArgb(37, 45, 55);
-            btnDashboard.BackColor = Color.FromArgb(37, 45, 55);
+            if (btnClicked != null)
+            {
+                // Colour Effects for clicking on button 
+                btnEmployeesPage.BackColor = Color.FromArgb(37, 45, 55);
+                btnStockPage.BackColor = Color.FromArgb(37, 45, 55);
+                btnTransactionsPage.BackColor = Color.FromArgb(37, 45, 55);
+                btnMachinePage.BackColor = Color.FromArgb(37, 45, 55);
+                btnReportsPage.BackColor = Color.FromArgb(37, 45, 55);
+                btnDashboard.BackColor = Color.FromArgb(37, 45, 55);
 
-            pnlNav.Height = btnClicked.Height;
-            pnlNav.Top = btnClicked.Top;
-            pnlNav.Left = btnClicked.Left;
-            btnClicked.BackColor = Color.FromArgb(46, 51, 73);
-            //-------------------------------------------------------------
+                pnlNav.Height = btnClicked.Height;
+                pnlNav.Top = btnClicked.Top;
+                pnlNav.Left = btnClicked.Left;
+                btnClicked.BackColor = Color.FromArgb(46, 51, 73);
+                //-------------------------------------------------------------
+            }
         }
 
-        private void btnUserInfoPage_Click_1(object sender, EventArgs e)
+        // Medthod for changing form
+        public void ButtonFormChage(Form form)
         {
-            // Colour Effects for clicking on button 
-            ButtonColourEffect(sender as Button);
-            //------------------------------------
+            pnlContainer.Controls.Clear();
+
+            form.TopLevel = false;
+            form.Dock = DockStyle.Fill;
+            form.FormBorderStyle = FormBorderStyle.None;
+            this.pnlContainer.Controls.Add(form);
+            form.Show();
         }
+        //----------------------------------------------
 
         private void btnEmployeesPage_Click_1(object sender, EventArgs e)
         {
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
+
+            // Medthod for changing form
+            ButtonFormChage(myStaff);
         }
 
         private void btnStockPage_Click_1(object sender, EventArgs e)
@@ -85,8 +96,9 @@ namespace B4_Plastics_SMS
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
-            Stock stock = new Stock();
-            stock.Show();
+            
+            // Medthod for changing form
+            ButtonFormChage(myStock);
 
         }
 
@@ -95,6 +107,9 @@ namespace B4_Plastics_SMS
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
+
+            // Medthod for changing form
+            ButtonFormChage(myTransaction);
         }
 
         private void btnMachinePage_Click_1(object sender, EventArgs e)
@@ -102,6 +117,9 @@ namespace B4_Plastics_SMS
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
+
+            // Medthod for changing form
+            ButtonFormChage(myMachine);
         }
 
         private void btnReportsPage_Click_1(object sender, EventArgs e)
@@ -109,8 +127,9 @@ namespace B4_Plastics_SMS
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
-            Reports reports = new Reports();
-            reports.Show();
+
+            // Medthod for changing form
+            ButtonFormChage(myReport);
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -118,6 +137,9 @@ namespace B4_Plastics_SMS
             // Colour Effects for clicking on button 
             ButtonColourEffect(sender as Button);
             //------------------------------------
+
+            // Medthod for changing form
+            ButtonFormChage(myDashboard);
         }
 
         private void linkLabelEmail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -125,84 +147,38 @@ namespace B4_Plastics_SMS
             System.Diagnostics.Process.Start("IExplore", "mailto:contact@b4plastics.com");
         }
 
-        
-        //Private methods
-        private void LoadData()
+        private void pnlUserInfo_Click(object sender, EventArgs e)
         {
-            var refreshData = model.LoadData(dtpStartDate.Value, dtpEndDate.Value);
-            if (refreshData == true)
-            {
-                lblTransactionsActive.Text = model.NumActiveTransactions.ToString();
-                lblTransactionsCompleted.Text = model.NumCompletedTransactions.ToString();
+            // Colour Effects for clicking on button 
+            ButtonColourEffect(sender as Button);
+            //------------------------------------
+            myUserProfile = new frmUserProfile();
 
-                lblMachinesActive.Text = model.ActiceMachines.ToString();
-                lblMachinesNeedsService.Text = model.ServicesMachines.ToString();
-                lblMachinesNotActive.Text = model.NotActiveMachines.ToString();
+            pnlContainer.Enabled = false;
 
-                
-                chartTransactionsVSDate.Series[0].XValueMember = "Date";
-                chartTransactionsVSDate.Series[0].YValueMembers = "TotalAmount";
+            pnlContainerUserProfile.Show();
 
-                chartTransactionsVSDate.DataSource = model.TransactionQuantityList;
-                chartTransactionsVSDate.DataBind();
-
-                dgvUnderstock.DataSource = model.UnderstockList;
-                dgvUnderstock.Columns[0].HeaderText = "Item";
-                dgvUnderstock.Columns[1].HeaderText = "Units";
-                Console.WriteLine("Loaded view :)");
-            }
-            else Console.WriteLine("View not loaded, same query");
-        }
-        private void DisableCustomDates()
-        {
-            dtpStartDate.Enabled = false;
-            dtpEndDate.Enabled = false;
-            btnOkCustomDate.Visible = false;
+            pnlContainerUserProfile.Controls.Remove(myUserProfile);
+            myUserProfile.TopLevel = false;
+            myUserProfile.Dock = DockStyle.Fill;
+            this.pnlContainerUserProfile.Controls.Add(myUserProfile);
+            myUserProfile.Show();
         }
 
-        //Event methods
-        private void btnToday_Click_1(object sender, EventArgs e)
+        private void pictureBox7_Click(object sender, EventArgs e)
         {
-            dtpStartDate.Value = DateTime.Today;
-            dtpEndDate.Value = DateTime.Now;
-            LoadData();
-            DisableCustomDates();
+            this.pnlUserInfo_Click(sender,e);
         }
 
-        private void btnLast7Days_Click_1(object sender, EventArgs e)
+        private void lblUserName_Click(object sender, EventArgs e)
         {
-            dtpStartDate.Value = DateTime.Today.AddDays(-7);
-            dtpEndDate.Value = DateTime.Now;
-            LoadData();
-            DisableCustomDates();
+            this.pnlUserInfo_Click(sender, e);
         }
 
-        private void btnLast30Days_Click_1(object sender, EventArgs e)
+        private void pnlContainerUserProfile_ControlRemoved(object sender, ControlEventArgs e)
         {
-            dtpStartDate.Value = DateTime.Today.AddDays(-30);
-            dtpEndDate.Value = DateTime.Now;
-            LoadData();
-            DisableCustomDates();
-        }
-
-        private void btnThisMonth_Click_1(object sender, EventArgs e)
-        {
-            dtpStartDate.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-            dtpEndDate.Value = DateTime.Now;
-            LoadData();
-            DisableCustomDates();
-        }
-
-        private void btnCustomDate_Click(object sender, EventArgs e)
-        {
-            dtpStartDate.Enabled = true;
-            dtpEndDate.Enabled = true;
-            btnOkCustomDate.Visible = true;
-        }
-
-        private void btnOkCustomDate_Click_1(object sender, EventArgs e)
-        {
-            LoadData();
+            pnlContainerUserProfile.Hide();
+            pnlContainer.Enabled = true;
         }
     }
 }
