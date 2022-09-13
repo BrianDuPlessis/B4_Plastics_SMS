@@ -482,6 +482,18 @@ namespace B4_Plastics_SMS
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            int Pipe_ID = 0;
+            double Length = 0.00;
+            double Diameter = 0.00;
+            int Quantity = 0;
+            string Colour = "";
+
+            Pipe_ID = int.Parse(cbUpdateStock.Text);
+            Length = double.Parse(txtULength.Text);
+            Diameter = double.Parse(txtUDiameter.Text);
+            Quantity = int.Parse(txtUPipeQuantity.Text);
+            Colour = cbUColour.Text;
+
 
         }
 
@@ -499,11 +511,7 @@ namespace B4_Plastics_SMS
 
             }
             else
-            {
                 MessageBox.Show("Please select 'Confirm Delete' box before deleteing records!", "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
