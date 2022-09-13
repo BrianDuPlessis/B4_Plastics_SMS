@@ -16,7 +16,9 @@ namespace B4_Plastics_SMS
 {
     public partial class frmAdmin : Form
     {
-        // Forms
+        // Forms Fiels
+        private Size formSize;
+
         frmLogin myLogin = new frmLogin();
         AdminDashboard myDashboard = new AdminDashboard();
         frmUserProfile myUserProfile;
@@ -26,12 +28,9 @@ namespace B4_Plastics_SMS
         Machines myMachine = new Machines();
         Reports myReport = new Reports();
 
-        // Border
+        // Border Fields
         bool mouseDown;
         private Point offset;
-
-        //Fields
-        private Size formSize; 
 
         // Constructor
         public frmAdmin()
@@ -200,6 +199,18 @@ namespace B4_Plastics_SMS
             this.pnlUserInfo_Click_1(sender, e);
         }
 
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        #region Drag Form
+
         private void pnlBorder_MouseDown_1(object sender, MouseEventArgs e)
         {
             offset.X = e.X;
@@ -220,6 +231,7 @@ namespace B4_Plastics_SMS
                 Location = new Point(currentScreenPos.X - offset.X, currentScreenPos.Y - offset.Y);
             }
         }
+        #endregion
 
         #region Resize Form
         //Overridden methods
@@ -295,24 +307,19 @@ namespace B4_Plastics_SMS
             //Keep form size when it is minimized and restored. Since the form is resized because it takes into account the size of the title bar and borders.
             if (m.Msg == WM_SYSCOMMAND)
             {
-                /// <see cref="https://docs.microsoft.com/en-us/windows/win32/menurc/wm-syscommand"/>
-                /// Quote:
-                /// In WM_SYSCOMMAND messages, the four low - order bits of the wParam parameter 
-                /// are used internally by the system.To obtain the correct result when testing 
-                /// the value of wParam, an application must combine the value 0xFFF0 with the 
-                /// wParam value by using the bitwise AND operator.
                 int wParam = (m.WParam.ToInt32() & 0xFFF0);
 
-                if (wParam == SC_MINIMIZE)  //Before
                     formSize = this.ClientSize;
                 if (wParam == SC_RESTORE)// Restored form(Before)
                     this.Size = formSize;
             }
             base.WndProc(ref m);
         }
-        #endregion
-
-       
     }
+
+        #endregion
+    
 }
+
+
 

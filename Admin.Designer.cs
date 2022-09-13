@@ -31,9 +31,11 @@ namespace B4_Plastics_SMS
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
             this.lblHeading = new System.Windows.Forms.Label();
-            this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlContainerUserProfile = new System.Windows.Forms.Panel();
             this.pnlBorder = new System.Windows.Forms.Panel();
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.linkLabelEmail = new System.Windows.Forms.LinkLabel();
             this.pnlNav = new System.Windows.Forms.Panel();
@@ -46,13 +48,12 @@ namespace B4_Plastics_SMS
             this.pnlUserInfo = new System.Windows.Forms.Panel();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlBorder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.pnlUserInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHeading
@@ -70,15 +71,6 @@ namespace B4_Plastics_SMS
             this.lblHeading.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseMove_1);
             this.lblHeading.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseUp_1);
             // 
-            // pnlContainer
-            // 
-            this.pnlContainer.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlContainer.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.pnlContainer.Location = new System.Drawing.Point(247, 63);
-            this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(1869, 1408);
-            this.pnlContainer.TabIndex = 14;
-            // 
             // pnlContainerUserProfile
             // 
             this.pnlContainerUserProfile.BackColor = System.Drawing.SystemColors.Control;
@@ -91,17 +83,67 @@ namespace B4_Plastics_SMS
             // pnlBorder
             // 
             this.pnlBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(85)))), ((int)(((byte)(116)))));
+            this.pnlBorder.Controls.Add(this.btnMinimize);
             this.pnlBorder.Controls.Add(this.btnExit);
             this.pnlBorder.Controls.Add(this.pictureBox1);
             this.pnlBorder.Controls.Add(this.lblHeading);
             this.pnlBorder.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorder.Location = new System.Drawing.Point(0, 0);
             this.pnlBorder.Name = "pnlBorder";
-            this.pnlBorder.Size = new System.Drawing.Size(1449, 63);
+            this.pnlBorder.Size = new System.Drawing.Size(1538, 53);
             this.pnlBorder.TabIndex = 16;
             this.pnlBorder.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseDown_1);
             this.pnlBorder.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseMove_1);
             this.pnlBorder.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseUp_1);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(141)))), ((int)(((byte)(162)))));
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.Font = new System.Drawing.Font("Roboto", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.Location = new System.Drawing.Point(1416, 0);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(61, 53);
+            this.btnMinimize.TabIndex = 29;
+            this.btnMinimize.Text = "━";
+            this.btnMinimize.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(64)))), ((int)(((byte)(75)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(1477, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(61, 53);
+            this.btnExit.TabIndex = 28;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
+            this.pictureBox1.Image = global::B4_Plastics_SMS.Properties.Resources.Logo_Transparent;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 27;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseDown_1);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseMove_1);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseUp_1);
             // 
             // panel3
             // 
@@ -116,10 +158,10 @@ namespace B4_Plastics_SMS
             this.panel3.Controls.Add(this.btnDashboard);
             this.panel3.Controls.Add(this.pnlUserInfo);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 63);
+            this.panel3.Location = new System.Drawing.Point(0, 53);
             this.panel3.Margin = new System.Windows.Forms.Padding(5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 892);
+            this.panel3.Size = new System.Drawing.Size(250, 847);
             this.panel3.TabIndex = 17;
             // 
             // linkLabelEmail
@@ -128,7 +170,7 @@ namespace B4_Plastics_SMS
             this.linkLabelEmail.AutoSize = true;
             this.linkLabelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelEmail.LinkColor = System.Drawing.Color.Cyan;
-            this.linkLabelEmail.Location = new System.Drawing.Point(23, 863);
+            this.linkLabelEmail.Location = new System.Drawing.Point(23, 806);
             this.linkLabelEmail.Name = "linkLabelEmail";
             this.linkLabelEmail.Size = new System.Drawing.Size(193, 20);
             this.linkLabelEmail.TabIndex = 15;
@@ -291,35 +333,22 @@ namespace B4_Plastics_SMS
             this.pictureBox7.TabStop = false;
             this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click_1);
             // 
-            // pictureBox1
+            // pnlContainer
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
-            this.pictureBox1.Image = global::B4_Plastics_SMS.Properties.Resources.Logo_Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 27;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseDown_1);
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseMove_1);
-            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseUp_1);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(1293, 27);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 28;
-            this.btnExit.Text = "button1";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.pnlContainer.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlContainer.Location = new System.Drawing.Point(251, 55);
+            this.pnlContainer.Name = "pnlContainer";
+            this.pnlContainer.Padding = new System.Windows.Forms.Padding(3);
+            this.pnlContainer.Size = new System.Drawing.Size(1271, 824);
+            this.pnlContainer.TabIndex = 15;
+            this.pnlContainer.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnlContainerUserProfile_ControlRemoved);
             // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1449, 955);
+            this.ClientSize = new System.Drawing.Size(1538, 900);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnlBorder);
             this.Controls.Add(this.pnlContainerUserProfile);
@@ -327,25 +356,23 @@ namespace B4_Plastics_SMS
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1000, 650);
             this.Name = "frmAdmin";
             this.Text = "B4 Plastics - Admin";
             this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.pnlBorder.ResumeLayout(false);
             this.pnlBorder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.pnlUserInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Label lblHeading;
-        private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.Panel pnlContainerUserProfile;
         private System.Windows.Forms.Panel pnlBorder;
         private System.Windows.Forms.Panel panel3;
@@ -362,5 +389,7 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnMinimize;
+        private System.Windows.Forms.Panel pnlContainer;
     }
 }
