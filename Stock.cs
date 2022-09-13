@@ -57,8 +57,8 @@ namespace B4_Plastics_SMS
         {
             this.CenterToScreen();
 
-            this.Height = 840;
-            this.Width = 985;
+            this.Height = 685;
+            this.Width = 745;
 
             tabStock.SelectedTab = tabSearch;
 
@@ -233,8 +233,10 @@ namespace B4_Plastics_SMS
             {
                 case 0:
                     {
-                        this.Height = 840;
-                        this.Width = 985;
+                        this.Height = 685;
+                        this.Width = 745;
+
+                        this.CenterToScreen();
 
                         cbSearchPipeID.Text = "";
                         txtSearchQuantity.Text = "";
@@ -244,8 +246,10 @@ namespace B4_Plastics_SMS
                     }
                 case 1:
                     {
-                        this.Height = 553;
-                        this.Width = 662;
+                        this.Height = 450;
+                        this.Width = 500;
+
+                        this.CenterToScreen();
 
                         txtLength.Text = "";
                         txtDiameter.Text = "";
@@ -258,8 +262,10 @@ namespace B4_Plastics_SMS
                     }
                 case 2:
                     {
-                        this.Height = 596;
-                        this.Width = 651;
+                        this.Height = 485;
+                        this.Width = 495;
+
+                        this.CenterToScreen();
 
                         cbUpdateStock.Text = "";
                         txtULength.Text = "";
@@ -273,8 +279,10 @@ namespace B4_Plastics_SMS
                     }
                 case 3:
                     {
-                        this.Height = 412;
-                        this.Width = 500;
+                        this.Height = 330;
+                        this.Width = 380;
+
+                        this.CenterToScreen();
 
                         cbDeleteStock.Text = "";
                         cbConfirm.Checked = false;
@@ -437,33 +445,31 @@ namespace B4_Plastics_SMS
         {
             try
             {
+                Con.Close();
                 Con.Open();
 
                 SQL = "SELECT Det.pipe_id, Sz.pipe_length, Sz.pipe_diameter, Col.colour_code, Det.pipe_quantity " +
                       "FROM [Pipe Details] as Det " +
                            "LEFT JOIN [Pipe Size] as Sz ON Sz.size_id = Det.size_id " +
                            "LEFT JOIN Colours as Col ON Col.colour_id = Det.colour_id " +
-                     $"WHERE Col.colour_code = '{cbFilterColour.Text}'";
+                     $"WHERE Det.pipe_id = '{cbUpdateStock.Text}'";
 
                 Command = new SqlCommand(SQL, Con);
 
                 SqlDataReader DataReader = Command.ExecuteReader();
 
-                while (DataReader.Read())
-                {
-                    if (String.Equals(DataReader["pipe_id"].ToString(), cbUpdateStock.SelectedItem.ToString()))
-                    {
-                        cbUpdateStock.Text = cbUpdateStock.SelectedItem.ToString();
-                    }
+                DataReader.Read();
 
-                    txtULength.Text = DataReader["pipe_length"].ToString();
-                    txtUDiameter.Text = DataReader["pipe_diameter"].ToString();
-                    txtUPipeQuantity.Text = DataReader["pipe_quantity"].ToString();
+                txtULength.Text = DataReader["pipe_length"].ToString();
+                txtUDiameter.Text = DataReader["pipe_diameter"].ToString();
+                txtUPipeQuantity.Text = DataReader["pipe_quantity"].ToString();
+                
+                for (int k = cbUColour.Items.Count - 1; k > -1; --k)
+                {
+                    cbUColour.SelectedIndex = k;
 
                     if (String.Equals(DataReader["colour_code"].ToString(), cbUColour.SelectedItem.ToString()))
-                    {
-                        cbUColour.Text = cbUColour.SelectedItem.ToString();
-                    }
+                        break;
                 }
 
                 Con.Close();
@@ -483,6 +489,22 @@ namespace B4_Plastics_SMS
 
 
         /////////////////////////////////////////////////////////////////////Tab Delete//////////////////////////////////////////////////////////////////////////////////
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int pipe_id = int.Parse(cbDeleteStock.Text);
+
+            if (cbConfirm.Checked)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Please select 'Confirm Delete' box before deleteing records!", "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
