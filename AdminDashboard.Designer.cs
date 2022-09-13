@@ -29,9 +29,9 @@ namespace B4_Plastics_SMS
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgvUnderstock = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
@@ -46,37 +46,37 @@ namespace B4_Plastics_SMS
             this.chartTransactionsVSDate = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlMachinesNeedsService = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.lblMachinesNeedsService = new System.Windows.Forms.Label();
             this.lblTitleMachinesNeedsService = new System.Windows.Forms.Label();
             this.pnlMachinesNotActive = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lblMachinesNotActive = new System.Windows.Forms.Label();
             this.lblTitleMachinesNotActive = new System.Windows.Forms.Label();
             this.pnlMachinesActive = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblMachinesActive = new System.Windows.Forms.Label();
             this.lblTitleMachinesActive = new System.Windows.Forms.Label();
             this.pnlTransactionsCompleted = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblTransactionsCompleted = new System.Windows.Forms.Label();
             this.lblTitleTransactionsCompleted = new System.Windows.Forms.Label();
             this.pnlTransactionsActive = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTransactionsActive = new System.Windows.Forms.Label();
             this.lblTitleTransactionsActive = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnderstock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartTransactionsVSDate)).BeginInit();
             this.pnlMachinesNeedsService.SuspendLayout();
-            this.pnlMachinesNotActive.SuspendLayout();
-            this.pnlMachinesActive.SuspendLayout();
-            this.pnlTransactionsCompleted.SuspendLayout();
-            this.pnlTransactionsActive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.pnlMachinesNotActive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.pnlMachinesActive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pnlTransactionsCompleted.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnlTransactionsActive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -208,16 +208,16 @@ namespace B4_Plastics_SMS
             // 
             // chartTransactionsVSDate
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartTransactionsVSDate.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartTransactionsVSDate.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chartTransactionsVSDate.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartTransactionsVSDate.Legends.Add(legend2);
             this.chartTransactionsVSDate.Location = new System.Drawing.Point(57, 275);
             this.chartTransactionsVSDate.Name = "chartTransactionsVSDate";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Quantity";
-            this.chartTransactionsVSDate.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Quantity";
+            this.chartTransactionsVSDate.Series.Add(series2);
             this.chartTransactionsVSDate.Size = new System.Drawing.Size(648, 305);
             this.chartTransactionsVSDate.TabIndex = 30;
             this.chartTransactionsVSDate.Text = "chartTransactionsVSDate";
@@ -244,6 +244,19 @@ namespace B4_Plastics_SMS
             this.pnlMachinesNeedsService.Name = "pnlMachinesNeedsService";
             this.pnlMachinesNeedsService.Size = new System.Drawing.Size(312, 122);
             this.pnlMachinesNeedsService.TabIndex = 24;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox5.Image = global::B4_Plastics_SMS.Properties.Resources.Dot_Red;
+            this.pictureBox5.InitialImage = null;
+            this.pictureBox5.Location = new System.Drawing.Point(24, 73);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(16, 15);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 7;
+            this.pictureBox5.TabStop = false;
             // 
             // lblMachinesNeedsService
             // 
@@ -279,6 +292,19 @@ namespace B4_Plastics_SMS
             this.pnlMachinesNotActive.Size = new System.Drawing.Size(312, 122);
             this.pnlMachinesNotActive.TabIndex = 25;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox4.Image = global::B4_Plastics_SMS.Properties.Resources.Dot_Yellow;
+            this.pictureBox4.InitialImage = null;
+            this.pictureBox4.Location = new System.Drawing.Point(24, 73);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(16, 15);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
+            // 
             // lblMachinesNotActive
             // 
             this.lblMachinesNotActive.AutoSize = true;
@@ -312,6 +338,19 @@ namespace B4_Plastics_SMS
             this.pnlMachinesActive.Name = "pnlMachinesActive";
             this.pnlMachinesActive.Size = new System.Drawing.Size(312, 122);
             this.pnlMachinesActive.TabIndex = 26;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Image = global::B4_Plastics_SMS.Properties.Resources.Dot_Green;
+            this.pictureBox3.InitialImage = null;
+            this.pictureBox3.Location = new System.Drawing.Point(24, 73);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(16, 15);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 7;
+            this.pictureBox3.TabStop = false;
             // 
             // lblMachinesActive
             // 
@@ -347,6 +386,19 @@ namespace B4_Plastics_SMS
             this.pnlTransactionsCompleted.Size = new System.Drawing.Size(312, 122);
             this.pnlTransactionsCompleted.TabIndex = 27;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Image = global::B4_Plastics_SMS.Properties.Resources.Dot_Green;
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(24, 73);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(16, 15);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
+            // 
             // lblTransactionsCompleted
             // 
             this.lblTransactionsCompleted.AutoSize = true;
@@ -381,6 +433,19 @@ namespace B4_Plastics_SMS
             this.pnlTransactionsActive.Size = new System.Drawing.Size(312, 122);
             this.pnlTransactionsActive.TabIndex = 28;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Image = global::B4_Plastics_SMS.Properties.Resources.Dot_Blue;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(24, 73);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(16, 15);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // lblTransactionsActive
             // 
             this.lblTransactionsActive.AutoSize = true;
@@ -402,71 +467,6 @@ namespace B4_Plastics_SMS
             this.lblTitleTransactionsActive.Size = new System.Drawing.Size(177, 28);
             this.lblTitleTransactionsActive.TabIndex = 6;
             this.lblTitleTransactionsActive.Text = "Transactions Active";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox5.Image = global::B4_Plastics_SMS.Properties.Resources.Dot_Red;
-            this.pictureBox5.InitialImage = null;
-            this.pictureBox5.Location = new System.Drawing.Point(24, 73);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(16, 15);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 7;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Image = global::B4_Plastics_SMS.Properties.Resources.Dot_Yellow;
-            this.pictureBox4.InitialImage = null;
-            this.pictureBox4.Location = new System.Drawing.Point(24, 73);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(16, 15);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Image = global::B4_Plastics_SMS.Properties.Resources.Dot_Green;
-            this.pictureBox3.InitialImage = null;
-            this.pictureBox3.Location = new System.Drawing.Point(24, 73);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(16, 15);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 7;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Image = global::B4_Plastics_SMS.Properties.Resources.Dot_Green;
-            this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(24, 73);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(16, 15);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Image = global::B4_Plastics_SMS.Properties.Resources.Dot_Blue;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 73);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(16, 15);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
             // 
             // AdminDashboard
             // 
@@ -499,18 +499,18 @@ namespace B4_Plastics_SMS
             ((System.ComponentModel.ISupportInitialize)(this.chartTransactionsVSDate)).EndInit();
             this.pnlMachinesNeedsService.ResumeLayout(false);
             this.pnlMachinesNeedsService.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.pnlMachinesNotActive.ResumeLayout(false);
             this.pnlMachinesNotActive.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.pnlMachinesActive.ResumeLayout(false);
             this.pnlMachinesActive.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlTransactionsCompleted.ResumeLayout(false);
             this.pnlTransactionsCompleted.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlTransactionsActive.ResumeLayout(false);
             this.pnlTransactionsActive.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
