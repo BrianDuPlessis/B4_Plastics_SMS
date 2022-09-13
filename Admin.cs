@@ -18,6 +18,7 @@ namespace B4_Plastics_SMS
     {
         // Forms Fiels
         private Size formSize;
+        private int borderSize = 2;
 
         frmLogin myLogin = new frmLogin();
         AdminDashboard myDashboard = new AdminDashboard();
@@ -36,14 +37,22 @@ namespace B4_Plastics_SMS
         public frmAdmin()
         {
             InitializeComponent();
+            // Form Settings
+            this.Padding = new Padding(borderSize);
 
             // User profile
             lblUserName.Text = DatabaseL.Username;
             pnlContainerUserProfile.Hide();
+
+            // Load Date
+            lblDate.Text = DateTime.Today.ToShortDateString();
         }
 
         private void frmAdmin_Load(object sender, EventArgs e)
         {
+
+
+            // Button Visuals
             this.CenterToScreen();
             pnlNav.Height = btnDashboard.Height;
             pnlNav.Top = btnDashboard.Top;
@@ -52,8 +61,9 @@ namespace B4_Plastics_SMS
 
             // Medthod for changing form
             ButtonFormChage(myDashboard);
+
         }
-        
+
         // Medthod for moving navigation panel and colour effect on button clicked
         public void ButtonColourEffect(Button btnClicked)
         {
@@ -309,16 +319,25 @@ namespace B4_Plastics_SMS
             {
                 int wParam = (m.WParam.ToInt32() & 0xFFF0);
 
-                    formSize = this.ClientSize;
+                formSize = this.ClientSize;
                 if (wParam == SC_RESTORE)// Restored form(Before)
                     this.Size = formSize;
             }
             base.WndProc(ref m);
         }
-    }
 
         #endregion
-    
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            myLogin.Show();
+        }
+
+    }
+
+
+
 }
 
 
