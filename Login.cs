@@ -58,6 +58,11 @@ namespace B4_Plastics_SMS
                 pass.Add(components[1]);
             }
             //--------------------------------------------------------------
+
+            // Set values to global list for later use
+            DatabaseL.SetPass_list(pass);
+            DatabaseL.SetEmail_list(emails);
+            //----------------------------------------
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
