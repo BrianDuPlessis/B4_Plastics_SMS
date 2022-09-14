@@ -16,7 +16,7 @@ namespace B4_Plastics_SMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Stock());
+            Application.Run(new TransactLoad());
         }
     }
 }
