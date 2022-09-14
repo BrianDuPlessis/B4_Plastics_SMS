@@ -242,7 +242,7 @@ namespace B4_Plastics_SMS
             }
         }
         #endregion
-
+        
         #region Resize Form
         //Overridden methods
         protected override void WndProc(ref Message m)
@@ -308,11 +308,11 @@ namespace B4_Plastics_SMS
             }
             #endregion
 
-            //Remove border and keep snap window
+           /* //Remove border and keep snap window
             if (m.Msg == WM_NCCALCSIZE && m.WParam.ToInt32() == 1)
             {
                 return;
-            }
+            }*/
 
             //Keep form size when it is minimized and restored. Since the form is resized because it takes into account the size of the title bar and borders.
             if (m.Msg == WM_SYSCOMMAND)
@@ -327,7 +327,7 @@ namespace B4_Plastics_SMS
         }
 
         #endregion
-
+        
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
