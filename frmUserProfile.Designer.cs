@@ -30,10 +30,6 @@ namespace B4_Plastics_SMS
         private void InitializeComponent()
         {
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.txtREPassword = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtContactNumber = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -41,18 +37,18 @@ namespace B4_Plastics_SMS
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pnlProfile = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pnlProfile.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnUpdate
@@ -61,51 +57,14 @@ namespace B4_Plastics_SMS
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(656, 364);
+            this.btnUpdate.Location = new System.Drawing.Point(656, 271);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(265, 55);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // txtREPassword
-            // 
-            this.txtREPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtREPassword.Location = new System.Drawing.Point(656, 281);
-            this.txtREPassword.Name = "txtREPassword";
-            this.txtREPassword.Size = new System.Drawing.Size(264, 27);
-            this.txtREPassword.TabIndex = 5;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Nirmala UI", 11F);
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(450, 280);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(172, 25);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Re-enter Password:";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(161, 278);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(264, 27);
-            this.txtPassword.TabIndex = 2;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Nirmala UI", 11F);
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(26, 278);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 25);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Password:";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtContactNumber
             // 
@@ -171,24 +130,44 @@ namespace B4_Plastics_SMS
             this.pnlProfile.Controls.Add(this.panel2);
             this.pnlProfile.Controls.Add(this.panel1);
             this.pnlProfile.Controls.Add(this.btnUpdate);
-            this.pnlProfile.Controls.Add(this.txtREPassword);
             this.pnlProfile.Controls.Add(this.label3);
             this.pnlProfile.Controls.Add(this.label1);
             this.pnlProfile.Controls.Add(this.label6);
-            this.pnlProfile.Controls.Add(this.label11);
             this.pnlProfile.Controls.Add(this.label5);
-            this.pnlProfile.Controls.Add(this.txtPassword);
             this.pnlProfile.Controls.Add(this.txtEmail);
             this.pnlProfile.Controls.Add(this.txtFirstName);
-            this.pnlProfile.Controls.Add(this.label8);
             this.pnlProfile.Controls.Add(this.txtLastName);
             this.pnlProfile.Controls.Add(this.txtContactNumber);
             this.pnlProfile.Controls.Add(this.label9);
             this.pnlProfile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlProfile.Location = new System.Drawing.Point(0, 0);
             this.pnlProfile.Name = "pnlProfile";
-            this.pnlProfile.Size = new System.Drawing.Size(971, 464);
+            this.pnlProfile.Size = new System.Drawing.Size(971, 376);
             this.pnlProfile.TabIndex = 16;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 92);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(969, 1);
+            this.panel2.TabIndex = 25;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.lblUsername);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(969, 92);
+            this.panel1.TabIndex = 24;
             // 
             // btnClose
             // 
@@ -215,6 +194,18 @@ namespace B4_Plastics_SMS
             this.label4.TabIndex = 8;
             this.label4.Text = "Account";
             // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.BackColor = System.Drawing.SystemColors.Window;
+            this.lblUsername.Font = new System.Drawing.Font("Nirmala UI", 13F);
+            this.lblUsername.ForeColor = System.Drawing.Color.Black;
+            this.lblUsername.Location = new System.Drawing.Point(156, 29);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(111, 30);
+            this.lblUsername.TabIndex = 8;
+            this.lblUsername.Text = "Username";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::B4_Plastics_SMS.Properties.Resources.Pill_Green;
@@ -224,18 +215,6 @@ namespace B4_Plastics_SMS
             this.pictureBox1.Size = new System.Drawing.Size(101, 40);
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.Window;
-            this.label2.Font = new System.Drawing.Font("Nirmala UI", 13F);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(156, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 30);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Username";
             // 
             // label3
             // 
@@ -268,54 +247,26 @@ namespace B4_Plastics_SMS
             this.txtEmail.Size = new System.Drawing.Size(264, 27);
             this.txtEmail.TabIndex = 0;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(969, 92);
-            this.panel1.TabIndex = 24;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 92);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1211, 1);
-            this.panel2.TabIndex = 25;
-            // 
             // frmUserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 464);
+            this.ClientSize = new System.Drawing.Size(971, 376);
             this.Controls.Add(this.pnlProfile);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUserProfile";
             this.Text = "frmUserProfile";
             this.pnlProfile.ResumeLayout(false);
             this.pnlProfile.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.TextBox txtREPassword;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtContactNumber;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtLastName;
@@ -326,7 +277,7 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label4;

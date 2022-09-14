@@ -17,7 +17,7 @@ namespace DatabaseLogin.Class
 
         private static readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\B4Plastics.mdf;Integrated Security=True";
        
-        protected static SqlConnection GetConnection()
+        public static SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString);
         }

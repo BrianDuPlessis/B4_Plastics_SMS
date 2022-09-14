@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace DashboardApp.Models
 {
+    
+
     public struct TransactionQuantityByDate
     {
         public string Date { get; set; }
@@ -18,14 +20,18 @@ namespace DashboardApp.Models
     public class Dashboard : DbConnection
     {
         //Fields & Properties
+        private const int MIN_STOCK = 50;
+
         private DateTime startDate;
         private DateTime endDate;
         private int numberDays;
 
         public int NumActiveTransactions { get; private set; }
         public int NumCompletedTransactions { get; private set; }
+
         public List<KeyValuePair<string, int>> UnderstockList { get; private set; }
         public List<TransactionQuantityByDate> TransactionQuantityList { get; private set; }
+
         public int ActiceMachines { get; set; }
         public int ServicesMachines { get; set; }
         public int NotActiveMachines { get; set; }
@@ -83,9 +89,9 @@ namespace DashboardApp.Models
                     SqlDataReader reader;
                     command.Connection = connection;
                     //Get Understock
-                    command.CommandText = @"SELECT pipe_id, pipe_quantity  
+                    command.CommandText = $@"SELECT pipe_id, pipe_quantity  
                                             FROM [Pipe Details]
-                                            WHERE pipe_quantity <= 50"; // and IsDiscontinued = 0
+                                            WHERE pipe_quantity <= {MIN_STOCK}"; // and IsDiscontinued = 0
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {

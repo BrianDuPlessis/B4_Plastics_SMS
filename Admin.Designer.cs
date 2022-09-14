@@ -37,6 +37,7 @@ namespace B4_Plastics_SMS
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.linkLabelEmail = new System.Windows.Forms.LinkLabel();
@@ -52,7 +53,6 @@ namespace B4_Plastics_SMS
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlDock = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -81,7 +81,7 @@ namespace B4_Plastics_SMS
             this.pnlContainerUserProfile.BackColor = System.Drawing.SystemColors.Control;
             this.pnlContainerUserProfile.Location = new System.Drawing.Point(489, 238);
             this.pnlContainerUserProfile.Name = "pnlContainerUserProfile";
-            this.pnlContainerUserProfile.Size = new System.Drawing.Size(974, 467);
+            this.pnlContainerUserProfile.Size = new System.Drawing.Size(974, 369);
             this.pnlContainerUserProfile.TabIndex = 15;
             this.pnlContainerUserProfile.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnlContainerUserProfile_ControlRemoved);
             // 
@@ -169,6 +169,21 @@ namespace B4_Plastics_SMS
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseDown_1);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseMove_1);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseUp_1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(611, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 35);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Date:";
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseDown_1);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseMove_1);
+            this.label1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseUp_1);
             // 
             // lblDate
             // 
@@ -391,21 +406,6 @@ namespace B4_Plastics_SMS
             this.pnlDock.Name = "pnlDock";
             this.pnlDock.Size = new System.Drawing.Size(250, 805);
             this.pnlDock.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(611, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 35);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Date:";
-            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseDown_1);
-            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseMove_1);
-            this.label1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlBorder_MouseUp_1);
             // 
             // frmAdmin
             // 
