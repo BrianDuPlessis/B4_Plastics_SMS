@@ -76,6 +76,7 @@ namespace B4_Plastics_SMS
             frmAdmin myAdminForm = new frmAdmin();
             Dispatch myDispatchForm = new Dispatch();
             Employee myEmployeeForm = new Employee();
+            
 
             // Load Properties
 
