@@ -1,4 +1,6 @@
-﻿using DatabaseLogin.Class;
+﻿using Excel = Microsoft.Office.Interop.Excel;
+using Word = Microsoft.Office.Interop.Word;
+using DatabaseLogin.Class;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -261,30 +263,17 @@ namespace B4_Plastics_SMS
             return sql;
         }
 
-        // Generate CSV
-        private String[] buildCSV()
+        // Calculate total stock
+        private int calcTotalStock()
         {
-            // variables 
-            String[] csv = new string[dgvReportView.Rows.Count + 1];
-            String columns = "";
-            int columnCount = dgvReportView.Columns.Count;
-            if (dgvReportView.Rows.Count != 0)
+            // Count total stock
+            int totalStock = 0;
+            for (int i = 0; i < dgvReportView.Rows.Count; ++i)
             {
-                for (int i = 0; i < columnCount; i++)
-                {
-                    columns += dgvReportView.Columns[i].HeaderText.ToString() + ";";
-                }
-                // add to csv
-                csv[0] = columns;
-                for (int i = 0; i < dgvReportView.Rows.Count - 1; i++)
-                {
-                    for (int k = 0; k < columnCount; k++)
-                    {
-                        csv[i + 1] += dgvReportView.Rows[i].Cells[k].Value.ToString() + ";";
-                    }
-                }
+                totalStock += Convert.ToInt32(dgvReportView.Rows[i].Cells[1].Value);
             }
-            return csv;
+
+            return totalStock;
         }
 
         // =====================================================
@@ -333,44 +322,48 @@ namespace B4_Plastics_SMS
         // Export DGV to CSV
         private void btnExport_Click(object sender, EventArgs e)
         {
-            // variabels 
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "CSV (*.csv)|*.csv";
-            sfd.FileName = "Export.csv";
-            bool fileError = false;
 
-            String[] csv = buildCSV();
+            // Variables
+            Excel._Application app = new Excel.Application();
+            Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+            Excel._Worksheet worksheet = null;
 
-            // write CSV
-            try
+            app.Visible = true;
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            worksheet.Name = "Stock Details";
+
+            // Check if data is filtered
+            if (isFilterUsed)
             {
-                if (sfd.ShowDialog() == DialogResult.OK)
+                worksheet.Cells[1, 1].Value = "Stock Report (Filtered)";
+            }
+            else
+            {
+                worksheet.Cells[1, 1].Value = "Stock Report";
+            }
+                
+            worksheet.Cells[1,3].Value = DateTime.Today.ToLongDateString();
+
+            // Populate the data from datagridview into the worksheet
+            for (int i = 1; i < dgvReportView.Columns.Count + 1; i++)
+            {
+                worksheet.Cells[3, i] = dgvReportView.Columns[i - 1].HeaderText;
+            }
+
+            for (int i = 0; i < dgvReportView.Rows.Count - 1; i++)
+            {
+                for (int j = 0; j < dgvReportView.Columns.Count; j++)
                 {
-                    if (File.Exists(sfd.FileName))
-                    {
-                        try
-                        {
-                            File.Delete(sfd.FileName);
-                        }
-                        catch (IOException ex)
-                        {
-                            fileError = true;
-                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
-                        }
-                    }
-                    if (!fileError)
-                    {
-                        File.WriteAllLines(sfd.FileName, csv, Encoding.UTF8);
-                        MessageBox.Show("Export.csv Secsesfully saved", "Info");
-                    }
+
+                    worksheet.Cells[i + 4, j + 1] = dgvReportView.Rows[i].Cells[j].Value.ToString();
+
                 }
             }
-            catch (IOException ex)
-            {
-                MessageBox.Show(ex.Message, "File Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
-
+            worksheet.Cells[dgvReportView.Rows.Count + 4, 1] = "Stock total: ";
+            worksheet.Cells[dgvReportView.Rows.Count + 4, 2] = calcTotalStock().ToString();
+            worksheet.Cells[dgvReportView.Rows.Count + 6, 1] = "**END OF REPORT**";
         }
         
         // Print dgv Output
@@ -430,14 +423,6 @@ namespace B4_Plastics_SMS
         private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
 
-            // Count total stock
-            int totalStock = 0;
-            for (int i = 0; i < dgvReportView.Rows.Count; ++i)
-            {
-                totalStock += Convert.ToInt32(dgvReportView.Rows[i].Cells[1].Value);
-            }
-            
-
             Bitmap bmpLogo = Properties.Resources.Logo2;
             Image imgLogo = bmpLogo;
 
@@ -452,7 +437,7 @@ namespace B4_Plastics_SMS
                 e.Graphics.DrawString("Exception Stock Report", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(250, 25));
                 e.Graphics.DrawImage(bmpFilter, 100, 150);
                 e.Graphics.DrawImage(bmpData, 100, 375);
-                e.Graphics.DrawString("Stock total (Filtered): " + totalStock, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, new Point(100, (430 + dgvReportView.Height)));
+                e.Graphics.DrawString("Stock total (Filtered): " + calcTotalStock(), new Font("Arial", 14, FontStyle.Regular), Brushes.Black, new Point(100, (430 + dgvReportView.Height)));
                 e.Graphics.DrawString("**END OF REPORT**", new Font("Arial", 14, FontStyle.Italic), Brushes.Black, new Point(500, (450 + dgvReportView.Height)));
 
             }
@@ -460,7 +445,7 @@ namespace B4_Plastics_SMS
             {
                 e.Graphics.DrawString("Detailed Stock Report", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(250, 25));
                 e.Graphics.DrawImage(bmpData, 100, 150);
-                e.Graphics.DrawString("Stock total: " + totalStock, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, new Point(100, (180 + dgvReportView.Height)));
+                e.Graphics.DrawString("Stock total: " + calcTotalStock(), new Font("Arial", 14, FontStyle.Regular), Brushes.Black, new Point(100, (180 + dgvReportView.Height)));
                 e.Graphics.DrawString("**END OF REPORT**", new Font("Arial", 14, FontStyle.Italic), Brushes.Black, new Point(500, (200 + dgvReportView.Height)));
 
             }
