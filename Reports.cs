@@ -23,7 +23,10 @@ namespace B4_Plastics_SMS
         // Global Variables  
         // =====================================================
 
-        SqlConnection cnn;
+        private SqlConnection cnn;
+        private Bitmap bmpData, bmpSort, bmpFilter;
+        private bool isFilterUsed = true;
+
 
 
         // =====================================================
@@ -226,6 +229,11 @@ namespace B4_Plastics_SMS
                     sqlFilter = "WHERE " + sqlFilter + " ";
                     // remove exstra AND
                     sql += sqlFilter.Substring(0, sqlFilter.Length - 5);
+                    isFilterUsed = true;
+                }
+                else
+                {
+                    isFilterUsed = false;
                 }
 
                 // -------------------
@@ -364,7 +372,7 @@ namespace B4_Plastics_SMS
 
 
         }
-        Bitmap bitmap;
+        
         // Print dgv Output
         private void btnPrint_Click(object sender, EventArgs e)
         {
@@ -376,12 +384,14 @@ namespace B4_Plastics_SMS
 
 
             //Create a Bitmap and draw the DataGridView on it.
-            bitmap = new Bitmap(dgvReportView.Width, dgvReportView.Height);
-            dgvReportView.DrawToBitmap(bitmap, new Rectangle(0, 0, dgvReportView.Width, dgvReportView.Height));
+            bmpData = new Bitmap(dgvReportView.Width, dgvReportView.Height);
+            dgvReportView.DrawToBitmap(bmpData, new Rectangle(0, 0, dgvReportView.Width, dgvReportView.Height));
 
-            
+
 
             //Show the Print Preview Dialog.
+            ppPreview.Width = 900;
+            ppPreview.Height = 740;
             ppPreview.PrintPreviewControl.Zoom = 1;
             ppPreview.Document = printDoc;
             ppPreview.ShowDialog();
@@ -419,20 +429,49 @@ namespace B4_Plastics_SMS
         // Print page
         private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+
+            // Count total stock
+            int totalStock = 0;
+            for (int i = 0; i < dgvReportView.Rows.Count; ++i)
+            {
+                totalStock += Convert.ToInt32(dgvReportView.Rows[i].Cells[1].Value);
+            }
+            
+
             Bitmap bmpLogo = Properties.Resources.Logo2;
             Image imgLogo = bmpLogo;
 
             Bitmap bmpLine = Properties.Resources.Dot_Blue;
             Image imgLine = bmpLine;
 
-            //Print the contents.        <>    ^^ 
-            e.Graphics.DrawImage(bitmap, 100, 150);
+            if (isFilterUsed)
+            {
+                bmpFilter = new Bitmap(gbxFilterBy.Width, gbxFilterBy.Height);
+                gbxFilterBy.DrawToBitmap(bmpFilter, new Rectangle(0, 0, gbxFilterBy.Width, gbxFilterBy.Height));
 
-            e.Graphics.DrawString("Stock Report", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new Point(275, 25));
-            e.Graphics.DrawString(DateTime.Today.ToLongDateString(), new Font("Arial", 14, FontStyle.Regular), Brushes.Black, new Point(500, 30));
+                e.Graphics.DrawString("Exception Stock Report", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(250, 25));
+                e.Graphics.DrawImage(bmpFilter, 100, 150);
+                e.Graphics.DrawImage(bmpData, 100, 375);
+                e.Graphics.DrawString("Stock total (Filtered): " + totalStock, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, new Point(100, (430 + dgvReportView.Height)));
+                e.Graphics.DrawString("**END OF REPORT**", new Font("Arial", 14, FontStyle.Italic), Brushes.Black, new Point(500, (450 + dgvReportView.Height)));
+
+            }
+            else
+            {
+                e.Graphics.DrawString("Detailed Stock Report", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(250, 25));
+                e.Graphics.DrawImage(bmpData, 100, 150);
+                e.Graphics.DrawString("Stock total: " + totalStock, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, new Point(100, (180 + dgvReportView.Height)));
+                e.Graphics.DrawString("**END OF REPORT**", new Font("Arial", 14, FontStyle.Italic), Brushes.Black, new Point(500, (200 + dgvReportView.Height)));
+
+            }
+
+
+            //Print the contents.        <>    ^^ 
+
+            e.Graphics.DrawString(DateTime.Today.ToLongDateString(), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(550, 30));
 
             e.Graphics.DrawImage(imgLogo, 0, 0, 216, 93);
-            e.Graphics.DrawImage(bmpLine, -20, 95, 2500 , 2);
+            e.Graphics.DrawImage(bmpLine, -20, 95, 900 , 2);
 
 
 
