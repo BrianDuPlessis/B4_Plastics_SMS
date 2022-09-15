@@ -14,6 +14,8 @@ namespace DatabaseLogin.Class
         private static string userEmail = "Default";
         private static string type = "None";
         private static string username = "Username";
+        private static List<string> email_list = new List<string>();
+        private static List<string> pass_list = new List<string>();
 
         private static readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\B4Plastics.mdf;Integrated Security=True";
        
@@ -39,6 +41,18 @@ namespace DatabaseLogin.Class
             get { return username; }
             set { username = value; }
         }
+
+        public static List<string> GetPass_list()
+        { return pass_list; }
+
+        public static void SetPass_list(List<string> set_list)
+        { pass_list = set_list; }
+
+        public static List<string> GetEmail_list()
+        { return email_list; }
+
+        public static void SetEmail_list(List<string> set_list)
+        { email_list = set_list; }
 
 
         public static string GetTypeStaff(string email)
