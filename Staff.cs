@@ -300,7 +300,7 @@ namespace B4_Plastics_SMS
         {
             if (cbConfirm.Checked)
             {
-                string sql = $"DELETE FROM Staff WHERE staff_id = {cmbDeleteStaff.SelectedIndex.ToString()}";
+                string sql = $"DELETE FROM Staff WHERE staff_id = {cmbDeleteStaff.SelectedItem}";
                 try
                 {
                     conn.Open();
@@ -314,6 +314,7 @@ namespace B4_Plastics_SMS
                     cmbDeleteStaff.SelectedIndex = -1;
                     cmbDeleteStaff.Text = "";
                     cbConfirm.Checked = false;
+                    
                 }
                 catch(SqlException error)
                 {
@@ -323,6 +324,30 @@ namespace B4_Plastics_SMS
             else
             {
                 MessageBox.Show("Wait! Please confirm delete operation");
+            }
+        }
+
+        private void cbUpdateStaff_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbUpdateStaff.SelectedIndex > -1)
+            {
+                try
+                {
+                    string sql = $"SELECT * FROM Staff WHERE staff_id = {cbUpdateStaff.SelectedItem}";
+                    conn.Open();
+                    command = new SqlCommand(sql, conn);
+                    reader = command.ExecuteReader();
+                    reader.Read();
+                    txtUEmail.Text = reader.GetValue(0).ToString();
+                    txtUName.Text = reader.GetValue(1).ToString();
+                    txtUSurname.Text = reader.GetValue(2).ToString();
+                    txtUContactNumber.Text = reader.GetValue(3).ToString();
+                    conn.Close();
+                }
+                catch(Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
             }
         }
     }
