@@ -54,24 +54,15 @@ namespace B4_Plastics_SMS
             displayData(DisplayAllsql);
 
             //fill comboBox UserType
-            string fillBoxSql = "SELECT DISTINCT staff_usertype FROM Staff";
-            try
-            {
-                conn.Open();
-                command = new SqlCommand(fillBoxSql, conn);
-                reader = command.ExecuteReader();
-                cmbUserType.Items.Clear();
-                while (reader.Read())
-                {
-                    cmbUserType.Items.Add(reader.GetValue(0));
-                    cmbIUserType.Items.Add(reader.GetValue(0));
-                }
-                conn.Close();
-            }
-            catch(SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
+            cmbUserType.Items.Add("Employee");
+            cmbUserType.Items.Add("Dispatch");
+            cmbUserType.Items.Add("Admin");
+            cmbIUserType.Items.Add("Employee");
+            cmbIUserType.Items.Add("Dispatch");
+            cmbIUserType.Items.Add("Admin");
+            cmbUuserTypes.Items.Add("Employee");
+            cmbUuserTypes.Items.Add("Dispatch");
+            cmbUuserTypes.Items.Add("Admin");
 
             //fill delete comboBox
             string StaffIDSql = "SELECT staff_id FROM Staff";
@@ -280,6 +271,7 @@ namespace B4_Plastics_SMS
                     txtIPassword.Clear();
                     txtIREPassword.Clear();
                     cmbIUserType.SelectedItem = -1;
+                    cmbIUserType.Text = "";
                 }
                 catch (Exception error)
                 {
@@ -342,12 +334,46 @@ namespace B4_Plastics_SMS
                     txtUName.Text = reader.GetValue(2).ToString();
                     txtUSurname.Text = reader.GetValue(3).ToString();
                     txtUContactNumber.Text = reader.GetValue(4).ToString();
+                    cmbUuserTypes.Text = reader.GetValue(5).ToString();
                     conn.Close();
                 }
                 catch(Exception error)
                 {
                     MessageBox.Show(error.Message);
                 }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string sql = $"UPDATE Staff SET staff_email = '{txtUEmail.Text}', staff_name = '{txtUName.Text}', staff_lastname = '{txtUSurname.Text}', staff_usertype = '{cmbUuserTypes.SelectedItem}' WHERE staff_id = '{cbUpdateStaff.SelectedItem}'";
+            try
+            {
+                if(cbUpdateStaff.SelectedIndex != -1)
+                {
+                    conn.Open();
+                    command = new SqlCommand(sql, conn);
+                    command.ExecuteNonQuery();
+                    conn.Close();
+
+                    MessageBox.Show("The record was successfully updated");
+                    cbUpdateStaff.SelectedIndex = -1;
+                    cbUpdateStaff.Text = "";
+                    txtUEmail.Clear();
+                    txtUName.Clear();
+                    txtUSurname.Clear();
+                    txtUContactNumber.Clear();
+                    cmbUuserTypes.SelectedIndex = -1;
+                    cmbUuserTypes.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Please select a record to update!");
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
             }
         }
     }
