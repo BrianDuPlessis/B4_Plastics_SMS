@@ -338,10 +338,10 @@ namespace B4_Plastics_SMS
                     command = new SqlCommand(sql, conn);
                     reader = command.ExecuteReader();
                     reader.Read();
-                    txtUEmail.Text = reader.GetValue(0).ToString();
-                    txtUName.Text = reader.GetValue(1).ToString();
-                    txtUSurname.Text = reader.GetValue(2).ToString();
-                    txtUContactNumber.Text = reader.GetValue(3).ToString();
+                    txtUEmail.Text = reader.GetValue(1).ToString();
+                    txtUName.Text = reader.GetValue(2).ToString();
+                    txtUSurname.Text = reader.GetValue(3).ToString();
+                    txtUContactNumber.Text = reader.GetValue(4).ToString();
                     conn.Close();
                 }
                 catch(Exception error)
