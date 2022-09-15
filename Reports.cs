@@ -28,6 +28,8 @@ namespace B4_Plastics_SMS
         private SqlConnection cnn;
         private Bitmap bmpData, bmpSort, bmpFilter;
         private bool isFilterUsed = true;
+        SqlCommand cmd;
+        SqlDataReader reader;
 
 
 
@@ -42,7 +44,7 @@ namespace B4_Plastics_SMS
                 // clear err
                 rtxReportErr.Clear();
                 cnn.Open();
-                SqlCommand cmd = new SqlCommand(sql, cnn);
+                cmd = new SqlCommand(sql, cnn);
                 SqlDataAdapter adap = new SqlDataAdapter(cmd);
                 var ds = new DataSet();
 
@@ -80,8 +82,8 @@ namespace B4_Plastics_SMS
                 // clear err
                 rtxReportErr.Clear();
                 cnn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM [Colours]", cnn);
-                SqlDataReader reader = cmd.ExecuteReader();
+                cmd = new SqlCommand("SELECT * FROM [Colours]", cnn);
+                reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
@@ -96,6 +98,25 @@ namespace B4_Plastics_SMS
                 rtxReportErr.Clear();
                 rtxReportErr.Text = err.Message;
             }
+        }
+
+        private void pTransactions()
+        {
+            cnn.Open();
+
+            string SQL = "SELECT transaction_id " +
+                         "FROM Transactions";
+
+            cmd = new SqlCommand(SQL, cnn);
+
+            reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                cbxGenTransID.Items.Add(reader.GetValue(0));
+            }
+
+            cnn.Close();
         }
 
         // validate data field and generate sql statement
@@ -314,6 +335,9 @@ namespace B4_Plastics_SMS
             // populate colour combobox
             pColour();
 
+            // populate transctions combobox
+            pTransactions();
+
             // Disable print and export buttons
             btnExport.Enabled = false;
             btnPrint.Enabled = false;
@@ -393,6 +417,77 @@ namespace B4_Plastics_SMS
             //Resize DataGridView back to original height.
             dgvReportView.Height = height;
             
+        }
+
+        private void cbxGenTransID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string answer;
+            string align = "{0,-14}\t{1,-14}\t{2,-14}\t{3,-20}\t{4,-15}";
+
+            cnn.Open();
+
+            string SQL = $@"SELECT t.transaction_id, t.trans_quantity, t.trans_date, t.isCompleted, 
+                          e.staff_name, e.staff_lastname, e.staff_cell,
+                          c.colour_code,
+                          s.pipe_length, s.pipe_diameter, 
+                          sd.staff_name, sd.staff_lastname, sd.staff_cell
+                          d.dispatch_delivery_date, d.dispatch_quantity, d.dispatch_location
+                          FROM [Transactions] AS t
+                          LEFT JOIN [Staff] AS e ON t.staff_id = e.staff_id 
+                          LEFT JOIN [Pipe Details] AS d ON t.pipe_id = d.pipe_id
+                          LEFT JOIN [Colours] AS c ON d.colour_id = c.colour_id 
+                          LEFT JOIN [Pipe Size] AS s ON d.size_id = s.size_id 
+                          LEFT JOIN [Dispatch] AS d on t.dispatch_id = d.dispatch_id
+                          LEFT JOIN [Staff] AS sd ON  d.staff_id = e.staff_id  
+                          WHERE t.transaction_id = {cbxGenTransID.SelectedItem.ToString()}";
+
+
+            // Creating and setting the
+            // properties of ListBox
+            ListBox mylist = new ListBox();
+            mylist.Location = new Point(80, 60);
+            mylist.Size = new Size(660, 650);
+            mylist.Items.Add(" Transaction");
+            mylist.Font = new Font("Nirmala UI Semilight", 12);
+            mylist.Items.Add("\t\t \t \t \t \t \t\t" + DateTime.Today.ToShortDateString());
+            mylist.Items.Add("");
+            mylist.Items.Add("ID" + "\t" + "First Name" + "\t" + "Last Name" + "\t" + "Email");
+            mylist.Items.Add("______________________________________________________________");
+            mylist.Items.Add("");
+
+            // Adding ListBox control to the form
+            tabTransactionReport.Controls.Add(mylist);
+            /*
+            cmd = new SqlCommand(SQL, cnn);
+
+            reader = cmd.ExecuteReader();
+
+            mylist.Items.Clear();
+
+
+            mylist.Items.Add(string.Format(align, "Name", "Email", "Total rooms", "Type", "Rating"));
+
+            mylist.Items.Add("ID" + "\t" + "First Name" + "\t" + "Last Name" + "\t" + "Email");
+            mylist.Items.Add("______________________________________________________________");
+            mylist.Items.Add("");
+
+            while (reader.Read())
+            {
+                if ((Boolean)reader.GetValue(4) == true)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+
+                mylist.Items.Add(string.Format(align, reader.GetValue(0), reader.GetValue(1), "      " + reader.GetValue(2), reader.GetValue(3), "    " + reader.GetValue(4)));
+
+            }
+
+            */
+            cnn.Close();
         }
 
         private void btnReset_Click(object sender, EventArgs e)

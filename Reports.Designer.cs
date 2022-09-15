@@ -62,6 +62,8 @@ namespace B4_Plastics_SMS
             this.tabStockReport = new System.Windows.Forms.TabPage();
             this.btnReset = new System.Windows.Forms.Button();
             this.tabTransactionReport = new System.Windows.Forms.TabPage();
+            this.cbxGenTransID = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbxReports.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportView)).BeginInit();
             this.gbxSortBy.SuspendLayout();
@@ -69,6 +71,7 @@ namespace B4_Plastics_SMS
             this.gbxFilterBy.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabStockReport.SuspendLayout();
+            this.tabTransactionReport.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxReports
@@ -445,7 +448,7 @@ namespace B4_Plastics_SMS
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(965, 873);
+            this.tabControl1.Size = new System.Drawing.Size(982, 898);
             this.tabControl1.TabIndex = 2;
             // 
             // tabStockReport
@@ -485,20 +488,43 @@ namespace B4_Plastics_SMS
             // tabTransactionReport
             // 
             this.tabTransactionReport.BackColor = System.Drawing.Color.White;
+            this.tabTransactionReport.Controls.Add(this.cbxGenTransID);
+            this.tabTransactionReport.Controls.Add(this.label1);
             this.tabTransactionReport.Location = new System.Drawing.Point(4, 32);
             this.tabTransactionReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabTransactionReport.Name = "tabTransactionReport";
             this.tabTransactionReport.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabTransactionReport.Size = new System.Drawing.Size(957, 837);
+            this.tabTransactionReport.Size = new System.Drawing.Size(974, 862);
             this.tabTransactionReport.TabIndex = 1;
             this.tabTransactionReport.Text = "Transaction";
+            // 
+            // cbxGenTransID
+            // 
+            this.cbxGenTransID.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cbxGenTransID.FormattingEnabled = true;
+            this.cbxGenTransID.Location = new System.Drawing.Point(430, 15);
+            this.cbxGenTransID.Name = "cbxGenTransID";
+            this.cbxGenTransID.Size = new System.Drawing.Size(217, 28);
+            this.cbxGenTransID.TabIndex = 27;
+            this.cbxGenTransID.SelectedIndexChanged += new System.EventHandler(this.cbxGenTransID_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 11F);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(289, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 25);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Transaction ID:";
             // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(965, 873);
+            this.ClientSize = new System.Drawing.Size(982, 898);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -516,6 +542,8 @@ namespace B4_Plastics_SMS
             this.gbxFilterBy.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabStockReport.ResumeLayout(false);
+            this.tabTransactionReport.ResumeLayout(false);
+            this.tabTransactionReport.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -554,5 +582,7 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.TabPage tabTransactionReport;
         private System.Windows.Forms.RadioButton rbnPipeID;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.ComboBox cbxGenTransID;
+        private System.Windows.Forms.Label label1;
     }
 }
