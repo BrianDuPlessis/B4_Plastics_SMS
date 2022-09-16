@@ -307,6 +307,7 @@ namespace B4_Plastics_SMS
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -474,7 +475,6 @@ namespace B4_Plastics_SMS
             // dtpMTransDtae
             // 
             this.dtpMTransDtae.CustomFormat = "dd MMM, yyyy";
-            this.dtpMTransDtae.Enabled = false;
             this.dtpMTransDtae.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpMTransDtae.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpMTransDtae.Location = new System.Drawing.Point(212, 235);
