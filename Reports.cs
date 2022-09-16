@@ -422,56 +422,99 @@ namespace B4_Plastics_SMS
         private void cbxGenTransID_SelectedIndexChanged(object sender, EventArgs e)
         {
             string answer;
-            string align = "{0,-14}\t{1,-14}\t{2,-14}\t{3,-20}\t{4,-15}";
+            string align = "{0,-14}\t{1,-12}\t{2,-10}\t {3,-9}\t {4,-9}";
+            string alignData = "{0,-14}\t{1,-12}\t{2,-10}\t {3,-9}\t {4,-9}";
+
 
             cnn.Open();
 
-            string SQL = $@"SELECT t.transaction_id, t.trans_quantity, t.trans_date, t.isCompleted, 
-                          e.staff_name, e.staff_lastname, e.staff_cell,
-                          c.colour_code,
-                          s.pipe_length, s.pipe_diameter, 
-                          sd.staff_name, sd.staff_lastname, sd.staff_cell
-                          d.dispatch_delivery_date, d.dispatch_quantity, d.dispatch_location
-                          FROM [Transactions] AS t
-                          LEFT JOIN [Staff] AS e ON t.staff_id = e.staff_id 
-                          LEFT JOIN [Pipe Details] AS d ON t.pipe_id = d.pipe_id
-                          LEFT JOIN [Colours] AS c ON d.colour_id = c.colour_id 
-                          LEFT JOIN [Pipe Size] AS s ON d.size_id = s.size_id 
-                          LEFT JOIN [Dispatch] AS d on t.dispatch_id = d.dispatch_id
-                          LEFT JOIN [Staff] AS sd ON  d.staff_id = e.staff_id  
-                          WHERE t.transaction_id = {cbxGenTransID.SelectedItem.ToString()}";
+            string SQL = "SELECT t.transaction_id, t.trans_quantity, t.trans_date, t.isCompleted, e.staff_name, e.staff_lastname, e.staff_cell, c.colour_code, s.pipe_length, s.pipe_diameter, sd.staff_name, sd.staff_lastname, sd.staff_cell, d.dispatch_delivery_date, d.dispatch_quantity, d.dispatch_location ";
+                   SQL += "FROM [Transactions] AS t ";
+                   SQL += "LEFT JOIN [Staff] AS e ON t.staff_id = e.staff_id ";
+                   SQL += "LEFT JOIN [Pipe Details] AS pd ON t.pipe_id = pd.pipe_id ";
+                   SQL += "LEFT JOIN [Colours] AS c ON pd.colour_id = c.colour_id ";
+                   SQL += "LEFT JOIN [Pipe Size] AS s ON pd.size_id = s.size_id ";
+                   SQL += "LEFT JOIN [Dispatch] AS d ON t.dispatch_id = d.dispatch_id ";
+                   SQL += "LEFT JOIN [Staff] AS sd ON  d.staff_id = sd.staff_id ";
+                   SQL += $"WHERE t.transaction_id = {cbxGenTransID.SelectedItem} ";
+            try
+            {
+                cmd = new SqlCommand(SQL, cnn);
 
+                reader = cmd.ExecuteReader();
+                reader.Read();
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message.ToString() + "\n" + error.ToString());
+            }
+
+            DateTime trans_date = DateTime.Parse(reader["trans_date"].ToString());
+            DateTime delivery_date = DateTime.Parse(reader["dispatch_delivery_date"].ToString());
+
+            if ((Boolean)reader.GetValue(3) == true)
+            {
+                answer = "Yes";
+            }
+            else
+            {
+                answer = "No";
+            }
 
             // Creating and setting the
             // properties of ListBox
-            ListBox mylist = new ListBox();
-            mylist.Location = new Point(80, 60);
-            mylist.Size = new Size(660, 650);
-            mylist.Items.Add(" Transaction");
-            mylist.Font = new Font("Nirmala UI Semilight", 12);
-            mylist.Items.Add("\t\t \t \t \t \t \t\t" + DateTime.Today.ToShortDateString());
-            mylist.Items.Add("");
-            mylist.Items.Add("ID" + "\t" + "First Name" + "\t" + "Last Name" + "\t" + "Email");
-            mylist.Items.Add("______________________________________________________________");
-            mylist.Items.Add("");
 
-            // Adding ListBox control to the form
-            tabTransactionReport.Controls.Add(mylist);
+            lblReport.Items.Clear();
+            lblReport.Items.Add(" Transaction Slip");
+            lblReport.Font = new Font("Nirmala UI Semilight", 12);
+            lblReport.Items.Add("\t\t \t \t \t \t \t" + DateTime.Today.ToShortDateString());
+            lblReport.Items.Add("______________________________________________________________________________________________");
+            lblReport.Items.Add("Date of transaction: " + trans_date.ToShortDateString());
+            lblReport.Items.Add("");
+            lblReport.Items.Add(string.Format(align, "Transaction ID", "Lenght", "Diameter", "Colour", "Quantity"));
+            lblReport.Items.Add(string.Format(alignData, reader["transaction_id"].ToString() + "   \t   ", reader["pipe_length"].ToString(), reader["pipe_diameter"].ToString() + " ", reader["colour_code"].ToString(), reader["trans_quantity"].ToString()));
+            lblReport.Items.Add("");
+            lblReport.Items.Add("Employee responsible:");
+            lblReport.Items.Add("");
+            lblReport.Items.Add(string.Format(align, "Name", "Lastname", "Cell", "", ""));
+            lblReport.Items.Add(string.Format(alignData, reader["staff_name"].ToString() , reader["staff_lastname"].ToString() + "\t", reader["staff_cell"].ToString() + " ", "", ""));
+            lblReport.Items.Add("");
+            lblReport.Items.Add("______________________________________________________________________________________________");
+
+            lblReport.Items.Add("Dispatch:");
+            lblReport.Items.Add("");
+            lblReport.Items.Add("Due for delivery on: " + delivery_date.ToShortDateString());
+            lblReport.Items.Add("");
+            lblReport.Items.Add(string.Format(align, "Location", "Quantity ready", "", "", ""));
+            lblReport.Items.Add(string.Format(alignData, reader["dispatch_location"].ToString(), reader["dispatch_quantity"].ToString(), "", "", ""));
+            lblReport.Items.Add("");
+            lblReport.Items.Add("Dispatch responsible:");
+            lblReport.Items.Add("");
+            lblReport.Items.Add(string.Format(align, "Name", "Lastname", "Cell", "", ""));
+            lblReport.Items.Add(string.Format(alignData, reader.GetValue(10).ToString(), reader.GetValue(11).ToString() + "\t", reader.GetValue(12).ToString() + " ", "", ""));
+            lblReport.Items.Add("______________________________________________________________________________________________");
+            lblReport.Items.Add("Is the transaction complete: " + answer);
+            lblReport.Items.Add("");
+            lblReport.Items.Add("\t\t\t **END OF REPORT** \t\t");
+            
+
+            
+            
+
+
+
+
+
+
+
             /*
-            cmd = new SqlCommand(SQL, cnn);
-
-            reader = cmd.ExecuteReader();
-
-            mylist.Items.Clear();
-
-
-            mylist.Items.Add(string.Format(align, "Name", "Email", "Total rooms", "Type", "Rating"));
+            //mylist.Items.Add(string.Format(align, "Name", "Email", "Total rooms", "Type", "Rating"));
 
             mylist.Items.Add("ID" + "\t" + "First Name" + "\t" + "Last Name" + "\t" + "Email");
             mylist.Items.Add("______________________________________________________________");
             mylist.Items.Add("");
 
-            while (reader.Read())
+           
             {
                 if ((Boolean)reader.GetValue(4) == true)
                 {
@@ -484,9 +527,9 @@ namespace B4_Plastics_SMS
 
                 mylist.Items.Add(string.Format(align, reader.GetValue(0), reader.GetValue(1), "      " + reader.GetValue(2), reader.GetValue(3), "    " + reader.GetValue(4)));
 
-            }
+            }*/
 
-            */
+
             cnn.Close();
         }
 

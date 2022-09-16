@@ -62,6 +62,7 @@ namespace B4_Plastics_SMS
             this.tabStockReport = new System.Windows.Forms.TabPage();
             this.btnReset = new System.Windows.Forms.Button();
             this.tabTransactionReport = new System.Windows.Forms.TabPage();
+            this.lblReport = new System.Windows.Forms.ListBox();
             this.cbxGenTransID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gbxReports.SuspendLayout();
@@ -466,7 +467,7 @@ namespace B4_Plastics_SMS
             this.tabStockReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabStockReport.Name = "tabStockReport";
             this.tabStockReport.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabStockReport.Size = new System.Drawing.Size(957, 837);
+            this.tabStockReport.Size = new System.Drawing.Size(974, 862);
             this.tabStockReport.TabIndex = 0;
             this.tabStockReport.Text = "Stock";
             // 
@@ -488,6 +489,7 @@ namespace B4_Plastics_SMS
             // tabTransactionReport
             // 
             this.tabTransactionReport.BackColor = System.Drawing.Color.White;
+            this.tabTransactionReport.Controls.Add(this.lblReport);
             this.tabTransactionReport.Controls.Add(this.cbxGenTransID);
             this.tabTransactionReport.Controls.Add(this.label1);
             this.tabTransactionReport.Location = new System.Drawing.Point(4, 32);
@@ -497,6 +499,15 @@ namespace B4_Plastics_SMS
             this.tabTransactionReport.Size = new System.Drawing.Size(974, 862);
             this.tabTransactionReport.TabIndex = 1;
             this.tabTransactionReport.Text = "Transaction";
+            // 
+            // lblReport
+            // 
+            this.lblReport.FormattingEnabled = true;
+            this.lblReport.ItemHeight = 23;
+            this.lblReport.Location = new System.Drawing.Point(103, 70);
+            this.lblReport.Name = "lblReport";
+            this.lblReport.Size = new System.Drawing.Size(788, 763);
+            this.lblReport.TabIndex = 29;
             // 
             // cbxGenTransID
             // 
@@ -584,5 +595,6 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.ComboBox cbxGenTransID;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox lblReport;
     }
 }
