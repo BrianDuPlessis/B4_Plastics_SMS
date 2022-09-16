@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace B4_Plastics_SMS
 {
@@ -16,6 +17,8 @@ namespace B4_Plastics_SMS
     {
         // Fields
         private int staff_id;
+        private List<string> emails = new List<string>();
+        private List<string> pass = new List<string>();
 
         public frmUserProfile()
         {
@@ -72,6 +75,10 @@ namespace B4_Plastics_SMS
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            string new_email = txtEmail.Text;
+            string old_email = DatabaseL.UserEmail;
+            string fillBoxSql;
+
             if (txtFirstName.Text != "" && txtLastName.Text != "" && txtEmail.Text != "" && txtContactNumber.Text != "")
             {
                 if (int.TryParse(txtContactNumber.Text,out int cell) && txtContactNumber.Text.Length == 10)
@@ -81,28 +88,58 @@ namespace B4_Plastics_SMS
                         using (var connection = DatabaseL.GetConnection())
                         {
                             connection.Open();
-                            string fillBoxSql = $@"UPDATE Staff 
-                                                   SET  staff_email = '{txtEmail.Text}', staff_name = '{txtFirstName.Text}', staff_lastname = '{txtLastName.Text}', staff_cell = '{txtContactNumber.Text}' 
-                                                   WHERE {staff_id} = staff_id AND NOT EXISTS (
-                                                   SELECT staff_email FROM staff WHERE {staff_id} != staff_id)";
-
-                            using (var command = new SqlCommand(fillBoxSql, connection))
+                            if (emails.Contains(txtEmail.Text) && new_email != old_email)
                             {
-                                command.ExecuteNonQuery();
+                                MessageBox.Show("Your profile is not updated, the email is already being used.", "Unsuccessful update.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                txtEmail.Focus();
+                            } 
+                            else
+                            {
+                                // Update Database
+                                fillBoxSql = $@"UPDATE Staff 
+                                            SET  staff_email = '{txtEmail.Text}', staff_name = '{txtFirstName.Text}', staff_lastname = '{txtLastName.Text}', staff_cell = '{txtContactNumber.Text}' 
+                                            WHERE {staff_id} = staff_id";
+
+                                using (var command = new SqlCommand(fillBoxSql, connection))
+                                {
+                                    command.ExecuteNonQuery();
+                                }
+
+
+                                MessageBox.Show("Your profile is updated.", "Successful update.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                int index;
+                                string UserPassword;
+
+                                emails = DatabaseL.GetEmail_list();
+                                pass = DatabaseL.GetPass_list();
+
+                                // Delete the old email from the list and add new
+                                index = emails.IndexOf(old_email);
+                                emails.RemoveAt(index);
+
+                                UserPassword = pass[index];
+                                pass.RemoveAt(index);
+
+                                emails.Add(new_email);
+                                pass.Add(UserPassword);
+
+                                // Create a file to write to
+                                StreamWriter file = new System.IO.StreamWriter("Account.txt");
+
+                                for (int k = 0; k < emails.Count(); k++)
+                                {
+                                    file.WriteLine(emails[k] + " " + pass[k]);
+
+                                }
+
+                                file.Close();
+                                DatabaseL.UserEmail = new_email;
                             }
 
-                        }
-                        string new_email = txtEmail.Text;
-                        // Reload User profile
-                        Fill_Controls();
-
-                        if (new_email == txtEmail.Text)
-                        {
-                            MessageBox.Show("Your profile is updated.", "Successful update.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Your profile is not updated, the email is already being used.", "Unsuccessful update.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // Reload User profile
+                            
+                            Fill_Controls();
                         }
 
                         

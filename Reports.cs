@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Excel = Microsoft.Office.Interop.Excel;
+using Word = Microsoft.Office.Interop.Word;
+using DatabaseLogin.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +15,7 @@ using System.IO;
 
 namespace B4_Plastics_SMS
 {
-    public partial class Reports: Form
+    public partial class Reports : Form
     {
         public Reports()
         {
@@ -22,8 +25,12 @@ namespace B4_Plastics_SMS
         // Global Variables  
         // =====================================================
 
-        String cnnString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\oswald.slabbert\Documents\GitHub\B4_Plastics_SMS\B4Plastics.mdf;Integrated Security=True;Connect Timeout=30";
-        SqlConnection cnn;
+        private SqlConnection cnn;
+        private Bitmap bmpData, bmpSort, bmpFilter;
+        private bool isFilterUsed = true;
+        SqlCommand cmd;
+        SqlDataReader reader;
+
 
 
         // =====================================================
@@ -37,12 +44,25 @@ namespace B4_Plastics_SMS
                 // clear err
                 rtxReportErr.Clear();
                 cnn.Open();
-                SqlCommand cmd = new SqlCommand(sql, cnn);
+                cmd = new SqlCommand(sql, cnn);
                 SqlDataAdapter adap = new SqlDataAdapter(cmd);
                 var ds = new DataSet();
 
                 adap.Fill(ds);
                 dgvReportView.DataSource = ds.Tables[0];
+
+
+                dgvReportView.Columns[0].HeaderText = "ID";
+                dgvReportView.Columns[1].HeaderText = "Quantity";
+                dgvReportView.Columns[2].HeaderText = "Colour";
+                dgvReportView.Columns[3].HeaderText = "Length";
+                dgvReportView.Columns[4].HeaderText = "Diameter";
+
+                if ((dgvReportView.RowCount * dgvReportView.RowTemplate.Height) <= 362)
+                {
+                    dgvReportView.Height = dgvReportView.RowCount * dgvReportView.RowTemplate.Height + 35;
+                }
+                
 
                 cnn.Close();
             }
@@ -62,8 +82,8 @@ namespace B4_Plastics_SMS
                 // clear err
                 rtxReportErr.Clear();
                 cnn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM \"Colours\"", cnn);
-                SqlDataReader reader = cmd.ExecuteReader();
+                cmd = new SqlCommand("SELECT * FROM [Colours]", cnn);
+                reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
@@ -80,17 +100,34 @@ namespace B4_Plastics_SMS
             }
         }
 
+        private void pTransactions()
+        {
+            cnn.Open();
+
+            string SQL = "SELECT transaction_id " +
+                         "FROM Transactions";
+
+            cmd = new SqlCommand(SQL, cnn);
+
+            reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                cbxGenTransID.Items.Add(reader.GetValue(0));
+            }
+
+            cnn.Close();
+        }
+
         // validate data field and generate sql statement
         private String buildSql()
         {
             // variables 
             Boolean valid = true;
-            int minPrice = 0;
-            int maxPrice = 0; ;
-            int minQty = 0; ;
-            int maxQty = 0; ;
-            int minLength = 0; ;
-            int maxLength = 0; ;
+            int minQty = 0;
+            int maxQty = 0;
+            int minLength = 0;
+            int maxLength = 0;
             String sort = "";
             String order = "";
             String color = "";
@@ -119,47 +156,23 @@ namespace B4_Plastics_SMS
             }
             else
             {
-                sort = "d.pipe_price";
+                sort = "d.pipe_id";
             }
 
-            if (rbnASC.Checked)
+            if (rbnDESC.Checked)
             {
-                order = "ASC";
+                order = "DESC";
             }
             else
             {
-                order = "DESC";
+                order = "ASC";
             }
 
             // -----------------------
             // validate datafields 
             // -----------------------
 
-            // Price
-            if (txtPriceLow.Text != "")
-            {
-                if (!int.TryParse(txtPriceLow.Text, out minPrice))
-                {
-                    err += "Enter a valid integer for Price | low\n";
-                    valid = false;
-                }
-            }
-            if (txtPriceHigh.Text != "")
-            {
-                if (!int.TryParse(txtPriceHigh.Text, out maxPrice))
-                {
-                    err += "Enter a valid integer for Price | High\n";
-                    valid = false;
-                }
-            }
-            if (minPrice != 0 && maxPrice != 0)
-            {
-                if (maxPrice < minPrice)
-                {
-                    err += "Price | low can't be higher that Price | High\n";
-                    valid = false;
-                }
-            }
+
 
             // Quantity
             if (txtQuantityLow.Text != "")
@@ -219,16 +232,15 @@ namespace B4_Plastics_SMS
 
             if (valid)
             {
-                sql += "SELECT d.pipe_id, d.pipe_quantity, d.pipe_price, c.colour_code, s.pipe_length, s.pipe_diameter ";
-                sql += "FROM \"Pipes Detials\" AS d ";
-                sql += "LEFT JOIN \"Colours\" AS c ON d.colour_id=c.colour_id ";
-                sql += "LEFT JOIN \"Pipe Size\" AS s ON d.size_id=s.size_id ";
+                sql += "SELECT d.pipe_id, d.pipe_quantity, c.colour_code, s.pipe_length, s.pipe_diameter ";
+                sql += "FROM [Pipe Details] AS d ";
+                sql += "LEFT JOIN [Colours] AS c ON d.colour_id=c.colour_id ";
+                sql += "LEFT JOIN [Pipe Size] AS s ON d.size_id=s.size_id ";
 
                 // -------------------
                 // FILTER
                 // -------------------
-                if (minPrice != 0) { sqlFilter += "d.pipe_price >= " + minPrice + " AND "; }
-                if (maxPrice != 0) { sqlFilter += "d.pipe_price <= " + maxPrice + " AND "; }
+
                 if (minQty != 0) { sqlFilter += "d.pipe_quantity >= " + minQty + " AND "; }
                 if (maxQty != 0) { sqlFilter += "d.pipe_quantity <= " + maxQty + " AND "; }
                 if (minLength != 0) { sqlFilter += "s.pipe_length >= " + minLength + " AND "; }
@@ -240,6 +252,11 @@ namespace B4_Plastics_SMS
                     sqlFilter = "WHERE " + sqlFilter + " ";
                     // remove exstra AND
                     sql += sqlFilter.Substring(0, sqlFilter.Length - 5);
+                    isFilterUsed = true;
+                }
+                else
+                {
+                    isFilterUsed = false;
                 }
 
                 // -------------------
@@ -267,37 +284,17 @@ namespace B4_Plastics_SMS
             return sql;
         }
 
-        // Generate CSV
-        private String[] buildCSV()
+        // Calculate total stock
+        private int calcTotalStock()
         {
-            // variables 
-            String[] csv = new string[dgvReportView.Rows.Count +1];
-            String columns = "";
-            int columnCount = dgvReportView.Columns.Count;
-            if (dgvReportView.Rows.Count != 0)
+            // Count total stock
+            int totalStock = 0;
+            for (int i = 0; i < dgvReportView.Rows.Count; ++i)
             {
-                for (int i = 0; i < columnCount; i++)
-                {
-                    columns += dgvReportView.Columns[i].HeaderText.ToString() + ";";
-                }
-                // add to csv
-                csv[0] = columns;
-                for (int i = 0; i < dgvReportView.Rows.Count -1; i++)
-                {
-                    for (int k = 0; k < columnCount; k++)
-                    {
-                        csv[i + 1] += dgvReportView.Rows[i].Cells[k].Value.ToString() + ";";
-                    }
-                }
+                totalStock += Convert.ToInt32(dgvReportView.Rows[i].Cells[1].Value);
             }
-            return csv;
-        }
 
-        // Print page
-        private void PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            //Print the contents.
-            e.Graphics.DrawImage(bitmap, 0, 0);
+            return totalStock;
         }
 
         // =====================================================
@@ -312,18 +309,23 @@ namespace B4_Plastics_SMS
             {
                 displayData(sql);
             }
+
+            btnExport.Enabled = true;
+            btnPrint.Enabled = true;
         }
+
         // Form load 
         private void Reports_Load(object sender, EventArgs e)
         {
             // connect to DB
-            cnn = new SqlConnection(cnnString);
+            cnn = DatabaseL.GetConnection();
             // test connection 
             try
             {
                 cnn.Open();
                 cnn.Close();
-            } catch (SqlException err)
+            }
+            catch (SqlException err)
             {
                 // display error message 
                 rtxReportErr.Clear();
@@ -332,68 +334,227 @@ namespace B4_Plastics_SMS
 
             // populate colour combobox
             pColour();
+
+            // populate transctions combobox
+            pTransactions();
+
+            // Disable print and export buttons
+            btnExport.Enabled = false;
+            btnPrint.Enabled = false;
         }
 
         // Export DGV to CSV
         private void btnExport_Click(object sender, EventArgs e)
         {
-            // variabels 
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "CSV (*.csv)|*.csv";
-            sfd.FileName = "Export.csv";
-            bool fileError = false;
 
-            String[] csv = buildCSV();
+            // Variables
+            Excel._Application app = new Excel.Application();
+            Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+            Excel._Worksheet worksheet = null;
 
-            // write CSV
-            try
+            app.Visible = true;
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            worksheet.Name = "Stock Details";
+
+            // Check if data is filtered
+            if (isFilterUsed)
             {
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    if (File.Exists(sfd.FileName))
-                    {
-                        try
-                        {
-                            File.Delete(sfd.FileName);
-                        }
-                        catch (IOException ex)
-                        {
-                            fileError = true;
-                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
-                        }
-                    }
-                    if (!fileError)
-                    {
-                        File.WriteAllLines(sfd.FileName, csv, Encoding.UTF8);
-                        MessageBox.Show("Export.csv Secsesfully saved", "Info");
-                    }
-                }
-            } catch (IOException ex)
+                worksheet.Cells[1, 1].Value = "Stock Report (Filtered)";
+            }
+            else
             {
-                MessageBox.Show(ex.Message, "File Save Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                worksheet.Cells[1, 1].Value = "Stock Report";
+            }
+                
+            worksheet.Cells[1,3].Value = DateTime.Today.ToLongDateString();
+
+            // Populate the data from datagridview into the worksheet
+            for (int i = 1; i < dgvReportView.Columns.Count + 1; i++)
+            {
+                worksheet.Cells[3, i] = dgvReportView.Columns[i - 1].HeaderText;
             }
 
+            for (int i = 0; i < dgvReportView.Rows.Count - 1; i++)
+            {
+                for (int j = 0; j < dgvReportView.Columns.Count; j++)
+                {
 
+                    worksheet.Cells[i + 4, j + 1] = dgvReportView.Rows[i].Cells[j].Value.ToString();
+
+                }
+            }
+
+            worksheet.Cells[dgvReportView.Rows.Count + 4, 1] = "Stock total: ";
+            worksheet.Cells[dgvReportView.Rows.Count + 4, 2] = calcTotalStock().ToString();
+            worksheet.Cells[dgvReportView.Rows.Count + 6, 1] = "**END OF REPORT**";
         }
-        Bitmap bitmap;
+        
         // Print dgv Output
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            
             //Resize DataGridView to full height.
             int height = dgvReportView.Height;
-            dgvReportView.Height = dgvReportView.RowCount * dgvReportView.RowTemplate.Height;
+            dgvReportView.Height = dgvReportView.RowCount * dgvReportView.RowTemplate.Height + 35;
+
+
 
             //Create a Bitmap and draw the DataGridView on it.
-            bitmap = new Bitmap(this.dgvReportView.Width, this.dgvReportView.Height);
-            dgvReportView.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dgvReportView.Width, this.dgvReportView.Height));
+            bmpData = new Bitmap(dgvReportView.Width, dgvReportView.Height);
+            dgvReportView.DrawToBitmap(bmpData, new Rectangle(0, 0, dgvReportView.Width, dgvReportView.Height));
 
-            //Resize DataGridView back to original height.
-            dgvReportView.Height = height;
+
 
             //Show the Print Preview Dialog.
-            ppPreview.Document = printDoc;
+            ppPreview.Width = 900;
+            ppPreview.Height = 740;
             ppPreview.PrintPreviewControl.Zoom = 1;
+            ppPreview.Document = printDoc;
             ppPreview.ShowDialog();
+
+            
+            //Resize DataGridView back to original height.
+            dgvReportView.Height = height;
+            
+        }
+
+        private void cbxGenTransID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string answer;
+            string align = "{0,-14}\t{1,-14}\t{2,-14}\t{3,-20}\t{4,-15}";
+
+            cnn.Open();
+
+            string SQL = $@"SELECT t.transaction_id, t.trans_quantity, t.trans_date, t.isCompleted, 
+                          e.staff_name, e.staff_lastname, e.staff_cell,
+                          c.colour_code,
+                          s.pipe_length, s.pipe_diameter, 
+                          sd.staff_name, sd.staff_lastname, sd.staff_cell
+                          d.dispatch_delivery_date, d.dispatch_quantity, d.dispatch_location
+                          FROM [Transactions] AS t
+                          LEFT JOIN [Staff] AS e ON t.staff_id = e.staff_id 
+                          LEFT JOIN [Pipe Details] AS d ON t.pipe_id = d.pipe_id
+                          LEFT JOIN [Colours] AS c ON d.colour_id = c.colour_id 
+                          LEFT JOIN [Pipe Size] AS s ON d.size_id = s.size_id 
+                          LEFT JOIN [Dispatch] AS d on t.dispatch_id = d.dispatch_id
+                          LEFT JOIN [Staff] AS sd ON  d.staff_id = e.staff_id  
+                          WHERE t.transaction_id = {cbxGenTransID.SelectedItem.ToString()}";
+
+
+            // Creating and setting the
+            // properties of ListBox
+            ListBox mylist = new ListBox();
+            mylist.Location = new Point(80, 60);
+            mylist.Size = new Size(660, 650);
+            mylist.Items.Add(" Transaction");
+            mylist.Font = new Font("Nirmala UI Semilight", 12);
+            mylist.Items.Add("\t\t \t \t \t \t \t\t" + DateTime.Today.ToShortDateString());
+            mylist.Items.Add("");
+            mylist.Items.Add("ID" + "\t" + "First Name" + "\t" + "Last Name" + "\t" + "Email");
+            mylist.Items.Add("______________________________________________________________");
+            mylist.Items.Add("");
+
+            // Adding ListBox control to the form
+            tabTransactionReport.Controls.Add(mylist);
+            /*
+            cmd = new SqlCommand(SQL, cnn);
+
+            reader = cmd.ExecuteReader();
+
+            mylist.Items.Clear();
+
+
+            mylist.Items.Add(string.Format(align, "Name", "Email", "Total rooms", "Type", "Rating"));
+
+            mylist.Items.Add("ID" + "\t" + "First Name" + "\t" + "Last Name" + "\t" + "Email");
+            mylist.Items.Add("______________________________________________________________");
+            mylist.Items.Add("");
+
+            while (reader.Read())
+            {
+                if ((Boolean)reader.GetValue(4) == true)
+                {
+                    answer = "Yes";
+                }
+                else
+                {
+                    answer = "No";
+                }
+
+                mylist.Items.Add(string.Format(align, reader.GetValue(0), reader.GetValue(1), "      " + reader.GetValue(2), reader.GetValue(3), "    " + reader.GetValue(4)));
+
+            }
+
+            */
+            cnn.Close();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtLengthLow.Clear();
+            txtLengthHigh.Clear();
+            txtQuantityHigh.Clear();
+            txtQuantityLow.Clear();
+            cbxColour.SelectedIndex = -1;
+
+            rbnASC.Checked = false;
+            rbnDESC.Checked = false;
+
+            rbnPipeID.Checked = false;
+            rbnPipeColour.Checked = false;
+            rbnPipeLength.Checked = false;
+            rbnPipeQuantity.Checked = false;
+            rbnPipeDiameter.Checked = false;
+
+            dgvReportView.Columns.Clear();
+
+            btnExport.Enabled = false;
+            btnPrint.Enabled = false;
+
+        }
+
+        // Print page
+        private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            Bitmap bmpLogo = Properties.Resources.Logo2;
+            Image imgLogo = bmpLogo;
+
+            Bitmap bmpLine = Properties.Resources.Dot_Blue;
+            Image imgLine = bmpLine;
+
+            if (isFilterUsed)
+            {
+                bmpFilter = new Bitmap(gbxFilterBy.Width, gbxFilterBy.Height);
+                gbxFilterBy.DrawToBitmap(bmpFilter, new Rectangle(0, 0, gbxFilterBy.Width, gbxFilterBy.Height));
+
+                e.Graphics.DrawString("Exception Stock Report", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(250, 25));
+                e.Graphics.DrawImage(bmpFilter, 100, 150);
+                e.Graphics.DrawImage(bmpData, 100, 375);
+                e.Graphics.DrawString("Stock total (Filtered): " + calcTotalStock(), new Font("Arial", 14, FontStyle.Regular), Brushes.Black, new Point(100, (430 + dgvReportView.Height)));
+                e.Graphics.DrawString("**END OF REPORT**", new Font("Arial", 14, FontStyle.Italic), Brushes.Black, new Point(500, (450 + dgvReportView.Height)));
+
+            }
+            else
+            {
+                e.Graphics.DrawString("Detailed Stock Report", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(250, 25));
+                e.Graphics.DrawImage(bmpData, 100, 150);
+                e.Graphics.DrawString("Stock total: " + calcTotalStock(), new Font("Arial", 14, FontStyle.Regular), Brushes.Black, new Point(100, (180 + dgvReportView.Height)));
+                e.Graphics.DrawString("**END OF REPORT**", new Font("Arial", 14, FontStyle.Italic), Brushes.Black, new Point(500, (200 + dgvReportView.Height)));
+
+            }
+
+
+            //Print the contents.        <>    ^^ 
+
+            e.Graphics.DrawString(DateTime.Today.ToLongDateString(), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(550, 30));
+
+            e.Graphics.DrawImage(imgLogo, 0, 0, 216, 93);
+            e.Graphics.DrawImage(bmpLine, -20, 95, 900 , 2);
+
+
+
         }
     }
 }
