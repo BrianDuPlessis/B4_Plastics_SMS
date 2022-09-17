@@ -594,6 +594,7 @@ namespace B4_Plastics_SMS
             // 
             // cbUpdateDispatchID
             // 
+            this.cbUpdateDispatchID.Enabled = false;
             this.cbUpdateDispatchID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbUpdateDispatchID.FormattingEnabled = true;
             this.cbUpdateDispatchID.Location = new System.Drawing.Point(677, 57);
@@ -728,6 +729,7 @@ namespace B4_Plastics_SMS
             this.txtUQuantity.Name = "txtUQuantity";
             this.txtUQuantity.Size = new System.Drawing.Size(265, 27);
             this.txtUQuantity.TabIndex = 3;
+            this.txtUQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label24
             // 

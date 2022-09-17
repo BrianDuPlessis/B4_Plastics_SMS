@@ -558,11 +558,10 @@ namespace B4_Plastics_SMS
                 Con.Close();
                 Con.Open();
 
-                SQL = "SELECT Tran.transaction_id, Tran.pipe_id, Tran.staff_id, Tran.dispatch_id, Tran.trans_quantity, Tran.trans_date, Tran.isCompleted, " + 
-                              "Disp.dispatch_id, Disp.staff_id, Disp.dispatch_delivery_date, Disp.dispatch_quantity, Disp.dispatch_location " +
-                      "FROM Transactions AS Tran " +
-                           "LEFT JOIN Dispatch AS Disp ON Disp.staff_id = Tran.staff_id " +
-                     $"WHERE Tran.transaction_id = {int.Parse(cbxUpdateTransaction.Text)}";
+                SQL = "SELECT T.*, D.*" +
+                      "FROM Transactions AS T " +
+                           "LEFT JOIN Dispatch AS D ON D.dispatch_id = T.dispatch_id " +
+                     $"WHERE T.transaction_id = {int.Parse(cbxUpdateTransaction.Text)}";
 
                 Command = new SqlCommand(SQL, Con);
 
@@ -582,17 +581,17 @@ namespace B4_Plastics_SMS
                 {
                     cbxUEmployeeStaff.SelectedIndex = k;
 
-                    if (String.Equals(DataReader["Tran.staff_id"].ToString(), cbxUEmployeeStaff.SelectedItem.ToString()))
+                    if (String.Equals(DataReader["staff_id"].ToString(), cbxUEmployeeStaff.SelectedItem.ToString()))
                         break;
                 }
 
                 txtUQuantity.Text = DataReader["trans_quantity"].ToString();
                 dtpUTransactionDate.Value = DateTime.Parse(DataReader["trans_date"].ToString());
 
-                if (String.Equals(DataReader["isCompleted"].ToString(), "TRUE"))
-                    cbCompleted.Checked = true;
-                else
+                if (DataReader["isCompleted"].ToString() == "False")
                     cbCompleted.Checked = false;
+                else
+                    cbCompleted.Checked = true;
 
                 for (int k = cbUpdateDispatchID.Items.Count - 1; k > -1; --k)
                 {
@@ -606,7 +605,7 @@ namespace B4_Plastics_SMS
                 {
                     cbUDispatchStaff.SelectedIndex = k;
 
-                    if (String.Equals(DataReader["Disp.staff_id"].ToString(), cbUDispatchStaff.SelectedItem.ToString()))
+                    if (String.Equals(DataReader["staff_id"].ToString(), cbUDispatchStaff.SelectedItem.ToString()))
                         break;
                 }
 
@@ -623,7 +622,135 @@ namespace B4_Plastics_SMS
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            int TransID = 0;
+            int PipeID = 0;
+            int EmployStaffID = 0;
+            int QuantityStock = 0;
+            int DBQuantity = 0;
+            int Quantity = 0;
+            int NewQuantity = 0;
+            int DispID = 0;
+            int DispStaffID = 0;
 
+            DateTime DeliverDate;
+
+            string Completed = "";
+            string Location = "";
+
+            TransID = int.Parse(cbxUpdateTransaction.Text);
+            PipeID = int.Parse(cbxUPipeID.Text);
+            EmployStaffID = int.Parse(cbxUEmployeeStaff.Text);
+
+            if (int.TryParse(txtUQuantity.Text, out Quantity) == false)
+            {
+                MessageBox.Show("Invalid type entered. Please enter a numerical (Integer) value.", "Error parsing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtUQuantity.Focus();
+            }
+
+            if (cbCompleted.Checked)
+                Completed = "True";
+            else
+                Completed = "False";
+
+            DispID = int.Parse(cbUpdateDispatchID.Text);
+            DispStaffID = int.Parse(cbUDispatchStaff.Text);
+            DeliverDate = dtpUDeliveryDate.Value;
+            Location = txtULocation.Text;
+
+            try
+            {
+                Con.Close();
+                Con.Open();
+
+                SQL = "SELECT pipe_quantity " +
+                      "FROM [Pipe Details] " +
+                     $"WHERE pipe_id = {PipeID}";
+
+                Command = new SqlCommand(SQL, Con);
+
+                DataReader = Command.ExecuteReader();
+
+                DataReader.Read();
+
+                QuantityStock = int.Parse(DataReader["pipe_quantity"].ToString());
+
+                Con.Close();
+                Con.Open();
+
+                SQL = "SELECT trans_quantity " +
+                      "FROM Transactions " +
+                     $"WHERE transaction_id = {TransID}";
+
+                Command = new SqlCommand(SQL, Con);
+
+                DataReader = Command.ExecuteReader();
+
+                DataReader.Read();
+
+                DBQuantity = int.Parse(DataReader["trans_quantity"].ToString());
+
+                Con.Close();
+
+                if (Quantity < DBQuantity)
+                {
+                    NewQuantity = DBQuantity - Quantity;
+                    NewQuantity = DBQuantity - NewQuantity;
+
+                    if (NewQuantity > QuantityStock)
+                    {
+                        MessageBox.Show("Invalid number of items. It exceeds the amount available in stock. Please enter another value.", "Error parsing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtUQuantity.Focus();
+                    }
+                    else
+                        QuantityStock = QuantityStock - NewQuantity;
+                }
+                else if (Quantity > DBQuantity)
+                {
+                    NewQuantity = Quantity - DBQuantity;
+                    QuantityStock = QuantityStock + NewQuantity;
+                    NewQuantity = NewQuantity + DBQuantity;
+                }
+                else
+                    NewQuantity = Quantity;
+
+                Con.Open();
+
+                SQL = "UPDATE Transactions " + 
+                        $"SET [pipe_id] = {PipeID}, [staff_id] = {EmployStaffID}, [dispatch_id] = {DispID}, [trans_quantity] = {NewQuantity}, [isCompleted] = '{Completed}' " +
+                     $"WHERE transaction_id = {TransID}; " +
+                      "UPDATE Dispatch " +
+                        $"SET [staff_id] = {DispStaffID}, [dispatch_delivery_date] = '{DeliverDate}', [dispatch_quantity] = {NewQuantity}, [dispatch_location] = '{Location}' " +
+                     $"WHERE dispatch_id = {DispID}";
+
+                Command = new SqlCommand(SQL, Con);
+
+                Adapter = new SqlDataAdapter();
+                Adapter.UpdateCommand = Command;
+                Adapter.UpdateCommand.ExecuteNonQuery();
+
+                Con.Close();
+                Con.Open();
+
+                SQL = "UPDATE [Pipe Details] " +
+                        $"SET [pipe_quantity] = {QuantityStock} " +
+                     $"WHERE pipe_id = {PipeID}";
+
+                Command = new SqlCommand(SQL, Con);
+
+                Adapter = new SqlDataAdapter();
+                Adapter.UpdateCommand = Command;
+                Adapter.UpdateCommand.ExecuteNonQuery();
+
+                MessageBox.Show("Data successfully updated!", "Database Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            displayData();
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
