@@ -150,21 +150,6 @@ namespace B4_Plastics_SMS
                 }
 
                 Con.Close();
-                Con.Open();
-
-                SQL = "SELECT transaction_id " +
-                      "FROM Transactions";
-
-                Command = new SqlCommand(SQL, Con);
-
-                DataReader = Command.ExecuteReader();
-
-                while (DataReader.Read())
-                {
-                    cbxGenTransID.Items.Add(DataReader.GetValue(0));
-                }
-
-                Con.Close();
             }
             catch (SqlException ex)
             {
