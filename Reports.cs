@@ -31,6 +31,37 @@ namespace B4_Plastics_SMS
         SqlCommand cmd;
         SqlDataReader reader;
 
+        // Form load 
+        private void Reports_Load(object sender, EventArgs e)
+        {
+            tclReports.SelectedIndex = 0;
+
+            // connect to DB
+            cnn = DatabaseL.GetConnection();
+            // test connection 
+            try
+            {
+                cnn.Open();
+                cnn.Close();
+            }
+            catch (SqlException err)
+            {
+                // display error message 
+                rtxReportErr.Clear();
+                rtxReportErr.Text = err.Message;
+            }
+
+            // populate colour combobox
+            pColour();
+
+            // populate transctions combobox
+            pTransactions();
+
+            // Disable print and export buttons
+            btnExport.Enabled = false;
+            btnPrint.Enabled = false;
+        }
+
 
 
         // =====================================================
@@ -314,35 +345,6 @@ namespace B4_Plastics_SMS
             btnPrint.Enabled = true;
         }
 
-        // Form load 
-        private void Reports_Load(object sender, EventArgs e)
-        {
-            // connect to DB
-            cnn = DatabaseL.GetConnection();
-            // test connection 
-            try
-            {
-                cnn.Open();
-                cnn.Close();
-            }
-            catch (SqlException err)
-            {
-                // display error message 
-                rtxReportErr.Clear();
-                rtxReportErr.Text = err.Message;
-            }
-
-            // populate colour combobox
-            pColour();
-
-            // populate transctions combobox
-            pTransactions();
-
-            // Disable print and export buttons
-            btnExport.Enabled = false;
-            btnPrint.Enabled = false;
-        }
-
         // Export DGV to CSV
         private void btnExport_Click(object sender, EventArgs e)
         {
@@ -416,7 +418,65 @@ namespace B4_Plastics_SMS
             
             //Resize DataGridView back to original height.
             dgvReportView.Height = height;
-            
+
+        }
+
+        // Print page
+        private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Bitmap bmpLogo = Properties.Resources.Logo2;
+            Image imgLogo = bmpLogo;
+
+            Bitmap bmpLine = Properties.Resources.Dot_Blue;
+            Image imgLine = bmpLine;
+
+            if (isFilterUsed)
+            {
+                bmpFilter = new Bitmap(gbxFilterBy.Width, gbxFilterBy.Height);
+                gbxFilterBy.DrawToBitmap(bmpFilter, new Rectangle(0, 0, gbxFilterBy.Width, gbxFilterBy.Height));
+
+                e.Graphics.DrawString("Exception Stock Report", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(250, 25));
+                e.Graphics.DrawImage(bmpFilter, 100, 150);
+                e.Graphics.DrawImage(bmpData, 100, 375);
+                e.Graphics.DrawString("Stock total (Filtered): " + calcTotalStock(), new Font("Arial", 14, FontStyle.Regular), Brushes.Black, new Point(100, (430 + dgvReportView.Height)));
+                e.Graphics.DrawString("**END OF REPORT**", new Font("Arial", 14, FontStyle.Italic), Brushes.Black, new Point(500, (450 + dgvReportView.Height)));
+            }
+            else
+            {
+                e.Graphics.DrawString("Detailed Stock Report", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(250, 25));
+                e.Graphics.DrawImage(bmpData, 100, 150);
+                e.Graphics.DrawString("Stock total: " + calcTotalStock(), new Font("Arial", 14, FontStyle.Regular), Brushes.Black, new Point(100, (180 + dgvReportView.Height)));
+                e.Graphics.DrawString("**END OF REPORT**", new Font("Arial", 14, FontStyle.Italic), Brushes.Black, new Point(500, (200 + dgvReportView.Height)));
+            }
+
+            //Print the contents.        <>    ^^ 
+            e.Graphics.DrawString(DateTime.Today.ToLongDateString(), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(550, 30));
+
+            e.Graphics.DrawImage(imgLogo, 0, 0, 216, 93);
+            e.Graphics.DrawImage(bmpLine, -20, 95, 900, 2);
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtLengthLow.Clear();
+            txtLengthHigh.Clear();
+            txtQuantityHigh.Clear();
+            txtQuantityLow.Clear();
+            cbxColour.SelectedIndex = -1;
+
+            rbnASC.Checked = false;
+            rbnDESC.Checked = false;
+
+            rbnPipeID.Checked = false;
+            rbnPipeColour.Checked = false;
+            rbnPipeLength.Checked = false;
+            rbnPipeQuantity.Checked = false;
+            rbnPipeDiameter.Checked = false;
+
+            dgvReportView.Columns.Clear();
+
+            btnExport.Enabled = false;
+            btnPrint.Enabled = false;
         }
 
         private void cbxGenTransID_SelectedIndexChanged(object sender, EventArgs e)
@@ -496,108 +556,8 @@ namespace B4_Plastics_SMS
             lblReport.Items.Add("Is the transaction complete: " + answer);
             lblReport.Items.Add("");
             lblReport.Items.Add("\t\t\t **END OF REPORT** \t\t");
-            
-
-            
-            
-
-
-
-
-
-
-
-            /*
-            //mylist.Items.Add(string.Format(align, "Name", "Email", "Total rooms", "Type", "Rating"));
-
-            mylist.Items.Add("ID" + "\t" + "First Name" + "\t" + "Last Name" + "\t" + "Email");
-            mylist.Items.Add("______________________________________________________________");
-            mylist.Items.Add("");
-
-           
-            {
-                if ((Boolean)reader.GetValue(4) == true)
-                {
-                    answer = "Yes";
-                }
-                else
-                {
-                    answer = "No";
-                }
-
-                mylist.Items.Add(string.Format(align, reader.GetValue(0), reader.GetValue(1), "      " + reader.GetValue(2), reader.GetValue(3), "    " + reader.GetValue(4)));
-
-            }*/
-
 
             cnn.Close();
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            txtLengthLow.Clear();
-            txtLengthHigh.Clear();
-            txtQuantityHigh.Clear();
-            txtQuantityLow.Clear();
-            cbxColour.SelectedIndex = -1;
-
-            rbnASC.Checked = false;
-            rbnDESC.Checked = false;
-
-            rbnPipeID.Checked = false;
-            rbnPipeColour.Checked = false;
-            rbnPipeLength.Checked = false;
-            rbnPipeQuantity.Checked = false;
-            rbnPipeDiameter.Checked = false;
-
-            dgvReportView.Columns.Clear();
-
-            btnExport.Enabled = false;
-            btnPrint.Enabled = false;
-
-        }
-
-        // Print page
-        private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-
-            Bitmap bmpLogo = Properties.Resources.Logo2;
-            Image imgLogo = bmpLogo;
-
-            Bitmap bmpLine = Properties.Resources.Dot_Blue;
-            Image imgLine = bmpLine;
-
-            if (isFilterUsed)
-            {
-                bmpFilter = new Bitmap(gbxFilterBy.Width, gbxFilterBy.Height);
-                gbxFilterBy.DrawToBitmap(bmpFilter, new Rectangle(0, 0, gbxFilterBy.Width, gbxFilterBy.Height));
-
-                e.Graphics.DrawString("Exception Stock Report", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(250, 25));
-                e.Graphics.DrawImage(bmpFilter, 100, 150);
-                e.Graphics.DrawImage(bmpData, 100, 375);
-                e.Graphics.DrawString("Stock total (Filtered): " + calcTotalStock(), new Font("Arial", 14, FontStyle.Regular), Brushes.Black, new Point(100, (430 + dgvReportView.Height)));
-                e.Graphics.DrawString("**END OF REPORT**", new Font("Arial", 14, FontStyle.Italic), Brushes.Black, new Point(500, (450 + dgvReportView.Height)));
-
-            }
-            else
-            {
-                e.Graphics.DrawString("Detailed Stock Report", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(250, 25));
-                e.Graphics.DrawImage(bmpData, 100, 150);
-                e.Graphics.DrawString("Stock total: " + calcTotalStock(), new Font("Arial", 14, FontStyle.Regular), Brushes.Black, new Point(100, (180 + dgvReportView.Height)));
-                e.Graphics.DrawString("**END OF REPORT**", new Font("Arial", 14, FontStyle.Italic), Brushes.Black, new Point(500, (200 + dgvReportView.Height)));
-
-            }
-
-
-            //Print the contents.        <>    ^^ 
-
-            e.Graphics.DrawString(DateTime.Today.ToLongDateString(), new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(550, 30));
-
-            e.Graphics.DrawImage(imgLogo, 0, 0, 216, 93);
-            e.Graphics.DrawImage(bmpLine, -20, 95, 900 , 2);
-
-
-
         }
     }
 }

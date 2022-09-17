@@ -58,7 +58,7 @@ namespace B4_Plastics_SMS
             this.rtxReportErr = new System.Windows.Forms.RichTextBox();
             this.ppPreview = new System.Windows.Forms.PrintPreviewDialog();
             this.printDoc = new System.Drawing.Printing.PrintDocument();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tclReports = new System.Windows.Forms.TabControl();
             this.tabStockReport = new System.Windows.Forms.TabPage();
             this.btnReset = new System.Windows.Forms.Button();
             this.tabTransactionReport = new System.Windows.Forms.TabPage();
@@ -70,7 +70,7 @@ namespace B4_Plastics_SMS
             this.gbxSortBy.SuspendLayout();
             this.gbxOrderBy.SuspendLayout();
             this.gbxFilterBy.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tclReports.SuspendLayout();
             this.tabStockReport.SuspendLayout();
             this.tabTransactionReport.SuspendLayout();
             this.SuspendLayout();
@@ -389,7 +389,7 @@ namespace B4_Plastics_SMS
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(744, 778);
+            this.btnExport.Location = new System.Drawing.Point(742, 824);
             this.btnExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(156, 47);
@@ -404,7 +404,7 @@ namespace B4_Plastics_SMS
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(507, 778);
+            this.btnPrint.Location = new System.Drawing.Point(505, 824);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(225, 47);
@@ -439,18 +439,18 @@ namespace B4_Plastics_SMS
             // 
             this.printDoc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDoc_PrintPage);
             // 
-            // tabControl1
+            // tclReports
             // 
-            this.tabControl1.Controls.Add(this.tabStockReport);
-            this.tabControl1.Controls.Add(this.tabTransactionReport);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Nirmala UI Semilight", 10F);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(982, 898);
-            this.tabControl1.TabIndex = 2;
+            this.tclReports.Controls.Add(this.tabStockReport);
+            this.tclReports.Controls.Add(this.tabTransactionReport);
+            this.tclReports.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tclReports.Font = new System.Drawing.Font("Nirmala UI Semilight", 10F);
+            this.tclReports.Location = new System.Drawing.Point(0, 0);
+            this.tclReports.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tclReports.Name = "tclReports";
+            this.tclReports.SelectedIndex = 0;
+            this.tclReports.Size = new System.Drawing.Size(982, 955);
+            this.tclReports.TabIndex = 2;
             // 
             // tabStockReport
             // 
@@ -467,7 +467,7 @@ namespace B4_Plastics_SMS
             this.tabStockReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabStockReport.Name = "tabStockReport";
             this.tabStockReport.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabStockReport.Size = new System.Drawing.Size(974, 862);
+            this.tabStockReport.Size = new System.Drawing.Size(974, 919);
             this.tabStockReport.TabIndex = 0;
             this.tabStockReport.Text = "Stock";
             // 
@@ -477,7 +477,7 @@ namespace B4_Plastics_SMS
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(27, 778);
+            this.btnReset.Location = new System.Drawing.Point(25, 824);
             this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(165, 47);
@@ -496,7 +496,7 @@ namespace B4_Plastics_SMS
             this.tabTransactionReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabTransactionReport.Name = "tabTransactionReport";
             this.tabTransactionReport.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabTransactionReport.Size = new System.Drawing.Size(974, 862);
+            this.tabTransactionReport.Size = new System.Drawing.Size(974, 919);
             this.tabTransactionReport.TabIndex = 1;
             this.tabTransactionReport.Text = "Transaction";
             // 
@@ -504,7 +504,7 @@ namespace B4_Plastics_SMS
             // 
             this.lblReport.FormattingEnabled = true;
             this.lblReport.ItemHeight = 23;
-            this.lblReport.Location = new System.Drawing.Point(103, 70);
+            this.lblReport.Location = new System.Drawing.Point(90, 70);
             this.lblReport.Name = "lblReport";
             this.lblReport.Size = new System.Drawing.Size(788, 763);
             this.lblReport.TabIndex = 29;
@@ -513,7 +513,7 @@ namespace B4_Plastics_SMS
             // 
             this.cbxGenTransID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbxGenTransID.FormattingEnabled = true;
-            this.cbxGenTransID.Location = new System.Drawing.Point(430, 15);
+            this.cbxGenTransID.Location = new System.Drawing.Point(417, 15);
             this.cbxGenTransID.Name = "cbxGenTransID";
             this.cbxGenTransID.Size = new System.Drawing.Size(217, 28);
             this.cbxGenTransID.TabIndex = 27;
@@ -524,7 +524,7 @@ namespace B4_Plastics_SMS
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 11F);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(289, 15);
+            this.label1.Location = new System.Drawing.Point(276, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 25);
             this.label1.TabIndex = 28;
@@ -535,8 +535,8 @@ namespace B4_Plastics_SMS
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(982, 898);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(982, 955);
+            this.Controls.Add(this.tclReports);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
@@ -551,7 +551,7 @@ namespace B4_Plastics_SMS
             this.gbxOrderBy.PerformLayout();
             this.gbxFilterBy.ResumeLayout(false);
             this.gbxFilterBy.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tclReports.ResumeLayout(false);
             this.tabStockReport.ResumeLayout(false);
             this.tabTransactionReport.ResumeLayout(false);
             this.tabTransactionReport.PerformLayout();
@@ -588,7 +588,7 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.DataGridView dgvReportView;
         private System.Windows.Forms.PrintPreviewDialog ppPreview;
         private System.Drawing.Printing.PrintDocument printDoc;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tclReports;
         private System.Windows.Forms.TabPage tabStockReport;
         private System.Windows.Forms.TabPage tabTransactionReport;
         private System.Windows.Forms.RadioButton rbnPipeID;

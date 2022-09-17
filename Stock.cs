@@ -299,57 +299,63 @@ namespace B4_Plastics_SMS
 
         private void cbSearchPipeID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (cbSearchPipeID.SelectedIndex != 0)
             {
-                Con.Close();
-                Con.Open();
+                try
+                {
+                    Con.Close();
+                    Con.Open();
 
-                SQL = "SELECT Det.pipe_id, Sz.pipe_length, Sz.pipe_diameter, Col.colour_code, Det.pipe_quantity " +
-                      "FROM [Pipe Details] as Det " +
-                           "LEFT JOIN [Pipe Size] as Sz ON Sz.size_id = Det.size_id " +
-                           "LEFT JOIN Colours as Col ON Col.colour_id = Det.colour_id " +
-                     $"WHERE Det.pipe_id = '{cbSearchPipeID.Text}'";
+                    SQL = "SELECT Det.pipe_id, Sz.pipe_length, Sz.pipe_diameter, Col.colour_code, Det.pipe_quantity " +
+                          "FROM [Pipe Details] as Det " +
+                               "LEFT JOIN [Pipe Size] as Sz ON Sz.size_id = Det.size_id " +
+                               "LEFT JOIN Colours as Col ON Col.colour_id = Det.colour_id " +
+                         $"WHERE Det.pipe_id = '{cbSearchPipeID.Text}'";
 
-                Command = new SqlCommand(SQL, Con);
+                    Command = new SqlCommand(SQL, Con);
 
-                Data = new DataTable();
-                Data.Load(Command.ExecuteReader());
+                    Data = new DataTable();
+                    Data.Load(Command.ExecuteReader());
 
-                dgvStockDetails.DataSource = Data;
+                    dgvStockDetails.DataSource = Data;
 
-                Con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
         private void txtSearchQuantity_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (txtSearchQuantity.Text != "")
             {
-                Con.Close();
-                Con.Open();
+                try
+                {
+                    Con.Close();
+                    Con.Open();
 
-                SQL = "SELECT Det.pipe_id, Sz.pipe_length, Sz.pipe_diameter, Col.colour_code, Det.pipe_quantity " +
-                      "FROM [Pipe Details] as Det " +
-                           "LEFT JOIN [Pipe Size] as Sz ON Sz.size_id = Det.size_id " +
-                           "LEFT JOIN Colours as Col ON Col.colour_id = Det.colour_id " +
-                     $"WHERE Det.pipe_quantity >= {int.Parse(txtSearchQuantity.Text)}";
+                    SQL = "SELECT Det.pipe_id, Sz.pipe_length, Sz.pipe_diameter, Col.colour_code, Det.pipe_quantity " +
+                          "FROM [Pipe Details] as Det " +
+                               "LEFT JOIN [Pipe Size] as Sz ON Sz.size_id = Det.size_id " +
+                               "LEFT JOIN Colours as Col ON Col.colour_id = Det.colour_id " +
+                         $"WHERE Det.pipe_quantity >= {int.Parse(txtSearchQuantity.Text)}";
 
-                Command = new SqlCommand(SQL, Con);
+                    Command = new SqlCommand(SQL, Con);
 
-                Data = new DataTable();
-                Data.Load(Command.ExecuteReader());
+                    Data = new DataTable();
+                    Data.Load(Command.ExecuteReader());
 
-                dgvStockDetails.DataSource = Data;
+                    dgvStockDetails.DataSource = Data;
 
-                Con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -436,13 +442,15 @@ namespace B4_Plastics_SMS
                 Con.Close();
                 Con.Open();
 
-                SQL = $"INSERT INTO [Pipe Size] SET ([pipe_length]) VALUES {Length}; " +
-                      $"INSERT INTO [Pipe Size] SET ([pipe_diameter]) VALUES {Diameter}";
+                SQL = "INSERT " +
+                      "INTO [Pipe Size] VALUES (@length, @diameter)";
 
                 Command = new SqlCommand(SQL, Con);
 
                 Adapter = new SqlDataAdapter();
                 Adapter.InsertCommand = Command;
+                Adapter.InsertCommand.Parameters.AddWithValue("@length", Length);
+                Adapter.InsertCommand.Parameters.AddWithValue("@diameter", Diameter);
                 Adapter.InsertCommand.ExecuteNonQuery();
 
                 Con.Close();
@@ -458,23 +466,24 @@ namespace B4_Plastics_SMS
 
                 DataReader.Read();
 
-                Size = DataReader["size_id"].ToString();
-                SizeID = int.Parse(Size);
+                SizeID = int.Parse(DataReader["size_id"].ToString());
 
                 Con.Close();
                 Con.Open();
 
-                SQL = $"INSERT INTO [Pipe Details] SET ([colour_id]) VALUES {ColourID}; " +
-                      $"INSERT INTO [Pipe Details] SET ([size_id]) VALUES {SizeID}; " +
-                      $"INSERT INTO [Pipe Details] SET ([pipe_quantity]) VALUES {Quantity}";
+                SQL = "INSERT " +
+                      "INTO [Pipe Details] VALUES (@colour_ID, @size_id, @quantity)";
 
                 Command = new SqlCommand(SQL, Con);
 
-                Adapter = new SqlDataAdapter();
+                Adapter = new SqlDataAdapter(); 
                 Adapter.InsertCommand = Command;
+                Adapter.InsertCommand.Parameters.AddWithValue("@colour_ID", ColourID);
+                Adapter.InsertCommand.Parameters.AddWithValue("@size_id", SizeID);
+                Adapter.InsertCommand.Parameters.AddWithValue("@quantity", Quantity);
                 Adapter.InsertCommand.ExecuteNonQuery();
 
-                MessageBox.Show("Data successfully inserted into Database!");
+                MessageBox.Show("Data successfully inserted into Database!", "Database Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Con.Close();
             }
@@ -484,6 +493,8 @@ namespace B4_Plastics_SMS
             }
 
             displayData();
+
+            tabStock.SelectedIndex = 0;
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -538,6 +549,7 @@ namespace B4_Plastics_SMS
             int Quantity = 0;
             string Colour = "";
             int ColourID = 0;
+            int SizeID = 0;
 
             Pipe_ID = int.Parse(cbUpdateStock.Text);
             Length = double.Parse(txtULength.Text);
@@ -560,16 +572,30 @@ namespace B4_Plastics_SMS
 
                 DataReader.Read();
 
-                Colour = DataReader["colour_id"].ToString();
-                ColourID = int.Parse(Colour);
+                ColourID = int.Parse(DataReader["colour_id"].ToString());
 
                 Con.Close();
                 Con.Open();
 
-                SQL = $"UPDATE [Pipe Details] SET [pipe_quantity] = {Quantity} WHERE [pipe_id] = {Pipe_ID}; " +
-                      $"UPDATE [Pipe Details] SET [colour_id] = {ColourID} WHERE [pipe_id] = {Pipe_ID}; " +
-                      $"UPDATE [Pipe Size] SET [pipe_length] = {Length}; " +
-                      $"UPDATE [Pipe Size] SET [pipe_diameter] = {Diameter}";
+                SQL = "SELECT size_id " +
+                      "FROM [Pipe Details] " +
+                     $"WHERE pipe_id = {Pipe_ID}";
+
+                Command = new SqlCommand(SQL, Con);
+
+                DataReader = Command.ExecuteReader();
+
+                DataReader.Read();
+
+                SizeID = int.Parse(DataReader["size_id"].ToString());
+
+                Con.Close();
+                Con.Open();
+
+                SQL = $"UPDATE [Pipe Details] SET [pipe_quantity] = {Quantity} WHERE pipe_id = {Pipe_ID}; " +
+                      $"UPDATE [Pipe Details] SET [colour_id] = {ColourID} WHERE pipe_id = {Pipe_ID}; " +
+                      $"UPDATE [Pipe Size] SET [pipe_length] = {Length} WHERE size_id = {SizeID}; " +
+                      $"UPDATE [Pipe Size] SET [pipe_diameter] = {Diameter} WHERE size_id = {SizeID}";
 
                 Command = new SqlCommand(SQL, Con);
 
@@ -577,7 +603,7 @@ namespace B4_Plastics_SMS
                 Adapter.UpdateCommand = Command;
                 Adapter.UpdateCommand.ExecuteNonQuery();
 
-                MessageBox.Show("Data successfully updated!");
+                MessageBox.Show("Data successfully updated!", "Database Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Con.Close();
             }
@@ -587,6 +613,8 @@ namespace B4_Plastics_SMS
             }
 
             displayData();
+
+            tabStock.SelectedIndex = 0;
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -624,6 +652,8 @@ namespace B4_Plastics_SMS
                 }
 
                 displayData();
+
+                tabStock.SelectedIndex = 0;
             }
             else
                 MessageBox.Show("Please select 'Confirm Delete' box before deleteing records!", "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);

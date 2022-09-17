@@ -105,10 +105,6 @@ namespace B4_Plastics_SMS
             this.cbxDTransID = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.tabGenerateSlip = new System.Windows.Forms.TabPage();
-            this.lbGenerateSlip = new System.Windows.Forms.ListBox();
-            this.cbxGenTransID = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabSearch.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -127,7 +123,6 @@ namespace B4_Plastics_SMS
             this.groupBox1.SuspendLayout();
             this.tabDelete.SuspendLayout();
             this.gbxDelete.SuspendLayout();
-            this.tabGenerateSlip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -136,7 +131,6 @@ namespace B4_Plastics_SMS
             this.tabControl1.Controls.Add(this.tabInsert);
             this.tabControl1.Controls.Add(this.tabUpdate);
             this.tabControl1.Controls.Add(this.tabDelete);
-            this.tabControl1.Controls.Add(this.tabGenerateSlip);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Nirmala UI Semilight", 10F);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -269,14 +263,14 @@ namespace B4_Plastics_SMS
             this.bncTransactions.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bncTransactions.Name = "bncTransactions";
             this.bncTransactions.PositionItem = this.bindingNavigatorPositionItem;
-            this.bncTransactions.Size = new System.Drawing.Size(903, 31);
+            this.bncTransactions.Size = new System.Drawing.Size(903, 27);
             this.bncTransactions.TabIndex = 1;
             this.bncTransactions.Text = "bindingNavigator1";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -286,7 +280,7 @@ namespace B4_Plastics_SMS
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -295,19 +289,18 @@ namespace B4_Plastics_SMS
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -316,7 +309,7 @@ namespace B4_Plastics_SMS
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -324,7 +317,7 @@ namespace B4_Plastics_SMS
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -333,23 +326,23 @@ namespace B4_Plastics_SMS
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // lblReset
             // 
             this.lblReset.Name = "lblReset";
-            this.lblReset.Size = new System.Drawing.Size(125, 28);
+            this.lblReset.Size = new System.Drawing.Size(125, 24);
             this.lblReset.Text = "          Reset          ";
             // 
             // dgvTransactionDetails
@@ -958,48 +951,6 @@ namespace B4_Plastics_SMS
             this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // tabGenerateSlip
-            // 
-            this.tabGenerateSlip.Controls.Add(this.lbGenerateSlip);
-            this.tabGenerateSlip.Controls.Add(this.cbxGenTransID);
-            this.tabGenerateSlip.Controls.Add(this.label6);
-            this.tabGenerateSlip.Location = new System.Drawing.Point(4, 32);
-            this.tabGenerateSlip.Name = "tabGenerateSlip";
-            this.tabGenerateSlip.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGenerateSlip.Size = new System.Drawing.Size(1028, 911);
-            this.tabGenerateSlip.TabIndex = 4;
-            this.tabGenerateSlip.Text = "Generate Slip";
-            this.tabGenerateSlip.UseVisualStyleBackColor = true;
-            // 
-            // lbGenerateSlip
-            // 
-            this.lbGenerateSlip.FormattingEnabled = true;
-            this.lbGenerateSlip.ItemHeight = 23;
-            this.lbGenerateSlip.Location = new System.Drawing.Point(112, 134);
-            this.lbGenerateSlip.Name = "lbGenerateSlip";
-            this.lbGenerateSlip.Size = new System.Drawing.Size(797, 717);
-            this.lbGenerateSlip.TabIndex = 26;
-            // 
-            // cbxGenTransID
-            // 
-            this.cbxGenTransID.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cbxGenTransID.FormattingEnabled = true;
-            this.cbxGenTransID.Location = new System.Drawing.Point(462, 44);
-            this.cbxGenTransID.Name = "cbxGenTransID";
-            this.cbxGenTransID.Size = new System.Drawing.Size(217, 28);
-            this.cbxGenTransID.TabIndex = 24;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Nirmala UI", 11F);
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(321, 44);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(135, 25);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Transaction ID:";
-            // 
             // TransactLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1036,8 +987,6 @@ namespace B4_Plastics_SMS
             this.tabDelete.ResumeLayout(false);
             this.gbxDelete.ResumeLayout(false);
             this.gbxDelete.PerformLayout();
-            this.tabGenerateSlip.ResumeLayout(false);
-            this.tabGenerateSlip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1103,10 +1052,6 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.TabPage tabGenerateSlip;
-        private System.Windows.Forms.ListBox lbGenerateSlip;
-        private System.Windows.Forms.ComboBox cbxGenTransID;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RadioButton rbnFNo;
         private System.Windows.Forms.RadioButton rbnFYes;
