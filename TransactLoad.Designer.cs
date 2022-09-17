@@ -29,7 +29,6 @@ namespace B4_Plastics_SMS
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactLoad));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabSearch = new System.Windows.Forms.TabPage();
@@ -40,18 +39,6 @@ namespace B4_Plastics_SMS
             this.cbxFTransID = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.gbxTransactionDetails = new System.Windows.Forms.GroupBox();
-            this.bncTransactions = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.lblReset = new System.Windows.Forms.ToolStripLabel();
             this.dgvTransactionDetails = new System.Windows.Forms.DataGridView();
             this.tabInsert = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -61,7 +48,7 @@ namespace B4_Plastics_SMS
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnMakeTrans = new System.Windows.Forms.Button();
             this.dtpMDelivDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpMTransDtae = new System.Windows.Forms.DateTimePicker();
+            this.dtpMTransDate = new System.Windows.Forms.DateTimePicker();
             this.cbxMEmployID = new System.Windows.Forms.ComboBox();
             this.cbxMPipeID = new System.Windows.Forms.ComboBox();
             this.cbxMDispatchID = new System.Windows.Forms.ComboBox();
@@ -110,8 +97,6 @@ namespace B4_Plastics_SMS
             this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.gbxTransactionDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bncTransactions)).BeginInit();
-            this.bncTransactions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactionDetails)).BeginInit();
             this.tabInsert.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -162,7 +147,7 @@ namespace B4_Plastics_SMS
             this.groupBox2.Location = new System.Drawing.Point(275, 527);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(427, 324);
-            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filter Transaction by:";
             // 
@@ -171,10 +156,10 @@ namespace B4_Plastics_SMS
             this.groupBox6.Controls.Add(this.rbnFNo);
             this.groupBox6.Controls.Add(this.rbnFYes);
             this.groupBox6.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox6.Location = new System.Drawing.Point(169, 130);
+            this.groupBox6.Location = new System.Drawing.Point(83, 143);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(217, 149);
-            this.groupBox6.TabIndex = 24;
+            this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Is Completed:";
             // 
@@ -186,10 +171,11 @@ namespace B4_Plastics_SMS
             this.rbnFNo.Location = new System.Drawing.Point(25, 88);
             this.rbnFNo.Name = "rbnFNo";
             this.rbnFNo.Size = new System.Drawing.Size(58, 29);
-            this.rbnFNo.TabIndex = 0;
+            this.rbnFNo.TabIndex = 1;
             this.rbnFNo.TabStop = true;
             this.rbnFNo.Text = "No";
             this.rbnFNo.UseVisualStyleBackColor = true;
+            this.rbnFNo.CheckedChanged += new System.EventHandler(this.rbnFNo_CheckedChanged);
             // 
             // rbnFYes
             // 
@@ -203,6 +189,7 @@ namespace B4_Plastics_SMS
             this.rbnFYes.TabStop = true;
             this.rbnFYes.Text = "Yes";
             this.rbnFYes.UseVisualStyleBackColor = true;
+            this.rbnFYes.CheckedChanged += new System.EventHandler(this.rbnFYes_CheckedChanged);
             // 
             // cbxFTransID
             // 
@@ -212,6 +199,7 @@ namespace B4_Plastics_SMS
             this.cbxFTransID.Name = "cbxFTransID";
             this.cbxFTransID.Size = new System.Drawing.Size(217, 28);
             this.cbxFTransID.TabIndex = 0;
+            this.cbxFTransID.SelectedIndexChanged += new System.EventHandler(this.cbxFTransID_SelectedIndexChanged);
             // 
             // label20
             // 
@@ -227,132 +215,24 @@ namespace B4_Plastics_SMS
             // gbxTransactionDetails
             // 
             this.gbxTransactionDetails.BackColor = System.Drawing.Color.White;
-            this.gbxTransactionDetails.Controls.Add(this.bncTransactions);
             this.gbxTransactionDetails.Controls.Add(this.dgvTransactionDetails);
             this.gbxTransactionDetails.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
             this.gbxTransactionDetails.ForeColor = System.Drawing.Color.Navy;
             this.gbxTransactionDetails.Location = new System.Drawing.Point(61, 63);
             this.gbxTransactionDetails.Name = "gbxTransactionDetails";
             this.gbxTransactionDetails.Size = new System.Drawing.Size(909, 421);
-            this.gbxTransactionDetails.TabIndex = 0;
+            this.gbxTransactionDetails.TabIndex = 2;
             this.gbxTransactionDetails.TabStop = false;
             this.gbxTransactionDetails.Text = "Transaction Details";
-            // 
-            // bncTransactions
-            // 
-            this.bncTransactions.AddNewItem = null;
-            this.bncTransactions.CountItem = this.bindingNavigatorCountItem;
-            this.bncTransactions.DeleteItem = null;
-            this.bncTransactions.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.bncTransactions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.toolStripSeparator1,
-            this.lblReset});
-            this.bncTransactions.Location = new System.Drawing.Point(3, 32);
-            this.bncTransactions.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bncTransactions.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bncTransactions.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bncTransactions.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bncTransactions.Name = "bncTransactions";
-            this.bncTransactions.PositionItem = this.bindingNavigatorPositionItem;
-            this.bncTransactions.Size = new System.Drawing.Size(903, 27);
-            this.bncTransactions.TabIndex = 1;
-            this.bncTransactions.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // lblReset
-            // 
-            this.lblReset.Name = "lblReset";
-            this.lblReset.Size = new System.Drawing.Size(125, 24);
-            this.lblReset.Text = "          Reset          ";
             // 
             // dgvTransactionDetails
             // 
             this.dgvTransactionDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTransactionDetails.Location = new System.Drawing.Point(26, 74);
+            this.dgvTransactionDetails.Location = new System.Drawing.Point(26, 35);
             this.dgvTransactionDetails.Name = "dgvTransactionDetails";
             this.dgvTransactionDetails.RowHeadersWidth = 51;
             this.dgvTransactionDetails.RowTemplate.Height = 24;
-            this.dgvTransactionDetails.Size = new System.Drawing.Size(855, 326);
+            this.dgvTransactionDetails.Size = new System.Drawing.Size(855, 365);
             this.dgvTransactionDetails.TabIndex = 0;
             // 
             // tabInsert
@@ -376,7 +256,7 @@ namespace B4_Plastics_SMS
             this.groupBox5.Location = new System.Drawing.Point(539, 474);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(466, 387);
-            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Staff Details";
             // 
@@ -417,7 +297,7 @@ namespace B4_Plastics_SMS
             this.groupBox3.BackColor = System.Drawing.Color.White;
             this.groupBox3.Controls.Add(this.btnMakeTrans);
             this.groupBox3.Controls.Add(this.dtpMDelivDate);
-            this.groupBox3.Controls.Add(this.dtpMTransDtae);
+            this.groupBox3.Controls.Add(this.dtpMTransDate);
             this.groupBox3.Controls.Add(this.cbxMEmployID);
             this.groupBox3.Controls.Add(this.cbxMPipeID);
             this.groupBox3.Controls.Add(this.cbxMDispatchID);
@@ -436,7 +316,7 @@ namespace B4_Plastics_SMS
             this.groupBox3.Location = new System.Drawing.Point(27, 47);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(978, 394);
-            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Make Transaction";
             // 
@@ -446,13 +326,14 @@ namespace B4_Plastics_SMS
             this.btnMakeTrans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMakeTrans.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMakeTrans.ForeColor = System.Drawing.Color.White;
-            this.btnMakeTrans.Location = new System.Drawing.Point(212, 302);
+            this.btnMakeTrans.Location = new System.Drawing.Point(357, 302);
             this.btnMakeTrans.Margin = new System.Windows.Forms.Padding(4);
             this.btnMakeTrans.Name = "btnMakeTrans";
             this.btnMakeTrans.Size = new System.Drawing.Size(265, 55);
-            this.btnMakeTrans.TabIndex = 6;
+            this.btnMakeTrans.TabIndex = 7;
             this.btnMakeTrans.Text = "&Make Transaction";
             this.btnMakeTrans.UseVisualStyleBackColor = false;
+            this.btnMakeTrans.Click += new System.EventHandler(this.btnMakeTrans_Click);
             // 
             // dtpMDelivDate
             // 
@@ -463,17 +344,18 @@ namespace B4_Plastics_SMS
             this.dtpMDelivDate.Location = new System.Drawing.Point(677, 121);
             this.dtpMDelivDate.Name = "dtpMDelivDate";
             this.dtpMDelivDate.Size = new System.Drawing.Size(264, 23);
-            this.dtpMDelivDate.TabIndex = 8;
+            this.dtpMDelivDate.TabIndex = 5;
             // 
-            // dtpMTransDtae
+            // dtpMTransDate
             // 
-            this.dtpMTransDtae.CustomFormat = "dd MMM, yyyy";
-            this.dtpMTransDtae.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpMTransDtae.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpMTransDtae.Location = new System.Drawing.Point(212, 235);
-            this.dtpMTransDtae.Name = "dtpMTransDtae";
-            this.dtpMTransDtae.Size = new System.Drawing.Size(264, 23);
-            this.dtpMTransDtae.TabIndex = 4;
+            this.dtpMTransDate.CustomFormat = "dd MMM, yyyy";
+            this.dtpMTransDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpMTransDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpMTransDate.Location = new System.Drawing.Point(212, 235);
+            this.dtpMTransDate.Name = "dtpMTransDate";
+            this.dtpMTransDate.Size = new System.Drawing.Size(264, 23);
+            this.dtpMTransDate.TabIndex = 3;
+            this.dtpMTransDate.ValueChanged += new System.EventHandler(this.dtpMTransDate_ValueChanged);
             // 
             // cbxMEmployID
             // 
@@ -482,7 +364,7 @@ namespace B4_Plastics_SMS
             this.cbxMEmployID.Location = new System.Drawing.Point(212, 116);
             this.cbxMEmployID.Name = "cbxMEmployID";
             this.cbxMEmployID.Size = new System.Drawing.Size(265, 28);
-            this.cbxMEmployID.TabIndex = 2;
+            this.cbxMEmployID.TabIndex = 1;
             // 
             // cbxMPipeID
             // 
@@ -491,7 +373,7 @@ namespace B4_Plastics_SMS
             this.cbxMPipeID.Location = new System.Drawing.Point(211, 63);
             this.cbxMPipeID.Name = "cbxMPipeID";
             this.cbxMPipeID.Size = new System.Drawing.Size(265, 28);
-            this.cbxMPipeID.TabIndex = 1;
+            this.cbxMPipeID.TabIndex = 0;
             // 
             // cbxMDispatchID
             // 
@@ -500,7 +382,7 @@ namespace B4_Plastics_SMS
             this.cbxMDispatchID.Location = new System.Drawing.Point(678, 63);
             this.cbxMDispatchID.Name = "cbxMDispatchID";
             this.cbxMDispatchID.Size = new System.Drawing.Size(265, 28);
-            this.cbxMDispatchID.TabIndex = 7;
+            this.cbxMDispatchID.TabIndex = 4;
             // 
             // label5
             // 
@@ -551,7 +433,7 @@ namespace B4_Plastics_SMS
             this.txtMLocation.Location = new System.Drawing.Point(678, 177);
             this.txtMLocation.Name = "txtMLocation";
             this.txtMLocation.Size = new System.Drawing.Size(265, 27);
-            this.txtMLocation.TabIndex = 9;
+            this.txtMLocation.TabIndex = 6;
             // 
             // label30
             // 
@@ -570,7 +452,8 @@ namespace B4_Plastics_SMS
             this.txtMQuantity.Location = new System.Drawing.Point(212, 174);
             this.txtMQuantity.Name = "txtMQuantity";
             this.txtMQuantity.Size = new System.Drawing.Size(265, 27);
-            this.txtMQuantity.TabIndex = 3;
+            this.txtMQuantity.TabIndex = 2;
+            this.txtMQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label31
             // 
@@ -664,7 +547,6 @@ namespace B4_Plastics_SMS
             // dtpUDeliveryDate
             // 
             this.dtpUDeliveryDate.CustomFormat = "dd MMM, yyyy";
-            this.dtpUDeliveryDate.Enabled = false;
             this.dtpUDeliveryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpUDeliveryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpUDeliveryDate.Location = new System.Drawing.Point(676, 170);
@@ -727,6 +609,7 @@ namespace B4_Plastics_SMS
             this.cbxUpdateTransaction.Name = "cbxUpdateTransaction";
             this.cbxUpdateTransaction.Size = new System.Drawing.Size(265, 28);
             this.cbxUpdateTransaction.TabIndex = 0;
+            this.cbxUpdateTransaction.SelectedIndexChanged += new System.EventHandler(this.cbxUpdateTransaction_SelectedIndexChanged);
             // 
             // btnUpdate
             // 
@@ -741,6 +624,7 @@ namespace B4_Plastics_SMS
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label18
             // 
@@ -943,13 +827,14 @@ namespace B4_Plastics_SMS
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(213, 197);
+            this.btnDelete.Location = new System.Drawing.Point(137, 197);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(217, 55);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // TransactLoad
             // 
@@ -969,10 +854,6 @@ namespace B4_Plastics_SMS
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.gbxTransactionDetails.ResumeLayout(false);
-            this.gbxTransactionDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bncTransactions)).EndInit();
-            this.bncTransactions.ResumeLayout(false);
-            this.bncTransactions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactionDetails)).EndInit();
             this.tabInsert.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
@@ -1038,7 +919,7 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.DataGridView dgvPipeDetails;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DateTimePicker dtpMDelivDate;
-        private System.Windows.Forms.DateTimePicker dtpMTransDtae;
+        private System.Windows.Forms.DateTimePicker dtpMTransDate;
         private System.Windows.Forms.ComboBox cbxMEmployID;
         private System.Windows.Forms.ComboBox cbxMPipeID;
         private System.Windows.Forms.ComboBox cbxMDispatchID;
@@ -1055,17 +936,5 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RadioButton rbnFNo;
         private System.Windows.Forms.RadioButton rbnFYes;
-        private System.Windows.Forms.BindingNavigator bncTransactions;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripLabel lblReset;
     }
 }

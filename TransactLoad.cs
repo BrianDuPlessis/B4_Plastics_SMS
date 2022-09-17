@@ -24,6 +24,7 @@ namespace B4_Plastics_SMS
         SqlConnection Con;
 
         SqlDataAdapter Adapter = new SqlDataAdapter();
+        SqlDataReader DataReader;
         SqlCommand Command;
         DataTable Data = new DataTable();
 
@@ -52,14 +53,79 @@ namespace B4_Plastics_SMS
             }
         }
 
+        public void displayPipes()
+        {
+            try
+            {
+                Con.Close();
+                Con.Open();
+
+                SQL = "SELECT Det.pipe_id, Sz.pipe_length, Sz.pipe_diameter, Col.colour_code, Det.pipe_quantity " +
+                      "FROM [Pipe Details] as Det " +
+                           "LEFT JOIN [Pipe Size] as Sz ON Sz.size_id = Det.size_id " +
+                           "LEFT JOIN Colours as Col ON Col.colour_id = Det.colour_id " +
+                      "WHERE Det.pipe_quantity > 0";
+
+                Command = new SqlCommand(SQL, Con);
+
+                Data = new DataTable();
+                Data.Load(Command.ExecuteReader());
+
+                dgvPipeDetails.DataSource = Data;
+
+                Con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void displayEmployees()
+        {
+            try
+            {
+                Con.Close();
+                Con.Open();
+
+                SQL = "SELECT * " +
+                      "FROM Staff";
+
+                Command = new SqlCommand(SQL, Con);
+
+                Data = new DataTable();
+                Data.Load(Command.ExecuteReader());
+
+                dgvStaffDetails.DataSource = Data;
+
+                Con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        ///////////////////////////////////////////////////////////////PAGE LOAD//////////////////////////////////////////////////////////////////////////////////////
+
         private void TransactLoad_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
+
+            dtpMTransDate.Value = DateTime.Today;
+            dtpMDelivDate.Value = DateTime.Today.AddDays(5);
+
+            dtpUTransactionDate.Value = DateTime.Today;
+            dtpUDeliveryDate.Value = DateTime.Today.AddDays(5);
+
             Con = new SqlConnection(ConStr);
 
             displayData();
 
             try
             {
+                //////////////////////////////////////////////////////TAB SEARCH//////////////////////////////////////////////////////////////////////////////////////
+                
                 Con.Open();
 
                 SQL = "SELECT transaction_id " +
@@ -67,7 +133,7 @@ namespace B4_Plastics_SMS
 
                 Command = new SqlCommand(SQL, Con);
 
-                SqlDataReader DataReader = Command.ExecuteReader();
+                DataReader = Command.ExecuteReader();
 
                 while (DataReader.Read())
                 {
@@ -75,10 +141,14 @@ namespace B4_Plastics_SMS
                 }
 
                 Con.Close();
+
+                //////////////////////////////////////////////////////TAB INSERT//////////////////////////////////////////////////////////////////////////////////////
+
                 Con.Open();
 
                 SQL = "SELECT pipe_id " +
-                      "FROM [Pipe Details]";
+                      "FROM [Pipe Details] " +
+                      "WHERE pipe_quantity > 0";
 
                 Command = new SqlCommand(SQL, Con);
 
@@ -92,8 +162,9 @@ namespace B4_Plastics_SMS
                 Con.Close();
                 Con.Open();
 
-                SQL = "SELECT staff_id " +
-                      "FROM Staff";
+                SQL = "SELECT staff_id, staff_name, staff_lastname, staff_usertype " +
+                      "FROM Staff " +
+                      "WHERE staff_usertype <> 'Dispatch'";
 
                 Command = new SqlCommand(SQL, Con);
 
@@ -101,14 +172,15 @@ namespace B4_Plastics_SMS
 
                 while (DataReader.Read())
                 {
-                    cbxMEmployID.Items.Add(DataReader.GetValue(0));
+                    cbxMEmployID.Items.Add(DataReader.GetValue(0) + " - " + DataReader.GetValue(1) + " " + DataReader.GetValue(2) + " - " + DataReader.GetValue(3));
                 }
 
                 Con.Close();
                 Con.Open();
 
-                SQL = "SELECT dispatch_id " +
-                      "FROM Dispatch";
+                SQL = "SELECT staff_id, staff_name, staff_lastname " +
+                      "FROM Staff " +
+                      "WHERE staff_usertype = 'Dispatch'"; 
 
                 Command = new SqlCommand(SQL, Con);
 
@@ -116,8 +188,15 @@ namespace B4_Plastics_SMS
 
                 while (DataReader.Read())
                 {
-                    cbxMDispatchID.Items.Add(DataReader.GetValue(0));
+                    cbxMDispatchID.Items.Add(DataReader.GetValue(0) + " - " + DataReader.GetValue(1) + " " + DataReader.GetValue(2));
                 }
+
+                Con.Close();
+
+                displayPipes();
+                displayEmployees();
+
+                //////////////////////////////////////////////////////TAB UPDATE//////////////////////////////////////////////////////////////////////////////////////
 
                 Con.Close();
                 Con.Open();
@@ -135,6 +214,69 @@ namespace B4_Plastics_SMS
                 }
 
                 Con.Close();
+                Con.Open();
+
+                SQL = "SELECT DISTINCT pipe_id " +
+                      "FROM Transactions";
+
+                Command = new SqlCommand(SQL, Con);
+
+                DataReader = Command.ExecuteReader();
+
+                while (DataReader.Read())
+                {
+                    cbxUPipeID.Items.Add(DataReader.GetValue(0));
+                }
+
+                Con.Close();
+                Con.Open();
+
+                SQL = "SELECT DISTINCT staff_id " +
+                      "FROM Transactions";
+
+                Command = new SqlCommand(SQL, Con);
+
+                DataReader = Command.ExecuteReader();
+
+                while (DataReader.Read())
+                {
+                    cbxUEmployeeStaff.Items.Add(DataReader.GetValue(0));
+                }
+
+                Con.Close();
+                Con.Open();
+
+                SQL = "SELECT dispatch_id " +
+                      "FROM Dispatch";
+
+                Command = new SqlCommand(SQL, Con);
+
+                DataReader = Command.ExecuteReader();
+
+                while (DataReader.Read())
+                {
+                    cbUpdateDispatchID.Items.Add(DataReader.GetValue(0));
+                }
+
+                Con.Close();
+                Con.Open();
+
+                SQL = "SELECT DISTINCT staff_id " +
+                      "FROM Dispatch";
+
+                Command = new SqlCommand(SQL, Con);
+
+                DataReader = Command.ExecuteReader();
+
+                while (DataReader.Read())
+                {
+                    cbUDispatchStaff.Items.Add(DataReader.GetValue(0));
+                }
+
+                Con.Close();
+
+                //////////////////////////////////////////////////////TAB DELETE//////////////////////////////////////////////////////////////////////////////////////
+
                 Con.Open();
 
                 SQL = "SELECT transaction_id " +
@@ -156,5 +298,378 @@ namespace B4_Plastics_SMS
                 MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //////////////////////////////////////////////////////////////TAB SEARCH//////////////////////////////////////////////////////////////////////////////////////
+
+        private void cbxFTransID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rbnFYes.Checked = false;
+            rbnFNo.Checked = false;
+
+            if (cbxFTransID.SelectedIndex > -1)
+            {
+                try
+                {
+                    Con.Open();
+
+                    SQL = "SELECT * " +
+                          "FROM Transactions " +
+                         $"WHERE transaction_id = {int.Parse(cbxFTransID.Text)}";
+
+                    Command = new SqlCommand(SQL, Con);
+
+                    Data = new DataTable();
+                    Data.Load(Command.ExecuteReader());
+
+                    dgvTransactionDetails.DataSource = Data;
+
+                    Con.Close();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void rbnFYes_CheckedChanged(object sender, EventArgs e)
+        {
+            bool Checked = false;
+
+            cbxFTransID.SelectedIndex = -1;
+            Checked = rbnFYes.Checked;
+
+            if (Checked)
+            {
+                try
+                {
+                    Con.Close();
+                    Con.Open();
+
+                    SQL = "SELECT * " +
+                          "FROM Transactions " +
+                         $"WHERE isCompleted = '{Checked}'";
+
+                    Command = new SqlCommand(SQL, Con);
+
+                    Data = new DataTable();
+                    Data.Load(Command.ExecuteReader());
+
+                    dgvTransactionDetails.DataSource = Data;
+
+                    Con.Close();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void rbnFNo_CheckedChanged(object sender, EventArgs e)
+        {
+            bool Checked = false;
+
+            cbxFTransID.SelectedIndex = -1;
+            Checked = rbnFNo.Checked;
+
+            if (Checked)
+            {
+                try
+                {
+                    Con.Close();
+                    Con.Open();
+
+                    SQL = "SELECT * " +
+                          "FROM Transactions " +
+                          "WHERE isCompleted = 'FALSE'";
+
+                    Command = new SqlCommand(SQL, Con);
+
+                    Data = new DataTable();
+                    Data.Load(Command.ExecuteReader());
+
+                    dgvTransactionDetails.DataSource = Data;
+
+                    Con.Close();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //////////////////////////////////////////////////////////////TAB INSERT//////////////////////////////////////////////////////////////////////////////////////
+
+        private void dtpMTransDate_ValueChanged(object sender, EventArgs e)
+        {
+            dtpMDelivDate.Value = dtpMTransDate.Value.AddDays(5);
+        }
+
+        private void btnMakeTrans_Click(object sender, EventArgs e)
+        {
+            int Pipe_ID = 0;
+            int EmployStaff_ID = 0;
+            int Quantity = 0;
+            int QuantityDB = 0;
+            int NewQuantity = 0;
+            int Dispatch_ID = 0;
+            int DispaStaff_ID = 0;
+            int Index = 0;
+
+            DateTime TransDate;
+            DateTime DelivDate;
+
+            string Location = "";
+
+            Pipe_ID = int.Parse(cbxMPipeID.Text);
+            Index = cbxMEmployID.Text.IndexOf(' ');
+            EmployStaff_ID = int.Parse(cbxMEmployID.Text.Substring(0, Index));
+
+            if (int.TryParse(txtMQuantity.Text, out Quantity) == false)
+            {
+                MessageBox.Show("Invalid type entered. Please enter a numerical (Integer) value.", "Error parsing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtMQuantity.Focus();
+            }
+
+            TransDate = dtpMTransDate.Value;
+            Index = cbxMDispatchID.Text.IndexOf(' ');
+            DispaStaff_ID = int.Parse(cbxMDispatchID.Text.Substring(0, Index));
+            DelivDate = TransDate.AddDays(5);
+            Location = txtMLocation.Text;
+
+            try
+            {
+                Con.Close(); 
+                Con.Open();
+
+                SQL = "SELECT pipe_quantity " +
+                      "FROM [Pipe Details] " +
+                     $"WHERE pipe_id = {Pipe_ID}";
+
+                Command = new SqlCommand(SQL, Con);
+
+                DataReader = Command.ExecuteReader();
+
+                DataReader.Read();
+
+                QuantityDB = int.Parse(DataReader["pipe_quantity"].ToString());
+
+                Con.Close();
+
+                if (Quantity <= QuantityDB)
+                {
+                    Con.Open();
+
+                    SQL = "INSERT " +
+                          "INTO Dispatch VALUES (@staff_id, @deliv_date, @quantity, @location)";
+
+                    Command = new SqlCommand(SQL, Con);
+
+                    Adapter = new SqlDataAdapter();
+                    Adapter.InsertCommand = Command;
+                    Adapter.InsertCommand.Parameters.AddWithValue("@staff_id", DispaStaff_ID);
+                    Adapter.InsertCommand.Parameters.AddWithValue("@deliv_date", DelivDate);
+                    Adapter.InsertCommand.Parameters.AddWithValue("@quantity", Quantity);
+                    Adapter.InsertCommand.Parameters.AddWithValue("@location", Location);
+                    Adapter.InsertCommand.ExecuteNonQuery();
+
+                    Con.Close();
+                    Con.Open();
+
+                    SQL = "SELECT dispatch_id " +
+                          "FROM Dispatch " +
+                         $"WHERE staff_id = {DispaStaff_ID}";
+
+                    Command = new SqlCommand(SQL, Con);
+
+                    DataReader = Command.ExecuteReader();
+
+                    DataReader.Read();
+
+                    Dispatch_ID = int.Parse(DataReader["dispatch_id"].ToString());
+
+                    Con.Close();
+                    Con.Open();
+
+                    SQL = "INSERT " +
+                          "INTO Transactions VALUES (@pipe_id, @staff_id, @dispatch_id, @quantity, @trans_date, @completed)";
+
+                    Command = new SqlCommand(SQL, Con);
+
+                    Adapter = new SqlDataAdapter();
+                    Adapter.InsertCommand = Command;
+                    Adapter.InsertCommand.Parameters.AddWithValue("@pipe_id", Pipe_ID);
+                    Adapter.InsertCommand.Parameters.AddWithValue("@staff_id", EmployStaff_ID);
+                    Adapter.InsertCommand.Parameters.AddWithValue("@dispatch_id", Dispatch_ID);
+                    Adapter.InsertCommand.Parameters.AddWithValue("@quantity", Quantity);
+                    Adapter.InsertCommand.Parameters.AddWithValue("@trans_date", TransDate);
+                    Adapter.InsertCommand.Parameters.AddWithValue("@completed", "FALSE");
+                    Adapter.InsertCommand.ExecuteNonQuery();
+
+                    Con.Close();
+
+                    NewQuantity = QuantityDB - Quantity;
+
+                    Con.Open();
+
+                    SQL = $"UPDATE [Pipe Details] SET [pipe_quantity] = {NewQuantity} WHERE pipe_id = {Pipe_ID}";
+
+                    Command = new SqlCommand(SQL, Con);
+
+                    Adapter = new SqlDataAdapter();
+                    Adapter.UpdateCommand = Command;
+                    Adapter.UpdateCommand.ExecuteNonQuery();
+
+                    Con.Close();
+
+                    MessageBox.Show("You have successfully made a transaction!", "Transactions", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    displayData();
+                    displayPipes();
+                }
+                else
+                {
+                    MessageBox.Show("The quantity you want to use for this transaction more than the quantity available. Please enter a valid quantity number.", "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtMQuantity.Focus();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            displayData();
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //////////////////////////////////////////////////////////////TAB UPDATE//////////////////////////////////////////////////////////////////////////////////////
+
+        private void cbxUpdateTransaction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Con.Close();
+                Con.Open();
+
+                SQL = "SELECT Tran.transaction_id, Tran.pipe_id, Tran.staff_id, Tran.dispatch_id, Tran.trans_quantity, Tran.trans_date, Tran.isCompleted, " + 
+                              "Disp.dispatch_id, Disp.staff_id, Disp.dispatch_delivery_date, Disp.dispatch_quantity, Disp.dispatch_location " +
+                      "FROM Transactions AS Tran " +
+                           "LEFT JOIN Dispatch AS Disp ON Disp.staff_id = Tran.staff_id " +
+                     $"WHERE Tran.transaction_id = {int.Parse(cbxUpdateTransaction.Text)}";
+
+                Command = new SqlCommand(SQL, Con);
+
+                DataReader = Command.ExecuteReader();
+
+                DataReader.Read();
+
+                for (int k = cbxUPipeID.Items.Count - 1; k > -1; --k)
+                {
+                    cbxUPipeID.SelectedIndex = k;
+
+                    if (String.Equals(DataReader["pipe_id"].ToString(), cbxUPipeID.SelectedItem.ToString()))
+                        break;
+                }
+
+                for (int k = cbxUEmployeeStaff.Items.Count - 1; k > -1; --k)
+                {
+                    cbxUEmployeeStaff.SelectedIndex = k;
+
+                    if (String.Equals(DataReader["Tran.staff_id"].ToString(), cbxUEmployeeStaff.SelectedItem.ToString()))
+                        break;
+                }
+
+                txtUQuantity.Text = DataReader["trans_quantity"].ToString();
+                dtpUTransactionDate.Value = DateTime.Parse(DataReader["trans_date"].ToString());
+
+                if (String.Equals(DataReader["isCompleted"].ToString(), "TRUE"))
+                    cbCompleted.Checked = true;
+                else
+                    cbCompleted.Checked = false;
+
+                for (int k = cbUpdateDispatchID.Items.Count - 1; k > -1; --k)
+                {
+                    cbUpdateDispatchID.SelectedIndex = k;
+
+                    if (String.Equals(DataReader["dispatch_id"].ToString(), cbUpdateDispatchID.SelectedItem.ToString()))
+                        break;
+                }
+
+                for (int k = cbUDispatchStaff.Items.Count - 1; k > -1; --k)
+                {
+                    cbUDispatchStaff.SelectedIndex = k;
+
+                    if (String.Equals(DataReader["Disp.staff_id"].ToString(), cbUDispatchStaff.SelectedItem.ToString()))
+                        break;
+                }
+
+                dtpUDeliveryDate.Value = DateTime.Parse(DataReader["dispatch_delivery_date"].ToString());
+                txtULocation.Text = DataReader["dispatch_location"].ToString();
+
+                Con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //////////////////////////////////////////////////////////////TAB DELETE//////////////////////////////////////////////////////////////////////////////////////
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int trans_ID = 0;
+
+            if (int.TryParse(cbxDTransID.Text, out trans_ID) == false)
+                MessageBox.Show("Invalid input. Please select a Transaction ID!", "Error processing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                if (cbConfirmDel.Checked)
+                {
+                    try
+                    {
+                        Con.Open();
+
+                        SQL = "DELETE " +
+                              "FROM Transactions " +
+                             $"WHERE transaction_id = {trans_ID}";
+
+                        Command = new SqlCommand(SQL, Con);
+
+                        Adapter = new SqlDataAdapter();
+                        Adapter.DeleteCommand = Command;
+                        Adapter.DeleteCommand.ExecuteNonQuery();
+
+                        MessageBox.Show("You have successfully deleted the record 'Transaction ID'", "Database Actions", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Con.Close();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    displayData();
+                }
+                else
+                    MessageBox.Show("Please select 'Confirm Delete' box before deleteing records!", "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 }
