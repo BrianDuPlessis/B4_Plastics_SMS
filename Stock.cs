@@ -408,7 +408,6 @@ namespace B4_Plastics_SMS
             double Diameter = 0.00;
             int Quantity = 0;
             string Colour = "";
-            string Size = "";
             int ColourID = 0;
             int SizeID = 0;
 

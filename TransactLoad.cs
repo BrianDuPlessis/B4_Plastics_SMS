@@ -106,26 +106,11 @@ namespace B4_Plastics_SMS
             }
         }
 
-        ///////////////////////////////////////////////////////////////PAGE LOAD//////////////////////////////////////////////////////////////////////////////////////
-
-        private void TransactLoad_Load(object sender, EventArgs e)
+        public void fillSearch()
         {
-            this.CenterToScreen();
-
-            dtpMTransDate.Value = DateTime.Today;
-            dtpMDelivDate.Value = DateTime.Today.AddDays(5);
-
-            dtpUTransactionDate.Value = DateTime.Today;
-            dtpUDeliveryDate.Value = DateTime.Today.AddDays(5);
-
-            Con = new SqlConnection(ConStr);
-
-            displayData();
-
             try
             {
-                //////////////////////////////////////////////////////TAB SEARCH//////////////////////////////////////////////////////////////////////////////////////
-                
+                Con.Close(); 
                 Con.Open();
 
                 SQL = "SELECT transaction_id " +
@@ -141,9 +126,18 @@ namespace B4_Plastics_SMS
                 }
 
                 Con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-                //////////////////////////////////////////////////////TAB INSERT//////////////////////////////////////////////////////////////////////////////////////
-
+        public void fillInsertPipe()
+        {
+            try
+            {
+                Con.Close();
                 Con.Open();
 
                 SQL = "SELECT pipe_id " +
@@ -159,6 +153,18 @@ namespace B4_Plastics_SMS
                     cbxMPipeID.Items.Add(DataReader.GetValue(0));
                 }
 
+                Con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void fillInsertEmploy()
+        {
+            try
+            {
                 Con.Close();
                 Con.Open();
 
@@ -176,11 +182,23 @@ namespace B4_Plastics_SMS
                 }
 
                 Con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void fillInsertDispatch()
+        {
+            try
+            {
+                Con.Close();
                 Con.Open();
 
                 SQL = "SELECT staff_id, staff_name, staff_lastname " +
                       "FROM Staff " +
-                      "WHERE staff_usertype = 'Dispatch'"; 
+                      "WHERE staff_usertype = 'Dispatch'";
 
                 Command = new SqlCommand(SQL, Con);
 
@@ -192,12 +210,17 @@ namespace B4_Plastics_SMS
                 }
 
                 Con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-                displayPipes();
-                displayEmployees();
-
-                //////////////////////////////////////////////////////TAB UPDATE//////////////////////////////////////////////////////////////////////////////////////
-
+        public void fillUpdateTrans()
+        {
+            try
+            {
                 Con.Close();
                 Con.Open();
 
@@ -214,6 +237,18 @@ namespace B4_Plastics_SMS
                 }
 
                 Con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void fillUpdatePipe()
+        {
+            try
+            {
+                Con.Close();
                 Con.Open();
 
                 SQL = "SELECT DISTINCT pipe_id " +
@@ -228,6 +263,18 @@ namespace B4_Plastics_SMS
                     cbxUPipeID.Items.Add(DataReader.GetValue(0));
                 }
 
+                Con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void fillUpdateEmploy()
+        {
+            try
+            {
                 Con.Close();
                 Con.Open();
 
@@ -244,6 +291,18 @@ namespace B4_Plastics_SMS
                 }
 
                 Con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void fillUpdateDispatch()
+        {
+            try
+            {
+                Con.Close();
                 Con.Open();
 
                 SQL = "SELECT dispatch_id " +
@@ -258,6 +317,18 @@ namespace B4_Plastics_SMS
                     cbUpdateDispatchID.Items.Add(DataReader.GetValue(0));
                 }
 
+                Con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void fillUpdateDispStaff()
+        {
+            try
+            {
                 Con.Close();
                 Con.Open();
 
@@ -274,9 +345,18 @@ namespace B4_Plastics_SMS
                 }
 
                 Con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-                //////////////////////////////////////////////////////TAB DELETE//////////////////////////////////////////////////////////////////////////////////////
-
+        public void fillDelete()
+        {
+            try
+            {
+                Con.Close();
                 Con.Open();
 
                 SQL = "SELECT transaction_id " +
@@ -297,6 +377,38 @@ namespace B4_Plastics_SMS
             {
                 MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        ///////////////////////////////////////////////////////////////PAGE LOAD//////////////////////////////////////////////////////////////////////////////////////
+
+        private void TransactLoad_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+
+            dtpMTransDate.Value = DateTime.Today;
+            dtpMDelivDate.Value = DateTime.Today.AddDays(5);
+
+            dtpUTransactionDate.Value = DateTime.Today;
+            dtpUDeliveryDate.Value = DateTime.Today.AddDays(5);
+
+            Con = new SqlConnection(ConStr);
+
+            displayData();
+            fillSearch();
+
+            fillInsertPipe();
+            fillInsertEmploy();
+            fillInsertDispatch();
+            displayPipes();
+            displayEmployees();
+
+            fillUpdateTrans();
+            fillUpdatePipe();
+            fillUpdateEmploy();
+            fillUpdateDispatch();
+            fillUpdateDispStaff();
+
+            fillDelete();
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -427,64 +539,33 @@ namespace B4_Plastics_SMS
 
             string Location = "";
 
-            Pipe_ID = int.Parse(cbxMPipeID.Text);
-            Index = cbxMEmployID.Text.IndexOf(' ');
-            EmployStaff_ID = int.Parse(cbxMEmployID.Text.Substring(0, Index));
-
-            if (int.TryParse(txtMQuantity.Text, out Quantity) == false)
+            if (cbxMPipeID.SelectedIndex == -1 && cbxMEmployID.SelectedIndex == -1 && txtMQuantity.Text == "" &&
+                cbxMDispatchID.SelectedIndex == -1 && txtMLocation.Text == "")
             {
-                MessageBox.Show("Invalid type entered. Please enter a numerical (Integer) value.", "Error parsing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtMQuantity.Focus();
-            }
+                Pipe_ID = int.Parse(cbxMPipeID.Text);
+                Index = cbxMEmployID.Text.IndexOf(' ');
+                EmployStaff_ID = int.Parse(cbxMEmployID.Text.Substring(0, Index));
 
-            TransDate = dtpMTransDate.Value;
-            Index = cbxMDispatchID.Text.IndexOf(' ');
-            DispaStaff_ID = int.Parse(cbxMDispatchID.Text.Substring(0, Index));
-            DelivDate = TransDate.AddDays(5);
-            Location = txtMLocation.Text;
-
-            try
-            {
-                Con.Close(); 
-                Con.Open();
-
-                SQL = "SELECT pipe_quantity " +
-                      "FROM [Pipe Details] " +
-                     $"WHERE pipe_id = {Pipe_ID}";
-
-                Command = new SqlCommand(SQL, Con);
-
-                DataReader = Command.ExecuteReader();
-
-                DataReader.Read();
-
-                QuantityDB = int.Parse(DataReader["pipe_quantity"].ToString());
-
-                Con.Close();
-
-                if (Quantity <= QuantityDB)
+                if (int.TryParse(txtMQuantity.Text, out Quantity) == false)
                 {
-                    Con.Open();
+                    MessageBox.Show("Invalid type entered. Please enter a numerical (Integer) value.", "Error parsing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtMQuantity.Focus();
+                }
 
-                    SQL = "INSERT " +
-                          "INTO Dispatch VALUES (@staff_id, @deliv_date, @quantity, @location)";
+                TransDate = dtpMTransDate.Value;
+                Index = cbxMDispatchID.Text.IndexOf(' ');
+                DispaStaff_ID = int.Parse(cbxMDispatchID.Text.Substring(0, Index));
+                DelivDate = TransDate.AddDays(5);
+                Location = txtMLocation.Text;
 
-                    Command = new SqlCommand(SQL, Con);
-
-                    Adapter = new SqlDataAdapter();
-                    Adapter.InsertCommand = Command;
-                    Adapter.InsertCommand.Parameters.AddWithValue("@staff_id", DispaStaff_ID);
-                    Adapter.InsertCommand.Parameters.AddWithValue("@deliv_date", DelivDate);
-                    Adapter.InsertCommand.Parameters.AddWithValue("@quantity", Quantity);
-                    Adapter.InsertCommand.Parameters.AddWithValue("@location", Location);
-                    Adapter.InsertCommand.ExecuteNonQuery();
-
+                try
+                {
                     Con.Close();
                     Con.Open();
 
-                    SQL = "SELECT dispatch_id " +
-                          "FROM Dispatch " +
-                         $"WHERE staff_id = {DispaStaff_ID}";
+                    SQL = "SELECT pipe_quantity " +
+                          "FROM [Pipe Details] " +
+                         $"WHERE pipe_id = {Pipe_ID}";
 
                     Command = new SqlCommand(SQL, Con);
 
@@ -492,59 +573,116 @@ namespace B4_Plastics_SMS
 
                     DataReader.Read();
 
-                    Dispatch_ID = int.Parse(DataReader["dispatch_id"].ToString());
-
-                    Con.Close();
-                    Con.Open();
-
-                    SQL = "INSERT " +
-                          "INTO Transactions VALUES (@pipe_id, @staff_id, @dispatch_id, @quantity, @trans_date, @completed)";
-
-                    Command = new SqlCommand(SQL, Con);
-
-                    Adapter = new SqlDataAdapter();
-                    Adapter.InsertCommand = Command;
-                    Adapter.InsertCommand.Parameters.AddWithValue("@pipe_id", Pipe_ID);
-                    Adapter.InsertCommand.Parameters.AddWithValue("@staff_id", EmployStaff_ID);
-                    Adapter.InsertCommand.Parameters.AddWithValue("@dispatch_id", Dispatch_ID);
-                    Adapter.InsertCommand.Parameters.AddWithValue("@quantity", Quantity);
-                    Adapter.InsertCommand.Parameters.AddWithValue("@trans_date", TransDate);
-                    Adapter.InsertCommand.Parameters.AddWithValue("@completed", "FALSE");
-                    Adapter.InsertCommand.ExecuteNonQuery();
+                    QuantityDB = int.Parse(DataReader["pipe_quantity"].ToString());
 
                     Con.Close();
 
-                    NewQuantity = QuantityDB - Quantity;
+                    if (Quantity <= QuantityDB)
+                    {
+                        Con.Open();
 
-                    Con.Open();
+                        SQL = "INSERT " +
+                              "INTO Dispatch VALUES (@staff_id, @deliv_date, @quantity, @location)";
 
-                    SQL = $"UPDATE [Pipe Details] SET [pipe_quantity] = {NewQuantity} WHERE pipe_id = {Pipe_ID}";
+                        Command = new SqlCommand(SQL, Con);
 
-                    Command = new SqlCommand(SQL, Con);
+                        Adapter = new SqlDataAdapter();
+                        Adapter.InsertCommand = Command;
+                        Adapter.InsertCommand.Parameters.AddWithValue("@staff_id", DispaStaff_ID);
+                        Adapter.InsertCommand.Parameters.AddWithValue("@deliv_date", DelivDate);
+                        Adapter.InsertCommand.Parameters.AddWithValue("@quantity", Quantity);
+                        Adapter.InsertCommand.Parameters.AddWithValue("@location", Location);
+                        Adapter.InsertCommand.ExecuteNonQuery();
 
-                    Adapter = new SqlDataAdapter();
-                    Adapter.UpdateCommand = Command;
-                    Adapter.UpdateCommand.ExecuteNonQuery();
+                        Con.Close();
+                        Con.Open();
 
-                    Con.Close();
+                        SQL = "SELECT dispatch_id " +
+                              "FROM Dispatch " +
+                             $"WHERE staff_id = {DispaStaff_ID}";
 
-                    MessageBox.Show("You have successfully made a transaction!", "Transactions", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Command = new SqlCommand(SQL, Con);
 
-                    displayData();
-                    displayPipes();
+                        DataReader = Command.ExecuteReader();
+
+                        DataReader.Read();
+
+                        Dispatch_ID = int.Parse(DataReader["dispatch_id"].ToString());
+
+                        Con.Close();
+                        Con.Open();
+
+                        SQL = "INSERT " +
+                              "INTO Transactions VALUES (@pipe_id, @staff_id, @dispatch_id, @quantity, @trans_date, @completed)";
+
+                        Command = new SqlCommand(SQL, Con);
+
+                        Adapter = new SqlDataAdapter();
+                        Adapter.InsertCommand = Command;
+                        Adapter.InsertCommand.Parameters.AddWithValue("@pipe_id", Pipe_ID);
+                        Adapter.InsertCommand.Parameters.AddWithValue("@staff_id", EmployStaff_ID);
+                        Adapter.InsertCommand.Parameters.AddWithValue("@dispatch_id", Dispatch_ID);
+                        Adapter.InsertCommand.Parameters.AddWithValue("@quantity", Quantity);
+                        Adapter.InsertCommand.Parameters.AddWithValue("@trans_date", TransDate);
+                        Adapter.InsertCommand.Parameters.AddWithValue("@completed", "FALSE");
+                        Adapter.InsertCommand.ExecuteNonQuery();
+
+                        Con.Close();
+
+                        NewQuantity = QuantityDB - Quantity;
+
+                        Con.Open();
+
+                        SQL = $"UPDATE [Pipe Details] SET [pipe_quantity] = {NewQuantity} WHERE pipe_id = {Pipe_ID}";
+
+                        Command = new SqlCommand(SQL, Con);
+
+                        Adapter = new SqlDataAdapter();
+                        Adapter.UpdateCommand = Command;
+                        Adapter.UpdateCommand.ExecuteNonQuery();
+
+                        Con.Close();
+
+                        MessageBox.Show("You have successfully made a transaction!", "Transactions", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        displayData();
+                        fillSearch();
+
+                        tclTransactions.SelectedIndex = 0;
+
+                        cbxMPipeID.SelectedIndex = -1;
+                        cbxMEmployID.SelectedIndex = -1;
+                        txtMQuantity.Text = "";
+                        dtpMTransDate.Value = DateTime.Today;
+                        cbxMDispatchID.SelectedIndex = -1;
+                        txtMLocation.Text = "";
+
+                        fillInsertPipe();
+                        fillInsertEmploy();
+                        fillInsertDispatch();
+                        displayPipes();
+
+                        fillUpdateTrans();
+                        fillUpdatePipe();
+                        fillUpdateEmploy();
+                        fillUpdateDispatch();
+                        fillUpdateDispStaff();
+
+                        fillDelete();
+                    }
+                    else
+                    {
+                        MessageBox.Show("The quantity you want to use for this transaction more than the quantity available. Please enter a valid quantity number.", "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtMQuantity.Focus();
+                    }
                 }
-                else
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("The quantity you want to use for this transaction more than the quantity available. Please enter a valid quantity number.", "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMQuantity.Focus();
+                    MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            displayData();
+            else
+                MessageBox.Show("Please make sure that all fields are filled in or selected.", "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -744,6 +882,22 @@ namespace B4_Plastics_SMS
                 MessageBox.Show("Data successfully updated!", "Database Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Con.Close();
+
+                displayData();
+                displayPipes();
+
+                tclTransactions.SelectedIndex = 0;
+
+                cbxUpdateTransaction.SelectedIndex = -1;
+                cbxUPipeID.SelectedIndex = -1;
+                cbxUEmployeeStaff.SelectedIndex = -1;
+                txtUQuantity.Text = "";
+                dtpUTransactionDate.Value = DateTime.Today;
+                cbCompleted.Checked = false;
+                cbUpdateDispatchID.SelectedIndex = -1;
+                cbUDispatchStaff.SelectedIndex = -1;
+                dtpUDeliveryDate.Value = DateTime.Today;
+                txtULocation.Text = "";
             }
             catch (Exception ex)
             {
@@ -760,6 +914,10 @@ namespace B4_Plastics_SMS
         private void btnDelete_Click(object sender, EventArgs e)
         {
             int trans_ID = 0;
+            int pipe_id = 0;
+            int StockQuantity = 0;
+            int TransQuantity = 0;
+            int NewQuantity = 0;
 
             if (int.TryParse(cbxDTransID.Text, out trans_ID) == false)
                 MessageBox.Show("Invalid input. Please select a Transaction ID!", "Error processing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -769,6 +927,37 @@ namespace B4_Plastics_SMS
                 {
                     try
                     {
+                        Con.Open();
+
+                        SQL = "SELECT pipe_id, trans_quantity " +
+                              "FROM Transactions " +
+                             $"WHERE transaction_id = {trans_ID}";
+
+                        Command = new SqlCommand(SQL, Con);
+
+                        DataReader = Command.ExecuteReader();
+
+                        DataReader.Read();
+
+                        pipe_id = int.Parse(DataReader["pipe_id"].ToString());
+                        TransQuantity = int.Parse(DataReader["trans_quantity"].ToString());
+
+                        Con.Close();
+                        Con.Open();
+
+                        SQL = "SELECT pipe_quantity " +
+                              "FROM [Pipe Details] " +
+                             $"WHERE pipe_id = {pipe_id}";
+
+                        Command = new SqlCommand(SQL, Con);
+
+                        DataReader = Command.ExecuteReader();
+
+                        DataReader.Read();
+
+                        StockQuantity = int.Parse(DataReader["pipe_quantity"].ToString());
+
+                        Con.Close();
                         Con.Open();
 
                         SQL = "DELETE " +
@@ -781,6 +970,22 @@ namespace B4_Plastics_SMS
                         Adapter.DeleteCommand = Command;
                         Adapter.DeleteCommand.ExecuteNonQuery();
 
+                        Con.Close();
+
+                        NewQuantity = StockQuantity + TransQuantity;
+
+                        Con.Open();
+
+                        SQL = "UPDATE [Pipe Details] " +
+                                $"SET [pipe_quantity] = {NewQuantity} " +
+                              $"WHERE pipe_id = {pipe_id}";
+
+                        Command = new SqlCommand(SQL, Con);
+
+                        Adapter = new SqlDataAdapter();
+                        Adapter.UpdateCommand = Command;
+                        Adapter.UpdateCommand.ExecuteNonQuery();
+
                         MessageBox.Show("You have successfully deleted the record 'Transaction ID'", "Database Actions", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         Con.Close();
@@ -791,6 +996,24 @@ namespace B4_Plastics_SMS
                     }
 
                     displayData();
+
+                    tclTransactions.SelectedIndex = 0;
+
+                    fillInsertPipe();
+                    fillInsertEmploy();
+                    fillInsertDispatch();
+                    displayPipes();
+
+                    fillUpdateTrans();
+                    fillUpdatePipe();
+                    fillUpdateEmploy();
+                    fillUpdateDispatch();
+                    fillUpdateDispStaff();
+
+                    fillDelete();
+
+                    cbxDTransID.SelectedIndex = -1;
+                    cbConfirmDel.Checked = false;
                 }
                 else
                     MessageBox.Show("Please select 'Confirm Delete' box before deleteing records!", "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);

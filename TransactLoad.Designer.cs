@@ -30,7 +30,7 @@ namespace B4_Plastics_SMS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactLoad));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tclTransactions = new System.Windows.Forms.TabControl();
             this.tabSearch = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -92,7 +92,7 @@ namespace B4_Plastics_SMS
             this.cbxDTransID = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
+            this.tclTransactions.SuspendLayout();
             this.tabSearch.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -110,19 +110,19 @@ namespace B4_Plastics_SMS
             this.gbxDelete.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tclTransactions
             // 
-            this.tabControl1.Controls.Add(this.tabSearch);
-            this.tabControl1.Controls.Add(this.tabInsert);
-            this.tabControl1.Controls.Add(this.tabUpdate);
-            this.tabControl1.Controls.Add(this.tabDelete);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Nirmala UI Semilight", 10F);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1036, 947);
-            this.tabControl1.TabIndex = 3;
+            this.tclTransactions.Controls.Add(this.tabSearch);
+            this.tclTransactions.Controls.Add(this.tabInsert);
+            this.tclTransactions.Controls.Add(this.tabUpdate);
+            this.tclTransactions.Controls.Add(this.tabDelete);
+            this.tclTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tclTransactions.Font = new System.Drawing.Font("Nirmala UI Semilight", 10F);
+            this.tclTransactions.Location = new System.Drawing.Point(0, 0);
+            this.tclTransactions.Name = "tclTransactions";
+            this.tclTransactions.SelectedIndex = 0;
+            this.tclTransactions.Size = new System.Drawing.Size(1036, 973);
+            this.tclTransactions.TabIndex = 3;
             // 
             // tabSearch
             // 
@@ -243,7 +243,7 @@ namespace B4_Plastics_SMS
             this.tabInsert.Location = new System.Drawing.Point(4, 32);
             this.tabInsert.Name = "tabInsert";
             this.tabInsert.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInsert.Size = new System.Drawing.Size(1028, 911);
+            this.tabInsert.Size = new System.Drawing.Size(1028, 937);
             this.tabInsert.TabIndex = 1;
             this.tabInsert.Text = "Insert";
             this.tabInsert.UseVisualStyleBackColor = true;
@@ -842,14 +842,14 @@ namespace B4_Plastics_SMS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1036, 947);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(1036, 973);
+            this.Controls.Add(this.tclTransactions);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "TransactLoad";
             this.Text = "B4 Plastics - Transactions";
             this.Load += new System.EventHandler(this.TransactLoad_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tclTransactions.ResumeLayout(false);
             this.tabSearch.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -876,7 +876,7 @@ namespace B4_Plastics_SMS
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tclTransactions;
         private System.Windows.Forms.TabPage tabInsert;
         private System.Windows.Forms.Button btnMakeTrans;
         private System.Windows.Forms.TabPage tabUpdate;
