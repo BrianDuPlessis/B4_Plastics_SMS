@@ -32,11 +32,12 @@ namespace B4_Plastics_SMS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dispatch));
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlNav = new System.Windows.Forms.Panel();
-            this.btnReportsPage = new System.Windows.Forms.Button();
+            this.btnDispatchInfoPage = new System.Windows.Forms.Button();
             this.btnStockPage = new System.Windows.Forms.Button();
             this.btnContactUs = new System.Windows.Forms.Button();
             this.btnUserInfoPage = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblUserName = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pnlUserInfo = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@ namespace B4_Plastics_SMS
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.lblUserName = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -75,7 +75,7 @@ namespace B4_Plastics_SMS
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
             this.panel3.Controls.Add(this.pnlNav);
-            this.panel3.Controls.Add(this.btnReportsPage);
+            this.panel3.Controls.Add(this.btnDispatchInfoPage);
             this.panel3.Controls.Add(this.btnStockPage);
             this.panel3.Controls.Add(this.btnContactUs);
             this.panel3.Controls.Add(this.btnUserInfoPage);
@@ -96,22 +96,22 @@ namespace B4_Plastics_SMS
             this.pnlNav.Size = new System.Drawing.Size(5, 151);
             this.pnlNav.TabIndex = 0;
             // 
-            // btnReportsPage
+            // btnDispatchInfoPage
             // 
-            this.btnReportsPage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReportsPage.FlatAppearance.BorderSize = 0;
-            this.btnReportsPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportsPage.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportsPage.ForeColor = System.Drawing.Color.White;
-            this.btnReportsPage.Image = global::B4_Plastics_SMS.Properties.Resources.Dispatch_Blue_Resize;
-            this.btnReportsPage.Location = new System.Drawing.Point(0, 225);
-            this.btnReportsPage.Margin = new System.Windows.Forms.Padding(5);
-            this.btnReportsPage.Name = "btnReportsPage";
-            this.btnReportsPage.Size = new System.Drawing.Size(250, 64);
-            this.btnReportsPage.TabIndex = 5;
-            this.btnReportsPage.Text = " Calculate load         ";
-            this.btnReportsPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReportsPage.UseVisualStyleBackColor = true;
+            this.btnDispatchInfoPage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDispatchInfoPage.FlatAppearance.BorderSize = 0;
+            this.btnDispatchInfoPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDispatchInfoPage.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDispatchInfoPage.ForeColor = System.Drawing.Color.White;
+            this.btnDispatchInfoPage.Image = global::B4_Plastics_SMS.Properties.Resources.Dispatch_Blue_Resize;
+            this.btnDispatchInfoPage.Location = new System.Drawing.Point(0, 225);
+            this.btnDispatchInfoPage.Margin = new System.Windows.Forms.Padding(5);
+            this.btnDispatchInfoPage.Name = "btnDispatchInfoPage";
+            this.btnDispatchInfoPage.Size = new System.Drawing.Size(250, 64);
+            this.btnDispatchInfoPage.TabIndex = 5;
+            this.btnDispatchInfoPage.Text = "Dispatch Information     ";
+            this.btnDispatchInfoPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDispatchInfoPage.UseVisualStyleBackColor = true;
             // 
             // btnStockPage
             // 
@@ -173,6 +173,18 @@ namespace B4_Plastics_SMS
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(250, 97);
             this.panel4.TabIndex = 0;
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
+            this.lblUserName.Font = new System.Drawing.Font("Nirmala UI Semilight", 10F, System.Drawing.FontStyle.Bold);
+            this.lblUserName.ForeColor = System.Drawing.Color.White;
+            this.lblUserName.Location = new System.Drawing.Point(72, 20);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(125, 47);
+            this.lblUserName.TabIndex = 5;
+            this.lblUserName.Text = "Welcome, ...";
+            this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox7
             // 
@@ -315,9 +327,9 @@ namespace B4_Plastics_SMS
             this.label4.ForeColor = System.Drawing.Color.Navy;
             this.label4.Location = new System.Drawing.Point(13, 6);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(175, 35);
+            this.label4.Size = new System.Drawing.Size(300, 44);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Calculate Load";
+            this.label4.Text = "Dispatch Information";
             // 
             // pictureBox6
             // 
@@ -348,18 +360,6 @@ namespace B4_Plastics_SMS
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox9.TabIndex = 8;
             this.pictureBox9.TabStop = false;
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
-            this.lblUserName.Font = new System.Drawing.Font("Nirmala UI Semilight", 10F, System.Drawing.FontStyle.Bold);
-            this.lblUserName.ForeColor = System.Drawing.Color.White;
-            this.lblUserName.Location = new System.Drawing.Point(72, 20);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(125, 47);
-            this.lblUserName.TabIndex = 5;
-            this.lblUserName.Text = "Welcome, ...";
-            this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Dispatch
             // 
@@ -400,7 +400,7 @@ namespace B4_Plastics_SMS
         #endregion
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnlNav;
-        private System.Windows.Forms.Button btnReportsPage;
+        private System.Windows.Forms.Button btnDispatchInfoPage;
         private System.Windows.Forms.Button btnStockPage;
         private System.Windows.Forms.Button btnContactUs;
         private System.Windows.Forms.Button btnUserInfoPage;

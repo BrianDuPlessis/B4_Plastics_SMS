@@ -33,18 +33,32 @@ namespace B4_Plastics_SMS
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabSearch = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.rbMaintianed = new System.Windows.Forms.RadioButton();
+            this.rbNeedsService = new System.Windows.Forms.RadioButton();
             this.cbFilterStatus = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.gbxMachineDetails = new System.Windows.Forms.GroupBox();
             this.dgvMachineDetails = new System.Windows.Forms.DataGridView();
             this.tabInsert = new System.Windows.Forms.TabPage();
             this.gbxInsertAdd = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbIDeActive = new System.Windows.Forms.RadioButton();
+            this.rbIActive = new System.Windows.Forms.RadioButton();
+            this.dtpIServiceDate = new System.Windows.Forms.DateTimePicker();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtICapacity = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabUpdate = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.rbUDeActive = new System.Windows.Forms.RadioButton();
+            this.rbUActive = new System.Windows.Forms.RadioButton();
+            this.dtpUServiceDate = new System.Windows.Forms.DateTimePicker();
+            this.txtUCapacity = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.cbUpdateMachine = new System.Windows.Forms.ComboBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
@@ -54,34 +68,20 @@ namespace B4_Plastics_SMS
             this.cbDeleteMachine = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.dtpIServiceDate = new System.Windows.Forms.DateTimePicker();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rbIActive = new System.Windows.Forms.RadioButton();
-            this.rbIDeActive = new System.Windows.Forms.RadioButton();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.rbUDeActive = new System.Windows.Forms.RadioButton();
-            this.rbUActive = new System.Windows.Forms.RadioButton();
-            this.dtpUServiceDate = new System.Windows.Forms.DateTimePicker();
-            this.txtUCapacity = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.rbMaintianed = new System.Windows.Forms.RadioButton();
-            this.rbNeedsService = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabSearch.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.gbxMachineDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMachineDetails)).BeginInit();
             this.tabInsert.SuspendLayout();
             this.gbxInsertAdd.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tabUpdate.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.tabDelete.SuspendLayout();
             this.gbxDelete.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -124,6 +124,42 @@ namespace B4_Plastics_SMS
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filter Machines by:";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.rbMaintianed);
+            this.groupBox5.Controls.Add(this.rbNeedsService);
+            this.groupBox5.ForeColor = System.Drawing.Color.Navy;
+            this.groupBox5.Location = new System.Drawing.Point(240, 134);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(264, 149);
+            this.groupBox5.TabIndex = 24;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Machines Service:";
+            // 
+            // rbMaintianed
+            // 
+            this.rbMaintianed.AutoSize = true;
+            this.rbMaintianed.ForeColor = System.Drawing.Color.Black;
+            this.rbMaintianed.Location = new System.Drawing.Point(25, 88);
+            this.rbMaintianed.Name = "rbMaintianed";
+            this.rbMaintianed.Size = new System.Drawing.Size(140, 34);
+            this.rbMaintianed.TabIndex = 0;
+            this.rbMaintianed.TabStop = true;
+            this.rbMaintianed.Text = "Maintained";
+            this.rbMaintianed.UseVisualStyleBackColor = true;
+            // 
+            // rbNeedsService
+            // 
+            this.rbNeedsService.AutoSize = true;
+            this.rbNeedsService.ForeColor = System.Drawing.Color.Black;
+            this.rbNeedsService.Location = new System.Drawing.Point(25, 48);
+            this.rbNeedsService.Name = "rbNeedsService";
+            this.rbNeedsService.Size = new System.Drawing.Size(166, 34);
+            this.rbNeedsService.TabIndex = 0;
+            this.rbNeedsService.TabStop = true;
+            this.rbNeedsService.Text = "Needs Service";
+            this.rbNeedsService.UseVisualStyleBackColor = true;
             // 
             // cbFilterStatus
             // 
@@ -196,6 +232,53 @@ namespace B4_Plastics_SMS
             this.gbxInsertAdd.TabIndex = 6;
             this.gbxInsertAdd.TabStop = false;
             this.gbxInsertAdd.Text = "Insert/ Add Machines";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rbIDeActive);
+            this.groupBox3.Controls.Add(this.rbIActive);
+            this.groupBox3.ForeColor = System.Drawing.Color.Navy;
+            this.groupBox3.Location = new System.Drawing.Point(234, 170);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(264, 149);
+            this.groupBox3.TabIndex = 23;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Status";
+            // 
+            // rbIDeActive
+            // 
+            this.rbIDeActive.AutoSize = true;
+            this.rbIDeActive.ForeColor = System.Drawing.Color.Black;
+            this.rbIDeActive.Location = new System.Drawing.Point(25, 88);
+            this.rbIDeActive.Name = "rbIDeActive";
+            this.rbIDeActive.Size = new System.Drawing.Size(117, 34);
+            this.rbIDeActive.TabIndex = 0;
+            this.rbIDeActive.TabStop = true;
+            this.rbIDeActive.Text = "DeActive";
+            this.rbIDeActive.UseVisualStyleBackColor = true;
+            // 
+            // rbIActive
+            // 
+            this.rbIActive.AutoSize = true;
+            this.rbIActive.ForeColor = System.Drawing.Color.Black;
+            this.rbIActive.Location = new System.Drawing.Point(25, 48);
+            this.rbIActive.Name = "rbIActive";
+            this.rbIActive.Size = new System.Drawing.Size(91, 34);
+            this.rbIActive.TabIndex = 0;
+            this.rbIActive.TabStop = true;
+            this.rbIActive.Text = "Active";
+            this.rbIActive.UseVisualStyleBackColor = true;
+            // 
+            // dtpIServiceDate
+            // 
+            this.dtpIServiceDate.CustomFormat = "MMM dd, yyyy";
+            this.dtpIServiceDate.Enabled = false;
+            this.dtpIServiceDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpIServiceDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpIServiceDate.Location = new System.Drawing.Point(235, 119);
+            this.dtpIServiceDate.Name = "dtpIServiceDate";
+            this.dtpIServiceDate.Size = new System.Drawing.Size(264, 23);
+            this.dtpIServiceDate.TabIndex = 22;
             // 
             // btnAdd
             // 
@@ -271,6 +354,83 @@ namespace B4_Plastics_SMS
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Update Machine Details";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.rbUDeActive);
+            this.groupBox4.Controls.Add(this.rbUActive);
+            this.groupBox4.ForeColor = System.Drawing.Color.Navy;
+            this.groupBox4.Location = new System.Drawing.Point(236, 232);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(264, 149);
+            this.groupBox4.TabIndex = 28;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Status";
+            // 
+            // rbUDeActive
+            // 
+            this.rbUDeActive.AutoSize = true;
+            this.rbUDeActive.ForeColor = System.Drawing.Color.Black;
+            this.rbUDeActive.Location = new System.Drawing.Point(25, 88);
+            this.rbUDeActive.Name = "rbUDeActive";
+            this.rbUDeActive.Size = new System.Drawing.Size(117, 34);
+            this.rbUDeActive.TabIndex = 0;
+            this.rbUDeActive.TabStop = true;
+            this.rbUDeActive.Text = "DeActive";
+            this.rbUDeActive.UseVisualStyleBackColor = true;
+            // 
+            // rbUActive
+            // 
+            this.rbUActive.AutoSize = true;
+            this.rbUActive.ForeColor = System.Drawing.Color.Black;
+            this.rbUActive.Location = new System.Drawing.Point(25, 48);
+            this.rbUActive.Name = "rbUActive";
+            this.rbUActive.Size = new System.Drawing.Size(91, 34);
+            this.rbUActive.TabIndex = 0;
+            this.rbUActive.TabStop = true;
+            this.rbUActive.Text = "Active";
+            this.rbUActive.UseVisualStyleBackColor = true;
+            // 
+            // dtpUServiceDate
+            // 
+            this.dtpUServiceDate.CustomFormat = "MMM dd, yyyy";
+            this.dtpUServiceDate.Enabled = false;
+            this.dtpUServiceDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpUServiceDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpUServiceDate.Location = new System.Drawing.Point(237, 181);
+            this.dtpUServiceDate.Name = "dtpUServiceDate";
+            this.dtpUServiceDate.Size = new System.Drawing.Size(264, 23);
+            this.dtpUServiceDate.TabIndex = 27;
+            // 
+            // txtUCapacity
+            // 
+            this.txtUCapacity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUCapacity.Location = new System.Drawing.Point(236, 122);
+            this.txtUCapacity.Name = "txtUCapacity";
+            this.txtUCapacity.Size = new System.Drawing.Size(264, 27);
+            this.txtUCapacity.TabIndex = 24;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Nirmala UI", 11F);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(120, 122);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 25);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Capacity:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Nirmala UI", 11F);
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(87, 179);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(121, 25);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Service Date:";
             // 
             // cbUpdateMachine
             // 
@@ -379,166 +539,6 @@ namespace B4_Plastics_SMS
             this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // dtpIServiceDate
-            // 
-            this.dtpIServiceDate.CustomFormat = "MMM dd, yyyy";
-            this.dtpIServiceDate.Enabled = false;
-            this.dtpIServiceDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpIServiceDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpIServiceDate.Location = new System.Drawing.Point(235, 119);
-            this.dtpIServiceDate.Name = "dtpIServiceDate";
-            this.dtpIServiceDate.Size = new System.Drawing.Size(264, 23);
-            this.dtpIServiceDate.TabIndex = 22;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.rbIDeActive);
-            this.groupBox3.Controls.Add(this.rbIActive);
-            this.groupBox3.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox3.Location = new System.Drawing.Point(234, 170);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(264, 149);
-            this.groupBox3.TabIndex = 23;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Status";
-            // 
-            // rbIActive
-            // 
-            this.rbIActive.AutoSize = true;
-            this.rbIActive.ForeColor = System.Drawing.Color.Black;
-            this.rbIActive.Location = new System.Drawing.Point(25, 48);
-            this.rbIActive.Name = "rbIActive";
-            this.rbIActive.Size = new System.Drawing.Size(91, 34);
-            this.rbIActive.TabIndex = 0;
-            this.rbIActive.TabStop = true;
-            this.rbIActive.Text = "Active";
-            this.rbIActive.UseVisualStyleBackColor = true;
-            // 
-            // rbIDeActive
-            // 
-            this.rbIDeActive.AutoSize = true;
-            this.rbIDeActive.ForeColor = System.Drawing.Color.Black;
-            this.rbIDeActive.Location = new System.Drawing.Point(25, 88);
-            this.rbIDeActive.Name = "rbIDeActive";
-            this.rbIDeActive.Size = new System.Drawing.Size(146, 43);
-            this.rbIDeActive.TabIndex = 0;
-            this.rbIDeActive.TabStop = true;
-            this.rbIDeActive.Text = "DeActive";
-            this.rbIDeActive.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.rbUDeActive);
-            this.groupBox4.Controls.Add(this.rbUActive);
-            this.groupBox4.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox4.Location = new System.Drawing.Point(236, 232);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(264, 149);
-            this.groupBox4.TabIndex = 28;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Status";
-            // 
-            // rbUDeActive
-            // 
-            this.rbUDeActive.AutoSize = true;
-            this.rbUDeActive.ForeColor = System.Drawing.Color.Black;
-            this.rbUDeActive.Location = new System.Drawing.Point(25, 88);
-            this.rbUDeActive.Name = "rbUDeActive";
-            this.rbUDeActive.Size = new System.Drawing.Size(117, 34);
-            this.rbUDeActive.TabIndex = 0;
-            this.rbUDeActive.TabStop = true;
-            this.rbUDeActive.Text = "DeActive";
-            this.rbUDeActive.UseVisualStyleBackColor = true;
-            // 
-            // rbUActive
-            // 
-            this.rbUActive.AutoSize = true;
-            this.rbUActive.ForeColor = System.Drawing.Color.Black;
-            this.rbUActive.Location = new System.Drawing.Point(25, 48);
-            this.rbUActive.Name = "rbUActive";
-            this.rbUActive.Size = new System.Drawing.Size(91, 34);
-            this.rbUActive.TabIndex = 0;
-            this.rbUActive.TabStop = true;
-            this.rbUActive.Text = "Active";
-            this.rbUActive.UseVisualStyleBackColor = true;
-            // 
-            // dtpUServiceDate
-            // 
-            this.dtpUServiceDate.CustomFormat = "MMM dd, yyyy";
-            this.dtpUServiceDate.Enabled = false;
-            this.dtpUServiceDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpUServiceDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpUServiceDate.Location = new System.Drawing.Point(237, 181);
-            this.dtpUServiceDate.Name = "dtpUServiceDate";
-            this.dtpUServiceDate.Size = new System.Drawing.Size(264, 23);
-            this.dtpUServiceDate.TabIndex = 27;
-            // 
-            // txtUCapacity
-            // 
-            this.txtUCapacity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUCapacity.Location = new System.Drawing.Point(236, 122);
-            this.txtUCapacity.Name = "txtUCapacity";
-            this.txtUCapacity.Size = new System.Drawing.Size(264, 27);
-            this.txtUCapacity.TabIndex = 24;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Nirmala UI", 11F);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(120, 122);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 25);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Capacity:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Nirmala UI", 11F);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(87, 179);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 25);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Service Date:";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.rbMaintianed);
-            this.groupBox5.Controls.Add(this.rbNeedsService);
-            this.groupBox5.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox5.Location = new System.Drawing.Point(240, 134);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(264, 149);
-            this.groupBox5.TabIndex = 24;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Machines Service:";
-            // 
-            // rbMaintianed
-            // 
-            this.rbMaintianed.AutoSize = true;
-            this.rbMaintianed.ForeColor = System.Drawing.Color.Black;
-            this.rbMaintianed.Location = new System.Drawing.Point(25, 88);
-            this.rbMaintianed.Name = "rbMaintianed";
-            this.rbMaintianed.Size = new System.Drawing.Size(175, 43);
-            this.rbMaintianed.TabIndex = 0;
-            this.rbMaintianed.TabStop = true;
-            this.rbMaintianed.Text = "Maintained";
-            this.rbMaintianed.UseVisualStyleBackColor = true;
-            // 
-            // rbNeedsService
-            // 
-            this.rbNeedsService.AutoSize = true;
-            this.rbNeedsService.ForeColor = System.Drawing.Color.Black;
-            this.rbNeedsService.Location = new System.Drawing.Point(25, 48);
-            this.rbNeedsService.Name = "rbNeedsService";
-            this.rbNeedsService.Size = new System.Drawing.Size(208, 43);
-            this.rbNeedsService.TabIndex = 0;
-            this.rbNeedsService.TabStop = true;
-            this.rbNeedsService.Text = "Needs Service";
-            this.rbNeedsService.UseVisualStyleBackColor = true;
-            // 
             // Machines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -548,27 +548,28 @@ namespace B4_Plastics_SMS
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Machines";
             this.Text = "B4 Plastics - Machines";
+            this.Load += new System.EventHandler(this.Machines_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabSearch.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.gbxMachineDetails.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMachineDetails)).EndInit();
             this.tabInsert.ResumeLayout(false);
             this.gbxInsertAdd.ResumeLayout(false);
             this.gbxInsertAdd.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tabUpdate.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.tabDelete.ResumeLayout(false);
             this.gbxDelete.ResumeLayout(false);
             this.gbxDelete.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }

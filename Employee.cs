@@ -20,6 +20,8 @@ namespace B4_Plastics_SMS
 
         private void Employee_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
+
             // User profile
             frmLogin myLogin = new frmLogin();
             lblUserName.Text = DatabaseL.Username;

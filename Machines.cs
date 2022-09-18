@@ -16,5 +16,10 @@ namespace B4_Plastics_SMS
         {
             InitializeComponent();
         }
+
+        private void Machines_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
     }
 }
