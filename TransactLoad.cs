@@ -399,21 +399,8 @@ namespace B4_Plastics_SMS
             }
         }
 
-        ///////////////////////////////////////////////////////////////PAGE LOAD//////////////////////////////////////////////////////////////////////////////////////
-
-        private void TransactLoad_Load(object sender, EventArgs e)
+        public void Clear()
         {
-            this.CenterToScreen();
-
-            dtpMTransDate.Value = DateTime.Today;
-            dtpMDelivDate.Value = DateTime.Today.AddDays(5);
-
-            dtpUTransactionDate.Value = DateTime.Today;
-            dtpUDeliveryDate.Value = DateTime.Today.AddDays(5);
-
-            Con = new SqlConnection(ConStr);
-
-            displayData();
             fillSearch();
 
             fillInsertPipe();
@@ -429,6 +416,121 @@ namespace B4_Plastics_SMS
             fillUpdateDispStaff();
 
             fillDelete();
+
+            dtpMTransDate.Value = DateTime.Today;
+            dtpMDelivDate.Value = DateTime.Today.AddDays(5);
+
+            dtpUTransactionDate.Value = DateTime.Today;
+            dtpUDeliveryDate.Value = DateTime.Today.AddDays(5);
+
+            cbxFTransID.SelectedIndex = -1;
+            rbnFYes.Checked = false;
+            rbnFNo.Checked = false;
+
+            tclTransactions.SelectedIndex = 0;
+
+            cbxMPipeID.SelectedIndex = -1;
+            cbxMEmployID.SelectedIndex = -1;
+            txtMQuantity.Text = "";
+            dtpMTransDate.Value = DateTime.Today;
+            cbxMDispatchID.SelectedIndex = -1;
+            txtMLocation.Text = "";
+
+            cbxUpdateTransaction.SelectedIndex = -1;
+            cbxUPipeID.SelectedIndex = -1;
+            cbxUEmployeeStaff.SelectedIndex = -1;
+            txtUQuantity.Text = "";
+            dtpUTransactionDate.Value = DateTime.Today;
+            cbCompleted.Checked = false;
+            cbUpdateDispatchID.SelectedIndex = -1;
+            cbUDispatchStaff.SelectedIndex = -1;
+            dtpUDeliveryDate.Value = DateTime.Today;
+            txtULocation.Text = "";
+
+            cbxDTransID.SelectedIndex = -1;
+            cbConfirmDel.Checked = false;
+        }
+
+        ///////////////////////////////////////////////////////////////PAGE LOAD//////////////////////////////////////////////////////////////////////////////////////
+
+        private void TransactLoad_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+
+            Con = new SqlConnection(ConStr);
+
+            displayData();
+            Clear();
+        }
+
+        private void tclTransactions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (tclTransactions.SelectedIndex)
+            {
+                case 0:
+                    {
+                        fillSearch();
+
+                        cbxFTransID.SelectedIndex = -1;
+                        rbnFYes.Checked = false;
+                        rbnFNo.Checked = false;
+
+                        break;
+                    }
+                case 1:
+                    {
+                        fillInsertPipe();
+                        fillInsertEmploy();
+                        fillInsertDispatch();
+                        displayPipes();
+                        displayEmployees();
+
+                        dtpMTransDate.Value = DateTime.Today;
+                        dtpMDelivDate.Value = DateTime.Today.AddDays(5);
+
+                        cbxMPipeID.SelectedIndex = -1;
+                        cbxMEmployID.SelectedIndex = -1;
+                        txtMQuantity.Text = "";
+                        dtpMTransDate.Value = DateTime.Today;
+                        cbxMDispatchID.SelectedIndex = -1;
+                        txtMLocation.Text = "";
+
+                        break;
+                    }
+                case 2:
+                    {
+                        fillUpdateTrans();
+                        fillUpdatePipe();
+                        fillUpdateEmploy();
+                        fillUpdateDispatch();
+                        fillUpdateDispStaff();
+
+                        dtpUTransactionDate.Value = DateTime.Today;
+                        dtpUDeliveryDate.Value = DateTime.Today.AddDays(5);
+
+                        cbxUpdateTransaction.SelectedIndex = -1;
+                        cbxUPipeID.SelectedIndex = -1;
+                        cbxUEmployeeStaff.SelectedIndex = -1;
+                        txtUQuantity.Text = "";
+                        dtpUTransactionDate.Value = DateTime.Today;
+                        cbCompleted.Checked = false;
+                        cbUpdateDispatchID.SelectedIndex = -1;
+                        cbUDispatchStaff.SelectedIndex = -1;
+                        dtpUDeliveryDate.Value = DateTime.Today;
+                        txtULocation.Text = "";
+
+                        break;
+                    }
+                case 3:
+                    {
+                        fillDelete();
+
+                        cbxDTransID.SelectedIndex = -1;
+                        cbConfirmDel.Checked = false;
+
+                        break;
+                    }
+            }
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -666,29 +768,7 @@ namespace B4_Plastics_SMS
                         MessageBox.Show("You have successfully made a transaction!", "Transactions", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         displayData();
-                        fillSearch();
-
-                        tclTransactions.SelectedIndex = 0;
-
-                        cbxMPipeID.SelectedIndex = -1;
-                        cbxMEmployID.SelectedIndex = -1;
-                        txtMQuantity.Text = "";
-                        dtpMTransDate.Value = DateTime.Today;
-                        cbxMDispatchID.SelectedIndex = -1;
-                        txtMLocation.Text = "";
-
-                        fillInsertPipe();
-                        fillInsertEmploy();
-                        fillInsertDispatch();
-                        displayPipes();
-
-                        fillUpdateTrans();
-                        fillUpdatePipe();
-                        fillUpdateEmploy();
-                        fillUpdateDispatch();
-                        fillUpdateDispStaff();
-
-                        fillDelete();
+                        Clear();
                     }
                     else
                     {
@@ -899,25 +979,12 @@ namespace B4_Plastics_SMS
                 Adapter.UpdateCommand = Command;
                 Adapter.UpdateCommand.ExecuteNonQuery();
 
-                MessageBox.Show("Data successfully updated!", "Database Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 Con.Close();
 
+                MessageBox.Show("Data successfully updated!", "Database Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 displayData();
-                displayPipes();
-
-                tclTransactions.SelectedIndex = 0;
-
-                cbxUpdateTransaction.SelectedIndex = -1;
-                cbxUPipeID.SelectedIndex = -1;
-                cbxUEmployeeStaff.SelectedIndex = -1;
-                txtUQuantity.Text = "";
-                dtpUTransactionDate.Value = DateTime.Today;
-                cbCompleted.Checked = false;
-                cbUpdateDispatchID.SelectedIndex = -1;
-                cbUDispatchStaff.SelectedIndex = -1;
-                dtpUDeliveryDate.Value = DateTime.Today;
-                txtULocation.Text = "";
+                Clear();
             }
             catch (Exception ex)
             {
@@ -1006,34 +1073,17 @@ namespace B4_Plastics_SMS
                         Adapter.UpdateCommand = Command;
                         Adapter.UpdateCommand.ExecuteNonQuery();
 
+                        Con.Close();
+
                         MessageBox.Show("You have successfully deleted the record 'Transaction ID'", "Database Actions", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        Con.Close();
+                        displayData();
+                        Clear();
                     }
                     catch (SqlException ex)
                     {
                         MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
-                    displayData();
-
-                    tclTransactions.SelectedIndex = 0;
-
-                    fillInsertPipe();
-                    fillInsertEmploy();
-                    fillInsertDispatch();
-                    displayPipes();
-
-                    fillUpdateTrans();
-                    fillUpdatePipe();
-                    fillUpdateEmploy();
-                    fillUpdateDispatch();
-                    fillUpdateDispStaff();
-
-                    fillDelete();
-
-                    cbxDTransID.SelectedIndex = -1;
-                    cbConfirmDel.Checked = false;
                 }
                 else
                     MessageBox.Show("Please select 'Confirm Delete' box before deleteing records!", "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
