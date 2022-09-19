@@ -108,6 +108,8 @@ namespace B4_Plastics_SMS
 
         public void fillSearch()
         {
+            cbxFTransID.Items.Clear();
+
             try
             {
                 Con.Close(); 
@@ -135,6 +137,8 @@ namespace B4_Plastics_SMS
 
         public void fillInsertPipe()
         {
+            cbxMPipeID.Items.Clear();
+
             try
             {
                 Con.Close();
@@ -163,6 +167,8 @@ namespace B4_Plastics_SMS
 
         public void fillInsertEmploy()
         {
+            cbxMEmployID.Items.Clear();
+
             try
             {
                 Con.Close();
@@ -191,6 +197,8 @@ namespace B4_Plastics_SMS
 
         public void fillInsertDispatch()
         {
+            cbxMDispatchID.Items.Clear();
+
             try
             {
                 Con.Close();
@@ -219,6 +227,8 @@ namespace B4_Plastics_SMS
 
         public void fillUpdateTrans()
         {
+            cbxUpdateTransaction.Items.Clear();
+
             try
             {
                 Con.Close();
@@ -246,6 +256,8 @@ namespace B4_Plastics_SMS
 
         public void fillUpdatePipe()
         {
+            cbxUPipeID.Items.Clear();
+
             try
             {
                 Con.Close();
@@ -273,6 +285,8 @@ namespace B4_Plastics_SMS
 
         public void fillUpdateEmploy()
         {
+            cbxUEmployeeStaff.Items.Clear();
+
             try
             {
                 Con.Close();
@@ -300,6 +314,8 @@ namespace B4_Plastics_SMS
 
         public void fillUpdateDispatch()
         {
+            cbUpdateDispatchID.Items.Clear();
+
             try
             {
                 Con.Close();
@@ -327,6 +343,8 @@ namespace B4_Plastics_SMS
 
         public void fillUpdateDispStaff()
         {
+            cbUDispatchStaff.Items.Clear();
+
             try
             {
                 Con.Close();
@@ -354,6 +372,8 @@ namespace B4_Plastics_SMS
 
         public void fillDelete()
         {
+            cbxDTransID.Items.Clear();
+
             try
             {
                 Con.Close();
@@ -539,8 +559,8 @@ namespace B4_Plastics_SMS
 
             string Location = "";
 
-            if (cbxMPipeID.SelectedIndex == -1 && cbxMEmployID.SelectedIndex == -1 && txtMQuantity.Text == "" &&
-                cbxMDispatchID.SelectedIndex == -1 && txtMLocation.Text == "")
+            if (cbxMPipeID.SelectedIndex != -1 && cbxMEmployID.SelectedIndex != -1 && txtMQuantity.Text != "" &&
+                cbxMDispatchID.SelectedIndex != -1 && txtMLocation.Text != "")
             {
                 Pipe_ID = int.Parse(cbxMPipeID.Text);
                 Index = cbxMEmployID.Text.IndexOf(' ');
