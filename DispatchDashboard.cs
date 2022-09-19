@@ -94,7 +94,7 @@ namespace B4_Plastics_SMS
 
             string email = DatabaseL.UserEmail;
 
-            if (email == "Employee" || email == "Dispatch")
+            if (email == "Admin" || email == "Employee" || email == "Dispatch")
             {
             }
             else
