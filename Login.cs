@@ -59,6 +59,8 @@ namespace B4_Plastics_SMS
             }
             //--------------------------------------------------------------
 
+            stream.Close();
+
             // Set values to global list for later use
             DatabaseL.SetPass_list(pass);
             DatabaseL.SetEmail_list(emails);

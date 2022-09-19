@@ -21,6 +21,10 @@ namespace B4_Plastics_SMS
         SqlCommand command;
         SqlDataReader reader;
 
+
+        private List<string> emails = new List<string>();
+        private List<string> pass = new List<string>();
+
         private string DisplayAllsql = "SELECT * FROM Staff";
 
         public Staff()
@@ -312,6 +316,57 @@ namespace B4_Plastics_SMS
             {
                 if (cbConfirm.Checked)
                 {
+
+                    // Load emails and passwords from textfile
+                    StreamReader stream = new StreamReader("Account.txt");
+                    string line = "";
+
+                    while ((line = stream.ReadLine()) != null)
+                    {
+                        string[] components = line.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                        emails.Add(components[0]);
+                        pass.Add(components[1]);
+                    }
+
+                    stream.Close();
+
+                    // Get Email
+                    using (var connection = DatabaseL.GetConnection())
+                    {
+                        connection.Open();
+                        using (var command = new SqlCommand())
+                        {
+                            SqlDataReader reader;
+                            command.Connection = connection;
+                            //Get Type
+                            command.CommandText = $"SELECT staff_id, staff_email FROM Staff WHERE staff_id = {cmbDeleteStaff.SelectedItem}";
+                            reader = command.ExecuteReader();
+
+                            reader.Read();
+                            string email = reader.GetValue(1).ToString();
+
+
+                            reader.Close();
+
+                            // Delete the old email from the list
+                            int index = emails.IndexOf(email);
+                            emails.RemoveAt(index);
+                            pass.RemoveAt(index);
+
+
+                            // Create a file to write to
+                            StreamWriter file = new System.IO.StreamWriter("Account.txt");
+
+                            for (int k = 0; k < emails.Count(); k++)
+                            {
+                                file.WriteLine(emails[k] + " " + pass[k]);
+
+                            }
+
+                            file.Close();
+                        }
+                    }
+
                     string sql = $"DELETE FROM Staff WHERE staff_id = {cmbDeleteStaff.SelectedItem}";
                     try
                     {
@@ -319,6 +374,9 @@ namespace B4_Plastics_SMS
                         command = new SqlCommand(sql, conn);
                         command.ExecuteNonQuery();
                         conn.Close();
+
+                        
+                        
 
                         //Notify user
                         MessageBox.Show("Staff member was successfully removed");
@@ -329,6 +387,7 @@ namespace B4_Plastics_SMS
 
                         Fill_comboboxes();
                         displayData(DisplayAllsql);
+
                     }
                     catch (SqlException error)
                     {
