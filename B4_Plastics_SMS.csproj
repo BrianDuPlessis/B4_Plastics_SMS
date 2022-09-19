@@ -224,7 +224,6 @@
     <EmbeddedResource Include="TransactLoad.resx">
       <DependentUpon>TransactLoad.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="bin\Debug\B4_Plastics_SMS.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -240,22 +239,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="B4Plastics.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="B4Plastics_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>B4Plastics.mdf</DependentUpon>
     </Content>
     <Content Include="bin\Debug\Account.txt" />
-    <Content Include="bin\Debug\B4Plastics.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\B4Plastics_log.ldf">
-      <DependentUpon>B4Plastics.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\B4_Plastics_SMS.exe" />
-    <Content Include="bin\Debug\B4_Plastics_SMS.pdb" />
     <None Include="Resources\Settings-B.png" />
     <None Include="Resources\Pill Green.png" />
     <None Include="Resources\home-Resize.png" />

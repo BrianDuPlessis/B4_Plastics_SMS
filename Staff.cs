@@ -9,48 +9,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using DatabaseLogin.Class;
 
 namespace B4_Plastics_SMS
 {
     public partial class Staff : Form
     {
-        public static string conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\CMPG223-Project\B4_Plastics_SMS\B4Plastics.mdf;Integrated Security=True";
-        SqlConnection conn = new SqlConnection(conStr);
+        SqlConnection conn = DatabaseL.GetConnection();
         SqlDataAdapter adapter;
         DataSet dataset;
         SqlCommand command;
         SqlDataReader reader;
+
+        private string DisplayAllsql = "SELECT * FROM Staff";
 
         public Staff()
         {
             InitializeComponent();
         }
 
-        private void displayData(string sql)
-        {
-            try
-            {
-                conn.Open();
-                command = new SqlCommand(sql, conn);
-                adapter = new SqlDataAdapter();
-                dataset = new DataSet();
-                adapter.SelectCommand = command;
-                adapter.Fill(dataset, "Staff");
-
-                dgvEmployeeDetails.DataSource = dataset;
-                dgvEmployeeDetails.DataMember = "Staff";
-                conn.Close();
-            }
-            catch(SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
-        }
-
-        private void Staff_Activated(object sender, EventArgs e)
+        private void Staff_Load(object sender, EventArgs e)
         {
             //display data
-            string DisplayAllsql = "SELECT * FROM Staff";
             displayData(DisplayAllsql);
 
             //fill comboBox UserType
@@ -63,6 +43,13 @@ namespace B4_Plastics_SMS
             cmbUuserTypes.Items.Add("Employee");
             cmbUuserTypes.Items.Add("Dispatch");
             cmbUuserTypes.Items.Add("Admin");
+
+            Fill_comboboxes();
+        }
+
+        private void Fill_comboboxes()
+        {
+            
 
             //fill delete comboBox
             string StaffIDSql = "SELECT staff_id FROM Staff";
@@ -101,6 +88,36 @@ namespace B4_Plastics_SMS
                 conn.Close();
             }
             catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
+        private void displayData(string sql)
+        {
+            try
+            {
+                conn.Open();
+                command = new SqlCommand(sql, conn);
+                adapter = new SqlDataAdapter();
+                dataset = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(dataset, "Staff");
+
+                dgvEmployeeDetails.DataSource = dataset;
+                dgvEmployeeDetails.DataMember = "Staff";
+
+                dgvEmployeeDetails.Columns[0].HeaderText = "Staff ID";
+                dgvEmployeeDetails.Columns[1].HeaderText = "Email";
+                dgvEmployeeDetails.Columns[2].HeaderText = "Name";
+                dgvEmployeeDetails.Columns[3].HeaderText = "Surname";
+                dgvEmployeeDetails.Columns[4].HeaderText = "Cell Number";
+                dgvEmployeeDetails.Columns[5].HeaderText = "User Type";
+
+
+                conn.Close();
+            }
+            catch(SqlException error)
             {
                 MessageBox.Show(error.Message);
             }
@@ -247,9 +264,10 @@ namespace B4_Plastics_SMS
                 try
                 {
                     //Save user password
-                    StreamWriter writer = new StreamWriter("Account.txt");
-                    writer.WriteLine(txtIEmail + " " + txtIPassword);
-                    writer.Close();
+                    using (StreamWriter sw = File.AppendText("Account.txt"))
+                    {
+                        sw.WriteLine(txtIEmail.Text + " " + txtIPassword.Text);
+                    }
 
                     //Add record to database
                     conn.Open();
@@ -263,6 +281,7 @@ namespace B4_Plastics_SMS
                     command.ExecuteNonQuery();
                     conn.Close();
 
+                    MessageBox.Show("New staff member was successfully added");
                     //clear input
                     txtIEmail.Clear();
                     txtIFirstName.Clear();
@@ -272,14 +291,13 @@ namespace B4_Plastics_SMS
                     txtIREPassword.Clear();
                     cmbIUserType.SelectedItem = -1;
                     cmbIUserType.Text = "";
+
+                    Fill_comboboxes();
+                    displayData(DisplayAllsql);
                 }
                 catch (Exception error)
                 {
                     MessageBox.Show(error.Message);
-                }
-                finally
-                {
-                    MessageBox.Show("New staff member was successfully added");
                 }
             }
             else
@@ -290,33 +308,44 @@ namespace B4_Plastics_SMS
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (cbConfirm.Checked)
+            if (cmbDeleteStaff.SelectedIndex != -1)
             {
-                string sql = $"DELETE FROM Staff WHERE staff_id = {cmbDeleteStaff.SelectedItem}";
-                try
+                if (cbConfirm.Checked)
                 {
-                    conn.Open();
-                    command = new SqlCommand(sql, conn);
-                    command.ExecuteNonQuery();
-                    conn.Close();
+                    string sql = $"DELETE FROM Staff WHERE staff_id = {cmbDeleteStaff.SelectedItem}";
+                    try
+                    {
+                        conn.Open();
+                        command = new SqlCommand(sql, conn);
+                        command.ExecuteNonQuery();
+                        conn.Close();
 
-                    //Notify user
-                    MessageBox.Show("Staff member was successfully removed");
+                        //Notify user
+                        MessageBox.Show("Staff member was successfully removed");
 
-                    cmbDeleteStaff.SelectedIndex = -1;
-                    cmbDeleteStaff.Text = "";
-                    cbConfirm.Checked = false;
-                    
+                        cmbDeleteStaff.SelectedIndex = -1;
+                        cmbDeleteStaff.Text = "";
+                        cbConfirm.Checked = false;
+
+                        Fill_comboboxes();
+                        displayData(DisplayAllsql);
+                    }
+                    catch (SqlException error)
+                    {
+                        MessageBox.Show(error.Message);
+                    }
                 }
-                catch(SqlException error)
+                else
                 {
-                    MessageBox.Show(error.Message);
+                    MessageBox.Show("Wait! Please confirm delete operation");
                 }
             }
             else
             {
-                MessageBox.Show("Wait! Please confirm delete operation");
+                MessageBox.Show("Choose a staff member ID.");
             }
+           
+            
         }
 
         private void cbUpdateStaff_SelectedIndexChanged(object sender, EventArgs e)
@@ -365,6 +394,9 @@ namespace B4_Plastics_SMS
                     txtUContactNumber.Clear();
                     cmbUuserTypes.SelectedIndex = -1;
                     cmbUuserTypes.Text = "";
+
+                    Fill_comboboxes();
+                    displayData(DisplayAllsql);
                 }
                 else
                 {
@@ -376,5 +408,7 @@ namespace B4_Plastics_SMS
                 MessageBox.Show(error.Message);
             }
         }
+
+        
     }
 }
