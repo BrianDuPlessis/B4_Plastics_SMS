@@ -109,6 +109,9 @@ namespace B4_Plastics_SMS
             //------------------------------------
 
             // Medthod for changing form
+            myDashboard.Close();
+
+            myDashboard = new EmployeeDashboard();
             ButtonFormChage(myDashboard);
 
         }

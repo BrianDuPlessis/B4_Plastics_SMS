@@ -707,11 +707,12 @@ namespace B4_Plastics_SMS
                         Adapter.InsertCommand.ExecuteNonQuery();
 
                         Con.Close();
+
                         Con.Open();
 
                         SQL = "SELECT dispatch_id " +
                               "FROM Dispatch " +
-                             $"WHERE staff_id = {DispaStaff_ID}";
+                             $"WHERE staff_id = {DispaStaff_ID} AND dispatch_delivery_date = '{DelivDate}' AND dispatch_location = '{Location}'";
 
                         Command = new SqlCommand(SQL, Con);
 
@@ -1019,9 +1020,10 @@ namespace B4_Plastics_SMS
 
                         pipe_id = int.Parse(DataReader["pipe_id"].ToString());
                         TransQuantity = int.Parse(DataReader["trans_quantity"].ToString());
-                        dispatch_id = int.Parse(DataReader["dispatch_id"].ToString());
+                        dispatch_id = Convert.ToInt32(DataReader.GetValue(2));
 
                         Con.Close();
+
                         Con.Open();
 
                         SQL = "SELECT pipe_quantity " +
@@ -1037,12 +1039,24 @@ namespace B4_Plastics_SMS
                         StockQuantity = int.Parse(DataReader["pipe_quantity"].ToString());
 
                         Con.Close();
+
                         Con.Open();
 
                         SQL = "DELETE " +
                               "FROM Transactions " +
-                             $"WHERE transaction_id = {trans_ID}; " +
-                             "DELETE " +
+                             $"WHERE transaction_id = {trans_ID}"; 
+
+                        Command = new SqlCommand(SQL, Con);
+
+                        Adapter = new SqlDataAdapter();
+                        Adapter.DeleteCommand = Command;
+                        Adapter.DeleteCommand.ExecuteNonQuery();
+
+                        Con.Close();
+
+                        Con.Open();
+
+                        SQL = "DELETE " +
                               "FROM Dispatch " +
                              $"WHERE dispatch_id = {dispatch_id};";
 
@@ -1054,7 +1068,7 @@ namespace B4_Plastics_SMS
 
                         Con.Close();
 
-                        NewQuantity = StockQuantity + TransQuantity;
+                       NewQuantity = StockQuantity + TransQuantity;
 
                         Con.Open();
 
@@ -1070,7 +1084,7 @@ namespace B4_Plastics_SMS
 
                         Con.Close();
 
-                        MessageBox.Show("You have successfully deleted the record 'Transaction ID'", "Database Actions", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("You have successfully deleted the record (Transaction ID - " + trans_ID + ").", "Database Actions", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         displayData();
                         Clear();

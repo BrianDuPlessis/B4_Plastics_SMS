@@ -45,6 +45,11 @@ namespace B4_Plastics_SMS
 
                 dgvMachineDetails.DataSource = Data;
 
+                dgvMachineDetails.Columns[0].HeaderText = "Machine ID";
+                dgvMachineDetails.Columns[1].HeaderText = "Capacity";
+                dgvMachineDetails.Columns[2].HeaderText = "Service date";
+                dgvMachineDetails.Columns[3].HeaderText = "Active";
+
                 Con.Close();
             }
             catch (SqlException ex)
@@ -66,6 +71,8 @@ namespace B4_Plastics_SMS
                 Command = new SqlCommand(SQL, Con);
 
                 DataReader = Command.ExecuteReader();
+
+                cbFilterStatus.Items.Clear();
 
                 while (DataReader.Read())
                 {
@@ -94,6 +101,8 @@ namespace B4_Plastics_SMS
 
                 DataReader = Command.ExecuteReader();
 
+                cbUpdateMachine.Items.Clear();
+
                 while (DataReader.Read())
                 {
                     cbUpdateMachine.Items.Add(DataReader.GetValue(0));
@@ -120,6 +129,8 @@ namespace B4_Plastics_SMS
                 Command = new SqlCommand(SQL, Con);
 
                 DataReader = Command.ExecuteReader();
+
+                cbDeleteMachine.Items.Clear();
 
                 while (DataReader.Read())
                 {
@@ -247,6 +258,11 @@ namespace B4_Plastics_SMS
                     Data.Load(Command.ExecuteReader());
 
                     dgvMachineDetails.DataSource = Data;
+
+                    dgvMachineDetails.Columns[0].HeaderText = "Machine ID";
+                    dgvMachineDetails.Columns[1].HeaderText = "Capacity";
+                    dgvMachineDetails.Columns[2].HeaderText = "Service date";
+                    dgvMachineDetails.Columns[3].HeaderText = "Active";
 
                     Con.Close();
                 }
@@ -492,7 +508,7 @@ namespace B4_Plastics_SMS
 
                         Con.Close();
 
-                        MessageBox.Show("You have successfully deleted the record 'Machine ID'", "Database Actions", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("You have successfully deleted the record (Machine ID - " + MachineID + ")", "Database Actions", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         displayData();
                         Clear();

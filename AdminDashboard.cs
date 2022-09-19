@@ -35,7 +35,7 @@ namespace B4_Plastics_SMS
         }
 
         //Private methods
-        private void LoadData()
+        public void LoadData()
         {
             var refreshData = model.LoadData(dtpStartDate.Value, dtpEndDate.Value);
             if (refreshData == true)

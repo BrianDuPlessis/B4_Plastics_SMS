@@ -124,7 +124,5 @@ namespace B4_Plastics_SMS
 
             return 4;
         }
-
-
     }
 }

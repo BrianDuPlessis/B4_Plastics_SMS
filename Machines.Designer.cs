@@ -119,7 +119,7 @@ namespace B4_Plastics_SMS
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
             this.groupBox2.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox2.Location = new System.Drawing.Point(184, 489);
+            this.groupBox2.Location = new System.Drawing.Point(57, 488);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(566, 314);
             this.groupBox2.TabIndex = 4;
@@ -181,7 +181,7 @@ namespace B4_Plastics_SMS
             this.label20.ForeColor = System.Drawing.Color.Black;
             this.label20.Location = new System.Drawing.Point(41, 71);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(140, 31);
+            this.label20.Size = new System.Drawing.Size(112, 25);
             this.label20.TabIndex = 1;
             this.label20.Text = "Machine ID:";
             // 
@@ -191,9 +191,9 @@ namespace B4_Plastics_SMS
             this.gbxMachineDetails.Controls.Add(this.dgvMachineDetails);
             this.gbxMachineDetails.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
             this.gbxMachineDetails.ForeColor = System.Drawing.Color.Navy;
-            this.gbxMachineDetails.Location = new System.Drawing.Point(29, 37);
+            this.gbxMachineDetails.Location = new System.Drawing.Point(57, 40);
             this.gbxMachineDetails.Name = "gbxMachineDetails";
-            this.gbxMachineDetails.Size = new System.Drawing.Size(909, 415);
+            this.gbxMachineDetails.Size = new System.Drawing.Size(695, 415);
             this.gbxMachineDetails.TabIndex = 7;
             this.gbxMachineDetails.TabStop = false;
             this.gbxMachineDetails.Text = "Machine Details";
@@ -205,7 +205,7 @@ namespace B4_Plastics_SMS
             this.dgvMachineDetails.Name = "dgvMachineDetails";
             this.dgvMachineDetails.RowHeadersWidth = 51;
             this.dgvMachineDetails.RowTemplate.Height = 24;
-            this.dgvMachineDetails.Size = new System.Drawing.Size(855, 326);
+            this.dgvMachineDetails.Size = new System.Drawing.Size(637, 326);
             this.dgvMachineDetails.TabIndex = 0;
             // 
             // tabInsert
@@ -255,7 +255,7 @@ namespace B4_Plastics_SMS
             this.rbIInActive.ForeColor = System.Drawing.Color.Black;
             this.rbIInActive.Location = new System.Drawing.Point(25, 88);
             this.rbIInActive.Name = "rbIInActive";
-            this.rbIInActive.Size = new System.Drawing.Size(135, 43);
+            this.rbIInActive.Size = new System.Drawing.Size(108, 34);
             this.rbIInActive.TabIndex = 0;
             this.rbIInActive.TabStop = true;
             this.rbIInActive.Text = "InActive";
@@ -305,7 +305,6 @@ namespace B4_Plastics_SMS
             this.txtICapacity.Name = "txtICapacity";
             this.txtICapacity.Size = new System.Drawing.Size(264, 27);
             this.txtICapacity.TabIndex = 3;
-            this.txtICapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label10
             // 
@@ -378,7 +377,7 @@ namespace B4_Plastics_SMS
             this.rbUInActive.ForeColor = System.Drawing.Color.Black;
             this.rbUInActive.Location = new System.Drawing.Point(25, 88);
             this.rbUInActive.Name = "rbUInActive";
-            this.rbUInActive.Size = new System.Drawing.Size(135, 43);
+            this.rbUInActive.Size = new System.Drawing.Size(108, 34);
             this.rbUInActive.TabIndex = 0;
             this.rbUInActive.TabStop = true;
             this.rbUInActive.Text = "InActive";
@@ -413,7 +412,6 @@ namespace B4_Plastics_SMS
             this.txtUCapacity.Name = "txtUCapacity";
             this.txtUCapacity.Size = new System.Drawing.Size(264, 27);
             this.txtUCapacity.TabIndex = 24;
-            this.txtUCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
             // 
