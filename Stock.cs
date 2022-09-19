@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using DatabaseLogin.Class;
 
 namespace B4_Plastics_SMS
 {
@@ -18,10 +19,9 @@ namespace B4_Plastics_SMS
             InitializeComponent();
         }
 
-        string ConStr = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|B4Plastics.mdf;Integrated Security = True";
         string SQL = "";
 
-        SqlConnection Con;
+        SqlConnection Con = DatabaseL.GetConnection();
 
         SqlDataAdapter Adapter = new SqlDataAdapter();
         SqlCommand Command;
@@ -46,6 +46,12 @@ namespace B4_Plastics_SMS
 
                 dgvStockDetails.DataSource = Data;
 
+                dgvStockDetails.Columns[0].HeaderText = "Pipe ID";
+                dgvStockDetails.Columns[1].HeaderText = "Length";
+                dgvStockDetails.Columns[2].HeaderText = "Diameter";
+                dgvStockDetails.Columns[3].HeaderText = "Colour";
+                dgvStockDetails.Columns[4].HeaderText = "Quantity";
+
                 Con.Close();
             }
             catch (SqlException ex)
@@ -63,10 +69,14 @@ namespace B4_Plastics_SMS
 
             tabStock.SelectedTab = tabSearch;
 
-            Con = new SqlConnection(ConStr);
 
             displayData();
+            Fill_comboboxes();
 
+            }
+
+        private void Fill_comboboxes()
+        {
             ////////////////////////////////////////////////////////////Tab Search///////////////////////////////////////////////////////////////////////////////////////
 
             try
@@ -79,6 +89,8 @@ namespace B4_Plastics_SMS
                 Command = new SqlCommand(SQL, Con);
 
                 SqlDataReader DataReader = Command.ExecuteReader();
+
+                cbSearchPipeID.Items.Clear();
 
                 while (DataReader.Read())
                 {
@@ -103,6 +115,8 @@ namespace B4_Plastics_SMS
                 Command = new SqlCommand(SQL, Con);
 
                 SqlDataReader DataReader = Command.ExecuteReader();
+
+                cbFilterColour.Items.Clear();
 
                 while (DataReader.Read())
                 {
@@ -132,6 +146,8 @@ namespace B4_Plastics_SMS
 
                 SqlDataReader DataReader = Command.ExecuteReader();
 
+                cbIColour.Items.Clear();
+
                 while (DataReader.Read())
                 {
                     cbIColour.Items.Add(DataReader.GetValue(0));
@@ -160,6 +176,8 @@ namespace B4_Plastics_SMS
 
                 SqlDataReader DataReader = Command.ExecuteReader();
 
+                cbUpdateStock.Items.Clear();
+
                 while (DataReader.Read())
                 {
                     cbUpdateStock.Items.Add(DataReader.GetValue(0));
@@ -183,6 +201,8 @@ namespace B4_Plastics_SMS
                 Command = new SqlCommand(SQL, Con);
 
                 SqlDataReader DataReader = Command.ExecuteReader();
+
+                cbUColour.Items.Clear();
 
                 while (DataReader.Read())
                 {
@@ -213,6 +233,8 @@ namespace B4_Plastics_SMS
 
                 SqlDataReader DataReader = Command.ExecuteReader();
 
+                cbDeleteStock.Items.Clear();
+
                 while (DataReader.Read())
                 {
                     cbDeleteStock.Items.Add(DataReader.GetValue(0));
@@ -226,6 +248,7 @@ namespace B4_Plastics_SMS
             }
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         }
 
         private void tabStock_Click(object sender, EventArgs e)
@@ -333,6 +356,7 @@ namespace B4_Plastics_SMS
         private void txtSearchQuantity_TextChanged(object sender, EventArgs e)
         {
             cbSearchPipeID.SelectedIndex = -1;
+            cbFilterColour.SelectedIndex = -1;
 
             if (txtSearchQuantity.Text != "")
             {
@@ -365,36 +389,36 @@ namespace B4_Plastics_SMS
 
         private void cbFilterColour_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbFilterColour.SelectedIndex != -1)
+            try
             {
+                Con.Close();
+                Con.Open();
+
+                SQL = "SELECT Det.pipe_id, Sz.pipe_length, Sz.pipe_diameter, Col.colour_code, Det.pipe_quantity " +
+                      "FROM [Pipe Details] as Det " +
+                           "LEFT JOIN [Pipe Size] as Sz ON Sz.size_id = Det.size_id " +
+                           "LEFT JOIN Colours as Col ON Col.colour_id = Det.colour_id " +
+                     $"WHERE Col.colour_code = '{cbFilterColour.Text}'";
+
                 if (txtSearchQuantity.Text != "")
                 {
-                    try
-                    {
-                        Con.Close();
-                        Con.Open();
-
-                        SQL = "SELECT Det.pipe_id, Sz.pipe_length, Sz.pipe_diameter, Col.colour_code, Det.pipe_quantity " +
-                              "FROM [Pipe Details] as Det " +
-                                   "LEFT JOIN [Pipe Size] as Sz ON Sz.size_id = Det.size_id " +
-                                   "LEFT JOIN Colours as Col ON Col.colour_id = Det.colour_id " +
-                             $"WHERE Det.pipe_quantity >= '{int.Parse(txtSearchQuantity.Text)}' AND Col.colour_code = '{cbFilterColour.Text}'";
-
-                        Command = new SqlCommand(SQL, Con);
-
-                        Data = new DataTable();
-                        Data.Load(Command.ExecuteReader());
-
-                        dgvStockDetails.DataSource = Data;
-
-                        Con.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    SQL += $" AND Det.pipe_quantity >= '{int.Parse(txtSearchQuantity.Text)}'";
                 }
+
+                Command = new SqlCommand(SQL, Con);
+
+                Data = new DataTable();
+                Data.Load(Command.ExecuteReader());
+
+                dgvStockDetails.DataSource = Data;
+
+                Con.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -520,6 +544,7 @@ namespace B4_Plastics_SMS
                 }
 
                 displayData();
+                Fill_comboboxes();
 
                 tabStock.SelectedIndex = 0;
 
@@ -655,6 +680,7 @@ namespace B4_Plastics_SMS
             }
 
             displayData();
+            Fill_comboboxes();
 
             tabStock.SelectedIndex = 0;
 
@@ -683,7 +709,7 @@ namespace B4_Plastics_SMS
         {
             int pipe_id = 0; 
 
-            if (int.TryParse(cbDeleteStock.Text, out pipe_id) == false)
+            if (int.TryParse(cbDeleteStock.SelectedItem.ToString(), out pipe_id) == false)
                 MessageBox.Show("Invalid input. Please select a Stock ID!", "Error processing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
@@ -703,7 +729,7 @@ namespace B4_Plastics_SMS
                         Adapter.DeleteCommand = Command;
                         Adapter.DeleteCommand.ExecuteNonQuery();
 
-                        MessageBox.Show("You have successfully deleted the record 'Pipe ID'", "Database Actions", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("You have successfully deleted the record (Pipe ID - " + cbDeleteStock.SelectedItem.ToString() + ")." , "Database Actions", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         Con.Close();
                     }
@@ -713,6 +739,7 @@ namespace B4_Plastics_SMS
                     }
 
                     displayData();
+                    Fill_comboboxes();
 
                     tabStock.SelectedIndex = 0;
 
@@ -730,6 +757,18 @@ namespace B4_Plastics_SMS
                 else
                     MessageBox.Show("Please select 'Confirm Delete' box before deleteing records!", "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnDisplayAll_Click(object sender, EventArgs e)
+        {
+            cbSearchPipeID.SelectedIndex = -1;
+            cbFilterColour.SelectedIndex = -1;
+
+            txtSearchQuantity.Clear();
+
+            displayData();
+            Fill_comboboxes();
+
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
