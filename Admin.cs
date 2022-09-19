@@ -165,6 +165,9 @@ namespace B4_Plastics_SMS
             //------------------------------------
 
             // Medthod for changing form
+            myMachine.Close();
+
+            myMachine = new Machines();
             ButtonFormChage(myMachine);
 
         }
@@ -189,6 +192,10 @@ namespace B4_Plastics_SMS
             //------------------------------------
 
             // Medthod for changing form
+            myDispatch.Close();
+
+            myDispatch = new DispatchQuantity();
+
             ButtonFormChage(myDispatch);
         }
 

@@ -160,6 +160,10 @@ namespace B4_Plastics_SMS
             //------------------------------------
 
             // Medthod for changing form
+            myMachine.Close();
+
+            myMachine = new Machines();
+
             ButtonFormChage(myMachine);
 
         }
