@@ -80,6 +80,12 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="CalculateLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalculateLoad.Designer.cs">
+      <DependentUpon>CalculateLoad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\DashboardAppModel.cs" />
     <Compile Include="Classes\DatabaseLogin.cs" />
     <Compile Include="Classes\DbConnection.cs" />
@@ -89,7 +95,19 @@
     <Compile Include="Dispatch.Designer.cs">
       <DependentUpon>Dispatch.cs</DependentUpon>
     </Compile>
+    <Compile Include="DispatchDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DispatchDashboard.Designer.cs">
+      <DependentUpon>DispatchDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dispatcher.cs" />
+    <Compile Include="DispatchQuantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DispatchQuantity.Designer.cs">
+      <DependentUpon>DispatchQuantity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,8 +175,17 @@
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CalculateLoad.resx">
+      <DependentUpon>CalculateLoad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dispatch.resx">
       <DependentUpon>Dispatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispatchDashboard.resx">
+      <DependentUpon>DispatchDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispatchQuantity.resx">
+      <DependentUpon>DispatchQuantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
@@ -229,6 +256,7 @@
     </Content>
     <Content Include="bin\Debug\B4_Plastics_SMS.exe" />
     <Content Include="bin\Debug\B4_Plastics_SMS.pdb" />
+    <None Include="Resources\Settings-B.png" />
     <None Include="Resources\Pill Green.png" />
     <None Include="Resources\home-Resize.png" />
     <None Include="Resources\Dot Yellow.png" />

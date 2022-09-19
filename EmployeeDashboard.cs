@@ -95,7 +95,7 @@ namespace B4_Plastics_SMS
 
             string email = DatabaseL.UserEmail;
 
-            if (email == "Admin" || email == "Employee" || email == "Dispatch")
+            if (email == "Employee" || email == "Dispatch")
             {
             }
             else
@@ -105,7 +105,7 @@ namespace B4_Plastics_SMS
                     using (var connection = DatabaseL.GetConnection())
                     {
                         connection.Open();
-                        string fillBoxSql = $"SELECT * FROM Staff WHERE '{email}' = staff_email";
+                        string fillBoxSql = $"SELECT * FROM Staff WHERE staff_email = '{email}'";
                         using (var command = new SqlCommand(fillBoxSql, connection))
                         {
                             SqlDataReader DataReader = command.ExecuteReader();
@@ -123,9 +123,9 @@ namespace B4_Plastics_SMS
                 }
             }
 
-            return 1;
+            return 2;
         }
 
-
+        
     }
 }

@@ -133,9 +133,6 @@
   <data name="Reports-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reports-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Dot Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Dot Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Dispatch1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Dispatch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,8 +163,8 @@
   <data name="home-Resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home-Resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Employees" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Employees.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Dot Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dot Red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -177,9 +174,6 @@
   </data>
   <data name="Stock-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stock-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Employees" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Employees.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="User_Info-Blue-Resize2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User_Info-Blue-Resize2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,11 +193,17 @@
   <data name="User_Info-Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User_Info-Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Notifications" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Notifications.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="User_Info-Blue-Resize3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User_Info-Blue-Resize3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Employees-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Employees-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Stock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,8 +217,11 @@
   <data name="Dispatch-Blue-Resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dispatch-Blue-Resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Employees-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Employees-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Dot Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dot Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pill Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pill Green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logo-Transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo-Transparent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,7 +238,7 @@
   <data name="User_Info" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\User_Info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Pill Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pill Green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Settings-B" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Settings-B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

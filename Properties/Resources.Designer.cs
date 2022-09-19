@@ -323,6 +323,16 @@ namespace B4_Plastics_SMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Settings_B {
+            get {
+                object obj = ResourceManager.GetObject("Settings-B", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Stock {
             get {
                 object obj = ResourceManager.GetObject("Stock", resourceCulture);
