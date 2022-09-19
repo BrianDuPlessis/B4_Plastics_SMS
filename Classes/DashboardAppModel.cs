@@ -1,4 +1,5 @@
-﻿using DatabaseConnection.Db;
+﻿using DatabaseLogin;
+using DatabaseConnection.Db;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -102,6 +103,7 @@ namespace DashboardApp.Models
                 }
             }
         }
+
         private void GetTransactionAnalisys()
         {
             TransactionQuantityList = new List<TransactionQuantityByDate>();

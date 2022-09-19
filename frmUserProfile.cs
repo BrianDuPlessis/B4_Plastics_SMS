@@ -33,11 +33,11 @@ namespace B4_Plastics_SMS
         private void Fill_Controls()
         {
             string email = DatabaseL.UserEmail;
-            if (email == "Admin")
+            if (email == "Admin" || email == "Employee" || email == "Dispatch")
             {
-                txtEmail.Text = "Admin@gmail.com";
-                txtFirstName.Text = "Admin";
-                txtLastName.Text = "Admin";
+                txtEmail.Text = "Staff@gmail.com";
+                txtFirstName.Text = "Staff Name";
+                txtLastName.Text = "Staff Surname";
                 txtContactNumber.Text = "0812547852";
                 btnUpdate.Hide();
             }
