@@ -62,9 +62,12 @@ namespace B4_Plastics_SMS
             this.tabStockReport = new System.Windows.Forms.TabPage();
             this.btnReset = new System.Windows.Forms.Button();
             this.tabTransactionReport = new System.Windows.Forms.TabPage();
-            this.lblReport = new System.Windows.Forms.ListBox();
+            this.lbReport = new System.Windows.Forms.ListBox();
             this.cbxGenTransID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnPrintSlip = new System.Windows.Forms.Button();
+            this.ppPreviewSlip = new System.Windows.Forms.PrintPreviewDialog();
+            this.printSlip = new System.Drawing.Printing.PrintDocument();
             this.gbxReports.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportView)).BeginInit();
             this.gbxSortBy.SuspendLayout();
@@ -489,7 +492,8 @@ namespace B4_Plastics_SMS
             // tabTransactionReport
             // 
             this.tabTransactionReport.BackColor = System.Drawing.Color.White;
-            this.tabTransactionReport.Controls.Add(this.lblReport);
+            this.tabTransactionReport.Controls.Add(this.btnPrintSlip);
+            this.tabTransactionReport.Controls.Add(this.lbReport);
             this.tabTransactionReport.Controls.Add(this.cbxGenTransID);
             this.tabTransactionReport.Controls.Add(this.label1);
             this.tabTransactionReport.Location = new System.Drawing.Point(4, 32);
@@ -500,14 +504,14 @@ namespace B4_Plastics_SMS
             this.tabTransactionReport.TabIndex = 1;
             this.tabTransactionReport.Text = "Transaction";
             // 
-            // lblReport
+            // lbReport
             // 
-            this.lblReport.FormattingEnabled = true;
-            this.lblReport.ItemHeight = 23;
-            this.lblReport.Location = new System.Drawing.Point(90, 70);
-            this.lblReport.Name = "lblReport";
-            this.lblReport.Size = new System.Drawing.Size(788, 763);
-            this.lblReport.TabIndex = 29;
+            this.lbReport.FormattingEnabled = true;
+            this.lbReport.ItemHeight = 23;
+            this.lbReport.Location = new System.Drawing.Point(90, 70);
+            this.lbReport.Name = "lbReport";
+            this.lbReport.Size = new System.Drawing.Size(788, 763);
+            this.lbReport.TabIndex = 29;
             // 
             // cbxGenTransID
             // 
@@ -529,6 +533,36 @@ namespace B4_Plastics_SMS
             this.label1.Size = new System.Drawing.Size(135, 25);
             this.label1.TabIndex = 28;
             this.label1.Text = "Transaction ID:";
+            // 
+            // btnPrintSlip
+            // 
+            this.btnPrintSlip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(79)))), ((int)(((byte)(211)))));
+            this.btnPrintSlip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintSlip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnPrintSlip.ForeColor = System.Drawing.Color.White;
+            this.btnPrintSlip.Location = new System.Drawing.Point(653, 850);
+            this.btnPrintSlip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPrintSlip.Name = "btnPrintSlip";
+            this.btnPrintSlip.Size = new System.Drawing.Size(225, 47);
+            this.btnPrintSlip.TabIndex = 30;
+            this.btnPrintSlip.Text = "&Print slip";
+            this.btnPrintSlip.UseVisualStyleBackColor = false;
+            this.btnPrintSlip.Click += new System.EventHandler(this.btnPrintSlip_Click);
+            // 
+            // ppPreviewSlip
+            // 
+            this.ppPreviewSlip.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.ppPreviewSlip.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.ppPreviewSlip.ClientSize = new System.Drawing.Size(400, 300);
+            this.ppPreviewSlip.Document = this.printSlip;
+            this.ppPreviewSlip.Enabled = true;
+            this.ppPreviewSlip.Icon = ((System.Drawing.Icon)(resources.GetObject("ppPreviewSlip.Icon")));
+            this.ppPreviewSlip.Name = "ppPreview";
+            this.ppPreviewSlip.Visible = false;
+            // 
+            // printSlip
+            // 
+            this.printSlip.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printSlip_PrintPage);
             // 
             // Reports
             // 
@@ -595,6 +629,9 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.ComboBox cbxGenTransID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox lblReport;
+        private System.Windows.Forms.ListBox lbReport;
+        private System.Windows.Forms.Button btnPrintSlip;
+        private System.Windows.Forms.PrintPreviewDialog ppPreviewSlip;
+        private System.Drawing.Printing.PrintDocument printSlip;
     }
 }

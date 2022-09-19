@@ -26,7 +26,7 @@ namespace B4_Plastics_SMS
         // =====================================================
 
         private SqlConnection cnn;
-        private Bitmap bmpData, bmpSort, bmpFilter;
+        private Bitmap bmpData, bmpSort, bmpFilter, bmpSlip;
         private bool isFilterUsed = true;
         SqlCommand cmd;
         SqlDataReader reader;
@@ -457,6 +457,29 @@ namespace B4_Plastics_SMS
             e.Graphics.DrawImage(bmpLine, -20, 95, 900, 2);
         }
 
+        private void btnPrintSlip_Click(object sender, EventArgs e)
+        {
+
+            //Create a Bitmap and draw the lblReport on it.
+            bmpSlip = new Bitmap(lbReport.Width, lbReport.Height);
+            lbReport.DrawToBitmap(bmpSlip, new Rectangle(0, 0, lbReport.Width, lbReport.Height));
+
+
+
+            //Show the Print Preview Dialog.
+            ppPreviewSlip.Width = 900;
+            ppPreviewSlip.Height = 740;
+            ppPreviewSlip.PrintPreviewControl.Zoom = 1;
+            ppPreviewSlip.Document = printSlip;
+            ppPreviewSlip.ShowDialog();
+
+        }
+
+        private void printSlip_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmpSlip, 100, 100);
+        }
+
         private void btnReset_Click(object sender, EventArgs e)
         {
             txtLengthLow.Clear();
@@ -526,38 +549,38 @@ namespace B4_Plastics_SMS
             // Creating and setting the
             // properties of ListBox
 
-            lblReport.Items.Clear();
-            lblReport.Items.Add(" Transaction Slip");
-            lblReport.Font = new Font("Nirmala UI Semilight", 12);
-            lblReport.Items.Add("\t\t \t \t \t \t \t" + DateTime.Today.ToShortDateString());
-            lblReport.Items.Add("______________________________________________________________________________________________");
-            lblReport.Items.Add("Date of transaction: " + trans_date.ToShortDateString());
-            lblReport.Items.Add("");
-            lblReport.Items.Add(string.Format(align, "Transaction ID", "Lenght", "Diameter", "Colour", "Quantity"));
-            lblReport.Items.Add(string.Format(alignData, reader["transaction_id"].ToString() + "   \t   ", reader["pipe_length"].ToString(), reader["pipe_diameter"].ToString() + " ", reader["colour_code"].ToString(), reader["trans_quantity"].ToString()));
-            lblReport.Items.Add("");
-            lblReport.Items.Add("Employee responsible:");
-            lblReport.Items.Add("");
-            lblReport.Items.Add(string.Format(align, "Name", "Lastname", "Cell", "", ""));
-            lblReport.Items.Add(string.Format(alignData, reader["staff_name"].ToString() , reader["staff_lastname"].ToString() + "\t", reader["staff_cell"].ToString() + " ", "", ""));
-            lblReport.Items.Add("");
-            lblReport.Items.Add("______________________________________________________________________________________________");
+            lbReport.Items.Clear();
+            lbReport.Items.Add(" Transaction Slip");
+            lbReport.Font = new Font("Nirmala UI Semilight", 12);
+            lbReport.Items.Add("\t\t \t \t \t \t \t" + DateTime.Today.ToShortDateString());
+            lbReport.Items.Add("______________________________________________________________________________________________");
+            lbReport.Items.Add("Date of transaction: " + trans_date.ToShortDateString());
+            lbReport.Items.Add("");
+            lbReport.Items.Add(string.Format(align, "Transaction ID", "Lenght", "Diameter", "Colour", "Quantity"));
+            lbReport.Items.Add(string.Format(alignData, reader["transaction_id"].ToString() + "   \t   ", reader["pipe_length"].ToString(), reader["pipe_diameter"].ToString() + " ", reader["colour_code"].ToString(), reader["trans_quantity"].ToString()));
+            lbReport.Items.Add("");
+            lbReport.Items.Add("Employee responsible:");
+            lbReport.Items.Add("");
+            lbReport.Items.Add(string.Format(align, "Name", "Lastname", "Cell", "", ""));
+            lbReport.Items.Add(string.Format(alignData, reader["staff_name"].ToString() , reader["staff_lastname"].ToString() + "\t", reader["staff_cell"].ToString() + " ", "", ""));
+            lbReport.Items.Add("");
+            lbReport.Items.Add("______________________________________________________________________________________________");
 
-            lblReport.Items.Add("Dispatch:");
-            lblReport.Items.Add("");
-            lblReport.Items.Add("Due for delivery on: " + delivery_date.ToShortDateString());
-            lblReport.Items.Add("");
-            lblReport.Items.Add(string.Format(align, "Location", "Quantity ready", "", "", ""));
-            lblReport.Items.Add(string.Format(alignData, reader["dispatch_location"].ToString(), reader["dispatch_quantity"].ToString(), "", "", ""));
-            lblReport.Items.Add("");
-            lblReport.Items.Add("Dispatch responsible:");
-            lblReport.Items.Add("");
-            lblReport.Items.Add(string.Format(align, "Name", "Lastname", "Cell", "", ""));
-            lblReport.Items.Add(string.Format(alignData, reader.GetValue(10).ToString(), reader.GetValue(11).ToString() + "\t", reader.GetValue(12).ToString() + " ", "", ""));
-            lblReport.Items.Add("______________________________________________________________________________________________");
-            lblReport.Items.Add("Is the transaction complete: " + answer);
-            lblReport.Items.Add("");
-            lblReport.Items.Add("\t\t\t **END OF REPORT** \t\t");
+            lbReport.Items.Add("Dispatch:");
+            lbReport.Items.Add("");
+            lbReport.Items.Add("Due for delivery on: " + delivery_date.ToShortDateString());
+            lbReport.Items.Add("");
+            lbReport.Items.Add(string.Format(align, "Location", "Quantity ready", "", "", ""));
+            lbReport.Items.Add(string.Format(alignData, reader["dispatch_location"].ToString(), reader["dispatch_quantity"].ToString(), "", "", ""));
+            lbReport.Items.Add("");
+            lbReport.Items.Add("Dispatch responsible:");
+            lbReport.Items.Add("");
+            lbReport.Items.Add(string.Format(align, "Name", "Lastname", "Cell", "", ""));
+            lbReport.Items.Add(string.Format(alignData, reader.GetValue(10).ToString(), reader.GetValue(11).ToString() + "\t", reader.GetValue(12).ToString() + " ", "", ""));
+            lbReport.Items.Add("______________________________________________________________________________________________");
+            lbReport.Items.Add("Is the transaction complete: " + answer);
+            lbReport.Items.Add("");
+            lbReport.Items.Add("\t\t\t **END OF SLIP** \t\t");
 
             cnn.Close();
         }
