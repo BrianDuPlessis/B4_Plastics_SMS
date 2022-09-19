@@ -31,7 +31,7 @@ namespace B4_Plastics_SMS
 
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
-
+            LoadData();
         }
 
         //Private methods
