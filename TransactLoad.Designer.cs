@@ -123,6 +123,7 @@ namespace B4_Plastics_SMS
             this.tclTransactions.SelectedIndex = 0;
             this.tclTransactions.Size = new System.Drawing.Size(1036, 973);
             this.tclTransactions.TabIndex = 3;
+            this.tclTransactions.SelectedIndexChanged += new System.EventHandler(this.tclTransactions_SelectedIndexChanged);
             // 
             // tabSearch
             // 
@@ -131,7 +132,7 @@ namespace B4_Plastics_SMS
             this.tabSearch.Location = new System.Drawing.Point(4, 32);
             this.tabSearch.Name = "tabSearch";
             this.tabSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSearch.Size = new System.Drawing.Size(1028, 911);
+            this.tabSearch.Size = new System.Drawing.Size(1028, 937);
             this.tabSearch.TabIndex = 0;
             this.tabSearch.Text = "Search";
             this.tabSearch.UseVisualStyleBackColor = true;
@@ -494,7 +495,7 @@ namespace B4_Plastics_SMS
             this.tabUpdate.Location = new System.Drawing.Point(4, 32);
             this.tabUpdate.Name = "tabUpdate";
             this.tabUpdate.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUpdate.Size = new System.Drawing.Size(1028, 911);
+            this.tabUpdate.Size = new System.Drawing.Size(1028, 937);
             this.tabUpdate.TabIndex = 2;
             this.tabUpdate.Text = "Update";
             this.tabUpdate.UseVisualStyleBackColor = true;
@@ -770,7 +771,7 @@ namespace B4_Plastics_SMS
             this.tabDelete.Location = new System.Drawing.Point(4, 32);
             this.tabDelete.Name = "tabDelete";
             this.tabDelete.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDelete.Size = new System.Drawing.Size(1028, 911);
+            this.tabDelete.Size = new System.Drawing.Size(1028, 937);
             this.tabDelete.TabIndex = 3;
             this.tabDelete.Text = "Delete";
             this.tabDelete.UseVisualStyleBackColor = true;
