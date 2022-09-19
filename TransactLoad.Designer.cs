@@ -41,8 +41,6 @@ namespace B4_Plastics_SMS
             this.gbxTransactionDetails = new System.Windows.Forms.GroupBox();
             this.dgvTransactionDetails = new System.Windows.Forms.DataGridView();
             this.tabInsert = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dgvStaffDetails = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvPipeDetails = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -92,6 +90,8 @@ namespace B4_Plastics_SMS
             this.cbxDTransID = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnDisplayAll = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tclTransactions.SuspendLayout();
             this.tabSearch.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -99,8 +99,6 @@ namespace B4_Plastics_SMS
             this.gbxTransactionDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactionDetails)).BeginInit();
             this.tabInsert.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStaffDetails)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPipeDetails)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -108,6 +106,7 @@ namespace B4_Plastics_SMS
             this.groupBox1.SuspendLayout();
             this.tabDelete.SuspendLayout();
             this.gbxDelete.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tclTransactions
@@ -121,18 +120,20 @@ namespace B4_Plastics_SMS
             this.tclTransactions.Location = new System.Drawing.Point(0, 0);
             this.tclTransactions.Name = "tclTransactions";
             this.tclTransactions.SelectedIndex = 0;
-            this.tclTransactions.Size = new System.Drawing.Size(1036, 973);
+            this.tclTransactions.Size = new System.Drawing.Size(1182, 973);
             this.tclTransactions.TabIndex = 3;
             this.tclTransactions.SelectedIndexChanged += new System.EventHandler(this.tclTransactions_SelectedIndexChanged);
             // 
             // tabSearch
             // 
+            this.tabSearch.Controls.Add(this.btnDisplayAll);
+            this.tabSearch.Controls.Add(this.groupBox5);
             this.tabSearch.Controls.Add(this.groupBox2);
             this.tabSearch.Controls.Add(this.gbxTransactionDetails);
             this.tabSearch.Location = new System.Drawing.Point(4, 32);
             this.tabSearch.Name = "tabSearch";
             this.tabSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSearch.Size = new System.Drawing.Size(1028, 937);
+            this.tabSearch.Size = new System.Drawing.Size(1174, 937);
             this.tabSearch.TabIndex = 0;
             this.tabSearch.Text = "Search";
             this.tabSearch.UseVisualStyleBackColor = true;
@@ -141,13 +142,11 @@ namespace B4_Plastics_SMS
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.groupBox6);
-            this.groupBox2.Controls.Add(this.cbxFTransID);
-            this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
             this.groupBox2.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox2.Location = new System.Drawing.Point(275, 527);
+            this.groupBox2.Location = new System.Drawing.Point(498, 594);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(427, 324);
+            this.groupBox2.Size = new System.Drawing.Size(324, 214);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filter Transaction by:";
@@ -157,9 +156,9 @@ namespace B4_Plastics_SMS
             this.groupBox6.Controls.Add(this.rbnFNo);
             this.groupBox6.Controls.Add(this.rbnFYes);
             this.groupBox6.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox6.Location = new System.Drawing.Point(83, 143);
+            this.groupBox6.Location = new System.Drawing.Point(27, 46);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(217, 149);
+            this.groupBox6.Size = new System.Drawing.Size(217, 138);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Is Completed:";
@@ -196,7 +195,7 @@ namespace B4_Plastics_SMS
             // 
             this.cbxFTransID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbxFTransID.FormattingEnabled = true;
-            this.cbxFTransID.Location = new System.Drawing.Point(169, 69);
+            this.cbxFTransID.Location = new System.Drawing.Point(164, 49);
             this.cbxFTransID.Name = "cbxFTransID";
             this.cbxFTransID.Size = new System.Drawing.Size(217, 28);
             this.cbxFTransID.TabIndex = 0;
@@ -207,7 +206,7 @@ namespace B4_Plastics_SMS
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Nirmala UI", 11F);
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(21, 72);
+            this.label20.Location = new System.Drawing.Point(16, 52);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(135, 25);
             this.label20.TabIndex = 1;
@@ -219,57 +218,37 @@ namespace B4_Plastics_SMS
             this.gbxTransactionDetails.Controls.Add(this.dgvTransactionDetails);
             this.gbxTransactionDetails.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
             this.gbxTransactionDetails.ForeColor = System.Drawing.Color.Navy;
-            this.gbxTransactionDetails.Location = new System.Drawing.Point(61, 63);
+            this.gbxTransactionDetails.Location = new System.Drawing.Point(32, 63);
             this.gbxTransactionDetails.Name = "gbxTransactionDetails";
-            this.gbxTransactionDetails.Size = new System.Drawing.Size(909, 421);
+            this.gbxTransactionDetails.Size = new System.Drawing.Size(1067, 513);
             this.gbxTransactionDetails.TabIndex = 2;
             this.gbxTransactionDetails.TabStop = false;
             this.gbxTransactionDetails.Text = "Transaction Details";
             // 
             // dgvTransactionDetails
             // 
+            this.dgvTransactionDetails.AllowUserToAddRows = false;
+            this.dgvTransactionDetails.AllowUserToDeleteRows = false;
             this.dgvTransactionDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTransactionDetails.Location = new System.Drawing.Point(26, 35);
+            this.dgvTransactionDetails.Location = new System.Drawing.Point(11, 35);
             this.dgvTransactionDetails.Name = "dgvTransactionDetails";
+            this.dgvTransactionDetails.ReadOnly = true;
             this.dgvTransactionDetails.RowHeadersWidth = 51;
             this.dgvTransactionDetails.RowTemplate.Height = 24;
-            this.dgvTransactionDetails.Size = new System.Drawing.Size(855, 365);
+            this.dgvTransactionDetails.Size = new System.Drawing.Size(1038, 464);
             this.dgvTransactionDetails.TabIndex = 0;
             // 
             // tabInsert
             // 
-            this.tabInsert.Controls.Add(this.groupBox5);
             this.tabInsert.Controls.Add(this.groupBox4);
             this.tabInsert.Controls.Add(this.groupBox3);
             this.tabInsert.Location = new System.Drawing.Point(4, 32);
             this.tabInsert.Name = "tabInsert";
             this.tabInsert.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInsert.Size = new System.Drawing.Size(1028, 937);
+            this.tabInsert.Size = new System.Drawing.Size(1174, 937);
             this.tabInsert.TabIndex = 1;
             this.tabInsert.Text = "Insert";
             this.tabInsert.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.dgvStaffDetails);
-            this.groupBox5.Font = new System.Drawing.Font("Nirmala UI Semilight", 11F);
-            this.groupBox5.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox5.Location = new System.Drawing.Point(539, 474);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(466, 387);
-            this.groupBox5.TabIndex = 2;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Staff Details";
-            // 
-            // dgvStaffDetails
-            // 
-            this.dgvStaffDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStaffDetails.Location = new System.Drawing.Point(24, 46);
-            this.dgvStaffDetails.Name = "dgvStaffDetails";
-            this.dgvStaffDetails.RowHeadersWidth = 51;
-            this.dgvStaffDetails.RowTemplate.Height = 24;
-            this.dgvStaffDetails.Size = new System.Drawing.Size(420, 313);
-            this.dgvStaffDetails.TabIndex = 2;
             // 
             // groupBox4
             // 
@@ -278,19 +257,22 @@ namespace B4_Plastics_SMS
             this.groupBox4.ForeColor = System.Drawing.Color.Navy;
             this.groupBox4.Location = new System.Drawing.Point(27, 474);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(483, 387);
+            this.groupBox4.Size = new System.Drawing.Size(836, 387);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Pipe Details";
             // 
             // dgvPipeDetails
             // 
+            this.dgvPipeDetails.AllowUserToAddRows = false;
+            this.dgvPipeDetails.AllowUserToDeleteRows = false;
             this.dgvPipeDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPipeDetails.Location = new System.Drawing.Point(29, 46);
             this.dgvPipeDetails.Name = "dgvPipeDetails";
+            this.dgvPipeDetails.ReadOnly = true;
             this.dgvPipeDetails.RowHeadersWidth = 51;
             this.dgvPipeDetails.RowTemplate.Height = 24;
-            this.dgvPipeDetails.Size = new System.Drawing.Size(428, 313);
+            this.dgvPipeDetails.Size = new System.Drawing.Size(783, 313);
             this.dgvPipeDetails.TabIndex = 2;
             // 
             // groupBox3
@@ -316,7 +298,7 @@ namespace B4_Plastics_SMS
             this.groupBox3.ForeColor = System.Drawing.Color.Navy;
             this.groupBox3.Location = new System.Drawing.Point(27, 47);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(978, 394);
+            this.groupBox3.Size = new System.Drawing.Size(836, 394);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Make Transaction";
@@ -342,9 +324,9 @@ namespace B4_Plastics_SMS
             this.dtpMDelivDate.Enabled = false;
             this.dtpMDelivDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpMDelivDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpMDelivDate.Location = new System.Drawing.Point(677, 121);
+            this.dtpMDelivDate.Location = new System.Drawing.Point(617, 118);
             this.dtpMDelivDate.Name = "dtpMDelivDate";
-            this.dtpMDelivDate.Size = new System.Drawing.Size(264, 23);
+            this.dtpMDelivDate.Size = new System.Drawing.Size(195, 23);
             this.dtpMDelivDate.TabIndex = 5;
             // 
             // dtpMTransDate
@@ -354,7 +336,7 @@ namespace B4_Plastics_SMS
             this.dtpMTransDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpMTransDate.Location = new System.Drawing.Point(212, 235);
             this.dtpMTransDate.Name = "dtpMTransDate";
-            this.dtpMTransDate.Size = new System.Drawing.Size(264, 23);
+            this.dtpMTransDate.Size = new System.Drawing.Size(206, 23);
             this.dtpMTransDate.TabIndex = 3;
             this.dtpMTransDate.ValueChanged += new System.EventHandler(this.dtpMTransDate_ValueChanged);
             // 
@@ -364,7 +346,7 @@ namespace B4_Plastics_SMS
             this.cbxMEmployID.FormattingEnabled = true;
             this.cbxMEmployID.Location = new System.Drawing.Point(212, 116);
             this.cbxMEmployID.Name = "cbxMEmployID";
-            this.cbxMEmployID.Size = new System.Drawing.Size(265, 28);
+            this.cbxMEmployID.Size = new System.Drawing.Size(207, 28);
             this.cbxMEmployID.TabIndex = 1;
             // 
             // cbxMPipeID
@@ -373,16 +355,16 @@ namespace B4_Plastics_SMS
             this.cbxMPipeID.FormattingEnabled = true;
             this.cbxMPipeID.Location = new System.Drawing.Point(211, 63);
             this.cbxMPipeID.Name = "cbxMPipeID";
-            this.cbxMPipeID.Size = new System.Drawing.Size(265, 28);
+            this.cbxMPipeID.Size = new System.Drawing.Size(207, 28);
             this.cbxMPipeID.TabIndex = 0;
             // 
             // cbxMDispatchID
             // 
             this.cbxMDispatchID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbxMDispatchID.FormattingEnabled = true;
-            this.cbxMDispatchID.Location = new System.Drawing.Point(678, 63);
+            this.cbxMDispatchID.Location = new System.Drawing.Point(618, 60);
             this.cbxMDispatchID.Name = "cbxMDispatchID";
-            this.cbxMDispatchID.Size = new System.Drawing.Size(265, 28);
+            this.cbxMDispatchID.Size = new System.Drawing.Size(196, 28);
             this.cbxMDispatchID.TabIndex = 4;
             // 
             // label5
@@ -400,7 +382,7 @@ namespace B4_Plastics_SMS
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Nirmala UI", 11F);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(531, 119);
+            this.label7.Location = new System.Drawing.Point(483, 116);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(129, 25);
             this.label7.TabIndex = 14;
@@ -431,9 +413,9 @@ namespace B4_Plastics_SMS
             // txtMLocation
             // 
             this.txtMLocation.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtMLocation.Location = new System.Drawing.Point(678, 177);
+            this.txtMLocation.Location = new System.Drawing.Point(618, 174);
             this.txtMLocation.Name = "txtMLocation";
-            this.txtMLocation.Size = new System.Drawing.Size(265, 27);
+            this.txtMLocation.Size = new System.Drawing.Size(196, 27);
             this.txtMLocation.TabIndex = 6;
             // 
             // label30
@@ -441,7 +423,7 @@ namespace B4_Plastics_SMS
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Nirmala UI", 11F);
             this.label30.ForeColor = System.Drawing.Color.Black;
-            this.label30.Location = new System.Drawing.Point(571, 179);
+            this.label30.Location = new System.Drawing.Point(523, 176);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(88, 25);
             this.label30.TabIndex = 10;
@@ -452,9 +434,8 @@ namespace B4_Plastics_SMS
             this.txtMQuantity.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMQuantity.Location = new System.Drawing.Point(212, 174);
             this.txtMQuantity.Name = "txtMQuantity";
-            this.txtMQuantity.Size = new System.Drawing.Size(265, 27);
+            this.txtMQuantity.Size = new System.Drawing.Size(207, 27);
             this.txtMQuantity.TabIndex = 2;
-            this.txtMQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label31
             // 
@@ -472,7 +453,7 @@ namespace B4_Plastics_SMS
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Nirmala UI", 11F);
             this.label32.ForeColor = System.Drawing.Color.Black;
-            this.label32.Location = new System.Drawing.Point(507, 66);
+            this.label32.Location = new System.Drawing.Point(459, 63);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(153, 25);
             this.label32.TabIndex = 8;
@@ -495,7 +476,7 @@ namespace B4_Plastics_SMS
             this.tabUpdate.Location = new System.Drawing.Point(4, 32);
             this.tabUpdate.Name = "tabUpdate";
             this.tabUpdate.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUpdate.Size = new System.Drawing.Size(1028, 937);
+            this.tabUpdate.Size = new System.Drawing.Size(1174, 937);
             this.tabUpdate.TabIndex = 2;
             this.tabUpdate.Text = "Update";
             this.tabUpdate.UseVisualStyleBackColor = true;
@@ -730,7 +711,6 @@ namespace B4_Plastics_SMS
             this.txtUQuantity.Name = "txtUQuantity";
             this.txtUQuantity.Size = new System.Drawing.Size(265, 27);
             this.txtUQuantity.TabIndex = 3;
-            this.txtUQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label24
             // 
@@ -771,7 +751,7 @@ namespace B4_Plastics_SMS
             this.tabDelete.Location = new System.Drawing.Point(4, 32);
             this.tabDelete.Name = "tabDelete";
             this.tabDelete.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDelete.Size = new System.Drawing.Size(1028, 937);
+            this.tabDelete.Size = new System.Drawing.Size(1174, 937);
             this.tabDelete.TabIndex = 3;
             this.tabDelete.Text = "Delete";
             this.tabDelete.UseVisualStyleBackColor = true;
@@ -839,11 +819,40 @@ namespace B4_Plastics_SMS
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnDisplayAll
+            // 
+            this.btnDisplayAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(79)))), ((int)(((byte)(211)))));
+            this.btnDisplayAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDisplayAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDisplayAll.ForeColor = System.Drawing.Color.White;
+            this.btnDisplayAll.Location = new System.Drawing.Point(859, 604);
+            this.btnDisplayAll.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDisplayAll.Name = "btnDisplayAll";
+            this.btnDisplayAll.Size = new System.Drawing.Size(240, 52);
+            this.btnDisplayAll.TabIndex = 9;
+            this.btnDisplayAll.Text = "&Display All";
+            this.btnDisplayAll.UseVisualStyleBackColor = false;
+            this.btnDisplayAll.Click += new System.EventHandler(this.btnDisplayAll_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.White;
+            this.groupBox5.Controls.Add(this.label20);
+            this.groupBox5.Controls.Add(this.cbxFTransID);
+            this.groupBox5.Font = new System.Drawing.Font("Nirmala UI Semilight", 13F);
+            this.groupBox5.ForeColor = System.Drawing.Color.Navy;
+            this.groupBox5.Location = new System.Drawing.Point(32, 594);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(427, 214);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Search Transaction by:";
+            // 
             // TransactLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1036, 973);
+            this.ClientSize = new System.Drawing.Size(1182, 973);
             this.Controls.Add(this.tclTransactions);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -853,14 +862,11 @@ namespace B4_Plastics_SMS
             this.tclTransactions.ResumeLayout(false);
             this.tabSearch.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.gbxTransactionDetails.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactionDetails)).EndInit();
             this.tabInsert.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStaffDetails)).EndInit();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPipeDetails)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -871,6 +877,8 @@ namespace B4_Plastics_SMS
             this.tabDelete.ResumeLayout(false);
             this.gbxDelete.ResumeLayout(false);
             this.gbxDelete.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -916,8 +924,6 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.TextBox txtULocation;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.DataGridView dgvStaffDetails;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dgvPipeDetails;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -939,5 +945,7 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RadioButton rbnFNo;
         private System.Windows.Forms.RadioButton rbnFYes;
+        private System.Windows.Forms.Button btnDisplayAll;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }

@@ -136,7 +136,8 @@ namespace B4_Plastics_SMS
             cnn.Open();
 
             string SQL = "SELECT transaction_id " +
-                         "FROM Transactions";
+                         "FROM Transactions " +
+                         "ORDER BY transaction_id DESC";
 
             cmd = new SqlCommand(SQL, cnn);
 
@@ -497,6 +498,7 @@ namespace B4_Plastics_SMS
                    SQL += "LEFT JOIN [Dispatch] AS d ON t.dispatch_id = d.dispatch_id ";
                    SQL += "LEFT JOIN [Staff] AS sd ON  d.staff_id = sd.staff_id ";
                    SQL += $"WHERE t.transaction_id = {cbxGenTransID.SelectedItem} ";
+                   
             try
             {
                 cmd = new SqlCommand(SQL, cnn);

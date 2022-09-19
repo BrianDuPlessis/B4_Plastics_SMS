@@ -28,6 +28,7 @@ namespace B4_Plastics_SMS
         TransactLoad myTransaction = new TransactLoad();
         Machines myMachine = new Machines();
         Reports myReport = new Reports();
+        DispatchQuantity myDispatch = new DispatchQuantity();
 
         // Border Fields
         bool mouseDown;
@@ -76,6 +77,7 @@ namespace B4_Plastics_SMS
                 btnMachinePage.BackColor = Color.FromArgb(37, 45, 55);
                 btnReportsPage.BackColor = Color.FromArgb(37, 45, 55);
                 btnDashboard.BackColor = Color.FromArgb(37, 45, 55);
+                btnDispatch.BackColor = Color.FromArgb(37, 45, 55);
 
                 pnlNav.Height = btnClicked.Height;
                 pnlNav.Top = btnClicked.Top;
@@ -174,6 +176,17 @@ namespace B4_Plastics_SMS
             // Medthod for changing form
             ButtonFormChage(myReport);
 
+        }
+
+        private void btnDispatch_Click(object sender, EventArgs e)
+        {
+            lblHeading.Text = "Dispatch";
+            // Colour Effects for clicking on button 
+            ButtonColourEffect(sender as Button);
+            //------------------------------------
+
+            // Medthod for changing form
+            ButtonFormChage(myDispatch);
         }
 
         private void linkLabelEmail_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
@@ -334,6 +347,7 @@ namespace B4_Plastics_SMS
             myLogin.Show();
         }
 
+        
     }
 
 

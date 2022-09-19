@@ -36,7 +36,7 @@ namespace B4_Plastics_SMS
                 Con.Open();
 
                 SQL = "SELECT * " +
-                      "FROM Transactions";
+                      "FROM Transactions ORDER BY transaction_id DESC";
 
                 Command = new SqlCommand(SQL, Con);
 
@@ -44,6 +44,14 @@ namespace B4_Plastics_SMS
                 Data.Load(Command.ExecuteReader());
 
                 dgvTransactionDetails.DataSource = Data;
+
+                dgvTransactionDetails.Columns[0].HeaderText = "Transaction ID";
+                dgvTransactionDetails.Columns[1].HeaderText = "Pipe ID";
+                dgvTransactionDetails.Columns[2].HeaderText = "Staff ID";
+                dgvTransactionDetails.Columns[3].HeaderText = "Dispatch ID";
+                dgvTransactionDetails.Columns[4].HeaderText = "Quantity";
+                dgvTransactionDetails.Columns[5].HeaderText = "Transaction Date";
+                dgvTransactionDetails.Columns[6].HeaderText = "Completed";
 
                 Con.Close();
             }
@@ -73,30 +81,11 @@ namespace B4_Plastics_SMS
 
                 dgvPipeDetails.DataSource = Data;
 
-                Con.Close();
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void displayEmployees()
-        {
-            try
-            {
-                Con.Close();
-                Con.Open();
-
-                SQL = "SELECT * " +
-                      "FROM Staff";
-
-                Command = new SqlCommand(SQL, Con);
-
-                Data = new DataTable();
-                Data.Load(Command.ExecuteReader());
-
-                dgvStaffDetails.DataSource = Data;
+                dgvPipeDetails.Columns[0].HeaderText = "Pipe Id";
+                dgvPipeDetails.Columns[1].HeaderText = "Length";
+                dgvPipeDetails.Columns[2].HeaderText = "Diameter";
+                dgvPipeDetails.Columns[3].HeaderText = "Colour";
+                dgvPipeDetails.Columns[4].HeaderText = "Quantity";
 
                 Con.Close();
             }
@@ -106,6 +95,7 @@ namespace B4_Plastics_SMS
             }
         }
 
+        
         public void fillSearch()
         {
             cbxFTransID.Items.Clear();
@@ -174,9 +164,9 @@ namespace B4_Plastics_SMS
                 Con.Close();
                 Con.Open();
 
-                SQL = "SELECT staff_id, staff_name, staff_lastname, staff_usertype " +
+                SQL = "SELECT staff_id, staff_name, staff_lastname " +
                       "FROM Staff " +
-                      "WHERE staff_usertype <> 'Dispatch'";
+                      "WHERE staff_usertype = 'Employee'";
 
                 Command = new SqlCommand(SQL, Con);
 
@@ -184,7 +174,7 @@ namespace B4_Plastics_SMS
 
                 while (DataReader.Read())
                 {
-                    cbxMEmployID.Items.Add(DataReader.GetValue(0) + " - " + DataReader.GetValue(1) + " " + DataReader.GetValue(2) + " - " + DataReader.GetValue(3));
+                    cbxMEmployID.Items.Add(DataReader.GetValue(0) + " - " + DataReader.GetValue(1) + " " + DataReader.GetValue(2));
                 }
 
                 Con.Close();
@@ -235,7 +225,7 @@ namespace B4_Plastics_SMS
                 Con.Open();
 
                 SQL = "SELECT transaction_id " +
-                      "FROM Transactions";
+                      "FROM Transactions ORDER BY transaction_id DESC";
 
                 Command = new SqlCommand(SQL, Con);
 
@@ -265,6 +255,7 @@ namespace B4_Plastics_SMS
 
                 SQL = "SELECT DISTINCT pipe_id " +
                       "FROM Transactions";
+
 
                 Command = new SqlCommand(SQL, Con);
 
@@ -380,7 +371,7 @@ namespace B4_Plastics_SMS
                 Con.Open();
 
                 SQL = "SELECT transaction_id " +
-                      "FROM Transactions";
+                      "FROM Transactions ORDER BY transaction_id DESC";
 
                 Command = new SqlCommand(SQL, Con);
 
@@ -407,7 +398,6 @@ namespace B4_Plastics_SMS
             fillInsertEmploy();
             fillInsertDispatch();
             displayPipes();
-            displayEmployees();
 
             fillUpdateTrans();
             fillUpdatePipe();
@@ -483,7 +473,6 @@ namespace B4_Plastics_SMS
                         fillInsertEmploy();
                         fillInsertDispatch();
                         displayPipes();
-                        displayEmployees();
 
                         dtpMTransDate.Value = DateTime.Today;
                         dtpMDelivDate.Value = DateTime.Today.AddDays(5);
@@ -650,6 +639,7 @@ namespace B4_Plastics_SMS
             int Pipe_ID = 0;
             int EmployStaff_ID = 0;
             int Quantity = 0;
+            int DispatchQuantity = 0;
             int QuantityDB = 0;
             int NewQuantity = 0;
             int Dispatch_ID = 0;
@@ -712,7 +702,7 @@ namespace B4_Plastics_SMS
                         Adapter.InsertCommand = Command;
                         Adapter.InsertCommand.Parameters.AddWithValue("@staff_id", DispaStaff_ID);
                         Adapter.InsertCommand.Parameters.AddWithValue("@deliv_date", DelivDate);
-                        Adapter.InsertCommand.Parameters.AddWithValue("@quantity", Quantity);
+                        Adapter.InsertCommand.Parameters.AddWithValue("@quantity", DispatchQuantity);
                         Adapter.InsertCommand.Parameters.AddWithValue("@location", Location);
                         Adapter.InsertCommand.ExecuteNonQuery();
 
@@ -767,8 +757,9 @@ namespace B4_Plastics_SMS
 
                         MessageBox.Show("You have successfully made a transaction!", "Transactions", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        displayData();
                         Clear();
+                        displayData();
+                        
                     }
                     else
                     {
@@ -929,62 +920,61 @@ namespace B4_Plastics_SMS
 
                 Con.Close();
 
-                if (Quantity < DBQuantity)
+                if (Quantity <= DBQuantity)
                 {
                     NewQuantity = DBQuantity - Quantity;
-                    NewQuantity = DBQuantity - NewQuantity;
-
-                    if (NewQuantity > QuantityStock)
-                    {
-                        MessageBox.Show("Invalid number of items. It exceeds the amount available in stock. Please enter another value.", "Error parsing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtUQuantity.Focus();
-                    }
-                    else
-                        QuantityStock = QuantityStock - NewQuantity;
-                }
-                else if (Quantity > DBQuantity)
-                {
-                    NewQuantity = Quantity - DBQuantity;
                     QuantityStock = QuantityStock + NewQuantity;
-                    NewQuantity = NewQuantity + DBQuantity;
                 }
                 else
-                    NewQuantity = Quantity;
+                {
+                    NewQuantity = Quantity - DBQuantity;
+                    QuantityStock = QuantityStock - NewQuantity;
+                }
 
-                Con.Open();
+                if (NewQuantity <= QuantityStock)
+                {
+                    Con.Open();
 
-                SQL = "UPDATE Transactions " + 
-                        $"SET [pipe_id] = {PipeID}, [staff_id] = {EmployStaffID}, [dispatch_id] = {DispID}, [trans_quantity] = {NewQuantity}, [isCompleted] = '{Completed}' " +
-                     $"WHERE transaction_id = {TransID}; " +
-                      "UPDATE Dispatch " +
-                        $"SET [staff_id] = {DispStaffID}, [dispatch_delivery_date] = '{DeliverDate}', [dispatch_quantity] = {NewQuantity}, [dispatch_location] = '{Location}' " +
-                     $"WHERE dispatch_id = {DispID}";
+                    SQL = "UPDATE Transactions " +
+                            $"SET [pipe_id] = {PipeID}, [staff_id] = {EmployStaffID}, [dispatch_id] = {DispID}, [trans_quantity] = {Quantity}, [isCompleted] = '{Completed}' " +
+                         $"WHERE transaction_id = {TransID}; " +
+                          "UPDATE Dispatch " +
+                            $"SET [staff_id] = {DispStaffID}, [dispatch_delivery_date] = '{DeliverDate}', [dispatch_location] = '{Location}' " +
+                         $"WHERE dispatch_id = {DispID}";
 
-                Command = new SqlCommand(SQL, Con);
+                    Command = new SqlCommand(SQL, Con);
 
-                Adapter = new SqlDataAdapter();
-                Adapter.UpdateCommand = Command;
-                Adapter.UpdateCommand.ExecuteNonQuery();
+                    Adapter = new SqlDataAdapter();
+                    Adapter.UpdateCommand = Command;
+                    Adapter.UpdateCommand.ExecuteNonQuery();
 
-                Con.Close();
-                Con.Open();
+                    Con.Close();
+                    Con.Open();
 
-                SQL = "UPDATE [Pipe Details] " +
-                        $"SET [pipe_quantity] = {QuantityStock} " +
-                     $"WHERE pipe_id = {PipeID}";
+                    SQL = "UPDATE [Pipe Details] " +
+                            $"SET [pipe_quantity] = {QuantityStock} " +
+                         $"WHERE pipe_id = {PipeID}";
 
-                Command = new SqlCommand(SQL, Con);
+                    Command = new SqlCommand(SQL, Con);
 
-                Adapter = new SqlDataAdapter();
-                Adapter.UpdateCommand = Command;
-                Adapter.UpdateCommand.ExecuteNonQuery();
+                    Adapter = new SqlDataAdapter();
+                    Adapter.UpdateCommand = Command;
+                    Adapter.UpdateCommand.ExecuteNonQuery();
 
-                Con.Close();
+                    Con.Close();
 
-                MessageBox.Show("Data successfully updated!", "Database Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Data successfully updated!", "Database Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                displayData();
-                Clear();
+                    displayData();
+                    Clear();
+
+                }
+                else
+                {
+                    MessageBox.Show("Invalid number of items. It exceeds the amount available in stock. Please enter another value.", "Error parsing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtUQuantity.Focus();
+                }
+
             }
             catch (Exception ex)
             {
@@ -1002,6 +992,7 @@ namespace B4_Plastics_SMS
         {
             int trans_ID = 0;
             int pipe_id = 0;
+            int dispatch_id = 0;
             int StockQuantity = 0;
             int TransQuantity = 0;
             int NewQuantity = 0;
@@ -1016,7 +1007,7 @@ namespace B4_Plastics_SMS
                     {
                         Con.Open();
 
-                        SQL = "SELECT pipe_id, trans_quantity " +
+                        SQL = "SELECT pipe_id, trans_quantity, dispatch_id " +
                               "FROM Transactions " +
                              $"WHERE transaction_id = {trans_ID}";
 
@@ -1028,6 +1019,7 @@ namespace B4_Plastics_SMS
 
                         pipe_id = int.Parse(DataReader["pipe_id"].ToString());
                         TransQuantity = int.Parse(DataReader["trans_quantity"].ToString());
+                        dispatch_id = int.Parse(DataReader["dispatch_id"].ToString());
 
                         Con.Close();
                         Con.Open();
@@ -1049,7 +1041,10 @@ namespace B4_Plastics_SMS
 
                         SQL = "DELETE " +
                               "FROM Transactions " +
-                             $"WHERE transaction_id = {trans_ID}";
+                             $"WHERE transaction_id = {trans_ID}; " +
+                             "DELETE " +
+                              "FROM Dispatch " +
+                             $"WHERE dispatch_id = {dispatch_id};";
 
                         Command = new SqlCommand(SQL, Con);
 
@@ -1088,6 +1083,12 @@ namespace B4_Plastics_SMS
                 else
                     MessageBox.Show("Please select 'Confirm Delete' box before deleteing records!", "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnDisplayAll_Click(object sender, EventArgs e)
+        {
+            displayData();
+            Clear();
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

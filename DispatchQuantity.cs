@@ -71,7 +71,21 @@ namespace B4_Plastics_SMS
                     using (var connection = DatabaseL.GetConnection())
                     {
                         connection.Open();
-                        string fillBoxSql = $"SELECT d.dispatch_id, d.dispatch_quantity FROM Dispatch AS d LEFT JOIN [Transactions] AS t ON d.dispatch_id = t.dispatch_id WHERE d.staff_id = {Get_Staff_id()} AND t.isCompleted = 0";
+
+                        string fillBoxSql;
+
+
+                        if (DatabaseL.GetTypeStaff(email) == "Admin")
+                        {
+                            fillBoxSql = $"SELECT dispatch_id, dispatch_quantity FROM Dispatch ORDER BY dispatch_id DESC";
+
+                        }
+                        else
+                        {
+                            fillBoxSql = $"SELECT d.dispatch_id, d.dispatch_quantity FROM Dispatch AS d LEFT JOIN [Transactions] AS t ON d.dispatch_id = t.dispatch_id WHERE d.staff_id = {Get_Staff_id()} AND t.isCompleted = 0";
+
+                        }
+
                         using (var command = new SqlCommand(fillBoxSql, connection))
                         {
                             SqlDataReader DataReader = command.ExecuteReader();

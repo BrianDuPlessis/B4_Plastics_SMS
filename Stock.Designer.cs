@@ -32,6 +32,7 @@ namespace B4_Plastics_SMS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stock));
             this.tabStock = new System.Windows.Forms.TabControl();
             this.tabSearch = new System.Windows.Forms.TabPage();
+            this.btnDisplayAll = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbFilterColour = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -72,7 +73,6 @@ namespace B4_Plastics_SMS
             this.cbDeleteStock = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnDisplayAll = new System.Windows.Forms.Button();
             this.tabStock.SuspendLayout();
             this.tabSearch.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -115,6 +115,21 @@ namespace B4_Plastics_SMS
             this.tabSearch.TabIndex = 0;
             this.tabSearch.Text = "Search";
             this.tabSearch.UseVisualStyleBackColor = true;
+            // 
+            // btnDisplayAll
+            // 
+            this.btnDisplayAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(79)))), ((int)(((byte)(211)))));
+            this.btnDisplayAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDisplayAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDisplayAll.ForeColor = System.Drawing.Color.White;
+            this.btnDisplayAll.Location = new System.Drawing.Point(667, 756);
+            this.btnDisplayAll.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDisplayAll.Name = "btnDisplayAll";
+            this.btnDisplayAll.Size = new System.Drawing.Size(240, 52);
+            this.btnDisplayAll.TabIndex = 8;
+            this.btnDisplayAll.Text = "&Display All";
+            this.btnDisplayAll.UseVisualStyleBackColor = false;
+            this.btnDisplayAll.Click += new System.EventHandler(this.btnDisplayAll_Click);
             // 
             // groupBox2
             // 
@@ -223,9 +238,12 @@ namespace B4_Plastics_SMS
             // 
             // dgvStockDetails
             // 
+            this.dgvStockDetails.AllowUserToAddRows = false;
+            this.dgvStockDetails.AllowUserToDeleteRows = false;
             this.dgvStockDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStockDetails.Location = new System.Drawing.Point(26, 59);
             this.dgvStockDetails.Name = "dgvStockDetails";
+            this.dgvStockDetails.ReadOnly = true;
             this.dgvStockDetails.RowHeadersWidth = 51;
             this.dgvStockDetails.RowTemplate.Height = 24;
             this.dgvStockDetails.Size = new System.Drawing.Size(824, 326);
@@ -575,21 +593,6 @@ namespace B4_Plastics_SMS
             this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnDisplayAll
-            // 
-            this.btnDisplayAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(79)))), ((int)(((byte)(211)))));
-            this.btnDisplayAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDisplayAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisplayAll.ForeColor = System.Drawing.Color.White;
-            this.btnDisplayAll.Location = new System.Drawing.Point(667, 756);
-            this.btnDisplayAll.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDisplayAll.Name = "btnDisplayAll";
-            this.btnDisplayAll.Size = new System.Drawing.Size(240, 52);
-            this.btnDisplayAll.TabIndex = 8;
-            this.btnDisplayAll.Text = "&Display All";
-            this.btnDisplayAll.UseVisualStyleBackColor = false;
-            this.btnDisplayAll.Click += new System.EventHandler(this.btnDisplayAll_Click);
             // 
             // Stock
             // 

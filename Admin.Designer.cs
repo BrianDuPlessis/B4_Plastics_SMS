@@ -53,6 +53,7 @@ namespace B4_Plastics_SMS
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlDock = new System.Windows.Forms.Panel();
+            this.btnDispatch = new System.Windows.Forms.Button();
             this.pnlBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -113,7 +114,7 @@ namespace B4_Plastics_SMS
             this.btnLogOut.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnLogOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(141)))), ((int)(((byte)(162)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
             this.btnLogOut.Location = new System.Drawing.Point(1196, 0);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -131,7 +132,7 @@ namespace B4_Plastics_SMS
             this.btnMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(141)))), ((int)(((byte)(162)))));
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Font = new System.Drawing.Font("Roboto", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.Location = new System.Drawing.Point(1301, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -209,6 +210,7 @@ namespace B4_Plastics_SMS
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
+            this.panel3.Controls.Add(this.btnDispatch);
             this.panel3.Controls.Add(this.linkLabelEmail);
             this.panel3.Controls.Add(this.pnlNav);
             this.panel3.Controls.Add(this.btnReportsPage);
@@ -220,7 +222,7 @@ namespace B4_Plastics_SMS
             this.panel3.Controls.Add(this.pnlUserInfo);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 53);
-            this.panel3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel3.Margin = new System.Windows.Forms.Padding(5);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(251, 964);
             this.panel3.TabIndex = 17;
@@ -244,7 +246,7 @@ namespace B4_Plastics_SMS
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.pnlNav.Location = new System.Drawing.Point(0, 91);
-            this.pnlNav.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlNav.Margin = new System.Windows.Forms.Padding(5);
             this.pnlNav.Name = "pnlNav";
             this.pnlNav.Size = new System.Drawing.Size(5, 151);
             this.pnlNav.TabIndex = 0;
@@ -258,7 +260,7 @@ namespace B4_Plastics_SMS
             this.btnReportsPage.ForeColor = System.Drawing.Color.White;
             this.btnReportsPage.Image = global::B4_Plastics_SMS.Properties.Resources.Reports_B;
             this.btnReportsPage.Location = new System.Drawing.Point(0, 415);
-            this.btnReportsPage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnReportsPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnReportsPage.Name = "btnReportsPage";
             this.btnReportsPage.Size = new System.Drawing.Size(251, 64);
             this.btnReportsPage.TabIndex = 13;
@@ -276,7 +278,7 @@ namespace B4_Plastics_SMS
             this.btnMachinePage.ForeColor = System.Drawing.Color.White;
             this.btnMachinePage.Image = global::B4_Plastics_SMS.Properties.Resources.Machines_B;
             this.btnMachinePage.Location = new System.Drawing.Point(0, 351);
-            this.btnMachinePage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnMachinePage.Margin = new System.Windows.Forms.Padding(5);
             this.btnMachinePage.Name = "btnMachinePage";
             this.btnMachinePage.Size = new System.Drawing.Size(251, 64);
             this.btnMachinePage.TabIndex = 12;
@@ -294,7 +296,7 @@ namespace B4_Plastics_SMS
             this.btnTransactionsPage.ForeColor = System.Drawing.Color.White;
             this.btnTransactionsPage.Image = global::B4_Plastics_SMS.Properties.Resources.Transactions_B;
             this.btnTransactionsPage.Location = new System.Drawing.Point(0, 286);
-            this.btnTransactionsPage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnTransactionsPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnTransactionsPage.Name = "btnTransactionsPage";
             this.btnTransactionsPage.Size = new System.Drawing.Size(251, 65);
             this.btnTransactionsPage.TabIndex = 11;
@@ -312,7 +314,7 @@ namespace B4_Plastics_SMS
             this.btnStockPage.ForeColor = System.Drawing.Color.White;
             this.btnStockPage.Image = global::B4_Plastics_SMS.Properties.Resources.Stock_B;
             this.btnStockPage.Location = new System.Drawing.Point(0, 221);
-            this.btnStockPage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnStockPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnStockPage.Name = "btnStockPage";
             this.btnStockPage.Size = new System.Drawing.Size(251, 65);
             this.btnStockPage.TabIndex = 9;
@@ -330,7 +332,7 @@ namespace B4_Plastics_SMS
             this.btnEmployeesPage.ForeColor = System.Drawing.Color.White;
             this.btnEmployeesPage.Image = global::B4_Plastics_SMS.Properties.Resources.Employees_B;
             this.btnEmployeesPage.Location = new System.Drawing.Point(0, 156);
-            this.btnEmployeesPage.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnEmployeesPage.Margin = new System.Windows.Forms.Padding(5);
             this.btnEmployeesPage.Name = "btnEmployeesPage";
             this.btnEmployeesPage.Size = new System.Drawing.Size(251, 65);
             this.btnEmployeesPage.TabIndex = 8;
@@ -348,7 +350,7 @@ namespace B4_Plastics_SMS
             this.btnDashboard.ForeColor = System.Drawing.Color.White;
             this.btnDashboard.Image = global::B4_Plastics_SMS.Properties.Resources.home_Resize;
             this.btnDashboard.Location = new System.Drawing.Point(0, 92);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(5);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(251, 64);
             this.btnDashboard.TabIndex = 7;
@@ -363,7 +365,7 @@ namespace B4_Plastics_SMS
             this.pnlUserInfo.Controls.Add(this.pictureBox7);
             this.pnlUserInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlUserInfo.Location = new System.Drawing.Point(0, 0);
-            this.pnlUserInfo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlUserInfo.Margin = new System.Windows.Forms.Padding(5);
             this.pnlUserInfo.Name = "pnlUserInfo";
             this.pnlUserInfo.Size = new System.Drawing.Size(251, 92);
             this.pnlUserInfo.TabIndex = 0;
@@ -413,6 +415,24 @@ namespace B4_Plastics_SMS
             this.pnlDock.Name = "pnlDock";
             this.pnlDock.Size = new System.Drawing.Size(251, 805);
             this.pnlDock.TabIndex = 0;
+            // 
+            // btnDispatch
+            // 
+            this.btnDispatch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDispatch.FlatAppearance.BorderSize = 0;
+            this.btnDispatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDispatch.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDispatch.ForeColor = System.Drawing.Color.White;
+            this.btnDispatch.Image = global::B4_Plastics_SMS.Properties.Resources.Dispatch_Blue_Resize;
+            this.btnDispatch.Location = new System.Drawing.Point(0, 479);
+            this.btnDispatch.Margin = new System.Windows.Forms.Padding(5);
+            this.btnDispatch.Name = "btnDispatch";
+            this.btnDispatch.Size = new System.Drawing.Size(251, 64);
+            this.btnDispatch.TabIndex = 16;
+            this.btnDispatch.Text = "  Dispatch page        ";
+            this.btnDispatch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDispatch.UseVisualStyleBackColor = true;
+            this.btnDispatch.Click += new System.EventHandler(this.btnDispatch_Click);
             // 
             // frmAdmin
             // 
@@ -468,5 +488,6 @@ namespace B4_Plastics_SMS
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnDispatch;
     }
 }
