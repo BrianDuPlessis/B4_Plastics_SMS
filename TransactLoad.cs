@@ -783,15 +783,16 @@ namespace B4_Plastics_SMS
 
         private void cbxUpdateTransaction_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int dispatchID = 0;
+
             try
             {
                 Con.Close();
                 Con.Open();
 
-                SQL = "SELECT T.*, D.*" +
-                      "FROM Transactions AS T " +
-                           "LEFT JOIN Dispatch AS D ON D.dispatch_id = T.dispatch_id " +
-                     $"WHERE T.transaction_id = {int.Parse(cbxUpdateTransaction.Text)}";
+                SQL = "SELECT * " +
+                      "FROM Transactions " +
+                     $"WHERE transaction_id = {int.Parse(cbxUpdateTransaction.Text)}";
 
                 Command = new SqlCommand(SQL, Con);
 
@@ -822,6 +823,21 @@ namespace B4_Plastics_SMS
                     cbCompleted.Checked = false;
                 else
                     cbCompleted.Checked = true;
+
+                dispatchID = int.Parse(DataReader["dispatch_id"].ToString());
+
+                Con.Close();
+                Con.Open();
+
+                SQL = "SELECT * " +
+                      "FROM Dispatch " +
+                     $"WHERE dispatch_id = {dispatchID}";
+
+                Command = new SqlCommand(SQL, Con);
+
+                DataReader = Command.ExecuteReader();
+
+                DataReader.Read();
 
                 for (int k = cbUpdateDispatchID.Items.Count - 1; k > -1; --k)
                 {

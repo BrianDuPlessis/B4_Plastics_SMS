@@ -435,44 +435,28 @@ namespace B4_Plastics_SMS
             int ColourID = 0;
             int SizeID = 0;
 
-            txtLength.BackColor = Color.White;
-            txtDiameter.BackColor = Color.White;
-            txtQuantity.BackColor = Color.White;
+            if (double.TryParse(txtLength.Text, out Length) == false)
+            {
+                MessageBox.Show("Invalid input. Please enter a numerical (real) value.", "Error processing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtLength.Focus();
+            }
+
+            if (double.TryParse(txtDiameter.Text, out Diameter) == false)
+            {
+                MessageBox.Show("Invalid input. Please enter a numerical (real) value.", "Error processing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDiameter.Focus();
+            }
+
+            if (int.TryParse(txtQuantity.Text, out Quantity) == false)
+            {
+                MessageBox.Show("Invalid input. Please enter a numerical (integer) value.", "Error processing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtQuantity.Focus();
+            }
+
+            Colour = cbIColour.SelectedItem.ToString();
 
             if ((txtLength.Text != "") && (txtDiameter.Text != "") && (txtQuantity.Text != "") && (cbIColour.SelectedIndex > -1))
             {
-                if (double.TryParse(txtLength.Text, out Length) == false)
-                {
-                    MessageBox.Show("Invalid input. Please enter a numerical (real) value.", "Error processing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtLength.Focus();
-
-                    txtLength.BackColor = Color.Red;
-                    txtDiameter.BackColor = Color.White;
-                    txtQuantity.BackColor = Color.White;
-                }
-
-                if (double.TryParse(txtDiameter.Text, out Diameter) == false)
-                {
-                    MessageBox.Show("Invalid input. Please enter a numerical (real) value.", "Error processing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtDiameter.Focus();
-
-                    txtLength.BackColor = Color.White;
-                    txtDiameter.BackColor = Color.Red;
-                    txtQuantity.BackColor = Color.White;
-                }
-
-                if (int.TryParse(txtQuantity.Text, out Quantity) == false)
-                {
-                    MessageBox.Show("Invalid input. Please enter a numerical (integer) value.", "Error processing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtQuantity.Focus();
-
-                    txtLength.BackColor = Color.White;
-                    txtDiameter.BackColor = Color.White;
-                    txtQuantity.BackColor = Color.Red;
-                }
-                
-                Colour = cbIColour.SelectedItem.ToString();
-
                 try
                 {
                     Con.Open();
@@ -537,30 +521,30 @@ namespace B4_Plastics_SMS
                     MessageBox.Show("Data successfully inserted into Database!", "Database Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Con.Close();
+
+                    displayData();
+                    Fill_comboboxes();
+
+                    tabStock.SelectedIndex = 0;
+
+                    txtLength.Text = "";
+                    txtDiameter.Text = "";
+                    txtQuantity.Text = "";
+                    cbIColour.SelectedIndex = -1;
+
+                    this.Height = 685;
+                    this.Width = 745;
+
+                    this.CenterToScreen();
+
+                    cbSearchPipeID.Text = "";
+                    txtSearchQuantity.Text = "";
+                    cbFilterColour.Text = "";
                 }
                 catch (SqlException ex)
                 {
                     MessageBox.Show(ex.Message, "Error performing command", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                displayData();
-                Fill_comboboxes();
-
-                tabStock.SelectedIndex = 0;
-
-                txtLength.Text = "";
-                txtDiameter.Text = "";
-                txtQuantity.Text = "";
-                cbIColour.SelectedIndex = -1;
-
-                this.Height = 685;
-                this.Width = 745;
-
-                this.CenterToScreen();
-
-                cbSearchPipeID.Text = "";
-                txtSearchQuantity.Text = "";
-                cbFilterColour.Text = "";
             }
         }
 
@@ -619,8 +603,19 @@ namespace B4_Plastics_SMS
             int SizeID = 0;
 
             Pipe_ID = int.Parse(cbUpdateStock.Text);
-            Length = double.Parse(txtULength.Text);
-            Diameter = double.Parse(txtUDiameter.Text);
+            
+            if (double.TryParse(txtULength.Text, out Length) == false)
+            {
+                MessageBox.Show("Invalid type entered. Please enter a numerical value.", "Error parsing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtULength.Focus();
+            }
+
+            if (double.TryParse(txtUDiameter.Text, out Diameter) == false)
+            {
+                MessageBox.Show("Invalid type entered. Please enter a numerical value.", "Error parsing value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtUDiameter.Focus();
+            }
+
             Quantity = int.Parse(txtUPipeQuantity.Text);
             Colour = cbUColour.Text;
 
@@ -670,9 +665,9 @@ namespace B4_Plastics_SMS
                 Adapter.UpdateCommand = Command;
                 Adapter.UpdateCommand.ExecuteNonQuery();
 
-                MessageBox.Show("Data successfully updated!", "Database Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 Con.Close();
+
+                MessageBox.Show("Data successfully updated!", "Database Action", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
