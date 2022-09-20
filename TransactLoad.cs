@@ -1022,6 +1022,7 @@ namespace B4_Plastics_SMS
                 {
                     try
                     {
+                        Con.Close();
                         Con.Open();
 
                         SQL = "SELECT pipe_id, trans_quantity, dispatch_id " +
