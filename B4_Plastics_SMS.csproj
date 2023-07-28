@@ -68,160 +68,160 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="src\Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin.Designer.cs">
+    <Compile Include="src\Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminDashboard.cs">
+    <Compile Include="src\AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminDashboard.Designer.cs">
+    <Compile Include="src\AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="CalculateLoad.cs">
+    <Compile Include="src\CalculateLoad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CalculateLoad.Designer.cs">
+    <Compile Include="src\CalculateLoad.Designer.cs">
       <DependentUpon>CalculateLoad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\DashboardAppModel.cs" />
-    <Compile Include="Classes\DatabaseLogin.cs" />
-    <Compile Include="Classes\DbConnection.cs" />
-    <Compile Include="Dispatch.cs">
+    <Compile Include="src\Classes\DashboardAppModel.cs" />
+    <Compile Include="src\Classes\DatabaseLogin.cs" />
+    <Compile Include="src\Classes\DbConnection.cs" />
+    <Compile Include="src\Dispatch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dispatch.Designer.cs">
+    <Compile Include="src\Dispatch.Designer.cs">
       <DependentUpon>Dispatch.cs</DependentUpon>
     </Compile>
-    <Compile Include="DispatchDashboard.cs">
+    <Compile Include="src\DispatchDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DispatchDashboard.Designer.cs">
+    <Compile Include="src\DispatchDashboard.Designer.cs">
       <DependentUpon>DispatchDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dispatcher.cs" />
-    <Compile Include="DispatchQuantity.cs">
+    <Compile Include="src\Dispatcher.cs" />
+    <Compile Include="src\DispatchQuantity.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DispatchQuantity.Designer.cs">
+    <Compile Include="src\DispatchQuantity.Designer.cs">
       <DependentUpon>DispatchQuantity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee.cs">
+    <Compile Include="src\Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee.Designer.cs">
+    <Compile Include="src\Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeDashboard.cs">
+    <Compile Include="src\EmployeeDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmployeeDashboard.Designer.cs">
+    <Compile Include="src\EmployeeDashboard.Designer.cs">
       <DependentUpon>EmployeeDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUserProfile.cs">
+    <Compile Include="src\frmUserProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUserProfile.Designer.cs">
+    <Compile Include="src\frmUserProfile.Designer.cs">
       <DependentUpon>frmUserProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="src\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="src\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Machine.cs" />
-    <Compile Include="Machines.cs">
+    <Compile Include="src\Machine.cs" />
+    <Compile Include="src\Machines.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Machines.Designer.cs">
+    <Compile Include="src\Machines.Designer.cs">
       <DependentUpon>Machines.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager.cs" />
-    <Compile Include="Pipes.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="src\Manager.cs" />
+    <Compile Include="src\Pipes.cs" />
+    <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports.cs">
+    <Compile Include="src\Reports.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports.Designer.cs">
+    <Compile Include="src\Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
-    <Compile Include="Staff.cs">
+    <Compile Include="src\Staff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Staff.Designer.cs">
+    <Compile Include="src\Staff.Designer.cs">
       <DependentUpon>Staff.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock.cs">
+    <Compile Include="src\Stock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock.Designer.cs">
+    <Compile Include="src\Stock.Designer.cs">
       <DependentUpon>Stock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transaction.cs" />
-    <Compile Include="TransactLoad.cs">
+    <Compile Include="src\Transaction.cs" />
+    <Compile Include="src\TransactLoad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransactLoad.Designer.cs">
+    <Compile Include="src\TransactLoad.Designer.cs">
       <DependentUpon>TransactLoad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Worker.cs" />
-    <EmbeddedResource Include="Admin.resx">
+    <Compile Include="src\Worker.cs" />
+    <EmbeddedResource Include="src\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminDashboard.resx">
+    <EmbeddedResource Include="src\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CalculateLoad.resx">
+    <EmbeddedResource Include="src\CalculateLoad.resx">
       <DependentUpon>CalculateLoad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dispatch.resx">
+    <EmbeddedResource Include="src\Dispatch.resx">
       <DependentUpon>Dispatch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DispatchDashboard.resx">
+    <EmbeddedResource Include="src\DispatchDashboard.resx">
       <DependentUpon>DispatchDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DispatchQuantity.resx">
+    <EmbeddedResource Include="src\DispatchQuantity.resx">
       <DependentUpon>DispatchQuantity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee.resx">
+    <EmbeddedResource Include="src\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeDashboard.resx">
+    <EmbeddedResource Include="src\EmployeeDashboard.resx">
       <DependentUpon>EmployeeDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUserProfile.resx">
+    <EmbeddedResource Include="src\frmUserProfile.resx">
       <DependentUpon>frmUserProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="src\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Machines.resx">
+    <EmbeddedResource Include="src\Machines.resx">
       <DependentUpon>Machines.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="Reports.resx">
+    <EmbeddedResource Include="src\Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Staff.resx">
+    <EmbeddedResource Include="src\Staff.resx">
       <DependentUpon>Staff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock.resx">
+    <EmbeddedResource Include="src\Stock.resx">
       <DependentUpon>Stock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransactLoad.resx">
+    <EmbeddedResource Include="src\TransactLoad.resx">
       <DependentUpon>TransactLoad.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -235,32 +235,43 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="src\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="B4Plastics.mdf">
+    <Content Include="src\B4Plastics.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="B4Plastics_log.ldf">
+    <Content Include="src\B4Plastics_log.ldf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>B4Plastics.mdf</DependentUpon>
     </Content>
-    <Content Include="bin\Debug\Account.txt" />
-    <None Include="Resources\Settings-B.png" />
-    <None Include="Resources\Pill Green.png" />
-    <None Include="Resources\home-Resize.png" />
-    <None Include="Resources\Dot Yellow.png" />
-    <None Include="Resources\Dot Red.png" />
-    <None Include="Resources\Dot Green.png" />
-    <None Include="Resources\Dot Blue.png" />
-    <None Include="Resources\Logo-Transparent.png" />
-    <None Include="Resources\Logo4.png" />
-    <None Include="Resources\Logo3.png" />
-    <None Include="Resources\Logo2.png" />
-    <None Include="Resources\Logo.png" />
-    <None Include="Resources\Dispatch-Blue-Resize.png" />
-    <None Include="Dispatch.png" />
-    <None Include="Dispatch.jpeg" />
+    <Content Include="src\bin\Debug\Account.txt" />
+    <Content Include="src\Resources\Dispatch.jpeg" />
+    <Content Include="src\Resources\Dispatch.png" />
+    <Content Include="src\Resources\Employees.png" />
+    <Content Include="src\Resources\Machines.png" />
+    <Content Include="src\Resources\Notifications.png" />
+    <Content Include="src\Resources\Reports.png" />
+    <Content Include="src\Resources\Settings.png" />
+    <Content Include="src\Resources\Stock.png" />
+    <Content Include="src\Resources\Transactions.png" />
+    <Content Include="src\Resources\User.png" />
+    <Content Include="src\Resources\User_Info.png" />
+    <None Include="src\Resources\Settings-B.png" />
+    <None Include="src\Resources\Pill Green.png" />
+    <None Include="src\Resources\home-Resize.png" />
+    <None Include="src\Resources\Dot Yellow.png" />
+    <None Include="src\Resources\Dot Red.png" />
+    <None Include="src\Resources\Dot Green.png" />
+    <None Include="src\Resources\Dot Blue.png" />
+    <None Include="src\Resources\Logo-Transparent.png" />
+    <None Include="src\Resources\Logo4.png" />
+    <None Include="src\Resources\Logo3.png" />
+    <None Include="src\Resources\Logo2.png" />
+    <None Include="src\Resources\Logo.png" />
+    <None Include="src\Resources\Dispatch-Blue-Resize.png" />
+    <Content Include="src\Dispatch.png" />
+    <Content Include="src\Dispatch.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -275,10 +286,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Release\" />
+    <Folder Include="src\bin\Release\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
+    <WCFMetadata Include="src\Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
